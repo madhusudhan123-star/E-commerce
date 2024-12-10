@@ -79,9 +79,6 @@ const ProductPage = () => {
                                 >
                                     {translations.home.fourth.card}
                                 </button>
-                                <button className="border border-gray-300 px-8 py-3 rounded-lg hover:bg-gray-50 transition">
-                                    Add to Wishlist
-                                </button>
 
                                 {/* Success Notification */}
                                 {showNotification && (

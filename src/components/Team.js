@@ -20,21 +20,23 @@ const Team = () => {
                 {translations.home.reviews.map((review, index) => (
                     <div
                         key={index}
-                        className="text-center p-6 rounded-lg relative flex gap-10 items-center"
+                        className="text-center p-6 rounded-lg relative flex gap-10 items-start lg:items-center md:items-center"
                         onMouseEnter={() => setHoveredId(index)}
                         onMouseLeave={() => setHoveredId(null)}
                     >
                         <div>
-                            {hoveredId === index && (
-                                <img src={bg} className="absolute inset-0 w-56  object-cover" />
-                            )}
-                            <img
-                                src={review.image}
-                                alt={review.name}
-                                className="w-44 rounded-full mb-4 relative z-10"
-                            />
+                            <div className=''>
+                                {hoveredId === index && (
+                                    <img src={bg} className="absolute inset-0 w-56  object-cover" />
+                                )}
+                                <img
+                                    src={review.image}
+                                    alt={review.name}
+                                    className="w-44 rounded-full mb-4 relative z-10"
+                                />
+                            </div>
                             {/* Rating */}
-                            <div className="flex justify-center mb-4">
+                            <div className="flex  mb-4">
                                 {[...Array(5)].map((_, i) => (
                                     <span
                                         key={i}
@@ -46,9 +48,9 @@ const Team = () => {
                                 ))}
                             </div>
                             {/* Text */}
-                            <p className="text-gray-600 mb-2">{review.review}</p>
-                            <h4 className="font-bold text-lg">{review.name}</h4>
-                            <p className="text-sm text-gray-400">{review.date}</p>
+                            <p className="text-gray-600 mb-2 text-start lg:text-ceter md:text-center">{review.review}</p>
+                            <h4 className="font-bold text-lg text-start lg:text-ceter md:text-center">{review.name}</h4>
+                            <p className="text-sm text-gray-400 text-start lg:text-ceter md:text-center">{review.date}</p>
                         </div>
                         <div
                             className={`h-full w-[1px] ${index === 3 ? "hidden" : "bg-black lg:bg-black hidden lg:block md:block sm:hidden"

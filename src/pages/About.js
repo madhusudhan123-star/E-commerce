@@ -6,7 +6,7 @@ import Team from '../components/Team'
 import Other from '../components/Other'
 const About = () => {
     return (
-        <div>
+        <div className='relative z-0'>
             <div>
                 <Other title={translations.about.title} subtitle={translations.about.subtitle} />
             </div>

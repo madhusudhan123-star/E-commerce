@@ -308,54 +308,58 @@ const translations = {
             {
                 id: 2, category: 'Agarbatti', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick2', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product2,
+                    image2: product2,
+                    image3: product2,
+                    image4: product2,
+                    image5: product2,
+                    image6: product2,
+                    image7: product2,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 3, category: 'Pooja Lamps', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick3', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product3,
+                    image2: product3,
+                    image3: product3,
+                    image4: product3,
+                    image5: product3,
+                    image6: product3,
+                    image7: product3,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 4, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick4', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product4,
+                    image2: product4,
+                    image3: product4,
+                    image4: product4,
+                    image5: product4,
+                    image6: product4,
+                    image7: product4,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 5, category: 'Buddha Statue', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick5', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product5,
+                    image2: product5,
+                    image3: product5,
+                    image4: product5,
+                    image5: product5,
+                    image6: product5,
+                    image7: product5,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 6, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick6', cod: true, online: true,
@@ -368,58 +372,64 @@ const translations = {
                     image6: product1,
                     image7: product1,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 7, category: 'Buddha Statue', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick7', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
-                }
+                    image1: product2,
+                    image2: product2,
+                    image3: product2,
+                    image4: product2,
+                    image5: product2,
+                    image6: product2,
+                    image7: product2,
+                },
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 8, category: 'Agarbatti', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick8', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product3,
+                    image2: product3,
+                    image3: product3,
+                    image4: product3,
+                    image5: product3,
+                    image6: product3,
+                    image7: product3,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 9, category: 'Pooja Lamps', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick9', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product4,
+                    image2: product4,
+                    image3: product4,
+                    image4: product4,
+                    image5: product4,
+                    image6: product4,
+                    image7: product4,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
             {
                 id: 10, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick10', cod: true, online: true,
                 photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
+                    image1: product5,
+                    image2: product5,
+                    image3: product5,
+                    image4: product5,
+                    image5: product5,
+                    image6: product5,
+                    image7: product5,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'This is a beautiful sandalwood stick.',
+                isNew: false
             },
         ]
     }

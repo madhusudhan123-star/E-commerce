@@ -44,7 +44,7 @@ const Navbar = () => {
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </button>
-                    <div className='w-1/2' ><img className='w-[20%]' src={translations.home.logo} alt="logo" /></div>
+                    <div className='w-1/2'> <a href='/'><img className='w-[20%]' src={translations.home.logo} alt="logo" /> </a></div>
 
 
                     {/* Desktop menu */}

@@ -13,7 +13,7 @@
   background-size: cover;
 }
 
-.about-page-bg{
+.about-page-bg {
   background-image: url('./assets/about/about06.png');
   background-size: cover;
 }
@@ -41,11 +41,13 @@
 .backgroundimagechange {
   background-image: url("./assets/home/Group_133223.png");
   background-size: cover;
+  background-position-x: center;
 }
 
 .backgroundimagechange2 {
   background-image: url("./assets/home/AdobeStock_385430086-copy_2.png");
   background-size: cover;
+  background-position-x: center;
 }
 
 /* Add this to your CSS file */

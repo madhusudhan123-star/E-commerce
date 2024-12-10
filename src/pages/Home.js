@@ -170,7 +170,7 @@ const Home = () => {
                     </div>
 
                     <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto px-4">
-                        {translations.home.fourth.products.map((product, index) => (
+                        {translations.products.product.map((product, index) => (
                             <ProductCard key={index} {...product} />
                         ))}
                     </div>

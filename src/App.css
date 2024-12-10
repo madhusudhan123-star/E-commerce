@@ -1,0 +1,69 @@
+.siderone {
+  background-image: url('./assets/home/sliderone.jpg');
+  background-size: cover;
+}
+
+.slidertwo {
+  background-image: url('./assets/home/Slidertwo.png');
+  background-size: cover;
+}
+
+.sliderthree {
+  background-image: url('./assets/home/Sliderthree.png');
+  background-size: cover;
+}
+
+.about-page-bg{
+  background-image: url('./assets/about/about06.png');
+  background-size: cover;
+}
+
+
+@media screen and (max-width: 768px) {
+  .siderone {
+    background-image: url('./assets/home/mobile-slider-1.jpg');
+    background-size: cover;
+  }
+
+  .slidertwo {
+    background-image: url('./assets/home/mobile-slider-2.jpg');
+    background-size: cover;
+  }
+
+  .sliderthree {
+    background-image: url('./assets/home/mobile-slider-3.jpg');
+    background-size: cover;
+  }
+
+}
+
+
+.backgroundimagechange {
+  background-image: url("./assets/home/Group_133223.png");
+  background-size: cover;
+}
+
+.backgroundimagechange2 {
+  background-image: url("./assets/home/AdobeStock_385430086-copy_2.png");
+  background-size: cover;
+}
+
+/* Add this to your CSS file */
+@media (max-width: 768px) {
+  .overflow-x-auto {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+    width: 100%;
+
+  }
+
+  .space-x-4>*+* {
+    margin-left: 1rem;
+    /* Adjust spacing between items */
+  }
+}

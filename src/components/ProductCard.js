@@ -18,7 +18,7 @@ const ProductCard = ({ id, name, cost, photo, isNew }) => {
                     )}
                 </div>
                 <div className="p-4">
-                    <h3 className="text-lg font-semibold">{name}</h3>
+                    <h3 className="text-2xl font-semibold headerstyle">{name}</h3>
                     <p className="text-blue-600">${cost}</p>
                 </div>
             </Link>

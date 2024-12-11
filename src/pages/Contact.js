@@ -42,7 +42,7 @@ function Contact() {
                     <div className="flex justify-center p-20 gap-10 flex-wrap relative">
                         <img src={aboutdesign} className='absolute right-0 top-0 hidden lg:block md:block' />
                         <div className='w-full lg:w-1/4 md:w-1/4'>
-                            <h1 className='text-7xl'>{translations.contact.section.title}</h1>
+                            <h1 className='text-8xl headerstyle'>{translations.contact.section.title}</h1>
                             <p className='text-xl'>{translations.contact.section.sub}</p>
                         </div>
                         {translations.contact.section?.branches?.map((item, index) => (
@@ -61,7 +61,7 @@ function Contact() {
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-3 mb-3">
                                         <FaBuilding className="text-2xl text-[#D88E7D] group-hover:text-white transition-colors duration-300" />
-                                        <h3 className="text-4xl group-hover:text-white transition-colors duration-300">{item.title}</h3>
+                                        <h3 className="text-5xl headerstyle group-hover:text-white transition-colors duration-300">{item.title}</h3>
                                     </div>
                                     <div className="flex items-start gap-3 mb-2">
                                         <FaMapMarkerAlt className="text-xl text-[#D88E7D] mt-1 group-hover:text-white transition-colors duration-300" />
@@ -94,7 +94,7 @@ function Contact() {
             <div className='container mx-auto'>
                 <div className='flex flex-wrap lg:flex-nowrap md:flex-nowrap p-6 lg:p-20 md:p-20 items-center gap-10'>
                     <div className='w-full lg:w-1/2 md:w-1/2'>
-                        <h1 className='text-5xl mb-6'>{translations.contact.submit.title}</h1>
+                        <h1 className='text-6xl mb-6 headerstyle'>{translations.contact.submit.title}</h1>
                         <p className='mb-6'>{translations.contact.submit.sub}</p>
                         <img src={translations.contact.submit.img} className='' alt="contact" />
                     </div>
@@ -110,8 +110,8 @@ function Contact() {
                             </div>
                         )}
                         <form onSubmit={handleSubmit} className='flex flex-col gap-4 items-start'>
-                            <h3 className='text-2xl mb-5'>{translations.contact.submit.short}</h3>
-                            <h1 className='text-5xl mb-6'>{translations.contact.submit.title2}</h1>
+                            <h3 className='text-3xl text-[#D88E7D] stylefont'>{translations.contact.submit.short}</h3>
+                            <h1 className='text-6xl mb-6 headerstyle'>{translations.contact.submit.title2}</h1>
                             <input
                                 type='text'
                                 name="name"

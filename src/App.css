@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Funnel+Display:wght@300..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Myeongjo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Funnel+Display:wght@300..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nanum+Myeongjo&family=Oswald:wght@200..700&display=swap');
+
+
+.stylefont {
+  font-family: 'Bilbo Swash Caps', cursive;
+}
+
+.headerstyle {
+  font-family: "Oswald", sans-serif;
+}
+
 .siderone {
   background-image: url('./assets/home/sliderone.jpg');
   background-size: cover;
@@ -68,4 +80,29 @@
     margin-left: 1rem;
     /* Adjust spacing between items */
   }
+}
+
+
+.custom-swiper-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  color: #514B60;
+  font-size: 2rem;
+}
+
+.swiper-button-prev.custom-swiper-button {
+  left: 10px;
+}
+
+.swiper-button-next.custom-swiper-button {
+  right: 10px;
+}
+
+/* Hide default Swiper navigation buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none;
 }

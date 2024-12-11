@@ -8,8 +8,8 @@ const Team = () => {
         <div> <section className="py-16 px-4 bg-white">
             {/* Header */}
             <div className="text-center mb-12">
-                <h3 className="text-lg italic text-red-400">Reviews</h3>
-                <h2 className="text-4xl font-bold">Happy Clients Thoughts</h2>
+                <h3 className="text-3xl italic text-[#D88E7D] stylefont">Reviews</h3>
+                <h2 className="text-6xl headerstyle">Happy Clients Thoughts</h2>
                 <p className="text-gray-600 mt-2">
                     Neque convallis a cras semper auctor neque vitae. Et egestas quis ipsum suspendisse. Ornare quam viverra orci sagittis eu volutpat odio.
                 </p>

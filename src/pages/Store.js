@@ -16,7 +16,8 @@ const Store = () => {
             <PageHeader title={"Store"} subtitle={"Home > Store"} />
             <div className="container mx-auto px-4 py-8">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold mb-4">Our Products</h1>
+                    <h1 className='text-3xl  text-[#D88E7D] stylefont'>Collection</h1>
+                    <h1 className="text-6xl  mb-4 headerstyle">Our Products</h1>
                     <div className="flex justify-center gap-4 mb-8">
                         <button
                             className={`px-4 py-2 rounded ${selectedCategory === 'all' ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}

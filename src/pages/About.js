@@ -15,8 +15,8 @@ const About = () => {
             </div>
             <div>
                 <div className='w-full flex items-center flex-col my-20 '>
-                    <h3 className='text-2xl'>{translations.about.short2}</h3>
-                    <h1 className='text-5xl font-bold'>{translations.about.title2}</h1>
+                    <h3 className='text-3xl text-[#D88E7D] stylefont '>{translations.about.short2}</h3>
+                    <h1 className='text-6xl headerstyle'>{translations.about.title2}</h1>
                     <p className='w-full lg:w-1/2 md:w-1/2 text-center mb-20'>{translations.about.sub2}</p>
                     <Horizontal data={translations.about.horizontal} />
                 </div>

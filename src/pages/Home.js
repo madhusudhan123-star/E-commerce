@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper/modules';
 import translations from '../utils/data';
 import { motion, AnimatePresence } from "framer-motion";
 import ProductCard from '../components/ProductCard';
@@ -11,6 +11,11 @@ import bg from '../assets/home/bg-test.png';
 import SecondComponent from '../components/Second';
 import Horizontal from '../components/Horziental';
 import Team from '../components/Team';
+
+
+
+
+
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
@@ -31,12 +36,16 @@ const Home = () => {
             <div className='h-screen z-0'>
                 <div className="h-screen">
                     <Swiper
-                        cssMode={true}
-                        navigation={true}
-                        pagination={true}
-                        mousewheel={true}
-                        keyboard={true}
-                        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                        modules={[Navigation, Pagination]}
+                        spaceBetween={50}
+                        slidesPerView={1}
+                        navigation={{
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        }}
+                        pagination={{ clickable: true }}
+                        loop={true}
+                        autoplay={{ delay: 3000 }}
                         className="mySwiper w-full h-full"
                     >
                         <SwiperSlide className={`flex justify-center items-center text-center text-lg siderone `}>
@@ -50,12 +59,12 @@ const Home = () => {
                                             initial={{ x: -200, opacity: 0 }}
                                             whileInView={{ x: 0, opacity: 1 }}
                                             transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }}>{translations.home.header.short1}</motion.div>
+                                            viewport={{ once: true }} className="stylefont text-4xl">{translations.home.header.short1}</motion.div>
                                         <motion.div
                                             initial={{ x: -200, opacity: 0 }}
                                             whileInView={{ x: 0, opacity: 1 }}
                                             transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }} className='text-4xl font-bold'>{translations.home.header.title1}</motion.div>
+                                            viewport={{ once: true }} className='text-6xl  headerstyle'>{translations.home.header.title1}</motion.div>
                                         <motion.div
                                             initial={{ x: -200, opacity: 0 }}
                                             whileInView={{ x: 0, opacity: 1 }}
@@ -86,8 +95,8 @@ const Home = () => {
                                         whileInView={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.5 }}
                                         viewport={{ once: true }} className='text-center xl:text-end md:text-end sm:text-center '>
-                                        <h1>{translations.home.header.short2}</h1>
-                                        <h1 className='text-4xl font-bold'>{translations.home.header.title2}</h1>
+                                        <h1 className='stylefont text-4xl'>{translations.home.header.short2}</h1>
+                                        <h1 className='text-6xl  headerstyle'>{translations.home.header.title2}</h1>
                                         <p className=''>{translations.home.header.subtitle2}</p>
                                         <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'> <a href={translations.about.second.linkbutton}>
                                             {translations.home.header.button1}
@@ -110,8 +119,8 @@ const Home = () => {
                                         whileInView={{ x: 0, opacity: 1 }}
                                         transition={{ duration: 0.5 }}
                                         viewport={{ once: true }} className='text-center xl:text-start md:text-start sm:text-start '>
-                                        <h1>{translations.home.header.short3}</h1>
-                                        <h1 className='text-4xl font-bold'>{translations.home.header.title3}</h1>
+                                        <h1 className='stylefont text-4xl'>{translations.home.header.short3}</h1>
+                                        <h1 className='text-6xl  headerstyle'>{translations.home.header.title3}</h1>
                                         <p className='w-full xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-2/3'>{translations.home.header.subtitle3}</p>
                                         <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>
                                             {translations.home.header.button1}
@@ -154,7 +163,7 @@ const Home = () => {
                                 />
                             </div>
                             <div className='group-hover:text-white transition-colors duration-300'>
-                                <h1 className='text-xl font-bold'>{translations.home.third[`title${num}`]}</h1>
+                                <h1 className='text-2xl  headerstyle'>{translations.home.third[`title${num}`]}</h1>
                                 <p>{translations.home.third[`subtitle${num}`]}</p>
                             </div>
                         </div>
@@ -164,8 +173,8 @@ const Home = () => {
             <div>
                 <section className="py-10 bg-gray-100">
                     <div className="text-center">
-                        <h3 className='text-[#D88E7D]'>{translations.home.fourth.short}</h3>
-                        <h2 className="text-5xl font-bold">{translations.home.fourth.title}</h2>
+                        <h3 className='text-[#D88E7D] stylefont text-3xl'>{translations.home.fourth.short}</h3>
+                        <h2 className="text-7xl  headerstyle">{translations.home.fourth.title}</h2>
                         <p className="text-gray-600 mt-2">{translations.home.fourth.sub}</p>
                     </div>
 
@@ -182,8 +191,8 @@ const Home = () => {
                         <div className='w-1/2 p-8'>
                         </div>
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white'>
-                            <h1 className='text-lg mb-5'>{translations.home.second.short}</h1>
-                            <h1 className='text-7xl font-medium mb-8'>{translations.home.second.title}</h1>
+                            <h1 className='text-3xl mb-5 stylefont'>{translations.home.second.short}</h1>
+                            <h1 className='text-8xl headerstyle  mb-8'>{translations.home.second.title}</h1>
                             <p className='mb-4'>{translations.home.second.subtitle}</p>
                             <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>{translations.home.header.button1}</a></button>
 
@@ -194,8 +203,8 @@ const Home = () => {
             <div>
                 <section className="py-10 bg-gray-100">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold">{translations.home.cartitle}</h2>
-                        <p className="text-2xl mt-2 text-red-500">{translations.home.catsub}</p>
+                        <h2 className="text-3xl text-[#D88E7D] stylefont">{translations.home.cartitle}</h2>
+                        <p className="text-6xl mt-2 headerstyle ">{translations.home.catsub}</p>
                     </div>
 
                     {/* Categories */}
@@ -242,8 +251,8 @@ const Home = () => {
                 <section className="bg-white py-16 px-4 relative">
                     {/* Title Section */}
                     <div className="text-center mb-12">
-                        <h3 className="text-xl font-serif italic text-red-500">{translations.home.faqtitle}</h3>
-                        <h2 className="text-4xl font-bold text-gray-900">{translations.home.faqsub}</h2>
+                        <h3 className="text-3xl font-serif italic text-red-500 stylefont">{translations.home.faqtitle}</h3>
+                        <h2 className="text-6xl text-gray-900 headerstyle">{translations.home.faqsub}</h2>
                     </div>
 
                     {/* FAQ Section */}
@@ -294,8 +303,8 @@ const Home = () => {
                         <div className='w-1/2 p-8'>
                         </div>
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white text-center flex justify-center flex-col items-center'>
-                            <h1 className='text-lg mb-5'>{translations.home.nine.short}</h1>
-                            <h1 className='text-5xl mb-8'>{translations.home.nine.title}</h1>
+                            <h1 className='text-3xl mb-5  stylefont'>{translations.home.nine.short}</h1>
+                            <h1 className='text-6xl mb-8 headerstyle'>{translations.home.nine.title}</h1>
                             <p className='mb-4'>{translations.home.second.subtitle}</p>
                             <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>
                                 {translations.home.header.button1}

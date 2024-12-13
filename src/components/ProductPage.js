@@ -21,12 +21,12 @@ const ProductPage = () => {
         };
         addToCart(cartItem);
         setShowNotification(true);
-        
+
         // Update localStorage
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         cartItems.push(cartItem);
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        
+
         setTimeout(() => {
             setShowNotification(false);
         }, 2000);
@@ -35,7 +35,7 @@ const ProductPage = () => {
     const handleBuyNow = () => {
         // Get existing cart items
         const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-        
+
         // Create new product item
         const newProduct = {
             name: product.name,
@@ -110,7 +110,7 @@ const ProductPage = () => {
                                 </span>
                             )}
                             <h1 className="text-3xl font-bold">{product.name}</h1>
-                            <p className="text-2xl text-blue-600">${product.cost}</p>
+                            <p className="text-2xl text-blue-600">₹{product.cost}</p>
                             <div className="space-y-4">
                                 <h2 className="text-xl font-semibold">{translations.home.fourth.title}</h2>
                                 <p className="text-gray-600">{product.description || 'No description available'}</p>

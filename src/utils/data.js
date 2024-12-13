@@ -1,6 +1,6 @@
 // import logo from '../assets/logo.svg';
 import logo from '../assets/logo.png';
-import slider1 from '../assets/home/sliderone.jpg'
+import slider1 from '../assets/home/sliderone.png'
 import slider2 from '../assets/home/Slidertwo.png'
 import slider3 from '../assets/home/Sliderthree.png'
 import home_second from '../assets/home/home_second.png';
@@ -8,20 +8,20 @@ import homethree1 from '../assets/home/homethreeone.png'
 import homethree2 from '../assets/home/homethreetwo.png'
 import homethree3 from '../assets/home/homethreethree.png'
 import product1 from '../assets/real7.jpg'
-import product2 from '../assets/home/2.jpg'
-import product3 from '../assets/home/3.jpg'
-import product4 from '../assets/home/4.jpg'
-import product5 from '../assets/home/5.jpg'
+import product2 from '../assets/real8.jpg'
+import product3 from '../assets/home/3.png'
+import product4 from '../assets/home/4.png'
+import product5 from '../assets/home/5.png'
 import about1 from '../assets/home/708_x_1458.jpg';
 import about2 from '../assets/home/AdobeStock_390870774_1.png';
 import about3 from '../assets/home/img-3.jpg';
 import about4 from '../assets/home/img-4.jpg';
 import about5 from '../assets/home/img-5.jpg';
 import about6 from '../assets/home/Mask_group.png';
-import about7 from '../assets/home/2.jpg';
-import about8 from '../assets/home/3.jpg';
-import about9 from '../assets/home/4.jpg';
-import about10 from '../assets/home/5.jpg';
+import about7 from '../assets/real8.jpg';
+import about8 from '../assets/home/3.png';
+import about9 from '../assets/home/4.png';
+import about10 from '../assets/home/5.png';
 import about11 from '../assets/home/Group_133224.png';
 import person1 from '../assets/home/980_x_860-1.jpg';
 import person2 from '../assets/home/980_x_860-5.jpg';
@@ -99,13 +99,6 @@ const translations = {
             short: "Our Collection",
             title: 'Pooja Accessories',
             sub: "Malesuada proin dolor ac diam congue suscipit. Proin a pellentesque tellus. Etiam facilisis lectus arcu, hendrerit commodo libero.",
-            products: [
-                { image: product1, name: 'Sandalwood Stick', price: 25.0, rating: 4, isNew: false },
-                { image: product2, name: 'Wooden Carved Holy Book Stand', price: 29.99, rating: 5, isNew: false },
-                { image: product3, name: 'Buddha Statue', price: 34.0, oldPrice: 40.0, rating: 5, isNew: true },
-                { image: product4, name: 'Modern Design Brass', price: 17.49, rating: 3, isNew: false },
-                { image: product5, name: 'Frozen Bell', price: 25.0, rating: 4, isNew: false },
-            ],
             card: "Add Cart",
             buy: "Buy Now",
         },
@@ -288,25 +281,104 @@ const translations = {
         order: "Place Order",
         mode: "Payment Mode"
     },
+    // products: {
+    //     categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota'],
+    //     cat: "Category",
+    //     product: [
+    //         {
+    //             id: 1, category: 'Sree Astha Laxmi', cost: 2999, rating: 4, isNew: false, name: 'Sree Astha Laxmi', cod: true, online: true,
+    //             photo: {
+    //                 image1: product1,
+    //                 image2: product1,
+    //             },
+    //             description: ''
+    //         },
+    //         {
+    //             id: 2, category: 'Sree Anjaneya Shani Raksha', cost: 2999, rating: 4, isNew: false, name: 'Sree Anjaneya Shani Raksha', cod: true, online: true,
+    //             photo: {
+    //                 image1: product2,
+    //                 image2: product2,
+    //                 image3: product2,
+    //                 image4: product2,
+    //                 image5: product2,
+    //                 image6: product2,
+    //                 image7: product2,
+    //             },
+    //             description: 'This is a beautiful sandalwood stick.',
+    //             isNew: false
+    //         },
+    //         {
+    //             id: 3, category: '', cost: 23099, rating: 4, isNew: false, name: 'Shree Laxmi, Ekdanta Ganesha, Maa Saraswati', cod: true, online: true,
+    //             photo: {
+    //                 image1: product3,
+    //                 image2: product3,
+    //                 image3: product3,
+    //                 image4: product3,
+    //                 image5: product3,
+    //                 image6: product3,
+    //                 image7: product3,
+    //             },
+    //             description: 'This is a beautiful sandalwood stick.',
+    //             isNew: false
+    //         },
+    //         {
+    //             id: 4, category: 'Golden Temple', cost: 31919, rating: 4, isNew: false, name: 'Golden Temple', cod: true, online: true,
+    //             photo: {
+    //                 image1: product4,
+    //                 image2: product4,
+    //                 image3: product4,
+    //                 image4: product4,
+    //                 image5: product4,
+    //                 image6: product4,
+    //                 image7: product4,
+    //             },
+    //             description: 'This is a beautiful sandalwood stick.',
+    //             isNew: false
+    //         },
+    //         {
+    //             id: 5, category: 'Ashtavinayaka', cost: 31919, rating: 4, isNew: false, name: 'Ashtavinayaka', cod: true, online: true,
+    //             photo: {
+    //                 image1: product5,
+    //                 image2: product5,
+    //                 image3: product5,
+    //                 image4: product5,
+    //                 image5: product5,
+    //                 image6: product5,
+    //                 image7: product5,
+    //             },
+    //             description: 'This is a beautiful sandalwood stick.',
+    //             isNew: false
+    //         },
+    //     ]
+    // }
     products: {
-        categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota'],
+        categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota', 'Idols', 'Temple Models'],
         cat: "Category",
         product: [
             {
-                id: 1, category: 'Buddha Statue', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick1', cod: true, online: true,
+                id: 1,
+                category: 'Idols',
+                cost: 2999,
+                rating: 4,
+                isNew: false,
+                name: 'Sree Astha Laxmi',
+                cod: true,
+                online: true,
                 photo: {
                     image1: product1,
                     image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
                 },
-                description: 'This is a beautiful sandalwood stick.'
+                description: 'An intricately designed idol of Sree Astha Laxmi, symbolizing wealth and prosperity, perfect for home decor and pooja rituals.'
             },
             {
-                id: 2, category: 'Agarbatti', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick2', cod: true, online: true,
+                id: 2,
+                category: 'Idols',
+                cost: 2999,
+                rating: 4,
+                isNew: false,
+                name: 'Sree Anjaneya Shani Raksha',
+                cod: true,
+                online: true,
                 photo: {
                     image1: product2,
                     image2: product2,
@@ -316,11 +388,17 @@ const translations = {
                     image6: product2,
                     image7: product2,
                 },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
+                description: 'A divine idol of Sree Anjaneya, crafted to protect against Shani doshas, bringing peace and strength to your household.'
             },
             {
-                id: 3, category: 'Pooja Lamps', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick3', cod: true, online: true,
+                id: 3,
+                category: 'Idols',
+                cost: 23099,
+                rating: 4,
+                isNew: false,
+                name: 'Shree Laxmi, Ekdanta Ganesha, Maa Saraswati',
+                cod: true,
+                online: true,
                 photo: {
                     image1: product3,
                     image2: product3,
@@ -330,11 +408,17 @@ const translations = {
                     image6: product3,
                     image7: product3,
                 },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
+                description: 'A magnificent set of idols featuring Shree Laxmi, Ekdanta Ganesha, and Maa Saraswati, perfect for your pooja room and festivals.'
             },
             {
-                id: 4, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick4', cod: true, online: true,
+                id: 4,
+                category: 'Temple Models',
+                cost: 31919,
+                rating: 4,
+                isNew: false,
+                name: 'Golden Temple',
+                cod: true,
+                online: true,
                 photo: {
                     image1: product4,
                     image2: product4,
@@ -344,11 +428,17 @@ const translations = {
                     image6: product4,
                     image7: product4,
                 },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
+                description: 'A stunning model of the Golden Temple, crafted with attention to detail, ideal for gifting or as a centerpiece in your home.'
             },
             {
-                id: 5, category: 'Buddha Statue', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick5', cod: true, online: true,
+                id: 5,
+                category: 'Idols',
+                cost: 31919,
+                rating: 4,
+                isNew: false,
+                name: 'Ashtavinayaka',
+                cod: true,
+                online: true,
                 photo: {
                     image1: product5,
                     image2: product5,
@@ -358,81 +448,11 @@ const translations = {
                     image6: product5,
                     image7: product5,
                 },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
-            },
-            {
-                id: 6, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick6', cod: true, online: true,
-                photo: {
-                    image1: product1,
-                    image2: product1,
-                    image3: product1,
-                    image4: product1,
-                    image5: product1,
-                    image6: product1,
-                    image7: product1,
-                },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
-            },
-            {
-                id: 7, category: 'Buddha Statue', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick7', cod: true, online: true,
-                photo: {
-                    image1: product2,
-                    image2: product2,
-                    image3: product2,
-                    image4: product2,
-                    image5: product2,
-                    image6: product2,
-                    image7: product2,
-                },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
-            },
-            {
-                id: 8, category: 'Agarbatti', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick8', cod: true, online: true,
-                photo: {
-                    image1: product3,
-                    image2: product3,
-                    image3: product3,
-                    image4: product3,
-                    image5: product3,
-                    image6: product3,
-                    image7: product3,
-                },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
-            },
-            {
-                id: 9, category: 'Pooja Lamps', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick9', cod: true, online: true,
-                photo: {
-                    image1: product4,
-                    image2: product4,
-                    image3: product4,
-                    image4: product4,
-                    image5: product4,
-                    image6: product4,
-                    image7: product4,
-                },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
-            },
-            {
-                id: 10, category: 'Copper Lota', cost: 25.0, rating: 4, isNew: false, name: 'Sandalwood Stick10', cod: true, online: true,
-                photo: {
-                    image1: product5,
-                    image2: product5,
-                    image3: product5,
-                    image4: product5,
-                    image5: product5,
-                    image6: product5,
-                    image7: product5,
-                },
-                description: 'This is a beautiful sandalwood stick.',
-                isNew: false
+                description: 'A sacred set of Ashtavinayaka idols, representing the eight holy forms of Lord Ganesha, a must-have for devotees.'
             },
         ]
     }
+
 };
 
 export default translations;

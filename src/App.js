@@ -13,6 +13,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Checkout from "./pages/Billing"
 import Admin from './pages/Admin';
+import ErrorBoundary from './components/ErrorBoundary';
 // ..
 AOS.init({
   delay: 300, // values from 0 to 3000, with step 50ms
@@ -22,25 +23,28 @@ AOS.init({
 
 function App() {
   return (
-    <div className="App overflow-hidden">
-      <CartProvider>
-        <BrowserRouter>
-          {/* Your other components including Navbar */}
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/shop" element={<Store />} />
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="/billing" element={<Checkout />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </CartProvider>
-    </div>
+    <ErrorBoundary>
+      <div className="App overflow-hidden">
+        <CartProvider>
+          <BrowserRouter>
+            {/* Your other components including Navbar */}
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<ErrorBoundary><Home /></ErrorBoundary>} />
+              <Route path="/about" element={<ErrorBoundary><About /></ErrorBoundary>} />
+              <Route path="/contact" element={<ErrorBoundary><Contact /></ErrorBoundary>} />
+              <Route path="/shop" element={<ErrorBoundary><Store /></ErrorBoundary>} />
+              <Route path="/product/:id" element={<ErrorBoundary><ProductPage /></ErrorBoundary>} />
+              <Route path="/billing" element={<ErrorBoundary><Checkout /></ErrorBoundary>} />
+              <Route path="/admin" element={<ErrorBoundary><Admin /></ErrorBoundary>} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </CartProvider>
+      </div>
+    </ErrorBoundary>
   );
 }
+
 
 export default App;

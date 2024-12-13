@@ -110,7 +110,7 @@ const ProductPage = () => {
                                 </span>
                             )}
                             <h1 className="text-3xl font-bold">{product.name}</h1>
-                            <p className="text-2xl text-blue-600">${product.cost.localStorage()}</p>
+                            <p className="text-2xl text-blue-600">₹{product.cost.toLocaleString()}</p>
                             <div className="space-y-4">
                                 <h2 className="text-xl font-semibold">{translations.home.fourth.title}</h2>
                                 <p className="text-gray-600">{product.description || 'No description available'}</p>

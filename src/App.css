@@ -33,18 +33,21 @@
 
 @media screen and (max-width: 768px) {
   .siderone {
-    background-image: url('./assets/home/mobile-slider-1.jpg');
-    background-size: cover;
+    background-image: url('./assets/home/mobile-slider-1.png');
+    background-size: auto;
+    background-repeat: no-repeat;
   }
 
   .slidertwo {
-    background-image: url('./assets/home/mobile-slider-2.jpg');
-    background-size: cover;
+    background-image: url('./assets/home/mobile-slider-2.png');
+    background-size: auto;
+    background-repeat: no-repeat;
   }
 
   .sliderthree {
-    background-image: url('./assets/home/mobile-slider-3.jpg');
-    background-size: cover;
+    background-image: url('./assets/home/mobile-slider-3.png');
+    background-size: auto;
+    background-repeat: no-repeat;
   }
 
 }

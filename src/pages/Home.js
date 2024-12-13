@@ -33,8 +33,8 @@ const Home = () => {
 
     return (
         <div>
-            <div className='h-screen z-0'>
-                <div className="h-screen">
+            <div className='h-full lg:h-screen md:h-screen sm:h-full z-0'>
+                <div className="h-full lg:h-screen md:h-screen sm:h-full">
                     <Swiper
                         modules={[Navigation, Pagination]}
                         spaceBetween={50}
@@ -49,7 +49,7 @@ const Home = () => {
                         className="mySwiper w-full h-full"
                     >
                         <SwiperSlide className={`flex justify-center items-center text-center text-lg siderone `}>
-                            <div className='w-screen h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
+                            <div className='w-screen h-[70vh] lg:h-screen md:h-screen sm:h-[70vh] flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
 
                                 <div className='w-1/2 hidden lg:block md:block sm:block '>
                                 </div>
@@ -88,7 +88,7 @@ const Home = () => {
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={`flex justify-center items-center text-center text-lg slidertwo `}>
-                            <div className='w-screen h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
+                            <div className='w-screen h-[70vh] lg:h-screen md:h-screen sm:h-[70vh] flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
                                 <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full flex flex-col justify-center items-center'>
                                     <motion.div
                                         initial={{ x: -200, opacity: 0 }}
@@ -108,7 +108,7 @@ const Home = () => {
                             </div>
                         </SwiperSlide>
                         <SwiperSlide className={`flex justify-center items-center text-center text-lg sliderthree `}>
-                            <div className='w-screen h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
+                            <div className='w-screen h-[70vh] lg:h-screen md:h-screen sm:h-[70vh] flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
 
                                 <div className='w-1/2 hidden lg:block md:block sm:block '>
 

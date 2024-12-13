@@ -4,8 +4,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import translations from '../utils/data';
 import PageHeader from './Other';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Skeleton from 'react-loading-skeleton';
 
 const ProductPage = () => {
     const { id } = useParams();
@@ -13,8 +11,6 @@ const ProductPage = () => {
     const { addToCart, cart } = useCart();
     const [showNotification, setShowNotification] = useState(false);
     const product = translations.products.product.find(p => p.id === parseInt(id));
-    const [mainImageLoaded, setMainImageLoaded] = useState(false);
-    const [thumbnailsLoaded, setThumbnailsLoaded] = useState({});
 
     const handleAddToCart = () => {
         // Add cartItemId when adding to cart
@@ -88,92 +84,69 @@ const ProductPage = () => {
                         {/* Product Images */}
                         <div className="space-y-4">
                             <div className="aspect-w-1 aspect-h-1">
-                                {!mainImageLoaded && (
-                                    <Skeleton height={500} />
-                                )}
-                                <LazyLoadImage
+                                <img
                                     src={product.photo.image1}
                                     alt={product.name}
-                                    effect="blur"
-                                    afterLoad={() => setMainImageLoaded(true)}
                                     className="w-full h-[500px] object-cover rounded-lg"
                                 />
                             </div>
                             <div className="grid grid-cols-4 gap-4">
                                 {Object.values(product.photo).map((image, index) => (
-                                    <div key={index} className="relative">
-                                        {!thumbnailsLoaded[index] && (
-                                            <Skeleton height={96} />
-                                        )}
-                                        <LazyLoadImage
-                                            src={image}
-                                            alt={`${product.name} view ${index + 1}`}
-                                            effect="blur"
-                                            afterLoad={() => setThumbnailsLoaded(prev => ({...prev, [index]: true}))}
-                                            className="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
-                                        />
-                                    </div>
+                                    <img
+                                        key={index}
+                                        src={image}
+                                        alt={`${product.name} view ${index + 1}`}
+                                        className="w-full h-24 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+                                    />
                                 ))}
                             </div>
                         </div>
 
                         {/* Product Info */}
                         <div className="space-y-6">
-                            {!mainImageLoaded ? (
-                                <>
-                                    <Skeleton height={24} width="40%" />
-                                    <Skeleton height={32} width="60%" />
-                                    <Skeleton height={20} count={3} />
-                                    <Skeleton height={24} width="70%" />
-                                    <Skeleton height={20} count={4} />
-                                </>
-                            ) : (
-                                <>
-                                    {product.isNew && (
-                                        <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
-                                            {translations.home.fourth.card}
-                                        </span>
-                                    )}
-                                    <h1 className="text-3xl font-bold">{product.name}</h1>
-                                    <p className="text-2xl text-blue-600">₹{product.cost.toLocaleString()}</p>
-                                    <div className="space-y-4">
-                                        <h2 className="text-xl font-semibold">{translations.home.fourth.title}</h2>
-                                        <p className="text-gray-600">{product.description || 'No description available'}</p>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-semibold mb-2">{translations.home.fourth.subtitle}</h3>
-                                        <ul className="list-disc list-inside space-y-2 text-gray-600">
-                                            <li>{translations.products.cat}: {product.category}</li>
-                                            {product.details && Object.entries(product.details).map(([key, value]) => (
-                                                <li key={key}>{key}: {value}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                    <div className="pt-6 space-x-4 relative">
-                                        <button
-                                            onClick={handleAddToCart}
-                                            className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
-                                        >
-                                            {translations.home.fourth.card}
-                                        </button>
-                                        <button
-                                            onClick={handleBuyNow}
-                                            className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
-                                        >
-                                            {translations.home.fourth.buy}
-                                        </button>
-
-                                        {/* Success Notification */}
-                                        {showNotification && (
-                                            <div className="absolute top-[-40px] left-0 right-0 text-center">
-                                                <span className="bg-green-500 text-white px-4 py-2 rounded-lg">
-                                                    Added to cart successfully!
-                                                </span>
-                                            </div>
-                                        )}
-                                    </div>
-                                </>
+                            {product.isNew && (
+                                <span className="inline-block bg-blue-500 text-white px-3 py-1 rounded-full text-sm">
+                                    {translations.home.fourth.card}
+                                </span>
                             )}
+                            <h1 className="text-3xl font-bold">{product.name}</h1>
+                            <p className="text-2xl text-blue-600">${product.cost.localStorage()}</p>
+                            <div className="space-y-4">
+                                <h2 className="text-xl font-semibold">{translations.home.fourth.title}</h2>
+                                <p className="text-gray-600">{product.description || 'No description available'}</p>
+                            </div>
+                            <div>
+                                <h3 className="text-lg font-semibold mb-2">{translations.home.fourth.subtitle}</h3>
+                                <ul className="list-disc list-inside space-y-2 text-gray-600">
+                                    <li>{translations.products.cat}: {product.category}</li>
+                                    {product.details && Object.entries(product.details).map(([key, value]) => (
+                                        <li key={key}>{key}: {value}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="pt-6 space-x-4 relative">
+                                <button
+                                    onClick={handleAddToCart}
+                                    className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
+                                >
+                                    {translations.home.fourth.card}
+                                </button>
+                                <button
+                                    onClick={handleBuyNow}
+                                    className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
+                                >
+                                    {translations.home.fourth.buy}
+                                </button>
+
+                                {/* Success Notification */}
+                                {showNotification && (
+                                    <div className="absolute top-[-40px] left-0 right-0 text-center">
+                                        <span className="bg-green-500 text-white px-4 py-2 rounded-lg">
+                                            Added to cart successfully!
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

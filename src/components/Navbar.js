@@ -123,8 +123,8 @@ const Navbar = () => {
             <div className='flex w-full flex-col overflow-hidden'>
                 {/* Top contact info */}
                 <div className='hidden md:flex justify-between'>
-                    <div><h1 className='text-lg my-4'>Reach us: No: 58 A, East Madison Street, Baltimore, MD, USA 4508</h1></div>
-                    <div><p className='text-lg my-4 hover:text-[#DA9687]'>Call Us: 000 - 123456789</p></div>
+                    <div><h1 className='text-lg my-4'>6th floor, Tirumala Heights, Begumpet, Hyderabad, Telangana 500016</h1></div>
+                    <div><p className='text-lg my-4 hover:text-[#DA9687]'>Call Us: +91 - 8185922222</p></div>
                 </div>
                 <div className='w-full h-[1px] bg-black hidden md:block'></div>
 

@@ -5,7 +5,7 @@ const ProductCard = ({ id, name, cost, photo, isNew }) => {
     return (
         <div className="group border rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
             <Link to={`/product/${id}`}>
-                <div className="relative overflow-hidden">
+                <div data-aos="fade-up" className="relative overflow-hidden">
                     <img
                         src={photo.image1}
                         alt={name}
@@ -19,7 +19,7 @@ const ProductCard = ({ id, name, cost, photo, isNew }) => {
                 </div>
                 <div className="p-4">
                     <h3 className="text-2xl font-semibold headerstyle">{name}</h3>
-                    <p className="text-blue-600">${cost}</p>
+                    <p className="text-blue-600">₹{cost}</p>
                 </div>
             </Link>
         </div>

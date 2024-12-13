@@ -7,7 +7,7 @@ const Team = () => {
     return (
         <div> <section className="py-16 px-4 bg-white">
             {/* Header */}
-            <div className="text-center mb-12">
+            <div data-aos="fade-up" className="text-center mb-12">
                 <h3 className="text-3xl italic text-[#D88E7D] stylefont">Reviews</h3>
                 <h2 className="text-6xl headerstyle">Happy Clients Thoughts</h2>
                 <p className="text-gray-600 mt-2">

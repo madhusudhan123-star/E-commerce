@@ -1,22 +1,74 @@
 // src/components/ProductPage.js
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import translations from '../utils/data';
 import PageHeader from './Other';
 
 const ProductPage = () => {
     const { id } = useParams();
-    const { addToCart } = useCart();
+    const navigate = useNavigate();
+    const { addToCart, cart } = useCart();
     const [showNotification, setShowNotification] = useState(false);
     const product = translations.products.product.find(p => p.id === parseInt(id));
 
     const handleAddToCart = () => {
-        addToCart(product);
+        // Add cartItemId when adding to cart
+        const cartItem = {
+            ...product,
+            cartItemId: Date.now() + Math.random(),
+            addedAt: new Date().toISOString()
+        };
+        addToCart(cartItem);
         setShowNotification(true);
+        
+        // Update localStorage
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        cartItems.push(cartItem);
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
         setTimeout(() => {
             setShowNotification(false);
         }, 2000);
+    };
+
+    const handleBuyNow = () => {
+        // Get existing cart items
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        
+        // Create new product item
+        const newProduct = {
+            name: product.name,
+            quantity: 1,
+            price: Number(product.cost),
+            cost: Number(product.cost) // Add cost property for consistency
+        };
+
+        // Process cart items to ensure they have proper price format
+        const processedCartItems = cartItems.map(item => ({
+            name: item.name,
+            quantity: 1,
+            price: Number(item.cost), // Use cost property from cart items
+            cost: Number(item.cost)
+        }));
+
+        // Combine cart items with new product
+        const allItems = [...processedCartItems, newProduct];
+
+        // Calculate total amount
+        const totalAmount = allItems.reduce((total, item) => {
+            return total + (Number(item.price) || Number(item.cost) || 0);
+        }, 0);
+
+        // Navigate to billing with combined items
+        navigate('/billing', {
+            state: {
+                items: allItems,
+                totalAmount: totalAmount,
+                quantity: allItems.length,
+                paymentMode: 'online',
+            },
+        });
     };
 
     if (!product) {
@@ -78,6 +130,12 @@ const ProductPage = () => {
                                     className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
                                 >
                                     {translations.home.fourth.card}
+                                </button>
+                                <button
+                                    onClick={handleBuyNow}
+                                    className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition"
+                                >
+                                    {translations.home.fourth.buy}
                                 </button>
 
                                 {/* Success Notification */}

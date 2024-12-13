@@ -146,6 +146,7 @@ const Home = () => {
                                 position: 'relative',
                                 zIndex: 1,
                             }}
+                            data-aos={num === 1 ? 'fade-left' : num === 2 ? 'fade-bottom' : 'fade-right'}
                         >
                             {/* Sliding background element */}
                             <div
@@ -192,9 +193,9 @@ const Home = () => {
                         </div>
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white'>
                             <h1 className='text-3xl mb-5 stylefont'>{translations.home.second.short}</h1>
-                            <h1 className='text-8xl headerstyle  mb-8'>{translations.home.second.title}</h1>
+                            <h1 className='text-6xl headerstyle  mb-8'>{translations.home.second.title}</h1>
                             <p className='mb-4'>{translations.home.second.subtitle}</p>
-                            <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>{translations.home.header.button1}</a></button>
+                            <button data-aos="zoom-in-up" className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>{translations.home.header.button1}</a></button>
 
                         </div>
                     </div>
@@ -224,14 +225,10 @@ const Home = () => {
                     </div>
                     <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto px-4">
                         <AnimatePresence>
-                            {filteredProducts.map((product) => (
-                                <motion.div
+                            {filteredProducts.map((product, index) => (
+                                <div
                                     key={product.id}
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4 }}
+                                    data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
                                     className="relative aspect-[4/3] w-full"
                                 >
                                     <div className="absolute inset-0 hover:bg-gradient-to-r from-zinc-900 to-transparent z-10" />
@@ -241,7 +238,7 @@ const Home = () => {
                                         alt={product.category}
                                         className="w-full h-full object-cover rounded-md"
                                     />
-                                </motion.div>
+                                </div>
                             ))}
                         </AnimatePresence>
                     </div>
@@ -302,7 +299,7 @@ const Home = () => {
                     <div className='flex h-full backgroundimagechange2 flex-col w-full lg:flex-row md:flex-row sm:flex-row'>
                         <div className='w-1/2 p-8'>
                         </div>
-                        <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white text-center flex justify-center flex-col items-center'>
+                        <div data-aos="zoom-in-up" className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white text-center flex justify-center flex-col items-center'>
                             <h1 className='text-3xl mb-5  stylefont'>{translations.home.nine.short}</h1>
                             <h1 className='text-6xl mb-8 headerstyle'>{translations.home.nine.title}</h1>
                             <p className='mb-4'>{translations.home.second.subtitle}</p>

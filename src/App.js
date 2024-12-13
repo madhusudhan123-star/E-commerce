@@ -9,7 +9,16 @@ import Contact from './pages/Contact';
 import { CartProvider } from './components/CartContext';
 import Store from './pages/Store';
 import ProductPage from './components/ProductPage';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+import Checkout from "./pages/Billing"
+import Admin from './pages/Admin';
+// ..
+AOS.init({
+  delay: 300, // values from 0 to 3000, with step 50ms
+  duration: 900, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+});
 
 function App() {
   return (
@@ -24,6 +33,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/shop" element={<Store />} />
             <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/billing" element={<Checkout />} />
+            <Route path="/admin" element={<Admin />} />
           </Routes>
           <Footer />
         </BrowserRouter>

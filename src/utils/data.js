@@ -7,7 +7,7 @@ import home_second from '../assets/home/home_second.png';
 import homethree1 from '../assets/home/homethreeone.png'
 import homethree2 from '../assets/home/homethreetwo.png'
 import homethree3 from '../assets/home/homethreethree.png'
-import product1 from '../assets/home/1.jpg'
+import product1 from '../assets/real7.jpg'
 import product2 from '../assets/home/2.jpg'
 import product3 from '../assets/home/3.jpg'
 import product4 from '../assets/home/4.jpg'
@@ -55,31 +55,6 @@ const translations = {
                 title: 'About',
                 url: '/about'
             },
-            // {
-            //     title: 'Pages',
-            //     url: '/page',
-            //     content: {
-            //         title: 'shops',
-            //         content: [
-            //             {
-            //                 title: 'Shop',
-            //                 url: '/shop'
-            //             },
-            //             {
-            //                 title: 'Product Detail',
-            //                 url: '/product'
-            //             },
-            //             {
-            //                 title: 'Cart',
-            //                 url: '/cart'
-            //             },
-            //             {
-            //                 title: 'Checkout',
-            //                 url: '/checkout'
-            //             }
-            //         ]
-            //     }
-            // },
             {
                 title: 'Contact',
                 url: '/contact'
@@ -131,7 +106,8 @@ const translations = {
                 { image: product4, name: 'Modern Design Brass', price: 17.49, rating: 3, isNew: false },
                 { image: product5, name: 'Frozen Bell', price: 25.0, rating: 4, isNew: false },
             ],
-            card: "Add Card"
+            card: "Add Cart",
+            buy: "Buy Now",
         },
         product: [
             { id: 1, category: 'Pooja Lamps', image: about1 },
@@ -288,6 +264,30 @@ const translations = {
             button: "Get In Touch"
         }
     },
+    checkout: {
+        title: "Checkout",
+        order: "Order Summary",
+        total: "Total",
+        product: "Product",
+        subtotal: "Subtotal",
+        shipping: "Shipping",
+        successfully: "Order Placed Successfully!",
+        orderNumber: "Order Number",
+        thank: "Thank you for your purchase!",
+        continue: "Continue Shopping",
+        sectitle: "Billing Details",
+        firstname: "First Name",
+        lastname: "Last Name",
+        country: "Country",
+        address: "Street Address",
+        clientaddress: "Apartment, suite, etc. (optional)",
+        city: "Town / City",
+        phone: "Phone",
+        email: "Email",
+        processing: "Processing...",
+        order: "Place Order",
+        mode: "Payment Mode"
+    },
     products: {
         categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota'],
         cat: "Category",
@@ -435,4 +435,4 @@ const translations = {
     }
 };
 
-export default translations; 
+export default translations;

@@ -11,17 +11,17 @@
 }
 
 .siderone {
-  background-image: url('./assets/home/sliderone.png');
+  background-image: url('./assets/home/sliderone.jpg');
   background-size: cover;
 }
 
 .slidertwo {
-  background-image: url('./assets/home/Slidertwo.png');
+  background-image: url('./assets/home/Slidertwo.jpg');
   background-size: cover;
 }
 
 .sliderthree {
-  background-image: url('./assets/home/Sliderthree.png');
+  background-image: url('./assets/home/Sliderthree.jpg');
   background-size: cover;
 }
 

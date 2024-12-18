@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Mousewheel, Keyboard, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination,  } from 'swiper/modules';
 import translations from '../utils/data';
 import { motion, AnimatePresence } from "framer-motion";
 import ProductCard from '../components/ProductCard';

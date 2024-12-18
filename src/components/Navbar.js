@@ -122,22 +122,22 @@ const Navbar = () => {
         <div className='w-full px-4 md:px-10 z-10 absolute top-0'>
             <div className='flex w-full flex-col overflow-hidden'>
                 {/* Top contact info */}
-                <div className='hidden md:flex justify-between'>
+                {/* <div className='hidden md:flex justify-between'>
                     <div><h1 className='text-lg my-4'>6th floor, Tirumala Heights, Begumpet, Hyderabad, Telangana 500016</h1></div>
                     <div><p className='text-lg my-4 hover:text-[#DA9687]'>Call Us: +91 - 8185922222</p></div>
                 </div>
-                <div className='w-full h-[1px] bg-black hidden md:block'></div>
+                <div className='w-full h-[1px] bg-black hidden md:block'></div> */}
 
                 {/* Main navbar */}
                 <div className='flex justify-between items-center mt-4 md:mt-10'>
                     {/* Mobile menu button */}
                     <button
-                        className='md:hidden text-2xl p-2'
+                        className='md:hidden text-2xl'
                         onClick={toggleMobileMenu}
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </button>
-                    <div className='w-1/2'> <a href='/'><img className='w-[20%]' src={translations.home.logo} alt="logo" /> </a></div>
+                    <div className='w-1/2'> <a href='/'><img className='w-[10%]' src={translations.home.logo} alt="logo" /> </a></div>
 
 
                     {/* Desktop menu */}

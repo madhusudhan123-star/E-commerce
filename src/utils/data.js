@@ -8,10 +8,18 @@ import homethree1 from '../assets/home/homethreeone.png'
 import homethree2 from '../assets/home/homethreetwo.png'
 import homethree3 from '../assets/home/homethreethree.png'
 import product1 from '../assets/real7.jpg'
+import product11 from '../assets/sal1.jpg'
+import product12 from '../assets/sal2.jpg'
+import product13 from '../assets/sal3.png'
+import product14 from '../assets/sal4.png'
 import product2 from '../assets/real8.jpg'
-import product3 from '../assets/home/3.png'
-import product4 from '../assets/home/4.png'
-import product5 from '../assets/home/5.png'
+import product21 from '../assets/sar1.jpg';
+import product22 from '../assets/sar2.jpg';
+import product23 from '../assets/sar3.jpg';
+// import product24 from '../assets/sar4.jpg';
+import product25 from '../assets/sar5.jpg';
+
+
 import bal_suvarna_image from '../assets/home/bal_suvarna_image.png';
 import balaji_image from '../assets/home/balaji_image.png';
 import durga_image from '../assets/home/durga_image.png';
@@ -61,24 +69,24 @@ const translations = {
             }
         ],
         header: {
-            short1: "Meditation",
-            title1: 'Explore Divine Artifacts',
-            subtitle1: `Find handcrafted statues and spiritual products that inspire peace and positivity.`,
-            short2: "Enlightenment",
-            title2: 'Awaken Your Spirituality',
-            subtitle2: `Transform your space with carefully crafted artifacts that embody the essence of faith and culture.`,
-            short3: "Noble Truths",
-            title3: 'Celebrate Spiritual Heritage',
-            subtitle3: `Connect with divine artistry through our exclusive collection of spiritual products.`,
+            short1: "Divine Protection",
+            title1: 'Sacred Idols for Your Home',
+            subtitle1: `Discover our collection of divine idols that bring protection and prosperity to your space.`,
+            short2: "Spiritual Blessings",
+            title2: 'Experience Divine Grace',
+            subtitle2: `Embrace the protective powers of Sree Anjaneya and the prosperity blessings of Sree Astha Laxmi.`,
+            short3: "Sacred Energy",
+            title3: 'Transform Your Sacred Space',
+            subtitle3: `Bring home these meticulously crafted idols that emanate divine energy and protection.`,
             button1: 'Shop Now',
             sider1img: slider1,
             sider2img: slider2,
             sider3img: slider3,
         },
         second: {
-            short: "Special Deals",
-            title: 'Get 10% Offers On Spiritual Statues',
-            subtitle: `Shop now and bring home the divine presence with our exclusive discounts.`,
+            short: "Special Offerings",
+            title: 'Sacred Idols for Protection and Prosperity',
+            subtitle: `Bring home divine protection with Sree Anjaneya and abundance with Sree Astha Laxmi.`,
             button: 'Shop Now',
             image: home_second,
             design: aboutdesign,
@@ -86,14 +94,14 @@ const translations = {
         third: {
             design: design,
             image1: homethree1,
-            title1: 'Handcrafted Statues',
-            subtitle1: 'Explore a variety of statues including Balaji, Durga, Krishna, and more, designed to bring spirituality into your life.',
+            title1: 'Protection Idols',
+            subtitle1: 'Experience the protective shield of Sree Anjaneya, guarding against negative energies and Shani doshas.',
             image2: homethree2,
-            title2: 'Divine Artifacts',
-            subtitle2: 'Discover premium spiritual products like Pooja Lamps and Copper Lota for daily rituals.',
+            title2: 'Prosperity Deities',
+            subtitle2: 'Welcome abundance with Sree Astha Laxmi, the embodiment of wealth and prosperity.',
             image3: homethree3,
-            title3: 'Spiritual Accessories',
-            subtitle3: 'Enhance your meditation with Agarbatti, OM Ganesha, and other sacred items.',
+            title3: 'Sacred Craftsmanship',
+            subtitle3: 'Each idol is crafted with devotion, preserving traditional artistry and spiritual essence.',
         },
         fourth: {
             short: "Our Collection",
@@ -119,20 +127,20 @@ const translations = {
         faqsub: "Frequently Asked Questions",
         faqs: [
             {
-                question: "What Are Your Featured Products?",
-                answer: "Our featured products include handcrafted statues of Balaji, Durga, Krishna, and spiritual artifacts like Pooja Lamps.",
+                question: "What are the benefits of Sree Anjaneya idol?",
+                answer: "Sree Anjaneya idol provides protection against Shani doshas and brings strength to your household.",
             },
             {
-                question: "Are The Statues Handcrafted?",
-                answer: "Yes, all our statues are skillfully handcrafted by artisans with attention to detail.",
+                question: "How does Sree Astha Laxmi idol help?",
+                answer: "Sree Astha Laxmi idol symbolizes wealth and prosperity, perfect for both worship and home decoration.",
             },
             {
-                question: "What Are The Material Specifications?",
-                answer: "Our products are made from high-quality materials ensuring durability and divine aesthetics.",
+                question: "Are these idols suitable for home worship?",
+                answer: "Yes, both idols are perfectly suited for home pooja rituals and sacred spaces.",
             },
             {
-                question: "Can I Place A Bulk Order?",
-                answer: "Yes, bulk orders are welcome. Please contact our support team for special deals and offers.",
+                question: "How should I maintain these idols?",
+                answer: "Handle with care and respect. Regular cleaning with a soft cloth is recommended.",
             },
         ],
         images: about11,
@@ -149,24 +157,24 @@ const translations = {
         },
         reviews: [
             {
-                name: "Julia",
+                name: "Rajesh",
                 date: "27 July 2023",
-                rating: 4,
-                review: "Loved the intricate detailing on the Balaji statue. It adds a divine aura to my home.",
+                rating: 5,
+                review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship!",
                 image: test1,
             },
             {
-                name: "James",
+                name: "Priya",
                 date: "26 June 2023",
                 rating: 5,
-                review: "The Durga statue is stunning. Perfect for daily worship!",
+                review: "Since installing Sree Astha Laxmi idol, we've felt more prosperity in our business.",
                 image: test2,
             },
             {
-                name: "Martin",
+                name: "Amit",
                 date: "29 July 2023",
                 rating: 4,
-                review: "Excellent craftsmanship and fast delivery. Highly recommend!",
+                review: "Beautiful craftsmanship and fast delivery. Highly recommend!",
                 image: test3,
             },
             {
@@ -204,28 +212,6 @@ const translations = {
             }
         }
     },
-    // about: {
-    //     title: 'About',
-    //     subtitle: 'HOME > ABOUT',
-    //     second: {
-    //         short: "About Us",
-    //         title: 'Meditation is the art of finding your inner peace',
-    //         subtitle: `Scelerisque fermentum dui faucibus in. Integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus. Neque aliquam vestibulum blandit.`,
-    //         button: 'Shop Now',
-    //         linkbutton: '/shop',
-    //         image: aboutsec,
-    //         design: aboutdesign,
-    //     },
-    //     short2: 'Service',
-    //     title2: "What We Do Buddha",
-    //     sub2: "Amet nulla facilisi morbi tempus iaculis urna id volutpat. Mattis vulputate enim nulla aliquet porttitor. Quam pellentesque nec nam aliquam sem et.",
-    //     horizontal: [
-    //         { image: person1, title: 'Buddha Statue', link: "/product" },
-    //         { image: person2, title: 'Gods Statue', link: "/product" },
-    //         { image: person3, title: 'Goddess Statue', link: "/product" },
-    //         { image: person4, title: 'Goddess Statue', link: "/product" },
-    //     ],
-    // },
     about: {
         title: 'About',
         subtitle: 'HOME > ABOUT',
@@ -299,177 +285,6 @@ const translations = {
         order: "Place Order",
         mode: "Payment Mode"
     },
-    // products: {
-    //     categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota'],
-    //     cat: "Category",
-    //     product: [
-    //         {
-    //             id: 1, category: 'Sree Astha Laxmi', cost: 2999, rating: 4, isNew: false, name: 'Sree Astha Laxmi', cod: true, online: true,
-    //             photo: {
-    //                 image1: product1,
-    //                 image2: product1,
-    //             },
-    //             description: ''
-    //         },
-    //         {
-    //             id: 2, category: 'Sree Anjaneya Shani Raksha', cost: 2999, rating: 4, isNew: false, name: 'Sree Anjaneya Shani Raksha', cod: true, online: true,
-    //             photo: {
-    //                 image1: product2,
-    //                 image2: product2,
-    //                 image3: product2,
-    //                 image4: product2,
-    //                 image5: product2,
-    //                 image6: product2,
-    //                 image7: product2,
-    //             },
-    //             description: 'This is a beautiful sandalwood stick.',
-    //             isNew: false
-    //         },
-    //         {
-    //             id: 3, category: '', cost: 23099, rating: 4, isNew: false, name: 'Shree Laxmi, Ekdanta Ganesha, Maa Saraswati', cod: true, online: true,
-    //             photo: {
-    //                 image1: product3,
-    //                 image2: product3,
-    //                 image3: product3,
-    //                 image4: product3,
-    //                 image5: product3,
-    //                 image6: product3,
-    //                 image7: product3,
-    //             },
-    //             description: 'This is a beautiful sandalwood stick.',
-    //             isNew: false
-    //         },
-    //         {
-    //             id: 4, category: 'Golden Temple', cost: 31919, rating: 4, isNew: false, name: 'Golden Temple', cod: true, online: true,
-    //             photo: {
-    //                 image1: product4,
-    //                 image2: product4,
-    //                 image3: product4,
-    //                 image4: product4,
-    //                 image5: product4,
-    //                 image6: product4,
-    //                 image7: product4,
-    //             },
-    //             description: 'This is a beautiful sandalwood stick.',
-    //             isNew: false
-    //         },
-    //         {
-    //             id: 5, category: 'Ashtavinayaka', cost: 31919, rating: 4, isNew: false, name: 'Ashtavinayaka', cod: true, online: true,
-    //             photo: {
-    //                 image1: product5,
-    //                 image2: product5,
-    //                 image3: product5,
-    //                 image4: product5,
-    //                 image5: product5,
-    //                 image6: product5,
-    //                 image7: product5,
-    //             },
-    //             description: 'This is a beautiful sandalwood stick.',
-    //             isNew: false
-    //         },
-    //     ]
-    // }
-    // products: {
-    //     categories: ['Buddha Statue', 'Agarbatti', 'Pooja Lamps', 'Copper Lota', 'Idols', 'Temple Models'],
-    //     cat: "Category",
-    //     product: [
-    //         {
-    //             id: 1,
-    //             category: 'Idols',
-    //             cost: 2999,
-    //             rating: 4,
-    //             isNew: false,
-    //             name: 'Sree Astha Laxmi',
-    //             cod: true,
-    //             online: true,
-    //             photo: {
-    //                 image1: product1,
-    //                 image2: product1,
-    //             },
-    //             description: 'An intricately designed idol of Sree Astha Laxmi, symbolizing wealth and prosperity, perfect for home decor and pooja rituals.'
-    //         },
-    //         {
-    //             id: 2,
-    //             category: 'Idols',
-    //             cost: 2999,
-    //             rating: 4,
-    //             isNew: false,
-    //             name: 'Sree Anjaneya Shani Raksha',
-    //             cod: true,
-    //             online: true,
-    //             photo: {
-    //                 image1: product2,
-    //                 image2: product2,
-    //                 image3: product2,
-    //                 image4: product2,
-    //                 image5: product2,
-    //                 image6: product2,
-    //                 image7: product2,
-    //             },
-    //             description: 'A divine idol of Sree Anjaneya, crafted to protect against Shani doshas, bringing peace and strength to your household.'
-    //         },
-    //         {
-    //             id: 3,
-    //             category: 'Idols',
-    //             cost: 23099,
-    //             rating: 4,
-    //             isNew: false,
-    //             name: 'Shree Laxmi, Ekdanta Ganesha, Maa Saraswati',
-    //             cod: true,
-    //             online: true,
-    //             photo: {
-    //                 image1: product3,
-    //                 image2: product3,
-    //                 image3: product3,
-    //                 image4: product3,
-    //                 image5: product3,
-    //                 image6: product3,
-    //                 image7: product3,
-    //             },
-    //             description: 'A magnificent set of idols featuring Shree Laxmi, Ekdanta Ganesha, and Maa Saraswati, perfect for your pooja room and festivals.'
-    //         },
-    //         {
-    //             id: 4,
-    //             category: 'Temple Models',
-    //             cost: 31919,
-    //             rating: 4,
-    //             isNew: false,
-    //             name: 'Golden Temple',
-    //             cod: true,
-    //             online: true,
-    //             photo: {
-    //                 image1: product4,
-    //                 image2: product4,
-    //                 image3: product4,
-    //                 image4: product4,
-    //                 image5: product4,
-    //                 image6: product4,
-    //                 image7: product4,
-    //             },
-    //             description: 'A stunning model of the Golden Temple, crafted with attention to detail, ideal for gifting or as a centerpiece in your home.'
-    //         },
-    //         {
-    //             id: 5,
-    //             category: 'Idols',
-    //             cost: 31919,
-    //             rating: 4,
-    //             isNew: false,
-    //             name: 'Ashtavinayaka',
-    //             cod: true,
-    //             online: true,
-    //             photo: {
-    //                 image1: product5,
-    //                 image2: product5,
-    //                 image3: product5,
-    //                 image4: product5,
-    //                 image5: product5,
-    //                 image6: product5,
-    //                 image7: product5,
-    //             },
-    //             description: 'A sacred set of Ashtavinayaka idols, representing the eight holy forms of Lord Ganesha, a must-have for devotees.'
-    //         },
-    //     ]
-    // }
     products: {
         categories: ['Idols'],
         cat: "Category",
@@ -485,6 +300,10 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product1,
+                    image2: product11,
+                    image3: product12,
+                    image4: product13,
+                    image5: product14,
                 },
                 description: 'An intricately designed idol of Sree Astha Laxmi, symbolizing wealth and prosperity, perfect for home decor and pooja rituals.'
             },
@@ -499,85 +318,12 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product2,
-
+                    image2: product21,
+                    image3: product22,
+                    image4: product23,
+                    image5: product25,
                 },
                 description: 'A divine idol of Sree Anjaneya, crafted to protect against Shani doshas, bringing peace and strength to your household.'
-            },
-            {
-                id: 3,
-                category: 'Idols',
-                cost: 2696,
-                rating: 5,
-                isNew: true,
-                name: 'Balaji Idol',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: balaji_image,
-                    image2: balaji_image,
-                },
-                description: 'An exquisite Balaji idol, embodying grace and divinity, ideal for pooja and as a spiritual gift.'
-            },
-            {
-                id: 4,
-                category: 'Idols',
-                cost: 2696,
-                rating: 5,
-                isNew: true,
-                name: 'Durga Idol',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: durga_image,
-                    image2: durga_image,
-                },
-                description: 'A beautifully crafted Durga idol symbolizing strength and protection, perfect for your sacred space.'
-            },
-            {
-                id: 5,
-                category: 'Idols',
-                cost: 2696,
-                rating: 5,
-                isNew: true,
-                name: 'Krishna Idol',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: krishna_image,
-                    image2: krishna_image,
-                },
-                description: 'A divine Krishna idol, representing love and compassion, a wonderful addition to your pooja room.'
-            },
-            {
-                id: 6,
-                category: 'Idols',
-                cost: 2696,
-                rating: 5,
-                isNew: true,
-                name: 'OM Ganesha Idol',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: om_ganesha_image,
-                    image2: om_ganesha_image,
-                },
-                description: 'An intricately designed OM Ganesha idol, symbolizing wisdom and prosperity, ideal for rituals and gifting.'
-            },
-
-            {
-                id: 7,
-                category: 'Idols',
-                cost: 2696,
-                rating: 4,
-                isNew: true,
-                name: 'Saibaba Idol',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: saibaba_image,
-                    image2: saibaba_image,
-                },
-                description: 'A serene Saibaba idol, radiating peace and spirituality, a perfect companion for prayer and meditation.'
             },
         ],
     }

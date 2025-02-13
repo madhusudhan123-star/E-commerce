@@ -3,7 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination,  } from 'swiper/modules';
+import { Navigation, Pagination, } from 'swiper/modules';
 import translations from '../utils/data';
 import { motion, AnimatePresence } from "framer-motion";
 import ProductCard from '../components/ProductCard';
@@ -193,56 +193,13 @@ const Home = () => {
                         </div>
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white'>
                             <h1 className='text-3xl mb-5 stylefont'>{translations.home.second.short}</h1>
-                            <h1 className='text-6xl headerstyle  mb-8'>{translations.home.second.title}</h1>
+                            <h1 className='text-5xl headerstyle  mb-8'>{translations.home.second.title}</h1>
                             <p className='mb-4'>{translations.home.second.subtitle}</p>
                             <button data-aos="zoom-in-up" className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>{translations.home.header.button1}</a></button>
 
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <section className="py-10 bg-gray-100">
-                    <div className="text-center">
-                        <h2 className="text-3xl text-[#D88E7D] stylefont">{translations.home.cartitle}</h2>
-                        <p className="text-6xl mt-2 headerstyle ">{translations.home.catsub}</p>
-                    </div>
-
-                    {/* Categories */}
-                    <div className="flex justify-center gap-4 mt-6 flex-wrap">
-                        {translations.home.categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setSelectedCategory(category)}
-                                className={`px-4 py-2 text-lg font-medium  ${selectedCategory === category
-                                    ? 'bg-red-500 text-white border-red-500'
-                                    : 'text-gray-700 border-gray-300 hover:bg-gray-200'
-                                    }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto px-4">
-                        <AnimatePresence>
-                            {filteredProducts.map((product, index) => (
-                                <div
-                                    key={product.id}
-                                    data-aos={index % 2 === 0 ? 'fade-left' : 'fade-right'}
-                                    className="relative aspect-[4/3] w-full"
-                                >
-                                    <div className="absolute inset-0 hover:bg-gradient-to-r from-zinc-900 to-transparent z-10" />
-
-                                    <img
-                                        src={product.image}
-                                        alt={product.category}
-                                        className="w-full h-full object-cover rounded-md"
-                                    />
-                                </div>
-                            ))}
-                        </AnimatePresence>
-                    </div>
-                </section>
             </div>
             <div>
                 <section className="bg-white py-16 px-4 relative">

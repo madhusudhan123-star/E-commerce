@@ -14,6 +14,11 @@ import 'aos/dist/aos.css'; // You can also use <link> for styles
 import Checkout from "./pages/Billing"
 import Admin from './pages/Admin';
 import ErrorBoundary from './components/ErrorBoundary';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
+import Return from './pages/Return';
+import Shipping from './pages/Shipping';
+import Cancellation from './pages/Cancellation';
 // ..
 AOS.init({
   delay: 300, // values from 0 to 3000, with step 50ms
@@ -37,6 +42,11 @@ function App() {
               <Route path="/product/:id" element={<ErrorBoundary><ProductPage /></ErrorBoundary>} />
               <Route path="/billing" element={<ErrorBoundary><Checkout /></ErrorBoundary>} />
               <Route path="/admin" element={<ErrorBoundary><Admin /></ErrorBoundary>} />
+              <Route path="/terms" element={<ErrorBoundary><Terms /></ErrorBoundary>} />
+              <Route path="/privacy" element={<ErrorBoundary><Privacy /></ErrorBoundary>} />
+              <Route path="/return" element={<ErrorBoundary><Return /></ErrorBoundary>} />
+              <Route path="/shipping" element={<ErrorBoundary><Shipping /></ErrorBoundary>} />
+              <Route path="/cancellation" element={<ErrorBoundary><Cancellation /></ErrorBoundary>} />
             </Routes>
             <Footer />
           </BrowserRouter>

@@ -189,26 +189,35 @@ const translations = {
     footerConfig: {
         contact: {
             logo: logo,
-            sub: "  Cursus turpis massa tincidunt dui ut ornare lectus sit. Enim sit amet venenatis urna cursus eget.Netus et malesuada fames ac.",
+            // sub: "  Cursus turpis massa tincidunt dui ut ornare lectus sit. Enim sit amet venenatis urna cursus eget.Netus et malesuada fames ac.",
             title: "Contact Info",
-            address: "123 Street Name, City, Country",
-            email: "example@email.com",
-            phone: "000 123 456789"
+            address: "Begumpet, Hyderabad, Telangana 500016",
+            email: "israelitesshopping171@gmail.com",
+            phone: "+91 9908 016 333"
         },
         usefulLinks: {
             title: "Useful Links",
             links: [
                 { name: "Home", url: "/" },
-                { name: "Store", url: "/store" },
+                { name: "Store", url: "/shop" },
                 { name: "About", url: "/about" },
                 { name: "Help", url: "/contact" },
             ]
         },
         bottomSection: {
-            copyright: "All Right Reserved © {year} Designthemes",
+            copyright: "All Right Reserved © {year} Scared Relm",
             terms: {
                 text: "Terms & Conditions",
-                url: "#"
+                url: "/terms",
+                text2: "Privacy Policy",
+                url2: "/privacy",
+                text3: "Return Policy",
+                url3: "/return",
+                text4: "Shipping Policy",
+                url4: "/shipping",
+                text5: "Cancellation Policy",
+                url5: "/cancellation",
+
             }
         }
     },
@@ -246,10 +255,7 @@ const translations = {
             title: "Our Branches",
             sub: "Et odio pellentesque diam volutpat. Adipiscing diam donec adipiscing tristique risus. Turpis massa sed elementum tempus egestas sed.",
             branches: [
-                { title: 'New York', address: '123 Street Name, City, Country', phone: '000 123 456789' },
-                { title: 'California', address: '123 Street Name, City, Country', phone: '000 123 456789' },
-                { title: 'Texas', address: '123 Street Name, City, Country', phone: '000 123 456789' },
-                { title: 'Florida', address: '123 Street Name, City, Country', phone: '000 123 456789' },
+                { title: 'India', address: 'Begumpet, Hyderabad, Telangana', phone: '+91 9908 016 333' },
             ]
         },
         submit: {

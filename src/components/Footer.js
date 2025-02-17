@@ -41,9 +41,21 @@ const Footer = () => {
                 {/* Bottom Section */}
                 <div className="border-t border-white mt-8 pt-4 text-center">
                     <p>{translations?.footerConfig?.bottomSection?.copyright?.replace('{year}', new Date().getFullYear())}</p>
-                    <p className="mt-2">
+                    <p className="mt-2 flex gap-2 justify-center">
                         <a href={translations?.footerConfig?.bottomSection?.terms?.url} className="hover:underline">
                             {translations?.footerConfig?.bottomSection?.terms?.text}
+                        </a>
+                        <a href={translations?.footerConfig?.bottomSection?.terms?.url2} className="hover:underline">
+                            {translations?.footerConfig?.bottomSection?.terms?.text2}
+                        </a>
+                        <a href={translations?.footerConfig?.bottomSection?.terms?.url3} className="hover:underline">
+                            {translations?.footerConfig?.bottomSection?.terms?.text3}
+                        </a>
+                        <a href={translations?.footerConfig?.bottomSection?.terms?.url4} className="hover:underline">
+                            {translations?.footerConfig?.bottomSection?.terms?.text4}
+                        </a>
+                        <a href={translations?.footerConfig?.bottomSection?.terms?.url5} className="hover:underline">
+                            {translations?.footerConfig?.bottomSection?.terms?.text5}
                         </a>
                     </p>
                 </div>

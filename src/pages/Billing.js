@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useForm } from '@formspree/react';
 import translations from '../utils/data';
 
 const COUNTRY_CURRENCY_MAP = {
@@ -72,7 +71,6 @@ const Checkout = ({ currentLang }) => {
     const [convertedAmount, setConvertedAmount] = useState(0);
     const [promoCode, setPromoCode] = useState("");
     const [isPromoApplied, setIsPromoApplied] = useState(false);
-    const [state, handleFormspreeSubmit] = useForm("xjkvpbyr");
     const [orderNumber, setOrderNumber] = useState(1); // Initial order number
 
     const [paymentMode, setPaymentMode] = useState("online");
@@ -113,7 +111,7 @@ const Checkout = ({ currentLang }) => {
 
     // Add useEffect to verify product details
     useEffect(() => {
-        if (orderDetails) {
+        if (orderDetails && !verifiedProduct) { // Add condition to prevent infinite loop
             // Verify product details from location state
             const productInfo = orderDetails.items ?
                 orderDetails.items.map(item => ({
@@ -134,30 +132,36 @@ const Checkout = ({ currentLang }) => {
                 return total + (item.price * item.quantity);
             }, 0);
 
-            setOrderDetails(prev => ({
-                ...prev,
-                totalAmount: totalAmount
-            }));
+            if (totalAmount !== orderDetails.totalAmount) {
+                setOrderDetails(prev => ({
+                    ...prev,
+                    totalAmount: totalAmount
+                }));
+            }
         }
-    }, [orderDetails]);
+    }, [orderDetails, verifiedProduct]); // Add verifiedProduct to dependencies
 
     // Update currency and convert amount when country changes
     useEffect(() => {
-        if (orderDetails) {
+        if (orderDetails && orderDetails.totalAmount) {
             const foundCurrency = COUNTRY_CURRENCY_MAP[formData.country] || DEFAULT_CURRENCY;
             setCurrentCurrency(foundCurrency);
 
             // Ensure totalAmount is a number
-            const baseAmount = Number(orderDetails.totalAmount) || 0;
+            let baseAmount = Number(orderDetails.totalAmount); // Amount in INR
+            if (isPromoApplied) {
+                baseAmount *= 0.5; // Apply 50% discount
+            }
+
             const convertedValue = (baseAmount * foundCurrency.rate).toFixed(2);
             setConvertedAmount(convertedValue);
         }
-    }, [formData.country, orderDetails]);
+    }, [formData.country, orderDetails?.totalAmount, isPromoApplied]); // Specific dependencies
 
     // Original useEffects for initialization and script loading...
     useEffect(() => {
         if (!location.state) {
-            navigate('/product');
+            navigate('/');
             return;
         }
         setOrderDetails(location.state);
@@ -219,6 +223,9 @@ const Checkout = ({ currentLang }) => {
         }
     };
 
+    // Add payment method radio selection
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('online');
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const errors = validateForm();
@@ -236,48 +243,36 @@ const Checkout = ({ currentLang }) => {
         if (Object.keys(errors).length === 0) {
             setIsSubmitting(true);
             try {
-                // Use the paymentMode from orderDetails if available
-                const currentPaymentMode = orderDetails.paymentMode || paymentMode;
-
-                if (currentPaymentMode === 'online') {
+                if (selectedPaymentMethod === 'online') {
                     handleRazorpayPayment();
-                } else if (currentPaymentMode === 'cod') {
-                    // Prepare the data for COD orders
+                } else if (selectedPaymentMethod === 'cod') {
                     const formSubmitData = {
-                        customerDetails: {
-                            firstName: formData.firstName,
-                            lastName: formData.lastName,
-                            email: formData.email,
-                            phone: formData.phone,
-                            address: formData.streetAddress,
-                            apartment: formData.apartment,
-                            city: formData.townCity,
-                            country: formData.country,
-                        },
+                        customerDetails: formData,
                         orderDetails: {
                             orderNumber,
-                            productName: orderDetails.productName,
-                            quantity: orderDetails.quantity,
+                            items: orderDetails.items || [{
+                                name: orderDetails.productName,
+                                quantity: orderDetails.quantity,
+                                price: orderDetails.unitPrice
+                            }],
                             totalAmount: convertedAmount,
+                            currency: currentCurrency.currency,
                             paymentMethod: "Cash on Delivery",
                             orderStatus: "Pending",
                         },
+                        _captcha: 'false',
+                        _subject: `New COD Order #${orderNumber}`,
+                        _template: 'table'
                     };
 
-                    // Make sure to await the Formspree submission
-                    const formResponse = await handleFormspreeSubmit(formSubmitData);
-
-                    // Check if the submission was successful
-                    if (formResponse && !formResponse.error) {
+                    const result = await handleFormSubmit(formSubmitData);
+                    
+                    if (!result.error) {
                         incrementOrderNumber();
                         setPaymentSuccess(true);
                     } else {
-                        throw new Error('Failed to submit form to Formspree');
+                        throw new Error('Failed to submit order');
                     }
-
-                    setIsSubmitting(false);
-                } else {
-                    throw new Error('Invalid payment mode');
                 }
             } catch (error) {
                 console.error('Submission error:', error);
@@ -285,10 +280,12 @@ const Checkout = ({ currentLang }) => {
                     ...prev,
                     submit: error.message || 'Failed to process order. Please try again.'
                 }));
+            } finally {
                 setIsSubmitting(false);
             }
         }
     };
+
     const renderFormField = (name, label, type = "text", required = true) => (
         <div className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">
@@ -307,9 +304,60 @@ const Checkout = ({ currentLang }) => {
             )}
         </div>
     );
+
+    // Replace useForm hook with regular state
+    const [submissionState, setSubmissionState] = useState({
+        submitting: false,
+        succeeded: false,
+        error: null
+    });
+
+    // Update handleFormSubmit with regular form submission
+    const handleFormSubmit = async (formData) => {
+        try {
+            // Create a form element
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/israelitesshopping171@gmail.com';
+
+            // Add the necessary FormSubmit.co fields
+            const fields = {
+                ...formData,
+                _captcha: 'false',
+                _subject: `New Order #${formData.orderDetails.orderNumber}`,
+                _template: 'table',
+                _next: window.location.href // Return to the same page
+            };
+
+            // Create hidden inputs for all fields
+            Object.entries(fields).forEach(([key, value]) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = typeof value === 'object' ? JSON.stringify(value) : value;
+                form.appendChild(input);
+            });
+
+            // Append form to body
+            document.body.appendChild(form);
+
+            // Submit the form
+            form.submit();
+
+            // Clean up
+            document.body.removeChild(form);
+
+            return { error: null };
+        } catch (error) {
+            console.error('Form submission error:', error);
+            return { error };
+        }
+    };
+
+    // Update the payment handler
     const handleRazorpayPayment = () => {
         const options = {
-            key: 'rzp_live_tGJjXr7rvi6keg',
+            key: 'rzp_test_F6GXWBDqd3tcjg',
             amount: convertedAmount * 100,
             currency: currentCurrency.currency,
             name: 'Your Company Name',
@@ -323,49 +371,43 @@ const Checkout = ({ currentLang }) => {
             },
             handler: async function (response) {
                 try {
+                    setSubmissionState({ submitting: true, succeeded: false, error: null });
+
                     const formSubmitData = {
-                        customerDetails: {
-                            firstName: formData.firstName,
-                            lastName: formData.lastName,
-                            email: formData.email,
-                            phone: formData.phone,
-                            address: formData.streetAddress,
-                            apartment: formData.apartment,
-                            city: formData.townCity,
-                            country: formData.country,
-                        },
+                        customerDetails: formData,
                         orderDetails: {
-                            orderNumber, // Add order number
+                            orderNumber,
                             items: orderDetails.items || [{
                                 name: orderDetails.productName,
                                 quantity: orderDetails.quantity,
                                 price: orderDetails.unitPrice
                             }],
-                            totalAmount: convertedAmount, // Use the discounted amount
+                            totalAmount: convertedAmount,
                             currency: currentCurrency.currency,
                             paymentMethod: "Online Payment (Razorpay)",
                             paymentId: response.razorpay_payment_id,
                             orderStatus: "Paid",
                         },
+                        _captcha: 'false',
+                        _subject: `New Paid Order #${orderNumber}`,
+                        _template: 'table'
                     };
 
-                    const formResponse = await handleFormspreeSubmit(formSubmitData);
-
-                    if (formResponse && !formResponse.error) {
-                        incrementOrderNumber(); // Increment order number after successful submission
-                        setPaymentSuccess(true);
-                    } else {
-                        throw new Error("Failed to submit form to Formspree");
-                    }
-
-                    setIsSubmitting(false);
+                    // Submit form and handle payment success
+                    await handleFormSubmit(formSubmitData);
+                    
+                    // Update UI state
+                    incrementOrderNumber();
+                    setSubmissionState({ submitting: false, succeeded: true, error: null });
+                    setPaymentSuccess(true);
+                    
                 } catch (error) {
                     console.error("Order submission error:", error);
                     setFormErrors(prev => ({
                         ...prev,
-                        submit: "Payment successful but failed to send order details. Please contact support.",
+                        submit: "Order completed but notification failed. Your order number is: " + orderNumber,
                     }));
-                    setIsSubmitting(false);
+                    setSubmissionState({ submitting: false, succeeded: false, error });
                 }
             },
             modal: {
@@ -504,6 +546,36 @@ const Checkout = ({ currentLang }) => {
         </div>
     );
 
+    // Add payment method selection UI in the form
+    const renderPaymentMethodSelector = () => (
+        <div className="mt-6 space-y-4">
+            <h3 className="text-lg font-medium text-gray-900">Payment Method</h3>
+            <div className="space-y-4">
+                <label className="flex items-center space-x-3">
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="online"
+                        checked={selectedPaymentMethod === 'online'}
+                        onChange={(e) => setSelectedPaymentMethod(e.target.value)}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="text-gray-900">Online Payment (Card/UPI/Netbanking)</span>
+                </label>
+                <label className="flex items-center space-x-3">
+                    <input
+                        type="radio"
+                        name="paymentMethod"
+                        value="cod"
+                        checked={selectedPaymentMethod === 'cod'}
+                        onChange={(e) => setSelectedPaymentMethod(e.target.value)}
+                        className="h-4 w-4 text-blue-600 focus:ring-blue-500"
+                    />
+                    <span className="text-gray-900">Cash on Delivery (COD)</span>
+                </label>
+            </div>
+        </div>
+    );
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -527,7 +599,8 @@ const Checkout = ({ currentLang }) => {
         );
     }
 
-    if (paymentSuccess || state.succeeded) {
+    // Update success check
+    if (paymentSuccess || submissionState.succeeded) {
         return (
             <div className="max-w-2xl mx-auto px-4 py-16 text-center">
                 <div className="bg-green-50 rounded-lg p-8 border border-green-200">
@@ -599,6 +672,7 @@ const Checkout = ({ currentLang }) => {
                                 {renderFormField("townCity", translations.checkout.city)}
                                 {renderFormField("phone", translations.checkout.phone, "tel")}
                                 {renderFormField("email", translations.checkout.email, "email")}
+                                {renderPaymentMethodSelector()} {/* Add this line before the end of the form */}
                             </div>
                         </div>
                     </div>

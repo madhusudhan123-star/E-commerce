@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../App.css'
 import product from '../assets/product.jpg';
 import product1 from '../assets/six.jpg';  // Ensure these files exist
@@ -21,6 +22,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import 'swiper/css/zoom';
+import { Star } from "lucide-react";
 
 import related1 from '../assets/product.jpg'; // Using existing product images as placeholders
 import related2 from '../assets/six.jpg';  
@@ -113,12 +115,28 @@ const productSliderStyles = `
       box-shadow: 0 0 0 0 rgba(65, 105, 225, 0);
     }
   }
-  
-  @media (max-width: 768px) {
+    @media (max-width: 768px) {
     .mobile-call-button {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+
+  .pulse-animation {
+    animation: pulse-button 1.5s ease-out infinite;
+    font-weight: bold;
+  }
+  
+  @keyframes pulse-button {
+    0% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
     }
   }
 `;
@@ -144,7 +162,7 @@ const PAYMENT_IMAGES = {
 const CUSTOMER_REVIEWS = [
   {
     id: 1,
-    name: "James Wilson",
+    name: "Jayant Verma",
     date: "August 15, 2024",
     rating: 5,
     content: "I couldn't be happier with my purchase! The Sree Anjaneya Shani Raksha bracelet is beautifully crafted and I can already feel its positive energy. The shipping was fast and the packaging was very secure.",
@@ -153,7 +171,7 @@ const CUSTOMER_REVIEWS = [
   },
   {
     id: 2,
-    name: "Sarah Johnson",
+    name: "Sneha Kapoor",
     date: "July 29, 2024",
     rating: 5,
     content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
@@ -180,7 +198,7 @@ const CUSTOMER_REVIEWS = [
   },
   {
     id: 5,
-    name: "Michael Thompson",
+    name: "Manish Desai",
     date: "May 17, 2024",
     rating: 5,
     content: "Simply amazing! I've been wearing this for two weeks now and have noticed positive changes in my life. Very satisfied with my purchase and will definitely buy more products from this store.",
@@ -188,6 +206,7 @@ const CUSTOMER_REVIEWS = [
     location: "Hyderabad"
   }
 ];
+
 
 const COUNTRY_CURRENCY_MAP = {
   'India': { currency: 'INR', symbol: '₹', rate: 1 },
@@ -227,10 +246,9 @@ const PaymentModeSelector = ({ selectedMode, onChange, translations }) => (
           checked={selectedMode === 'online'}
           onChange={(e) => onChange({ target: { name: 'paymentMode', value: e.target.value } })}
           className="h-5 w-5 text-blue-600"
-        />
-        <div className="ml-4">
+        />          <div className="ml-4">
           <span className="font-medium text-gray-900">Pay Securely Online</span>
-          <p className="text-sm text-green-600">Get 10% instant discount</p>
+          <p className="text-sm text-green-600">Get 15% instant discount</p>
         </div>
       </label>
 
@@ -253,8 +271,14 @@ const PaymentModeSelector = ({ selectedMode, onChange, translations }) => (
 );
 
 const Landing = () => {
+  const navigate = useNavigate();
+  const shippingInfoRef = useRef(null);
   const { language } = useLanguage(); // Get language from context
   const translations = data[language] || data['ENGLISH']; // Use ENGLISH as fallback
+  
+  const scrollToShippingInfo = () => {
+    shippingInfoRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   const [orderDetails, setOrderDetails] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -262,11 +286,10 @@ const Landing = () => {
   const [currentCurrency, setCurrentCurrency] = useState(DEFAULT_CURRENCY);
   const [convertedAmount, setConvertedAmount] = useState(0);
   const [promoCode, setPromoCode] = useState("");
-  const [isPromoApplied, setIsPromoApplied] = useState(false);
-  const [orderNumber, setOrderNumber] = useState(1); // Initial order number
+  const [isPromoApplied, setIsPromoApplied] = useState(false);  const [orderNumber, setOrderNumber] = useState(1); // Initial order number
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  const productPrice = 999; // Discounted price per unit
+  const productPrice = 3990; // Discounted price per unit
   const originalPrice = 6990; // Original price per unit
   const productImages = [product, product1, product2, product3, product4, product5];
   const [isProcessingOrder, setIsProcessingOrder] = useState(false);
@@ -364,12 +387,10 @@ const Landing = () => {
   useEffect(() => {
     if (orderDetails) {
       const foundCurrency = COUNTRY_CURRENCY_MAP[formData.country] || DEFAULT_CURRENCY;
-      setCurrentCurrency(foundCurrency);
+      setCurrentCurrency(foundCurrency);      let baseAmount = orderDetails.totalAmount; // Total amount in INR
+      let discountPercentage = 15;
 
-      let baseAmount = orderDetails.totalAmount; // Total amount in INR
-      let discountPercentage = 10;
-
-      // Apply 10% discount for online payment
+      // Apply 15% discount for online payment
       if (formData.paymentMode === 'online') {
         baseAmount *= (1 - discountPercentage / 100);
       }
@@ -430,11 +451,24 @@ const Landing = () => {
             });
 
             const result = await response.json();
-            console.log('Order submission result:', result);
-
-            if (result.success) {
+            console.log('Order submission result:', result);            if (result.success) {
               incrementOrderNumber();
-              setPaymentSuccess(true);
+              // Create order data to pass to thank you page
+              const orderData = {
+                orderNumber: orderNumber,
+                orderDate: new Date().toISOString(),
+                customerName: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+                phone: formData.phone,
+                shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+                productName: orderDetails.productName,
+                quantity: orderDetails.quantity,
+                amount: `${currentCurrency.symbol} ${convertedAmount}`,
+                paymentMethod: "Cash on Delivery",
+                orderStatus: "Pending"
+              };
+              // Navigate to thank you page with order data
+              navigate('/thank-you', { state: { orderData } });
             } else {
               throw new Error('Order submission failed');
             }
@@ -558,11 +592,25 @@ const Landing = () => {
             }
 
             const result = await formResponse.json();
-            console.log('Payment form submission result:', result);
-
-            if (result.success) {
+            console.log('Payment form submission result:', result);            if (result.success) {
               incrementOrderNumber();
-              setPaymentSuccess(true);
+              // Create order data to pass to thank you page
+              const orderData = {
+                orderNumber: orderNumber,
+                orderDate: new Date().toISOString(),
+                customerName: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email,
+                phone: formData.phone,
+                shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+                productName: orderDetails.productName,
+                quantity: orderDetails.quantity,
+                amount: `${currentCurrency.symbol} ${convertedAmount}`,
+                paymentMethod: "Online Payment (Razorpay)",
+                paymentId: response.razorpay_payment_id,
+                orderStatus: "Paid"
+              };
+              // Navigate to thank you page with order data
+              navigate('/thank-you', { state: { orderData } });
             } else {
               throw new Error("Failed to submit order details");
             }
@@ -673,14 +721,12 @@ const Landing = () => {
         {formErrors.paymentMode && (
           <p className="text-red-500 text-sm mt-2">{formErrors.paymentMode}</p>
         )}
-      </div>
-
-      {/* Discount Banner */}
+      </div>      {/* Discount Banner */}
       <div className="mt-6 bg-gradient-to-r from-orange-500 to-pink-500 text-white p-4 rounded-xl transform hover:scale-105 transition-all duration-300">
         <div className="flex items-center justify-center gap-2">
           <span className="text-2xl">🎉</span>
           <p className="text-center font-medium">
-            Enjoy a 10% discount when you prepay online! ✨
+            Enjoy a 15% discount when you prepay online! ✨
           </p>
         </div>
       </div>
@@ -733,44 +779,7 @@ const Landing = () => {
       </div>
     );
   }
-
-  if (paymentSuccess) {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-95 z-50">
-        <div className="max-w-2xl w-full mx-auto px-4 transform animate-fadeIn">
-          <div className="bg-green-50 rounded-2xl p-8 border border-green-200 shadow-xl">
-            <div className="w-16 h-16 mx-auto mb-6">
-              <svg className="w-full h-full text-green-500 animate-checkmark" viewBox="0 0 24 24">
-                <path
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  d="M20,6L9,17l-5-5"
-                  className="animate-draw"
-                />
-              </svg>
-            </div>
-            <h2 className="text-3xl font-bold text-green-600 mb-4 animate-slideUp">
-              {translations?.checkout?.successfully || 'Order Successful!'}
-            </h2>
-            <p className="text-gray-600 mb-2 animate-slideUp delay-100">
-              {`${translations?.checkout?.orderNumber || 'Order Number'}: ${orderNumber}`}
-            </p>
-            <p className="text-gray-600 mb-6 animate-slideUp delay-200">
-              {translations?.checkout?.thank || 'Thank you for your purchase!'}
-            </p>
-            <button
-              // onClick={() => navigate('/')}
-              className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 
-                                     transition-all duration-300 transform hover:scale-105 animate-slideUp delay-300"
-            >
-              {translations?.checkout?.continue || 'Continue Shopping'}
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  // Payment success is now handled by redirecting to the Thank You page
   
   const LoadingOverlay = () => (
     isProcessingOrder && (
@@ -787,32 +796,45 @@ const Landing = () => {
       <LoadingOverlay />
       <MobileCallButton />
       {/* Hero Section with Enhanced Design */}
-      <div className="text-black py-8 mb-8">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <img src={logo} alt="Logo" className="h-24 pl-5"/>
-          <h1 className="text-center text-4xl md:text-6xl font-bold">
-            Sree Anjaneya Shani Raksha Kavach
-          </h1>
-          {/* YouTube Subscribe Button */}
+      <div className="text-black">        
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-gradient-to-r from-yellow-100 via-red-100 to-yellow-100 py-6 px-4 rounded-lg shadow-md">
+        {/* Hanuman Image */}
+        <img src={logo} alt="Logo" className="h-24 pl-5"/>
+
+        {/* Title */}
+        <h1 className="text-center text-4xl md:text-6xl font-bold text-red-700 drop-shadow-sm">
+          Sree Anjaneya Shani Raksha Kavach
+        </h1>
+
+        {/* YouTube Subscribe Button */}
+        <a 
+          href="https://www.youtube.com/channel/UCvVPuK65Uhb_ts8qT4t0CWQ?sub_confirmation=1" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="group flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
+          aria-label="Subscribe to our YouTube channel"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span className="flex items-center gap-1">
+            <span className="font-semibold">Subscription</span>
+          </span>
+        </a>
+      </div>
+
+        <div className="mb-8 mt-5 flex justify-center">
           <a 
-            href="https://www.youtube.com/channel/UCvVPuK65Uhb_ts8qT4t0CWQ?sub_confirmation=1" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
-            aria-label="Subscribe to our YouTube channel"
+            href="tel:+919908030444" 
+            className="flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-5 px-8 rounded-lg shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 text-2xl pulse-animation"
           >
-            
-            {/* YouTube Icon */}
-            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            
-            <span className="flex items-center gap-1">
-              <span className="font-semibold">subscription </span>
-            </span>
-            
+            Call Now: 9908030444
           </a>
-        </div>
+      </div>              
+{/*         
         <div className="mb-8 mt-5 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-2xl">
           <div className="flex flex-wrap items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -826,15 +848,24 @@ const Landing = () => {
                 <p className="text-sm text-blue-100">Enjoy divine protection with our blessed Shani Raksha Kavach</p>
               </div>
             </div>
-            <div className="mt-3 md:mt-0">
+            <div className="flex items-center gap-3 mt-3 md:mt-0">
               <div className="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold text-lg">
                 Save ₹{originalPrice - productPrice}
               </div>
+              <a 
+                href="tel:+919908030444" 
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium py-3 px-5 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 text-lg pulse-animation"
+              >
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Call Now: 9908030444
+              </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>      
-      <div className="max-w-7xl mx-auto px-4 pb-12">
+      <div className="max-w-7xl mx-auto pb-12">
         {/* Special Offer Banner */}
         
         {/* Product Selection Section with Glass Morphism */}
@@ -960,8 +991,7 @@ const Landing = () => {
                         <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                           <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> In Stock
                         </div>
-                      </div>                        {/* Rating Stars */}                      
-                      <div className="flex items-center mb-3">
+                      </div>                        {/* Rating Stars */}                        <div className="flex items-center mb-3">
                         {Array(5).fill().map((_, i) => (
                           <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
@@ -1034,10 +1064,19 @@ const Landing = () => {
                                 {quantity} items selected
                               </div>
                             )}
-                          </div>
+                          </div>                          
+                          {/* Buy Now Button */}
+                          <button
+                            onClick={scrollToShippingInfo}
+                            className="mt-4 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
+                          >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            Buy Now
+                          </button>
                         </div>
-                        
-                        {/* Delivery Information */}
+                          {/* Delivery Information */}
                         <div className="flex gap-3 mt-4">
                           <div className="flex-1 border border-gray-200 rounded-lg p-3 bg-white">
                             <div className="flex items-center text-green-600 mb-2">
@@ -1055,9 +1094,17 @@ const Landing = () => {
                               </svg>
                               <span className="font-medium">Easy Returns</span>
                             </div>
-                            <p className="text-xs text-gray-500">30-day hassle-free return policy</p>
+                            <p className="text-xs text-gray-500">15-day hassle-free return policy</p>
                           </div>
-                        </div>
+                        </div>                        {/* Call Button */}                        <a 
+                          href="tel:+919908030444" 
+                          className="mt-5 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          Call Now: 9908030444
+                        </a>
                       </div></div>
                     
                     <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100 mb-4">
@@ -1116,19 +1163,8 @@ const Landing = () => {
                           <span className="text-gray-700">Perfect for spiritual protection</span>
                         </div>
                       </div>
-                      
-                      <div className="mt-4 bg-amber-50 p-3 rounded-lg border border-amber-100 flex items-center">
-                        <div className="mr-3 bg-amber-100 p-1 rounded-full text-amber-600">
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm11 4H4v2h12V6zm-2 3H6v2h8V9zm-2 3H8v2h4v-2z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <div>
-                          <span className="font-semibold text-amber-700">FREE BONUS:</span> 
-                          <span className="text-gray-700"> Ring encapsulated with the energy of Hanuman Chalisa protects you from every vulnerability</span>
-                        </div>
-                      </div>
-                    </div>                  </div>
+                    </div>                  
+                  </div>
                 </div>
 
               </div>
@@ -1178,8 +1214,7 @@ const Landing = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Billing Details Section */}
           <div className="space-y-8">
-            <div className="bg-white bg-opacity-70 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white border-opacity-20 transition-all duration-300 hover:shadow-2xl">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
+            <div className="bg-white bg-opacity-70 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white border-opacity-20 transition-all duration-300 hover:shadow-2xl">              <h2 ref={shippingInfoRef} className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
                 {translations?.checkout?.sectitle || 'Shipping Information'}
               </h2>
 
@@ -1222,7 +1257,7 @@ const Landing = () => {
             </div>
           </div>
         </div>        {/* Customer Reviews Section */}
-        <div className="mt-20 mb-16">
+        {/* <div className="mt-20 mb-16">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-gray-800 mb-3">Customer Reviews</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -1242,53 +1277,7 @@ const Landing = () => {
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
           >
-            {[
-              {
-                id: 1,
-                name: "James Wilson",
-                date: "August 15, 2024",
-                rating: 5,
-                content: "I couldn't be happier with my purchase! The Sree Anjaneya Shani Raksha bracelet is beautifully crafted and I can already feel its positive energy. The shipping was fast and the packaging was very secure.",
-                verified: true,
-                location: "Mumbai"
-              },
-              {
-                id: 2,
-                name: "Sarah Johnson",
-                date: "July 29, 2024",
-                rating: 5,
-                content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
-                verified: true,
-                location: "Delhi"
-              },
-              {
-                id: 3,
-                name: "Rahul Sharma",
-                date: "July 12, 2024",
-                rating: 4,
-                content: "The product arrived on time and was packaged very well. The craftsmanship is excellent and the energy is wonderful. I'm giving 4 stars only because I wish it came with more information about its spiritual properties.",
-                verified: true,
-                location: "Bangalore"
-              },
-              {
-                id: 4,
-                name: "Priya Patel",
-                date: "June 28, 2024",
-                rating: 5,
-                content: "I bought this as a gift for my father and he absolutely loves it! The quality is superior and the design is very elegant. Customer service was excellent when I had questions about the shipping.",
-                verified: true,
-                location: "Chennai"
-              },
-              {
-                id: 5,
-                name: "Michael Thompson",
-                date: "May 17, 2024",
-                rating: 5,
-                content: "Simply amazing! I've been wearing this for two weeks now and have noticed positive changes in my life. Very satisfied with my purchase and will definitely buy more products from this store.",
-                verified: true,
-                location: "Hyderabad"
-              }
-            ].map((review) => (
+            {CUSTOMER_REVIEWS.map((review) => (
               <SwiperSlide key={review.id}>
                 <div className="review-card">
                   <div className="review-header">
@@ -1334,8 +1323,83 @@ const Landing = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
         
+        <section className="mt-20 mb-16 px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+          Customer Reviews
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          See what our customers have to say about their experience with Sree Anjaneya Shani Raksha
+        </p>
+      </div>
+
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        spaceBetween={24}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 }
+        }}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+      >
+        {CUSTOMER_REVIEWS.map((review) => (
+          <SwiperSlide key={review.id}>
+            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col h-full">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xl font-bold mr-4">
+                  {review.name.charAt(0)}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800">
+                    {review.name}
+                  </h3>
+                  <p className="text-sm text-gray-500">
+                    {review.date} • {review.location}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex mb-4">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.947a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.44a1 1 0 00-.364 1.118l1.287 3.947c.3.921-.755 1.688-1.538 1.118l-3.361-2.44a1 1 0 00-1.175 0l-3.36 2.44c-.783.57-1.838-.197-1.538-1.118l1.286-3.947a1 1 0 00-.364-1.118L2.025 9.374c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.947z" />
+                  </svg>
+                ))}
+              </div>
+
+              <p className="text-gray-700 flex-grow mb-6">
+                “{review.content}”
+              </p>
+
+              <div className="flex items-center text-sm text-green-600 font-medium">
+                <svg
+                  className="w-5 h-5 mr-2"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                Verified Purchase
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
+
         {/* Trust Badges Section */}
         <div className="mt-16 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -1369,7 +1433,7 @@ const Landing = () => {
 // Mobile Call Button Component
 const MobileCallButton = () => {
   // Phone number to call
-  const phoneNumber = "+919988776655"; // Replace with your actual customer support number
+  const phoneNumber = "+919908030444"; // Customer support number
   
   return (
     <a
@@ -1377,11 +1441,18 @@ const MobileCallButton = () => {
       className="mobile-call-button"
       aria-label="Call customer support"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z" />
-      </svg>
+      <div className="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z" />
+        </svg>
+        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+        </span>
+      </div>
     </a>
   );
 };
 
 export default Landing;
+

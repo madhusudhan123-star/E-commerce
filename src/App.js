@@ -19,6 +19,7 @@ import Shipping from './pages/Shipping';
 import Cancellation from './pages/Cancellation';
 import Checkouts from './pages/Checkouts';
 import Landing from './pages/Landing';
+import ThankYou from './pages/ThankYou';
 import Layout from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -35,9 +36,9 @@ function App() {
         <CartProvider>
           <LanguageProvider>
             <BrowserRouter>
-              <Routes>
-                {/* Landing page without navbar and footer */}
-                <Route path="/landing" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
+              <Routes>                {/* Landing page without navbar and footer */}
+                <Route path="/sree_anjaneya" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
+                <Route path="/thank-you" element={<ErrorBoundary><ThankYou /></ErrorBoundary>} />
                 
                 {/* All other routes with navbar and footer */}
                 <Route path="/" element={

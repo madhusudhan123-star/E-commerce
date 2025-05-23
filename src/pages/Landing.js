@@ -75,87 +75,51 @@ const productSliderStyles = `
     border-radius: 5px;
   }
   
-  .thumbs-swiper .swiper-slide {
+  /* Mobile Call Button Styles */
+  .mobile-call-button {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #4169E1, #7e4fe9);
+    border-radius: 50%;
+    box-shadow: 0 6px 16px rgba(65, 105, 225, 0.4);
+    z-index: 999;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    overflow: hidden;
+    animation: pulse-ring 2s ease-out infinite;
   }
   
-  .thumbs-swiper .swiper-slide-thumb-active {
-    border-color: #4169E1;
-    opacity: 1 !important;
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(1) rotate(-5deg); }
-    50% { transform: scale(1.05) rotate(-3deg); }
-    100% { transform: scale(1) rotate(-5deg); }
-  }
-  
-  .animate-pulse {
-    animation: pulse 2s infinite;
-  }
-  
-  /* Related Products Carousel Styles */
-  .related-products-swiper {
-    padding: 20px 0;
-  }
-  
-  .related-products-swiper .swiper-slide {
-    height: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .related-products-swiper .swiper-slide:hover {
-    transform: translateY(-10px);
-  }
-  
-  .product-card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-  }
-  
-  .product-card:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .product-card .img-container {
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .product-card .discount-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: #FF6B6B;
+  .mobile-call-button svg {
     color: white;
-    font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
+    width: 28px;
+    height: 28px;
   }
   
-  .product-card .product-details {
-    padding: 15px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+  .mobile-call-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.6);
   }
   
-  .product-card .price-container {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgba(65, 105, 225, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(65, 105, 225, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(65, 105, 225, 0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-call-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 `;
 
@@ -176,6 +140,55 @@ const PAYMENT_IMAGES = {
   ssl: "https://cdn-icons-png.flaticon.com/512/7947/7947657.png"
 };
 
+// Customer Reviews Data
+const CUSTOMER_REVIEWS = [
+  {
+    id: 1,
+    name: "James Wilson",
+    date: "August 15, 2024",
+    rating: 5,
+    content: "I couldn't be happier with my purchase! The Sree Anjaneya Shani Raksha bracelet is beautifully crafted and I can already feel its positive energy. The shipping was fast and the packaging was very secure.",
+    verified: true,
+    location: "Mumbai"
+  },
+  {
+    id: 2,
+    name: "Sarah Johnson",
+    date: "July 29, 2024",
+    rating: 5,
+    content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
+    verified: true,
+    location: "Delhi"
+  },
+  {
+    id: 3,
+    name: "Rahul Sharma",
+    date: "July 12, 2024",
+    rating: 4,
+    content: "The product arrived on time and was packaged very well. The craftsmanship is excellent and the energy is wonderful. I'm giving 4 stars only because I wish it came with more information about its spiritual properties.",
+    verified: true,
+    location: "Bangalore"
+  },
+  {
+    id: 4,
+    name: "Priya Patel",
+    date: "June 28, 2024",
+    rating: 5,
+    content: "I bought this as a gift for my father and he absolutely loves it! The quality is superior and the design is very elegant. Customer service was excellent when I had questions about the shipping.",
+    verified: true,
+    location: "Chennai"
+  },
+  {
+    id: 5,
+    name: "Michael Thompson",
+    date: "May 17, 2024",
+    rating: 5,
+    content: "Simply amazing! I've been wearing this for two weeks now and have noticed positive changes in my life. Very satisfied with my purchase and will definitely buy more products from this store.",
+    verified: true,
+    location: "Hyderabad"
+  }
+];
+
 const COUNTRY_CURRENCY_MAP = {
   'India': { currency: 'INR', symbol: '₹', rate: 1 },
   'United States': { currency: 'USD', symbol: '$', rate: 0.012 },
@@ -194,7 +207,7 @@ const COUNTRY_CURRENCY_MAP = {
   'South Africa': { currency: 'ZAR', symbol: 'R', rate: 0.22 }
 };
 
-const url = "https://razorpaybackend-wgbh.onrender.com";
+const url = "http://localhost:5000";
 
 const DEFAULT_COUNTRY = 'India';
 const DEFAULT_CURRENCY = COUNTRY_CURRENCY_MAP[DEFAULT_COUNTRY];
@@ -769,15 +782,15 @@ const Landing = () => {
       </div>
     )
   );
-
   return (
     <div className="">
       <LoadingOverlay />
+      <MobileCallButton />
       {/* Hero Section with Enhanced Design */}
       <div className="text-black py-8 mb-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <img src={logo} alt="Logo" className="h-24 pl-5"/>
-          <h1 className="text-center font-bold">
+          <h1 className="text-center text-4xl md:text-6xl font-bold">
             Sree Anjaneya Shani Raksha Kavach
           </h1>
           {/* YouTube Subscribe Button */}
@@ -800,9 +813,7 @@ const Landing = () => {
             
           </a>
         </div>
-      </div>      <div className="max-w-7xl mx-auto px-4 pb-12">
-        {/* Special Offer Banner */}
-        <div className="mb-8 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-2xl">
+        <div className="mb-8 mt-5 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-2xl">
           <div className="flex flex-wrap items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="bg-white p-2 rounded-full text-blue-600 animate-bounce">
@@ -822,6 +833,9 @@ const Landing = () => {
             </div>
           </div>
         </div>
+      </div>      
+      <div className="max-w-7xl mx-auto px-4 pb-12">
+        {/* Special Offer Banner */}
         
         {/* Product Selection Section with Glass Morphism */}
         <div className='flex flex-col md:flex-row items-start gap-8 mb-12'>
@@ -946,8 +960,7 @@ const Landing = () => {
                         <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                           <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> In Stock
                         </div>
-                      </div>
-                        {/* Rating Stars */}
+                      </div>                        {/* Rating Stars */}                      
                       <div className="flex items-center mb-3">
                         {Array(5).fill().map((_, i) => (
                           <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -1208,8 +1221,121 @@ const Landing = () => {
               {renderOrderSummary()}
             </div>
           </div>
+        </div>        {/* Customer Reviews Section */}
+        <div className="mt-20 mb-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-gray-800 mb-3">Customer Reviews</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              See what our customers have to say about their experience with Sree Anjaneya Shani Raksha
+            </p>
+          </div>
+          
+          <Swiper
+            className="reviews-swiper"
+            modules={[Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 }
+            }}
+            pagination={{ clickable: true }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+          >
+            {[
+              {
+                id: 1,
+                name: "James Wilson",
+                date: "August 15, 2024",
+                rating: 5,
+                content: "I couldn't be happier with my purchase! The Sree Anjaneya Shani Raksha bracelet is beautifully crafted and I can already feel its positive energy. The shipping was fast and the packaging was very secure.",
+                verified: true,
+                location: "Mumbai"
+              },
+              {
+                id: 2,
+                name: "Sarah Johnson",
+                date: "July 29, 2024",
+                rating: 5,
+                content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
+                verified: true,
+                location: "Delhi"
+              },
+              {
+                id: 3,
+                name: "Rahul Sharma",
+                date: "July 12, 2024",
+                rating: 4,
+                content: "The product arrived on time and was packaged very well. The craftsmanship is excellent and the energy is wonderful. I'm giving 4 stars only because I wish it came with more information about its spiritual properties.",
+                verified: true,
+                location: "Bangalore"
+              },
+              {
+                id: 4,
+                name: "Priya Patel",
+                date: "June 28, 2024",
+                rating: 5,
+                content: "I bought this as a gift for my father and he absolutely loves it! The quality is superior and the design is very elegant. Customer service was excellent when I had questions about the shipping.",
+                verified: true,
+                location: "Chennai"
+              },
+              {
+                id: 5,
+                name: "Michael Thompson",
+                date: "May 17, 2024",
+                rating: 5,
+                content: "Simply amazing! I've been wearing this for two weeks now and have noticed positive changes in my life. Very satisfied with my purchase and will definitely buy more products from this store.",
+                verified: true,
+                location: "Hyderabad"
+              }
+            ].map((review) => (
+              <SwiperSlide key={review.id}>
+                <div className="review-card">
+                  <div className="review-header">
+                    <div className="review-avatar">
+                      {review.name.charAt(0)}
+                    </div>
+                    <div className="review-info">
+                      <div className="review-name">{review.name}</div>
+                      <div className="review-date">{review.date} • {review.location}</div>
+                    </div>
+                  </div>
+                  
+                  <div className="review-rating">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="star">
+                        {i < review.rating ? "★" : "☆"}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <p className="review-content">
+                    "{review.content}"
+                  </p>
+                  
+                  <div className="review-footer">
+                    <div className="verified-badge">
+                      <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Verified Purchase
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
+          <div className="text-center mt-10">
+            <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
+              View All Reviews
+              <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </div>
         </div>
-
+        
         {/* Trust Badges Section */}
         <div className="mt-16 text-center">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -1237,6 +1363,24 @@ const Landing = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+// Mobile Call Button Component
+const MobileCallButton = () => {
+  // Phone number to call
+  const phoneNumber = "+919988776655"; // Replace with your actual customer support number
+  
+  return (
+    <a
+      href={`tel:${phoneNumber}`}
+      className="mobile-call-button"
+      aria-label="Call customer support"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z" />
+      </svg>
+    </a>
   );
 };
 

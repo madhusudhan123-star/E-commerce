@@ -137,7 +137,7 @@ const Navbar = () => {
                     >
                         <FontAwesomeIcon icon={faBars} />
                     </button>
-                    <div className='w-1/2'> <a href='/'><img className='w-[10%]' src={translations.home.logo} alt="logo" /> </a></div>
+                    <div className='w-2/3'> <a href='/'><img className='w-[50%] md:w-[10%]' src={translations.home.logo} alt="logo" /> </a></div>
 
 
                     {/* Desktop menu */}

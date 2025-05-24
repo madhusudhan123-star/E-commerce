@@ -166,6 +166,7 @@ const Landing = () => {
   const [hasInteracted, setHasInteracted] = useState(false);
   const [soundLoaded, setSoundLoaded] = useState(false);
   const [manualPlayAttempted, setManualPlayAttempted] = useState(false);
+  const [autoPlayFailed, setAutoPlayFailed] = useState(false);
 
   // Stop ringing when user interacts with the call button
   const handleCallClick = () => {
@@ -176,107 +177,108 @@ const Landing = () => {
     }
   };
 
-  // Function to manually attempt playing sound - called by user interaction
-  const attemptPlaySound = () => {
-    setManualPlayAttempted(true);
+  // Function to attempt playing sound with all possible browser-specific tricks
+  const attemptPlaySound = (isAutoPlay = false) => {
+    if (!isAutoPlay) {
+      setManualPlayAttempted(true);
+    }
+    
     if (audioRef.current && soundLoaded) {
-      audioRef.current.play().then(() => {
-        console.log("Sound playing successfully");
-      }).catch(error => {
-        console.log("Manual play attempt failed:", error);
-      });
+      // Try multiple approaches to enable audio
+      
+      // 1. Try using AudioContext to unlock audio on iOS
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioContext = new AudioContext();
+        audioContext.resume().then(() => console.log("AudioContext resumed"));
+      } catch (e) {
+        console.log("AudioContext not supported");
+      }
+      
+      // 2. Try direct play with promise handling
+      const playPromise = audioRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          console.log("Sound playing successfully");
+          if (isAutoPlay) {
+            // If auto-play succeeded, we don't need the manual play button
+            setManualPlayAttempted(true);
+          }
+        }).catch(error => {
+          console.log(isAutoPlay ? "Auto play failed:" : "Manual play attempt failed:", error);
+          if (isAutoPlay) {
+            setAutoPlayFailed(true);
+          }
+          
+          // 3. Fall back to muted playback and then unmute (works on some mobile browsers)
+          audioRef.current.muted = true;
+          audioRef.current.volume = 0;
+          audioRef.current.play().then(() => {
+            setTimeout(() => {
+              audioRef.current.muted = false;
+              audioRef.current.volume = 1.0;
+              console.log("Attempting unmute after muted play");
+            }, 1000);
+          }).catch(err => {
+            console.log("Even muted playback failed:", err);
+          });
+        });
+      }
     }
   };
 
-  // Setup the ringing effect after page load with enhanced cross-device support
+  // Setup the ringing effect immediately on page load
   useEffect(() => {
     // Mark sound as loaded when audio is ready
     const handleCanPlayThrough = () => {
       console.log("Audio loaded and ready to play");
       setSoundLoaded(true);
+      
+      // Try auto-playing immediately when the sound is loaded
+      attemptPlaySound(true);
+      
+      // Set ringing animation regardless of sound playback
+      setIsRinging(true);
     };
     
     if (audioRef.current) {
+      // Add event listener for when audio is ready to play
       audioRef.current.addEventListener('canplaythrough', handleCanPlayThrough);
       
-      // iOS Safari specific initialization
-      audioRef.current.load(); // Explicitly load for iOS
+      // iOS Safari specific preload
+      audioRef.current.load();
+      
+      // Preload immediately
+      audioRef.current.preload = "auto";
     }
     
-    const timer = setTimeout(() => {
-      setIsRinging(true);
-      
-      // Try to play sound if it's loaded
-      if (audioRef.current && soundLoaded) {
-        tryPlayAudio();
-      }
-    }, 5000);
-
-    // Handle user interaction to enable audio
+    // Handle user interaction to enable audio if auto-play failed
     const handleInteraction = () => {
       setHasInteracted(true);
       
-      // Try to play sound on interaction if we're ringing
-      if (isRinging && audioRef.current && soundLoaded) {
-        tryPlayAudio();
+      if (autoPlayFailed && isRinging && !manualPlayAttempted) {
+        attemptPlaySound();
       }
     };
-
-    // Detect if device is mobile
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-    
-    // Try various techniques to play audio across different browsers and devices
-    function tryPlayAudio() {
-      // For iOS devices, we need to use a user gesture to play audio
-      if (isMobileDevice() && !hasInteracted) {
-        console.log("Mobile device detected, waiting for interaction");
-        return;
-      }
-
-      // Create a user gesture context for iOS
-      const context = new (window.AudioContext || window.webkitAudioContext)();
-      context.resume().then(() => {
-        console.log("AudioContext resumed successfully");
-      });
-      
-      // Try to play with proper error handling
-      const playPromise = audioRef.current.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          console.log("Audio playing successfully");
-        }).catch(error => {
-          console.log('Audio playback error:', error);
-          
-          // Fall back to muted playback and then unmute (works on some mobile browsers)
-          if (!manualPlayAttempted) {
-            audioRef.current.muted = true;
-            audioRef.current.play().then(() => {
-              setTimeout(() => {
-                audioRef.current.muted = false;
-              }, 1000);
-            }).catch(err => {
-              console.log("Even muted playback failed:", err);
-            });
-          }
-        });
-      }
-    }
 
     window.addEventListener('click', handleInteraction);
     window.addEventListener('touchstart', handleInteraction);
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('click', handleInteraction);
       window.removeEventListener('touchstart', handleInteraction);
       if (audioRef.current) {
         audioRef.current.removeEventListener('canplaythrough', handleCanPlayThrough);
       }
     };
-  }, [hasInteracted, isRinging, soundLoaded, manualPlayAttempted]);
+  }, [isRinging, autoPlayFailed, manualPlayAttempted]);
+
+  // Additional useEffect to set ringing state immediately
+  useEffect(() => {
+    // Set ringing to true immediately on component mount
+    setIsRinging(true);
+  }, []);
 
   // Fetch initial order number
   useEffect(() => {
@@ -826,18 +828,19 @@ const Landing = () => {
       <LoadingOverlay />
       <MobileCallButton />
       
-      {/* Audio Element for Ring Sound with enhanced compatibility attributes */}
+      {/* Audio Element with enhanced autoplay ability */}
       <audio 
         ref={audioRef} 
         src={ringSound} 
         loop 
         preload="auto"
-        playsInline  // Important for iOS
+        playsInline
+        autoPlay
         muted={false}
       />
       
-      {/* Sound permission indicator for mobile - improved with manual play button */}
-      {isRinging && !manualPlayAttempted && (
+      {/* Sound indicator only shown if auto-play fails */}
+      {isRinging && autoPlayFailed && !manualPlayAttempted && (
         <div 
           className="fixed bottom-24 right-4 z-50 bg-black bg-opacity-80 text-white px-4 py-3 rounded-lg shadow-lg animate-pulse"
           onClick={attemptPlaySound}
@@ -885,7 +888,7 @@ const Landing = () => {
             href="tel:+919908030444" 
             onClick={() => {
               handleCallClick();
-              attemptPlaySound(); // Try to enable sound when user interacts with call button
+              if (autoPlayFailed) attemptPlaySound(); 
             }}
             className={`flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-5 px-8 rounded-lg shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 text-2xl ${isRinging ? 'animate-call-button' : 'pulse-animation'}`}
           >

@@ -2,19 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../App.css'
 import product from '../assets/product.jpg';
-import product1 from '../assets/six.jpg';  // Ensure these files exist
-import product2 from '../assets/seven.jpg';  // Ensure these files exist
-import product3 from '../assets/eight.jpg';  // Ensure these files exist
-import product4 from '../assets/nine.jpg';  // Ensure these files exist
-import product5 from '../assets/ten.jpg';  // Ensure these files exist
-import product6 from '../assets/one.jpg';  // Ensure these files exist
-import product7 from '../assets/two.jpg';  // Ensure these files exist
-import product8 from '../assets/three.jpg';  // Ensure these files exist
-import product9 from '../assets/four.jpg';  // Ensure these files exist
-import product10 from '../assets/five.jpg';  // Ensure these files exist
-import { useLanguage } from '../context/LanguageContext'; // Add this import
-import data from '../assets/data'; // Add this import
+import product1 from '../assets/six.jpg';
+import product2 from '../assets/seven.jpg';
+import product3 from '../assets/eight.jpg';
+import product4 from '../assets/nine.jpg';
+import product5 from '../assets/ten.jpg';
+import product6 from '../assets/one.jpg';
+import product7 from '../assets/two.jpg';
+import product8 from '../assets/three.jpg';
+import product9 from '../assets/four.jpg';
+import product10 from '../assets/five.jpg';
+import { useLanguage } from '../context/LanguageContext';
+import data from '../assets/data';
 import logo from '../assets/logo.png';
+import ringSound from '../assets/phone-ring.mp3'; // Add import for ring sound
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Thumbs, FreeMode, Zoom, Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -22,124 +23,17 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 import 'swiper/css/zoom';
-import { Star } from "lucide-react";
-
-import related1 from '../assets/product.jpg'; // Using existing product images as placeholders
-import related2 from '../assets/six.jpg';  
-import related3 from '../assets/seven.jpg';  
-import related4 from '../assets/eight.jpg';
-
-
-// Custom CSS for Product Slider
-const productSliderStyles = `
-  .main-product-swiper {
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  .main-product-swiper .swiper-slide {
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-  
-  .main-product-swiper .swiper-button-next,
-  .main-product-swiper .swiper-button-prev {
-    color: #4169E1;
-    background: rgba(255, 255, 255, 0.8);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  .main-product-swiper .swiper-button-next:hover,
-  .main-product-swiper .swiper-button-prev:hover {
-    background: rgba(255, 255, 255, 0.95);
-    transform: scale(1.1);
-  }
-  
-  .main-product-swiper .swiper-button-next:after,
-  .main-product-swiper .swiper-button-prev:after {
-    font-size: 18px;
-  }
-  
-  .main-product-swiper .swiper-pagination-bullet {
-    width: 10px;
-    height: 10px;
-    background: rgba(65, 105, 225, 0.5);
-    transition: all 0.3s ease;
-  }
-  
-  .main-product-swiper .swiper-pagination-bullet-active {
-    background: #4169E1;
-    width: 20px;
-    border-radius: 5px;
-  }
-  
-  /* Mobile Call Button Styles */
-  .mobile-call-button {
-    display: none;
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #4169E1, #7e4fe9);
-    border-radius: 50%;
-    box-shadow: 0 6px 16px rgba(65, 105, 225, 0.4);
-    z-index: 999;
-    transition: all 0.3s ease;
-    animation: pulse-ring 2s ease-out infinite;
-  }
-  
-  .mobile-call-button svg {
-    color: white;
-    width: 28px;
-    height: 28px;
-  }
-  
-  .mobile-call-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(65, 105, 225, 0.6);
-  }
-  
-  @keyframes pulse-ring {
-    0% {
-      box-shadow: 0 0 0 0 rgba(65, 105, 225, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 15px rgba(65, 105, 225, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(65, 105, 225, 0);
-    }
-  }
-    @media (max-width: 768px) {
-    .mobile-call-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
-  .pulse-animation {
-    animation: pulse-button 1.5s ease-out infinite;
-    font-weight: bold;
-  }
-  
-  @keyframes pulse-button {
-    0% {
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-    }
-    70% {
-      box-shadow: 0 0 0 12px rgba(16, 185, 129, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-    }
-  }
-`;
+// Import functions and components from payment.js
+import { 
+  productSliderStyles, 
+  CUSTOMER_REVIEWS, 
+  COUNTRY_CURRENCY_MAP, 
+  PaymentModeSelector, 
+  MobileCallButton,
+  validateForm,
+  handleSubmit as paymentHandleSubmit,
+  handleRazorpayPayment as paymentHandleRazorpayPayment
+} from '../utils/payment';
 
 // Insert the styles into the document head
 if (typeof document !== 'undefined') {
@@ -148,145 +42,123 @@ if (typeof document !== 'undefined') {
   document.head.appendChild(styleElement);
 }
 
-const PAYMENT_IMAGES = {
-  visa: "/assets/visa.svg",
-  mastercard: "/assets/mastercard.svg",
-  rupay: "/assets/rupay.svg",
-  razorpay: "https://razorpay.com/assets/razorpay-glyph.svg",
-  secure: "https://cdn-icons-png.flaticon.com/512/6195/6195702.png",
-  pci: "https://cdn-icons-png.flaticon.com/512/6107/6107137.png",
-  ssl: "https://cdn-icons-png.flaticon.com/512/7947/7947657.png"
-};
+// Backend URL
+const url = "https://razorpaybackend-wgbh.onrender.com";
 
-// Customer Reviews Data
-const CUSTOMER_REVIEWS = [
-  {
-    id: 1,
-    name: "Jayant Verma",
-    date: "August 15, 2024",
-    rating: 5,
-    content: "I couldn't be happier with my purchase! The Sree Anjaneya Shani Raksha bracelet is beautifully crafted and I can already feel its positive energy. The shipping was fast and the packaging was very secure.",
-    verified: true,
-    location: "Mumbai"
-  },
-  {
-    id: 2,
-    name: "Sneha Kapoor",
-    date: "July 29, 2024",
-    rating: 5,
-    content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
-    verified: true,
-    location: "Delhi"
-  },
-  {
-    id: 3,
-    name: "Rahul Sharma",
-    date: "July 12, 2024",
-    rating: 4,
-    content: "The product arrived on time and was packaged very well. The craftsmanship is excellent and the energy is wonderful. I'm giving 4 stars only because I wish it came with more information about its spiritual properties.",
-    verified: true,
-    location: "Bangalore"
-  },
-  {
-    id: 4,
-    name: "Priya Patel",
-    date: "June 28, 2024",
-    rating: 5,
-    content: "I bought this as a gift for my father and he absolutely loves it! The quality is superior and the design is very elegant. Customer service was excellent when I had questions about the shipping.",
-    verified: true,
-    location: "Chennai"
-  },
-  {
-    id: 5,
-    name: "Manish Desai",
-    date: "May 17, 2024",
-    rating: 5,
-    content: "Simply amazing! I've been wearing this for two weeks now and have noticed positive changes in my life. Very satisfied with my purchase and will definitely buy more products from this store.",
-    verified: true,
-    location: "Hyderabad"
+// New utility functions for email and payment operations
+const sendOrderConfirmationEmail = async (customerEmail, orderDetails, customerDetails) => {
+  try {
+    const response = await fetch(`${url}/send-order-confirmation`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        customerEmail,
+        orderDetails,
+        customerDetails
+      })
+    });
+    
+    const result = await response.json();
+    console.log("Order confirmation email result:", result);
+    return result;
+  } catch (error) {
+    console.error("Failed to send order confirmation email:", error);
+    return { success: false, error: error.message };
   }
-];
-
-
-const COUNTRY_CURRENCY_MAP = {
-  'India': { currency: 'INR', symbol: '₹', rate: 1 },
-  'United States': { currency: 'USD', symbol: '$', rate: 0.012 },
-  'United Kingdom': { currency: 'GBP', symbol: '£', rate: 0.0097 },
-  'European Union': { currency: 'EUR', symbol: '€', rate: 0.011 },
-  'Canada': { currency: 'CAD', symbol: 'CA$', rate: 0.016 },
-  'Australia': { currency: 'AUD', symbol: 'A$', rate: 0.018 },
-  'Japan': { currency: 'JPY', symbol: '¥', rate: 1.67 },
-  'China': { currency: 'CNY', symbol: '¥', rate: 0.088 },
-  'Singapore': { currency: 'SGD', symbol: 'S$', rate: 0.016 },
-  'United Arab Emirates': { currency: 'AED', symbol: 'د.إ', rate: 0.044 },
-  'Switzerland': { currency: 'CHF', symbol: 'CHF', rate: 0.011 },
-  'Russia': { currency: 'RUB', symbol: '₽', rate: 0.96 },
-  'South Korea': { currency: 'KRW', symbol: '₩', rate: 15.68 },
-  'Brazil': { currency: 'BRL', symbol: 'R$', rate: 0.059 },
-  'South Africa': { currency: 'ZAR', symbol: 'R', rate: 0.22 }
 };
 
-const url = "http://localhost:5000";
+const sendAbandonedOrderEmail = async (customerEmail, orderDetails, customerDetails) => {
+  try {
+    const response = await fetch(`${url}/send-abandoned-order-email`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        customerEmail,
+        orderDetails,
+        customerDetails
+      })
+    });
+    
+    const result = await response.json();
+    console.log("Abandoned order email result:", result);
+    return result;
+  } catch (error) {
+    console.error("Failed to send abandoned order email:", error);
+    return { success: false, error: error.message };
+  }
+};
+
+const createRazorpayOrder = async (amount, currency, orderNumber, customerDetails) => {
+  try {
+    const response = await fetch(`${url}/create-order`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        amount,
+        currency,
+        receipt: `receipt_${orderNumber}`,
+        notes: {
+          customerName: `${customerDetails.firstName} ${customerDetails.lastName}`,
+          customerEmail: customerDetails.email,
+          customerPhone: customerDetails.phone
+        }
+      })
+    });
+    
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to create Razorpay order:", error);
+    throw new Error("Payment initialization failed. Please try again.");
+  }
+};
+
+const verifyRazorpayPayment = async (paymentData) => {
+  try {
+    const response = await fetch(`${url}/verify-payment`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(paymentData)
+    });
+    
+    return await response.json();
+  } catch (error) {
+    console.error("Payment verification failed:", error);
+    throw new Error("Payment verification failed. Please contact support.");
+  }
+};
 
 const DEFAULT_COUNTRY = 'India';
-const DEFAULT_CURRENCY = COUNTRY_CURRENCY_MAP[DEFAULT_COUNTRY];
+// Add a safety check to ensure COUNTRY_CURRENCY_MAP is defined
+const DEFAULT_CURRENCY = COUNTRY_CURRENCY_MAP && COUNTRY_CURRENCY_MAP[DEFAULT_COUNTRY] ? COUNTRY_CURRENCY_MAP[DEFAULT_COUNTRY] : { currency: 'INR', symbol: '₹', rate: 1 };
 const VALID_PROMO_CODE = "FLASH70";
-
-const PaymentModeSelector = ({ selectedMode, onChange, translations }) => (
-  <div className="space-y-4">
-    <label className="block text-sm font-medium text-gray-700">
-      {translations?.checkout?.mode || 'Payment Mode'}<span className="text-red-500">*</span>
-    </label>
-    <div className="space-y-3">
-      <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-blue-500 transition-all duration-200">
-        <input
-          type="radio"
-          name="paymentMode"
-          value="online"
-          checked={selectedMode === 'online'}
-          onChange={(e) => onChange({ target: { name: 'paymentMode', value: e.target.value } })}
-          className="h-5 w-5 text-blue-600"
-        />          <div className="ml-4">
-          <span className="font-medium text-gray-900">Pay Securely Online</span>
-          <p className="text-sm text-green-600">Get 15% instant discount</p>
-        </div>
-      </label>
-
-      <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:border-blue-500 transition-all duration-200">
-        <input
-          type="radio"
-          name="paymentMode"
-          value="cod"
-          checked={selectedMode === 'cod'}
-          onChange={(e) => onChange({ target: { name: 'paymentMode', value: e.target.value } })}
-          className="h-5 w-5 text-blue-600"
-        />
-        <div className="ml-4">
-          <span className="font-medium text-gray-900">Cash on Delivery (COD)</span>
-          <p className="text-sm text-gray-500">Pay when you receive</p>
-        </div>
-      </label>
-    </div>
-  </div>
-);
 
 const Landing = () => {
   const navigate = useNavigate();
   const shippingInfoRef = useRef(null);
-  const { language } = useLanguage(); // Get language from context
-  const translations = data[language] || data['ENGLISH']; // Use ENGLISH as fallback
+  const { language } = useLanguage();
+  const translations = data[language] || data['ENGLISH']; 
   
   const scrollToShippingInfo = () => {
     shippingInfoRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
+
   const [orderDetails, setOrderDetails] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
-  const [currentCurrency, setCurrentCurrency] = useState(DEFAULT_CURRENCY);
+  const [currentCurrency, setCurrentCurrency] = useState(DEFAULT_CURRENCY || { currency: 'INR', symbol: '₹', rate: 1 });
   const [convertedAmount, setConvertedAmount] = useState(0);
   const [promoCode, setPromoCode] = useState("");
-  const [isPromoApplied, setIsPromoApplied] = useState(false);  const [orderNumber, setOrderNumber] = useState(1); // Initial order number
+  const [isPromoApplied, setIsPromoApplied] = useState(false);
+  const [orderNumber, setOrderNumber] = useState(1); // Initial order number
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const productPrice = 3990; // Discounted price per unit
@@ -294,19 +166,59 @@ const Landing = () => {
   const productImages = [product, product1, product2, product3, product4, product5];
   const [isProcessingOrder, setIsProcessingOrder] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [isRinging, setIsRinging] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const audioRef = useRef(null);
 
+  // Stop ringing when user interacts with the call button
+  const handleCallClick = () => {
+    setIsRinging(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
 
+  // Setup the ringing effect after page load - MOVED THIS HOOK UP BEFORE ANY CONDITIONAL RETURNS
   useEffect(() => {
-    // Simulate fetching the latest order number from the backend
+    const timer = setTimeout(() => {
+      setIsRinging(true);
+      if (audioRef.current && !hasInteracted) {
+        audioRef.current.play().catch(error => {
+          // Browser may block autoplay without user interaction
+          console.log('Autoplay prevented:', error);
+        });
+      }
+    }, 5000);
+
+    // Handle user interaction to enable audio
+    const handleInteraction = () => {
+      setHasInteracted(true);
+    };
+
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+  }, [hasInteracted]);
+
+  // Fetch initial order number
+  useEffect(() => {
     const latestOrderNumber = localStorage.getItem("orderNumber") || 1;
     setOrderNumber(parseInt(latestOrderNumber, 10));
   }, []);
 
+  // Increment order number and save to localStorage
   const incrementOrderNumber = () => {
     const nextOrderNumber = orderNumber + 1;
     setOrderNumber(nextOrderNumber);
     localStorage.setItem("orderNumber", nextOrderNumber); // Persist order number locally
   };
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -320,22 +232,24 @@ const Landing = () => {
     paymentMode: ''
   });
 
-  // Update currency and convert amount when country changes
+  // Update currency when country changes
   useEffect(() => {
     if (orderDetails) {
-      const foundCurrency = COUNTRY_CURRENCY_MAP[formData.country] || DEFAULT_CURRENCY;
+      const foundCurrency = (COUNTRY_CURRENCY_MAP && formData.country && COUNTRY_CURRENCY_MAP[formData.country]) 
+        ? COUNTRY_CURRENCY_MAP[formData.country] 
+        : DEFAULT_CURRENCY;
+        
       setCurrentCurrency(foundCurrency);
 
       // Convert amount from INR to selected currency
       const baseAmount = orderDetails.totalAmount; // Total amount in INR
-      const convertedValue = (baseAmount * foundCurrency.rate).toFixed(2);
+      const convertedValue = (baseAmount * (foundCurrency?.rate || 1)).toFixed(2);
       setConvertedAmount(convertedValue);
     }
   }, [formData.country, orderDetails]);
   
-  // Original useEffects for initialization and script loading...
+  // Initialize order details and load Razorpay script
   useEffect(() => {
-    // Initialize orderDetails with default values
     setOrderDetails({
       quantity: quantity,
       totalAmount: quantity * productPrice,
@@ -343,7 +257,6 @@ const Landing = () => {
       unitPrice: productPrice
     });
 
-    // Load Razorpay script
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
     script.async = true;
@@ -354,7 +267,7 @@ const Landing = () => {
     };
   }, [quantity]); // Add quantity as dependency
 
-  // Update orderDetails whenever quantity changes
+  // Update order details when quantity changes
   useEffect(() => {
     setOrderDetails(prev => ({
       ...prev,
@@ -363,27 +276,7 @@ const Landing = () => {
     }));
   }, [quantity]);
   
-  const validateForm = () => {
-    const errors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\d{10}$/;
-
-    if (!formData.firstName.trim()) errors.firstName = translations?.checkout?.formFields?.firstName?.error || 'First name is required';
-    if (!formData.lastName.trim()) errors.lastName = translations?.checkout?.formFields?.lastName?.error || 'Last name is required';
-    if (!formData.country.trim()) errors.country = translations?.checkout?.formFields?.country?.error || 'Country is required';
-    if (!formData.streetAddress.trim()) errors.streetAddress = translations?.checkout?.formFields?.address?.error || 'Street address is required';
-    if (!formData.townCity.trim()) errors.townCity = translations?.checkout?.formFields?.city?.error || 'Town/City is required';
-    if (!formData.phone.trim() || !phoneRegex.test(formData.phone)) {
-      errors.phone = translations?.checkout?.formFields?.phone?.error || 'Please enter a valid 10-digit phone number';
-    }
-    if (!formData.email.trim() || !emailRegex.test(formData.email)) {
-      errors.email = translations?.checkout?.formFields?.email?.error || 'Please enter a valid email';
-    }
-    if (!formData.paymentMode) errors.paymentMode = 'Please select a payment mode';
-
-    return errors;
-  };
-  
+  // Apply discount for online payment
   useEffect(() => {
     if (orderDetails) {
       const foundCurrency = COUNTRY_CURRENCY_MAP[formData.country] || DEFAULT_CURRENCY;
@@ -399,30 +292,205 @@ const Landing = () => {
       setConvertedAmount(convertedValue);
     }
   }, [formData.country, orderDetails, formData.paymentMode]);
-  
-  const handlePromoCodeApply = () => {
-    if (promoCode.trim().toUpperCase() === VALID_PROMO_CODE) {
-      setIsPromoApplied(true);
-      setFormErrors(prev => ({ ...prev, promoCode: "" }));
-    } else {
-      setIsPromoApplied(false);
-      setFormErrors(prev => ({ ...prev, promoCode: "Invalid promo code" }));
+
+  // Enhanced handleRazorpayPayment function using direct API calls
+  const handleRazorpayPayment = async () => {
+    if (!window.Razorpay) {
+      setFormErrors(prev => ({
+        ...prev,
+        submit: "Payment gateway not loaded. Please refresh the page."
+      }));
+      setIsSubmitting(false);
+      setIsProcessingOrder(false);
+      return;
+    }
+
+    try {
+      console.log("Initializing Razorpay payment...");
+      
+      // Create order directly via our utility function
+      const orderData = await createRazorpayOrder(
+        convertedAmount, 
+        currentCurrency.currency, 
+        orderNumber, 
+        {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone
+        }
+      );
+      
+      console.log("Order created:", orderData);
+      
+      if (!orderData.success) {
+        throw new Error(orderData.message || "Failed to create payment order");
+      }
+
+      // Initialize Razorpay with order details
+      const options = {
+        key: orderData.key,
+        amount: orderData.order.amount,
+        currency: orderData.order.currency,
+        name: 'Sree Anjaneya',
+        description: `Order for ${orderDetails.productName}`,
+        order_id: orderData.order.id,
+        prefill: {
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: formData.email,
+          contact: formData.phone
+        },
+        handler: async function (response) {
+          console.log("Payment successful, verifying...");
+          try {
+            // Verify payment through our utility function
+            const verifyData = await verifyRazorpayPayment({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature
+            });
+            
+            if (!verifyData.success) {
+              throw new Error("Payment verification failed. Please contact support.");
+            }
+            
+            console.log("Payment verified, submitting order details...");
+            
+            // Order details for email and thank you page
+            const orderData = {
+              orderNumber: orderNumber,
+              orderDate: new Date().toISOString(),
+              customerName: `${formData.firstName} ${formData.lastName}`,
+              email: formData.email,
+              phone: formData.phone,
+              shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+              productName: orderDetails.productName,
+              quantity: orderDetails.quantity,
+              totalAmount: convertedAmount,
+              currency: currentCurrency.symbol,
+              paymentMethod: "Online Payment (Razorpay)",
+              paymentId: response.razorpay_payment_id,
+              orderStatus: "Paid"
+            };
+            
+            // Send confirmation email
+            await sendOrderConfirmationEmail(
+              formData.email,
+              orderData,
+              {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                email: formData.email,
+                phone: formData.phone,
+                address: formData.streetAddress,
+                apartment: formData.apartment,
+                city: formData.townCity,
+                country: formData.country
+              }
+            );
+            
+            // Increment order number for next purchase
+            incrementOrderNumber();
+            
+            // Reset loading states before navigation
+            setIsSubmitting(false);
+            setIsProcessingOrder(false);
+            
+            // Navigate to thank you page with order data
+            navigate('/thank-you', { state: { orderData } });
+            
+          } catch (error) {
+            console.error("Order submission error:", error);
+            setFormErrors(prev => ({
+              ...prev,
+              submit: "Payment successful but failed to send order details. Please contact support."
+            }));
+            setIsSubmitting(false);
+            setIsProcessingOrder(false);
+          }
+        },
+        modal: {
+          ondismiss: function () {
+            console.log('Razorpay modal dismissed');
+            
+            // Send abandoned cart email if user closes payment modal
+            if (formData.email) {
+              sendAbandonedOrderEmail(
+                formData.email,
+                {
+                  orderNumber: orderNumber,
+                  productName: orderDetails.productName,
+                  quantity: orderDetails.quantity,
+                  totalAmount: convertedAmount,
+                  currency: currentCurrency.symbol
+                },
+                {
+                  firstName: formData.firstName,
+                  lastName: formData.lastName,
+                  email: formData.email,
+                  phone: formData.phone,
+                  address: formData.streetAddress,
+                  apartment: formData.apartment,
+                  city: formData.townCity,
+                  country: formData.country
+                }
+              );
+            }
+            
+            // Reset loading states when modal is dismissed
+            setIsSubmitting(false);
+            setIsProcessingOrder(false);
+          },
+          escape: false,
+          backdropclose: false
+        },
+        theme: {
+          color: '#4169E1'
+        }
+      };
+      
+      // Open Razorpay payment modal
+      const razorpay = new window.Razorpay(options);
+      razorpay.open();
+      console.log("Razorpay modal opened");
+      
+    } catch (error) {
+      console.error("Razorpay payment error:", error);
+      setFormErrors(prev => ({
+        ...prev,
+        submit: error.message || "Failed to initialize payment. Please try again."
+      }));
+      setIsSubmitting(false);
+      setIsProcessingOrder(false);
     }
   };
-  
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const errors = validateForm();
-    setFormErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      setIsProcessingOrder(true);
-      setIsSubmitting(true);
+  // Handle form submission with integrated email and payment functionality
+  const handleSubmit = (e) => {
+    // Set loading state immediately for visual feedback
+    setIsSubmitting(true);
+    setIsProcessingOrder(true);
+    
+    // Small delay to ensure UI updates before heavy processing
+    setTimeout(() => {
+      e.preventDefault();
+      const errors = validateForm(formData, translations);
+      
+      if (Object.keys(errors).length > 0) {
+        // If there are errors, show them but stop loading
+        setFormErrors(errors);
+        setIsSubmitting(false);
+        setIsProcessingOrder(false);
+        return;
+      }
 
       try {
         if (formData.paymentMode === 'online') {
+          // Handle online payment with Razorpay
           handleRazorpayPayment();
+          // Don't reset loading states here - they'll be handled in the Razorpay callbacks
         } else if (formData.paymentMode === 'cod') {
+          // For COD, continue as normal
           const formattedData = {
             _subject: `New Order #${orderNumber} - Cash on Delivery`,
             _template: "table",
@@ -440,41 +508,80 @@ const Landing = () => {
             orderStatus: "Pending"
           };
 
-          try {
-            const response = await fetch('https://formsubmit.co/ajax/israelitesshopping171@gmail.com', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify(formattedData)
+          // Send form to FormSubmit for processing
+          fetch('https://formsubmit.co/ajax/israelitesshopping171@gmail.com', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(formattedData)
+          })
+            .then(response => response.json())
+            .then(result => {
+              console.log('Order submission result:', result);
+              if (result.success) {
+                // Send confirmation email through our API
+                sendOrderConfirmationEmail(
+                  formData.email,
+                  {
+                    orderNumber: orderNumber,
+                    orderDate: new Date().toISOString(),
+                    productName: orderDetails.productName,
+                    quantity: orderDetails.quantity,
+                    totalAmount: convertedAmount,
+                    currency: currentCurrency.symbol,
+                    paymentMethod: "Cash on Delivery",
+                    orderStatus: "Pending"
+                  },
+                  {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    address: formData.streetAddress,
+                    apartment: formData.apartment,
+                    city: formData.townCity,
+                    country: formData.country
+                  }
+                );
+                
+                incrementOrderNumber();
+                
+                // Create order data to pass to thank you page
+                const orderData = {
+                  orderNumber: orderNumber,
+                  orderDate: new Date().toISOString(),
+                  customerName: `${formData.firstName} ${formData.lastName}`,
+                  email: formData.email,
+                  phone: formData.phone,
+                  shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
+                  productName: orderDetails.productName,
+                  quantity: orderDetails.quantity,
+                  amount: `${currentCurrency.symbol} ${convertedAmount}`,
+                  paymentMethod: "Cash on Delivery",
+                  orderStatus: "Pending"
+                };
+                
+                // Reset loading states
+                setIsProcessingOrder(false);
+                setIsSubmitting(false);
+                
+                // Navigate to thank you page with order data
+                navigate('/thank-you', { state: { orderData } });
+              } else {
+                throw new Error('Order submission failed');
+              }
+            })
+            .catch(error => {
+              console.error('Order processing error:', error);
+              setFormErrors(prev => ({
+                ...prev,
+                submit: error.message || 'Failed to process order. Please try again.'
+              }));
+              setIsProcessingOrder(false);
+              setIsSubmitting(false);
             });
-
-            const result = await response.json();
-            console.log('Order submission result:', result);            if (result.success) {
-              incrementOrderNumber();
-              // Create order data to pass to thank you page
-              const orderData = {
-                orderNumber: orderNumber,
-                orderDate: new Date().toISOString(),
-                customerName: `${formData.firstName} ${formData.lastName}`,
-                email: formData.email,
-                phone: formData.phone,
-                shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
-                productName: orderDetails.productName,
-                quantity: orderDetails.quantity,
-                amount: `${currentCurrency.symbol} ${convertedAmount}`,
-                paymentMethod: "Cash on Delivery",
-                orderStatus: "Pending"
-              };
-              // Navigate to thank you page with order data
-              navigate('/thank-you', { state: { orderData } });
-            } else {
-              throw new Error('Order submission failed');
-            }
-          } catch (error) {
-            throw new Error(`Failed to process order: ${error.message}`);
-          }
         }
       } catch (error) {
         console.error('Order processing error:', error);
@@ -482,172 +589,28 @@ const Landing = () => {
           ...prev,
           submit: error.message || 'Failed to process order. Please try again.'
         }));
-      } finally {
         setIsProcessingOrder(false);
         setIsSubmitting(false);
       }
-    }
+    }, 50);
   };
-  
-  const handleRazorpayPayment = async () => {
-    if (!window.Razorpay) {
+
+  // Handle input changes
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    if (formErrors[name]) {
       setFormErrors(prev => ({
         ...prev,
-        submit: "Payment gateway not loaded. Please refresh the page."
+        [name]: ''
       }));
-      return;
-    }
-
-    try {
-      // Step 1: Create an order through backend API first
-      const orderResponse = await fetch(`${url}/create-order`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          amount: convertedAmount, // The amount to charge
-          currency: currentCurrency.currency, // Currency code (INR, USD, etc)
-          receipt: `receipt_${orderNumber}`, // A unique receipt ID
-          notes: {
-            customerName: `${formData.firstName} ${formData.lastName}`,
-            customerEmail: formData.email,
-            customerPhone: formData.phone,
-            productName: orderDetails.productName,
-            quantity: orderDetails.quantity
-          }
-        })
-      });
-
-      const orderData = await orderResponse.json();
-      
-      if (!orderData.success) {
-        throw new Error(orderData.message || "Failed to create payment order");
-      }
-
-      // Step 2: Initialize Razorpay with order details from backend
-      const options = {
-        key: orderData.key, // Key ID from backend for extra security
-        amount: orderData.order.amount, // Amount in smallest currency unit
-        currency: orderData.order.currency,
-        name: 'Sree Anjaneya',
-        description: `Order for ${orderDetails.productName}`,
-        order_id: orderData.order.id, // Order ID obtained from backend
-        prefill: {
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          contact: formData.phone
-        },
-        handler: async function (response) {
-          try {
-            // Step 3: Verify payment through backend
-            const verifyResponse = await fetch(`${url}/verify-payment`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature
-              })
-            });
-
-            const verifyData = await verifyResponse.json();
-            
-            if (!verifyData.success) {
-              throw new Error("Payment verification failed. Please contact support.");
-            }
-
-            // Payment verified successfully, now send order details
-            const formattedData = {
-              _subject: `New Order #${orderNumber} - Online Payment`,
-              _template: "table",
-              _captcha: "false",
-              orderNumber: orderNumber,
-              orderDate: new Date().toISOString(),
-              customerName: `${formData.firstName} ${formData.lastName}`,
-              email: formData.email,
-              phone: formData.phone,
-              shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
-              productName: orderDetails.productName,
-              quantity: orderDetails.quantity,
-              amount: `${currentCurrency.symbol} ${convertedAmount}`,
-              paymentMethod: "Online Payment (Razorpay)",
-              paymentId: response.razorpay_payment_id,
-              orderStatus: "Paid"
-            };
-
-            const formResponse = await fetch('https://formsubmit.co/ajax/israelitesshopping171@gmail.com', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify(formattedData)
-            });
-
-            if (!formResponse.ok) {
-              throw new Error(`HTTP error! status: ${formResponse.status}`);
-            }
-
-            const result = await formResponse.json();
-            console.log('Payment form submission result:', result);            if (result.success) {
-              incrementOrderNumber();
-              // Create order data to pass to thank you page
-              const orderData = {
-                orderNumber: orderNumber,
-                orderDate: new Date().toISOString(),
-                customerName: `${formData.firstName} ${formData.lastName}`,
-                email: formData.email,
-                phone: formData.phone,
-                shippingAddress: `${formData.streetAddress}, ${formData.apartment || ''}, ${formData.townCity}, ${formData.country}`,
-                productName: orderDetails.productName,
-                quantity: orderDetails.quantity,
-                amount: `${currentCurrency.symbol} ${convertedAmount}`,
-                paymentMethod: "Online Payment (Razorpay)",
-                paymentId: response.razorpay_payment_id,
-                orderStatus: "Paid"
-              };
-              // Navigate to thank you page with order data
-              navigate('/thank-you', { state: { orderData } });
-            } else {
-              throw new Error("Failed to submit order details");
-            }
-          } catch (error) {
-            console.error("Order submission error:", error);
-            setFormErrors(prev => ({
-              ...prev,
-              submit: "Payment successful but failed to send order details. Please contact support."
-            }));
-          } finally {
-            setIsSubmitting(false);
-            setIsProcessingOrder(false);
-          }
-        },
-        modal: {
-          ondismiss: function () {
-            setIsSubmitting(false);
-            setIsProcessingOrder(false);
-          },
-          escape: false,
-          backdropclose: false
-        }
-      };
-
-      const razorpay = new window.Razorpay(options);
-      razorpay.open();
-    } catch (error) {
-      console.error("Razorpay payment error:", error);
-      setFormErrors(prev => ({
-        ...prev,
-        submit: error.message || "Failed to initialize payment. Please try again."
-      }));
-      setIsSubmitting(false);
-      setIsProcessingOrder(false);
     }
   };
-  
+
+  // Render form fields
   const renderFormField = (name, label, type = "text", required = true) => (
     <div className="space-y-2">
       <label className="block text-sm font-medium text-gray-700">
@@ -666,7 +629,8 @@ const Landing = () => {
       )}
     </div>
   );
-  
+
+  // Render order summary
   const renderOrderSummary = () => (
     <div className="space-y-6">
       {/* Product Details Card */}
@@ -685,10 +649,10 @@ const Landing = () => {
           </div>
           <div className="text-right">
             <span className="line-through text-gray-400 text-sm">
-              {currentCurrency.symbol} {(originalPrice * orderDetails.quantity * currentCurrency.rate).toFixed(2)}
+              {currentCurrency?.symbol || '₹'} {((originalPrice * orderDetails?.quantity * (currentCurrency?.rate || 1))).toFixed(2)}
             </span>
             <span className="block font-medium text-gray-900">
-              {currentCurrency.symbol} {convertedAmount}
+              {currentCurrency?.symbol || '₹'} {convertedAmount || 0}
             </span>
           </div>
         </div>
@@ -707,7 +671,7 @@ const Landing = () => {
       <div className="flex justify-between items-center py-4 border-t border-gray-200">
         <span className="text-lg font-bold text-gray-800">{translations?.checkout?.total || 'Total'}</span>
         <span className="text-lg font-bold text-blue-600">
-          {currentCurrency.symbol} {convertedAmount}
+          {currentCurrency?.symbol || '₹'} {convertedAmount || 0}
         </span>
       </div>
 
@@ -721,7 +685,9 @@ const Landing = () => {
         {formErrors.paymentMode && (
           <p className="text-red-500 text-sm mt-2">{formErrors.paymentMode}</p>
         )}
-      </div>      {/* Discount Banner */}
+      </div>
+      
+      {/* Discount Banner */}
       <div className="mt-6 bg-gradient-to-r from-orange-500 to-pink-500 text-white p-4 rounded-xl transform hover:scale-105 transition-all duration-300">
         <div className="flex items-center justify-center gap-2">
           <span className="text-2xl">🎉</span>
@@ -731,47 +697,38 @@ const Landing = () => {
         </div>
       </div>
 
-      {/* Submit Button with Enhanced Styling */}
+      {/* Submit Button with Enhanced Styling - Improved Loading State */}
       <button
         type="submit"
         onClick={handleSubmit}
-        disabled={isSubmitting}
+        disabled={isSubmitting || isProcessingOrder}
         className="w-full mt-6 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-medium py-4 px-6 rounded-xl
                     transition-all duration-300 transform hover:scale-105 hover:shadow-lg
                     disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+        aria-busy={isSubmitting || isProcessingOrder}
       >
-        {isSubmitting ? (
+        {(isSubmitting || isProcessingOrder) ? (
           <div className="flex items-center justify-center">
             <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
             </svg>
-            {translations?.checkout?.processing || 'Processing'}
+            {formData.paymentMode === 'online' ? (translations?.checkout?.preparingPayment || 'Preparing Payment...') : (translations?.checkout?.processing || 'Processing...')}
           </div>
         ) : (
           translations?.checkout?.order || 'Place Order'
         )}
       </button>
 
-      {/* Payment Partners Section remains unchanged */}
-      {/* ...existing payment partners code... */}
+      {formErrors.submit && (
+        <p className="mt-3 text-red-500 text-sm text-center">
+          {formErrors.submit}
+        </p>
+      )}
     </div>
   );
-  
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    if (formErrors[name]) {
-      setFormErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
-  };
 
+  // Loading while fetching order details
   if (!orderDetails) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -779,8 +736,8 @@ const Landing = () => {
       </div>
     );
   }
-  // Payment success is now handled by redirecting to the Thank You page
-  
+
+  // Loading overlay during order processing
   const LoadingOverlay = () => (
     isProcessingOrder && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -791,89 +748,66 @@ const Landing = () => {
       </div>
     )
   );
+
   return (
     <div className="">
       <LoadingOverlay />
       <MobileCallButton />
-      {/* Hero Section with Enhanced Design */}
+      
+      {/* Audio Element for Ring Sound */}
+      <audio ref={audioRef} src={ringSound} loop />
+      
+      {/* Hero Section */}
       <div className="text-black">        
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-gradient-to-r from-yellow-100 via-red-100 to-yellow-100 py-6 px-4 rounded-lg shadow-md">
-        {/* Hanuman Image */}
-        <img src={logo} alt="Logo" className="h-24 pl-5"/>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-gradient-to-r from-yellow-100 via-red-100 to-yellow-100 py-6 px-4 rounded-lg shadow-md">
+          {/* Logo */}
+          <img src={logo} alt="Logo" className="h-24 pl-5"/>
 
-        {/* Title */}
-        <h1 className="text-center text-4xl md:text-6xl font-bold text-red-700 drop-shadow-sm">
-          Sree Anjaneya Shani Raksha Kavach
-        </h1>
+          {/* Title */}
+          <h1 className="text-center text-4xl md:text-6xl font-bold text-red-700 drop-shadow-sm">
+            Sree Anjaneya Shani Raksha Kavach
+          </h1>
 
-        {/* YouTube Subscribe Button */}
-        <a 
-          href="https://www.youtube.com/channel/UCvVPuK65Uhb_ts8qT4t0CWQ?sub_confirmation=1" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="group flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
-          aria-label="Subscribe to our YouTube channel"
-        >
-          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-          <span className="flex items-center gap-1">
-            <span className="font-semibold">Subscription</span>
-          </span>
-        </a>
-      </div>
+          {/* YouTube Subscribe Button */}
+          <a 
+            href="https://www.youtube.com/channel/UCvVPuK65Uhb_ts8qT4t0CWQ?sub_confirmation=1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="group flex items-center gap-3 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-medium py-2 px-5 rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 animate-pulse hover:animate-none"
+            aria-label="Subscribe to our YouTube channel"
+          >
+            <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span className="flex items-center gap-1">
+              <span className="font-semibold">Subscription</span>
+            </span>
+          </a>
+        </div>
 
+        {/* Call Button */}
         <div className="mb-8 mt-5 flex justify-center">
           <a 
             href="tel:+919908030444" 
-            className="flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-5 px-8 rounded-lg shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 text-2xl pulse-animation"
+            onClick={handleCallClick}
+            className={`flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-5 px-8 rounded-lg shadow-xl hover:shadow-2xl transform transition-all duration-300 hover:scale-105 text-2xl ${isRinging ? 'animate-call-button' : 'pulse-animation'}`}
           >
-            <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className={`w-10 h-10 ${isRinging ? 'animate-call-icon' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
             Call Now: 9908030444
           </a>
-      </div>              
-{/*         
-        <div className="mb-8 mt-5 bg-gradient-to-r from-indigo-600 via-blue-500 to-purple-600 text-white p-4 rounded-xl shadow-lg transform transition-all duration-300 hover:shadow-2xl">
-          <div className="flex flex-wrap items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-white p-2 rounded-full text-blue-600 animate-bounce">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" d="M5 2a2 2 0 00-2 2v14l3.5-2 3.5 2 3.5-2 3.5 2V4a2 2 0 00-2-2H5zm4.707 3.707a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L8.414 9H10a3 3 0 013 3v1a1 1 0 102 0v-1a5 5 0 00-5-5H8.414l1.293-1.293z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <div>
-                <p className="font-bold text-lg">Special Limited Offer!</p>
-                <p className="text-sm text-blue-100">Enjoy divine protection with our blessed Shani Raksha Kavach</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3 mt-3 md:mt-0">
-              <div className="bg-white text-blue-600 px-4 py-2 rounded-lg font-bold text-lg">
-                Save ₹{originalPrice - productPrice}
-              </div>
-              <a 
-                href="tel:+919908030444" 
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium py-3 px-5 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 text-lg pulse-animation"
-              >
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Call Now: 9908030444
-              </a>
-            </div>
-          </div>
-        </div> */}
-      </div>      
+        </div>              
+      </div>
+      
+      {/* Main Content */}
       <div className="max-w-7xl mx-auto pb-12">
-        {/* Special Offer Banner */}
-        
-        {/* Product Selection Section with Glass Morphism */}
+        {/* Product Section */}
         <div className='flex flex-col md:flex-row items-start gap-8 mb-12'>
           <div className="w-full bg-gradient-to-br from-white via-white to-blue-50 bg-opacity-70 backdrop-blur-lg p-6 border border-white border-opacity-20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
             <div className="mb-8 w-full">
               <div className="flex flex-col md:flex-row gap-6">
-                {/* Product Images Section - Fixed sizing */}                <div className="md:w-1/2 space-y-6">
+                {/* Product Images Section */}                <div className="md:w-1/2 space-y-6">
                   {/* Main Product Slider */}
                   <div className="product-slider rounded-lg overflow-hidden shadow-xl">
                     <Swiper
@@ -991,179 +925,53 @@ const Landing = () => {
                         <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
                           <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span> In Stock
                         </div>
-                      </div>                        {/* Rating Stars */}                        <div className="flex items-center mb-3">
-                        {Array(5).fill().map((_, i) => (
-                          <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      </div>
+
+                      {/* Rating Stars - Fixed JSX */}                        <div className="flex items-center mb-3">
+                        {[...Array(5)].map((_, i) => (
+                          <svg 
+                            key={i} 
+                            className="w-5 h-5 text-yellow-400" 
+                            fill="currentColor" 
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                           </svg>
                         ))}
                         <span className="ml-2 text-sm text-gray-600">(152 reviews)</span>
                       </div>
                       
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="line-through text-lg text-red-500">₹{originalPrice}</span>
-                        <span className="text-2xl text-green-600 font-bold">₹{productPrice}</span>
-                        <span className="bg-orange-100 text-orange-700 text-xs px-2 py-1 rounded-md font-medium">
-                          {Math.round((originalPrice - productPrice) / originalPrice * 100)}% OFF
-                        </span>
-                      </div>                    
+                      {/* Removed Price Information Section */}
+                      
                       {/* Quantity and Delivery Information */}
                       <div className="mt-6 space-y-6">
-                        <div>
-                          <div className="flex justify-between items-center mb-2">
-                            <label htmlFor="quantity" className="text-sm font-medium text-gray-700">
-                              {translations?.productpage?.secondtitle || 'Quantity'}
-                            </label>
-                            <span className="text-xs text-blue-600 font-medium">
-                              {quantity > 10 ? 'Bulk discount available!' : 'Buy more, save more!'}
-                            </span>
-                          </div>
-                          
-                          <div className="flex items-center space-x-4">
-                            <div className="flex items-center bg-white shadow-lg rounded-xl border border-gray-200 overflow-hidden">
-                              <button
-                                type="button"
-                                onClick={() => setQuantity(prev => Math.max(1, prev - 1))}
-                                className="px-4 py-3 text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-all duration-200 text-xl font-medium focus:outline-none"
-                                aria-label="Decrease quantity"
-                              >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-                                </svg>
-                              </button>
-                              
-                              <div className="relative">
-                                <input
-                                  type="number"
-                                  id="quantity"
-                                  min="1"
-                                  value={quantity}
-                                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
-                                  className="w-16 px-3 py-3 text-center text-gray-700 font-medium border-x border-gray-200 focus:outline-none appearance-none"
-                                />
-                                <label htmlFor="quantity" className="sr-only">Quantity</label>
-                              </div>
-                              
-                              <button
-                                type="button"
-                                onClick={() => setQuantity(prev => prev + 1)}
-                                className="px-4 py-3 text-blue-600 hover:bg-blue-50 active:bg-blue-100 transition-all duration-200 text-xl font-medium focus:outline-none"
-                                aria-label="Increase quantity"
-                              >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                </svg>
-                              </button>
-                            </div>
-                            
-                            {quantity > 1 && (
-                              <div className="text-sm bg-green-50 text-green-700 font-medium px-3 py-1 rounded-full animate-fade-in flex items-center">
-                                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                </svg>
-                                {quantity} items selected
-                              </div>
-                            )}
-                          </div>                          
-                          {/* Buy Now Button */}
-                          <button
-                            onClick={scrollToShippingInfo}
-                            className="mt-4 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-orange-500 to-red-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
-                          >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                            </svg>
-                            Buy Now
-                          </button>
-                        </div>
-                          {/* Delivery Information */}
+                        {/* Direct Call Button */}
+                        <a 
+                          href="tel:+919908030444"
+                          onClick={handleCallClick} 
+                          className={`flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105 text-xl ${isRinging ? 'animate-call-button' : ''}`}
+                        >
+                          <svg className={`w-6 h-6 ${isRinging ? 'animate-call-icon' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          Call Now: 9908030444
+                        </a>
+                        
+                        {/* Delivery Information */}
                         <div className="flex gap-3 mt-4">
-                          <div className="flex-1 border border-gray-200 rounded-lg p-3 bg-white">
-                            <div className="flex items-center text-green-600 mb-2">
-                              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                              </svg>
-                              <span className="font-medium">Free Delivery</span>
-                            </div>
-                            <p className="text-xs text-gray-500">Estimated delivery within 5-7 business days</p>
-                          </div>
                           <div className="flex-1 border border-gray-200 rounded-lg p-3 bg-white">
                             <div className="flex items-center text-blue-600 mb-2">
                               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                               </svg>
-                              <span className="font-medium">Easy Returns</span>
+                              <span className="font-medium">Contact for Price</span>
                             </div>
-                            <p className="text-xs text-gray-500">15-day hassle-free return policy</p>
+                            <p className="text-xs text-gray-500">Call us for the best offers and discounts</p>
                           </div>
-                        </div>                        {/* Call Button */}                        <a 
-                          href="tel:+919908030444" 
-                          className="mt-5 flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-medium py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-105"
-                        >
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          Call Now: 9908030444
-                        </a>
-                      </div></div>
-                    
-                    <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100 mb-4">
-                      <p className="text-gray-700 leading-relaxed">
-                        <span className="block text-lg font-semibold text-blue-700 mb-2">Divine Protection for Modern Life</span>
-                        Sree Anjaneya Shani Raksha Kavach - An amulet manifesting both Hanuman and Shani Dev, engraved with divine and positive energy, acts as a protective shield for you and your family, drawing away the negative forces to secure you all along your way. The divine articles of ring, mace, and locket protect you from head to toe, unleashing your positive aura and relishing the boons upon your life. And they destroy every curse hung upon you for ages.
-                      </p>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-medium text-gray-800">Sacred Benefits:</h3>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">Handcrafted with sacred materials</span>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">Blessed with ancient Vedic mantras</span>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">Protection from negative energies</span>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">Minimizes effects of Shani Dasha</span>
-                        </div>
-                        
-                        <div className="flex items-start space-x-3">
-                          <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
-                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                            </svg>
-                          </div>
-                          <span className="text-gray-700">Perfect for spiritual protection</span>
                         </div>
                       </div>
-                    </div>                  
+                    </div>
                   </div>
                 </div>
 
@@ -1210,63 +1018,24 @@ const Landing = () => {
           </div>
         </div>
 
-        {/* Main Checkout Grid with Enhanced Styling */}
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Checkout Grid */}
+        {/* <div className="grid lg:grid-cols-2 gap-12">
           {/* Billing Details Section */}
-          <div className="space-y-8">
-            <div className="bg-white bg-opacity-70 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white border-opacity-20 transition-all duration-300 hover:shadow-2xl">              <h2 ref={shippingInfoRef} className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
-                {translations?.checkout?.sectitle || 'Shipping Information'}
-              </h2>
-
-              <div className="space-y-4 sm:space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {renderFormField("firstName", translations?.checkout?.firstname || 'First Name')}
-                  {renderFormField("lastName", translations?.checkout?.lastname || 'Last Name')}
-                </div>
-                <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700">
-                    {translations?.checkout?.country || 'Country'}<span className="text-red-500">*</span>
-                  </label>
-                  <select
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
-                    {Object.keys(COUNTRY_CURRENCY_MAP).map(country => (
-                      <option key={country} value={country}>
-                        {country} ({COUNTRY_CURRENCY_MAP[country].currency})
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {renderFormField("streetAddress", translations?.checkout?.address || 'Street Address')}
-                {renderFormField("apartment", translations?.checkout?.clientaddress || 'Apartment, suite, etc. (optional)', "text", false)}
-                {renderFormField("townCity", translations?.checkout?.city || 'Town/City')}
-                {renderFormField("phone", translations?.checkout?.phone || 'Phone', "tel")}
-                {renderFormField("email", translations?.checkout?.email || 'Email', "email")}
-              </div>
-            </div>
-          </div>
-
-          {/* Order Summary Section */}
-          <div>
-            <div className="bg-white bg-opacity-70 backdrop-blur-lg rounded-2xl shadow-xl p-8 border border-white border-opacity-20 sticky top-4 transition-all duration-300 hover:shadow-2xl">
-              {renderOrderSummary()}
-            </div>
-          </div>
-        </div>        {/* Customer Reviews Section */}
-        {/* <div className="mt-20 mb-16">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-gray-800 mb-3">Customer Reviews</h2>
+ 
+        
+        {/* Customer Reviews Section */}
+        <section className="mt-20 mb-16 px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
+              Customer Reviews
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               See what our customers have to say about their experience with Sree Anjaneya Shani Raksha
             </p>
           </div>
-          
+
+          {/* Reviews Carousel */}
           <Swiper
-            className="reviews-swiper"
             modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
@@ -1279,126 +1048,60 @@ const Landing = () => {
           >
             {CUSTOMER_REVIEWS.map((review) => (
               <SwiperSlide key={review.id}>
-                <div className="review-card">
-                  <div className="review-header">
-                    <div className="review-avatar">
+                <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col h-full">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xl font-bold mr-4">
                       {review.name.charAt(0)}
                     </div>
-                    <div className="review-info">
-                      <div className="review-name">{review.name}</div>
-                      <div className="review-date">{review.date} • {review.location}</div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-800">
+                        {review.name}
+                      </h3>
+                      <p className="text-sm text-gray-500">
+                        {review.date} • {review.location}
+                      </p>
                     </div>
                   </div>
-                  
-                  <div className="review-rating">
+
+                  <div className="flex mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <span key={i} className="star">
-                        {i < review.rating ? "★" : "☆"}
-                      </span>
+                      <svg
+                        key={i}
+                        className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.947a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.44a1 1 0 00-.364 1.118l1.287 3.947c.3.921-.755 1.688-1.538 1.118l-3.361-2.44a1 1 0 00-1.175 0l-3.36 2.44c-.783.57-1.838-.197-1.538-1.118l1.286-3.947a1 1 0 00-.364-1.118L2.025 9.374c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.947z" />
+                      </svg>
                     ))}
+                    <span className="ml-2 text-sm text-gray-600">(152 reviews)</span>
                   </div>
                   
-                  <p className="review-content">
-                    "{review.content}"
-                  </p>
-                  
-                  <div className="review-footer">
-                    <div className="verified-badge">
-                      <svg className="w-4 h-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      Verified Purchase
-                    </div>
+                  <div className="flex-grow">
+                    <p className="text-gray-700 mb-4">
+                      "{review.content}"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center text-sm text-green-600 font-medium">
+                    <svg
+                      className="w-5 h-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Verified Purchase
                   </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
-          
-          <div className="text-center mt-10">
-            <button className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors">
-              View All Reviews
-              <svg className="ml-2 w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
-          </div>
-        </div> */}
-        
-        <section className="mt-20 mb-16 px-4">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-          Customer Reviews
-        </h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          See what our customers have to say about their experience with Sree Anjaneya Shani Raksha
-        </p>
-      </div>
-
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        spaceBetween={24}
-        slidesPerView={1}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-      >
-        {CUSTOMER_REVIEWS.map((review) => (
-          <SwiperSlide key={review.id}>
-            <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col h-full">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-xl font-bold mr-4">
-                  {review.name.charAt(0)}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800">
-                    {review.name}
-                  </h3>
-                  <p className="text-sm text-gray-500">
-                    {review.date} • {review.location}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <svg
-                    key={i}
-                    className={`w-5 h-5 ${i < review.rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.947a1 1 0 00.95.69h4.15c.969 0 1.371 1.24.588 1.81l-3.36 2.44a1 1 0 00-.364 1.118l1.287 3.947c.3.921-.755 1.688-1.538 1.118l-3.361-2.44a1 1 0 00-1.175 0l-3.36 2.44c-.783.57-1.838-.197-1.538-1.118l1.286-3.947a1 1 0 00-.364-1.118L2.025 9.374c-.783-.57-.38-1.81.588-1.81h4.15a1 1 0 00.95-.69l1.286-3.947z" />
-                  </svg>
-                ))}
-              </div>
-
-              <p className="text-gray-700 flex-grow mb-6">
-                “{review.content}”
-              </p>
-
-              <div className="flex items-center text-sm text-green-600 font-medium">
-                <svg
-                  className="w-5 h-5 mr-2"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                Verified Purchase
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </section>
+        </section>
 
         {/* Trust Badges Section */}
         <div className="mt-16 text-center">
@@ -1430,29 +1133,6 @@ const Landing = () => {
   );
 };
 
-// Mobile Call Button Component
-const MobileCallButton = () => {
-  // Phone number to call
-  const phoneNumber = "+919908030444"; // Customer support number
-  
-  return (
-    <a
-      href={`tel:${phoneNumber}`}
-      className="mobile-call-button"
-      aria-label="Call customer support"
-    >
-      <div className="relative">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.23 15.26l-2.54-.29c-.61-.07-1.21.14-1.64.57l-1.84 1.84c-2.83-1.44-5.15-3.75-6.59-6.59l1.85-1.85c.43-.43.64-1.03.57-1.64l-.29-2.52c-.12-1.01-.97-1.77-1.99-1.77H5.03c-1.13 0-2.07.94-2 2.07.53 8.54 7.36 15.36 15.89 15.89 1.13.07 2.07-.87 2.07-2v-1.73c.01-1.01-.75-1.86-1.76-1.98z" />
-        </svg>
-        <span className="absolute -top-1 -right-1 flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-        </span>
-      </div>
-    </a>
-  );
-};
-
 export default Landing;
+
 

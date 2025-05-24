@@ -22,6 +22,7 @@ import Landing from './pages/Landing';
 import ThankYou from './pages/ThankYou';
 import Layout from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
+import Aly from './pages/Aly';
 
 AOS.init({
   delay: 300,
@@ -39,6 +40,7 @@ function App() {
               <Routes>                {/* Landing page without navbar and footer */}
                 <Route path="/sree_anjaneya" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
                 <Route path="/thank-you" element={<ErrorBoundary><ThankYou /></ErrorBoundary>} />
+                <Route path="/astha_laxmi" element={<ErrorBoundary><Aly /> </ErrorBoundary>} />
                 
                 {/* All other routes with navbar and footer */}
                 <Route path="/" element={

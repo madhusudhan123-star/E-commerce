@@ -885,21 +885,6 @@ const Landing = () => {
         </div>
       )}
       
-      {/* Sound permission indicator for mobile - improved with manual play button */}
-      {isRinging && !manualPlayAttempted && (
-        <div 
-          className="fixed bottom-24 right-4 z-50 bg-black bg-opacity-80 text-white px-4 py-3 rounded-lg shadow-lg animate-pulse"
-          onClick={attemptPlaySound}
-        >
-          <div className="flex items-center gap-2 cursor-pointer">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 010-7.072m12.728 2.828a9 9 0 010-12.728M3 9.879c-.879.508-1.535 1.072-2.121 1.657M21 14.121c.879-.508 1.535-1.072 2.121-1.657" />
-            </svg>
-            <span className="font-medium">Enable Ringtone</span>
-          </div>
-        </div>
-      )}
-      
       {/* Hero Section */}
       <div className="text-black">        
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-gradient-to-r from-yellow-100 via-red-100 to-yellow-100 py-6 px-4 rounded-lg shadow-md">

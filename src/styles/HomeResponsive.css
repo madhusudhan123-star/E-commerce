@@ -1,0 +1,58 @@
+/* Home page responsive styles */
+.home-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Product grid responsiveness */
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Hero section responsive styles */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+/* Mobile specific styles */
+@media screen and (max-width: 768px) {
+  .home-container {
+    padding: 0 0.5rem;
+  }
+  
+  .category-selector {
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .hero-section {
+    background-attachment: scroll;
+  }
+  
+  /* Improve touch targets for mobile */
+  .product-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Ensure buttons are easy to tap */
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Medium screens */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .home-container {
+    padding: 0 0.75rem;
+  }
+}

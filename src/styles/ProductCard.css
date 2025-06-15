@@ -1,0 +1,50 @@
+/* Product Card Animations and Effects */
+
+.product-image-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.product-image-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.product-image-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-image-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Shimmering effect for the "New" badge */
+@keyframes shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-badge {
+  background: linear-gradient(90deg, #DA9687 25%, #e0a79b 50%, #DA9687 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse animation for Sale badge */
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse-badge {
+  animation: pulse-badge 2s infinite;
+}
+
+/* Soften image transition */
+.smooth-image-transition {
+  transition: opacity 0.3s ease-in-out;
+}

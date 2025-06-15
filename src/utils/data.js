@@ -1,36 +1,22 @@
 // import logo from '../assets/logo.svg';
 import logo from '../assets/logo.png';
-import slider1 from '../assets/home/sliderone.jpg'
-import slider2 from '../assets/home/Slidertwo.jpg'
-import slider3 from '../assets/home/Sliderthree.jpg'
+import slider1 from '../assets/home/sliderone.png'
+// import slider2 from '../assets/home/Slidertwo.webp'
+// import slider3 from '../assets/home/Sliderthree.webp'
 import home_second from '../assets/home/home_second.png';
 import homethree1 from '../assets/home/homethreeone.png'
 import homethree2 from '../assets/home/homethreetwo.png'
 import homethree3 from '../assets/home/homethreethree.png'
-import product1 from '../assets/real7.jpg'
 import product11 from '../assets/aly1.jpg'
 import product12 from '../assets/aly2.jpg'
 import product13 from '../assets/aly3.png'
 import product14 from '../assets/aly4.png'
-import product2 from '../assets/real8.jpg'
 import product21 from '../assets/sar1.jpg';
 import product22 from '../assets/sar2.jpg';
 import product23 from '../assets/sar3.jpg';
-// import product24 from '../assets/sar4.jpg';
 import product25 from '../assets/sar5.jpg';
 
 
-import bal_suvarna_image from '../assets/home/bal_suvarna_image.png';
-import balaji_image from '../assets/home/balaji_image.png';
-import durga_image from '../assets/home/durga_image.png';
-import ek_onkar_image from '../assets/home/ek_onkar_image.png';
-import krishna_image from '../assets/home/krishna_image.png';
-import saibaba_image from '../assets/home/saibaba_image.png';
-import laxmi_image from '../assets/home/laxmi_image.png';
-import om_ganesha_image from '../assets/home/om_ganesha_image.png';
-import about9 from '../assets/home/4.png';
-import about10 from '../assets/home/5.png';
-import about11 from '../assets/home/Group_133224.png';
 import person1 from '../assets/home/980_x_860-1.jpg';
 import person2 from '../assets/home/980_x_860-5.jpg';
 import person3 from '../assets/home/980_x_860-6.jpg';
@@ -42,7 +28,6 @@ import test1 from '../assets/home/testimonial-1.jpeg';
 import test2 from '../assets/home/testimonial-2.jpeg';
 import test3 from '../assets/home/testimonial-3.jpeg';
 import test4 from '../assets/home/testimonial-4.jpeg';
-import aboutsec from '../assets/about/about07.jpg';
 import contact from '../assets/contact/contact.jpeg';
 
 
@@ -80,29 +65,29 @@ const translations = {
             subtitle3: `Bring home these meticulously crafted idols that emanate divine energy and protection.`,
             button1: 'Shop Now',
             sider1img: slider1,
-            sider2img: slider2,
-            sider3img: slider3,
+            // sider2img: slider2,
+            // sider3img: slider3,
         },
         second: {
             short: "Special Offerings",
-            title: 'Sacred Idols for Protection and Prosperity',
-            subtitle: `Bring home divine protection with Sree Anjaneya and abundance with Sree Astha Laxmi.`,
-            button: 'Shop Now',
+            title: "Invite Blessings, Wealth & Protection",
+            subtitle: `Discover our sacred Sree Anjaneya Shani Raksha for shielding your family from negativity, and the auspicious Sree Astha Laxmi for inviting endless prosperity and fortune into your home. Bring home divine energy today.`,
+            button: "Shop Now",
             image: home_second,
             design: aboutdesign,
-        },
+        },        
         third: {
             design: design,
             image1: homethree1,
-            title1: 'Protection Idols',
-            subtitle1: 'Experience the protective shield of Sree Anjaneya, guarding against negative energies and Shani doshas.',
+            title1: "Divine Protection",
+            subtitle1: "Invoke the mighty blessings of Sree Anjaneya Shani Raksha to safeguard your home and loved ones from evil influences.",
             image2: homethree2,
-            title2: 'Prosperity Deities',
-            subtitle2: 'Welcome abundance with Sree Astha Laxmi, the embodiment of wealth and prosperity.',
+            title2: "Wealth & Abundance",
+            subtitle2: "Invite the grace of Sree Astha Laxmi — the divine source of endless prosperity, fortune, and happiness.",
             image3: homethree3,
-            title3: 'Sacred Craftsmanship',
-            subtitle3: 'Each idol is crafted with devotion, preserving traditional artistry and spiritual essence.',
-        },
+            title3: "Handcrafted Divinity",
+            subtitle3: "Every idol is intricately hand-finished by skilled artisans, capturing authentic spiritual energy and timeless tradition.",
+        },        
         fourth: {
             short: "Our Collection",
             title: 'Exclusive Spiritual Products',
@@ -110,81 +95,93 @@ const translations = {
             card: "Add Cart",
             buy: "Buy Now",
         },
-        product: [
-            { id: 1, category: 'Bal Suvarna', image: bal_suvarna_image },
-            { id: 2, category: 'Balaji', image: balaji_image },
-            { id: 3, category: 'Durga', image: durga_image },
-            { id: 4, category: 'Ek Onkar', image: ek_onkar_image },
-            { id: 6, category: 'Krishna', image: krishna_image },
-            { id: 7, category: 'Laxmi', image: laxmi_image },
-            { id: 8, category: 'Bal Suvarna', image: om_ganesha_image },
-            { id: 9, category: 'Saibaba', image: saibaba_image },
-        ],
-        cartitle: "High Quality",
-        catsub: "Special Ritual Products",
-        categories: ['All', 'Bal Suvarna', 'Balaji', 'Durga', 'Ek Onkar', 'Khanda', 'Krishna', 'Laxmi', 'Saibaba'],
-        faqtitle: "Expert Answers",
-        faqsub: "Frequently Asked Questions",
+        cartitle: "Premium Spiritual Idols",
+        catsub: "Sacred Ritual & Puja Collections",
+        categories: ['All', 'Sree Anjaneya', 'Sree Astha Laxmi', 'Balaji', 'Durga', 'Ek Onkar', 'Khanda', 'Krishna', 'Laxmi', 'Saibaba'],
+        faqtitle: "Expert Guidance",
+        faqsub: "Your Questions Answered",
         faqs: [
             {
-                question: "What are the benefits of Sree Anjaneya idol?",
-                answer: "Sree Anjaneya idol provides protection against Shani doshas and brings strength to your household.",
+                question: "What are the spiritual benefits of Sree Anjaneya Shani Raksha?",
+                answer: "Sree Anjaneya Shani Raksha idol offers powerful protection from Shani doshas, evil eye, and negative energies. It brings courage, strength, and mental peace to your family.",
             },
             {
-                question: "How does Sree Astha Laxmi idol help?",
-                answer: "Sree Astha Laxmi idol symbolizes wealth and prosperity, perfect for both worship and home decoration.",
+                question: "How does the Sree Astha Laxmi idol attract prosperity?",
+                answer: "Sree Astha Laxmi idol invokes the blessings of the eight forms of Goddess Laxmi, ensuring wealth, success, good fortune, and abundance in your home and workplace.",
             },
             {
-                question: "Are these idols suitable for home worship?",
-                answer: "Yes, both idols are perfectly suited for home pooja rituals and sacred spaces.",
+                question: "Are these spiritual idols ideal for home puja and gifting?",
+                answer: "Yes! Both Sree Anjaneya and Sree Astha Laxmi idols are perfect for daily worship, festive rituals, and as auspicious gifts for housewarmings, weddings, or special occasions.",
             },
             {
-                question: "How should I maintain these idols?",
-                answer: "Handle with care and respect. Regular cleaning with a soft cloth is recommended.",
+                question: "How should I clean and maintain these idols?",
+                answer: "Wipe gently with a clean, dry cloth to maintain their shine and sanctity. Avoid harsh chemicals and always handle with devotion and care.",
             },
         ],
-        images: about11,
         horizontal: [
-            { image: person1, title: 'Krishna', link: "/product" },
-            { image: person2, title: 'Gods Statue', link: "/product" },
-            { image: person3, title: 'Goddess Statue', link: "/product" },
-            { image: person4, title: 'Handicraft Accessories', link: "/product" },
-        ],
+            { image: person1, title: 'Sree Anjaneya Idol', link: "/product" },
+            { image: person2, title: 'Sree Astha Laxmi Idol', link: "/product" },
+            { image: person3, title: 'Divine God Statues', link: "/product" },
+            { image: person4, title: 'Sacred Handicraft Decor', link: "/product" },
+        ],        
         nine: {
             short: "Adorable Designs",
             title: "Handcrafted Spiritual Products",
+            des: "Each of our sacred idols and spiritual decor pieces is lovingly handcrafted by skilled artisans. Discover unique designs that blend timeless tradition with exquisite craftsmanship, perfect for home puja, gifting, and adding divine grace to any space.",
             image: nine1,
-        },
+        },        
         reviews: [
             {
                 name: "Rajesh",
                 date: "27 July 2023",
                 rating: 5,
-                review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship!",
+                review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship and divine detailing — truly blessed to have it!",
                 image: test1,
             },
             {
                 name: "Priya",
                 date: "26 June 2023",
                 rating: 5,
-                review: "Since installing Sree Astha Laxmi idol, we've felt more prosperity in our business.",
+                review: "Since installing the Sree Astha Laxmi idol, we feel abundance and good fortune flowing into our family business. A must-have for prosperity!",
                 image: test2,
             },
             {
                 name: "Amit",
                 date: "29 July 2023",
                 rating: 4,
-                review: "Beautiful craftsmanship and fast delivery. Highly recommend!",
+                review: "Beautifully crafted idols with intricate designs. Fast shipping and well-packed. Highly recommend for anyone looking for authentic spiritual decor.",
                 image: test3,
             },
             {
                 name: "Stella",
                 date: "15 June 2023",
                 rating: 3,
-                review: "Beautiful Saraswati statue but packaging could be improved.",
+                review: "The Saraswati statue is gorgeous and radiates a calming presence in my study. Packaging can be improved but overall very happy.",
                 image: test4,
             },
-        ],
+            {
+                name: "Meera",
+                date: "10 May 2023",
+                rating: 5,
+                review: "I ordered the Sree Anjaneya Shani Raksha for my parents — they love it! We feel so much peace and protection at home now.",
+                image: test1,
+            },
+            {
+                name: "Arjun",
+                date: "5 May 2023",
+                rating: 5,
+                review: "These idols are true works of art. The Sree Astha Laxmi I received is stunning and instantly elevated our pooja room’s aura.",
+                image: test2,
+            },
+            {
+                name: "Divya",
+                date: "20 April 2023",
+                rating: 4,
+                review: "Wonderful spiritual collection. Loved the fine details and traditional look. Quick delivery and great customer service too!",
+                image: test3,
+            },
+        ]
+        
     },
     footerConfig: {
         contact: {
@@ -230,7 +227,6 @@ const translations = {
             subtitle: `Our collection of divine statues and spiritual artifacts is crafted to promote peace, mindfulness, and inner harmony. We bring you premium products that resonate with cultural and spiritual values.`,
             button: 'Shop Now',
             linkbutton: '/shop',
-            image: aboutsec,
             design: aboutdesign,
         },
         short2: 'Our Mission',
@@ -305,7 +301,7 @@ const translations = {
                 cod: true,
                 online: true,
                 photo: {
-                    image1: product1,
+                    image1: product11,
                     image2: product11,
                     image3: product12,
                     image4: product13,
@@ -323,7 +319,7 @@ const translations = {
                 cod: true,
                 online: true,
                 photo: {
-                    image1: product2,
+                    image1: product21,
                     image2: product21,
                     image3: product22,
                     image4: product23,

@@ -19,7 +19,7 @@ const SecondComponent = ({ translations, page = 'home' }) => {
             {data.design && (
                 <img
                     src={data.design}
-                    className='absolute rotate-180 top-[-150px] z-[1] hidden lg:block md:block sm:hidden'
+                    className='absolute rotate-180 z-[1] hidden lg:block md:block sm:hidden'
                     alt='Design'
                 />
             )}

@@ -5,23 +5,21 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, } from 'swiper/modules';
 import translations from '../utils/data';
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import ProductCard from '../components/ProductCard';
-import bg from '../assets/home/bg-test.png';
 import SecondComponent from '../components/Second';
 import Horizontal from '../components/Horziental';
 import Team from '../components/Team';
-
-
-
-
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import './Hero.css'; // We'll create this file for custom styling
+import mobilebanner from '../assets/main/mobilebanner.webp';
 
 const Home = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [activeIndex, setActiveIndex] = useState(null);
     const [hoveredId, setHoveredId] = useState(null);
-
 
     const toggleFAQ = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
@@ -31,134 +29,65 @@ const Home = () => {
             ? translations.home.product
             : translations.home.product.filter((product) => product.category === selectedCategory);
             
+    // Slider settings
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: true,
+    };
+
     return (
-        <div>
-            <div className='h-full lg:h-screen md:h-screen sm:h-full'>
-                <div className="h-full lg:h-screen md:h-screen sm:h-full">
-                    <Swiper
-                        modules={[Navigation, Pagination]}
-                        spaceBetween={50}
-                        slidesPerView={1}
-                        navigation={{
-                            nextEl: '.swiper-button-next',
-                            prevEl: '.swiper-button-prev',
-                        }}
-                        pagination={{ clickable: true }}
-                        loop={true}
-                        autoplay={{ delay: 3000 }}
-                        className="mySwiper w-full h-full"
-                    >
-                        <SwiperSlide className={`flex justify-center items-center text-center text-lg siderone `}>
-                            <div className='w-screen lg:h-screen md:h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
-
-                                <div className='w-1/2 hidden lg:block md:block sm:block '>
-                                </div>
-                                <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full flex flex-col justify-center items-center'>
-                                    <div className='text-center xl:text-start md:text-start sm:text-start '>
-                                        <motion.div
-                                            initial={{ x: -200, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }} className="stylefont text-4xl">{translations.home.header.short1}</motion.div>
-                                        <motion.div
-                                            initial={{ x: -200, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }} className='text-6xl  headerstyle'>{translations.home.header.title1}</motion.div>
-                                        <motion.div
-                                            initial={{ x: -200, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }} className='w-full xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-2/3'>{translations.home.header.subtitle1}</motion.div>
-                                        <motion.div
-                                            initial={{ x: -200, opacity: 0 }}
-                                            whileInView={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5 }}
-                                            viewport={{ once: true }}>
-
-                                            <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'>
-                                                <a href={translations.about.second.linkbutton}>
-
-                                                    {translations.home.header.button1}
-                                                </a>
-                                            </button>
-                                        </motion.div>
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={`flex justify-center items-center text-center text-lg slidertwo `}>
-                            <div className='w-screen lg:h-screen md:h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
-                                <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full flex flex-col justify-center items-center'>
-                                    <motion.div
-                                        initial={{ x: -200, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
-                                        viewport={{ once: true }} className='text-center xl:text-end md:text-end sm:text-center '>
-                                        <h1 className='stylefont text-4xl'>{translations.home.header.short2}</h1>
-                                        <h1 className='text-6xl  headerstyle'>{translations.home.header.title2}</h1>
-                                        <p className=''>{translations.home.header.subtitle2}</p>
-                                        <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'> <a href={translations.about.second.linkbutton}>
-                                            {translations.home.header.button1}
-                                        </a>
-                                        </button>
-                                    </motion.div>
-                                </div>
-                                <div className=' hidden lg:block md:block sm:block'></div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className={`flex justify-center items-center text-center text-lg sliderthree `}>
-                            <div className='w-screen lg:h-screen md:h-screen flex flex-row bg-[#f5f5f58f] xl:bg-transparent lg:bg-transparent  md:bg-transparent sm:bg-[#f5f5f58f]'>
-
-                                <div className='w-1/2 hidden lg:block md:block sm:block '>
-
-                                </div>
-                                <div className=' flex flex-col justify-center items-center'>
-                                    <motion.div
-                                        initial={{ x: -200, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        transition={{ duration: 0.5 }}
-                                        viewport={{ once: true }} className='text-center xl:text-start md:text-start sm:text-start '>
-                                        <h1 className='stylefont text-4xl'>{translations.home.header.short3}</h1>
-                                        <h1 className='text-6xl  headerstyle'>{translations.home.header.title3}</h1>
-                                        <p className='w-full xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-2/3'>{translations.home.header.subtitle3}</p>
-                                        <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'><a href={translations.about.second.linkbutton}>
-                                            {translations.home.header.button1}
-                                        </a>
-                                        </button>
-                                    </motion.div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    </Swiper>
+        <div className="overflow-hidden">
+            {/* Hero Section - Responsive with mobile/desktop versions */}
+            <section className="relative w-full overflow-hidden">
+                {/* Mobile Banner - Only visible on small screens */}
+                <div className="mobile-banner-container">
+                    <img src={mobilebanner} alt="Mobile Banner" className="w-full" />
                 </div>
-            </div>
+                
+                {/* Desktop Slider - Hidden on small screens */}
+                <div className="desktop-banner-container">
+                    <Slider {...settings}>
+                        <div className="banner-slide">
+                            <img src={translations.home.header.sider1img} alt="Banner 1" />
+                        </div>
+                        <div className="banner-slide">
+                            <img src={translations.home.header.sider2img} alt="Banner 2" />
+                        </div>
+                        <div className="banner-slide">
+                            <img src={translations.home.header.sider3img} alt="Banner 3" />
+                        </div>
+                    </Slider>
+                </div>
+            </section>
+
             <div className='relative'>
                 <SecondComponent translations={translations} page="home" />
             </div>
-            <section className="product-video-section py-5">
-                <div className="container">
-                    <div className="row justify-content-center">
-                        {/* <div className="col-md-10 text-center mb-4">
-                            <h2 className="section-title">See Our Products in Action</h2>
-                            <p className="lead">Watch how our quality products can enhance your lifestyle</p>
-                        </div> */}
-                        <div className="col-md-8">
-                            <div className="video-container">
-                                <iframe 
-                                    width="100%" 
-                                    height="480" 
-                                    src="https://www.youtube.com/embed/IOxef5l-KFc" 
-                                    title="Product Showcase" 
-                                    frameBorder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    allowFullScreen>
-                                </iframe>
-                            </div>
+            <section className="py-5">
+                <div className="w-screen">
+                    <div className="flex justify-center">
+                    <div className="w-full md:w-12/12">
+                        <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
+                        <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/IOxef5l-KFc"
+                            title="Product Showcase"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
                         </div>
+                    </div>
                     </div>
                 </div>
             </section>
+
             <div>
                 <div className='flex flex-wrap justify-center p-10 flex-col w-full lg:flex-row md:flex-row sm:flex-row'>
                     {[1, 2, 3].map((num) => (
@@ -215,10 +144,6 @@ const Home = () => {
                         {/* Gradient overlay for better text readability */}
                         <div className='absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10'></div>
                         
-                        <div className='w-1/2 p-8 relative z-20'>
-                            {/* Left side can contain product showcase or remain empty for background focus */}
-                        </div>
-                        
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white relative z-20'>
                             {/* Main heading with enhanced styling */}
                             <h1 className='text-2xl mb-3 text-orange-300 stylefont tracking-wide'>
@@ -242,6 +167,10 @@ const Home = () => {
                                 Handcrafted with devotion, blessed with tradition.
                             </p>
                         </div>
+                        <div className='w-1/2 p-8 relative z-20'>
+                            {/* Left side can contain product showcase or remain empty for background focus */}
+                        </div>
+                        
                     </div>
                     
                     {/* Decorative elements */}
@@ -259,6 +188,16 @@ const Home = () => {
 
                     {/* FAQ Section */}
                     <div className="flex flex-col md:flex-row gap-10 items-start justify-center items-center">
+                        
+                        {/* Image Section */}
+                        <div className="hidden md:block relative w-full md:w-1/2">
+                            <img
+                                src={translations.home.images}
+                                alt="Meditation"
+                                className="w-full rounded-lg"
+                            />
+                        </div>
+                        
                         {/* FAQ List */}
                         <div className="w-full md:w-1/2 p-10">
                             {translations.home.faqs.map((faq, index) => (
@@ -285,31 +224,43 @@ const Home = () => {
                             ))}
                         </div>
 
-                        {/* Image Section */}
-                        <div className="hidden md:block relative w-full md:w-1/2">
-                            <img
-                                src={translations.home.images}
-                                alt="Meditation"
-                                className="w-full rounded-lg"
-                            />
-                        </div>
+
                     </div>
                 </section>
             </div>
             <div>
                 <Horizontal data={translations.home.horizontal} />
             </div>
+            <section className="py-5">
+                <div className="w-screen">
+                    <div className="flex justify-center">
+                    <div className="w-full md:w-12/12">
+                        <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
+                        <iframe
+                            className="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/pTRb3HcbXX8"
+                            title="Product Showcase"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            {/* last banner of home */}
             <div>
                 <div className='pb-10 h-[70vh] relative overflow-hidden'>
                     <div className='flex h-full backgroundimagechange2 flex-col w-full lg:flex-row md:flex-row sm:flex-row relative'>
                         {/* Gradient overlay for better text readability */}
                         <div className='absolute inset-0 bg-gradient-to-l from-black/70 via-black/40 to-transparent z-10'></div>
                         
-                        <div className='w-1/2 p-8 relative z-20'>
+                        <div className='w-1/2 p-8 relative z-20 hidden sm:hidden md:block lg:block'>
                             {/* Left side showcases the spiritual products in background */}
                         </div>
                         
-                        <div data-aos="zoom-in-up" className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white text-center flex justify-center flex-col items-center relative z-20'>    
+                        <div data-aos="zoom-in-up" className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-0 md:p-10 text-white text-center flex justify-center flex-col items-center relative z-20'>    
                             {/* Main heading with enhanced styling */}
                             <h1 className='text-3xl mb-5 text-amber-300 stylefont tracking-wide'>
                                 {translations.home.nine.short}
@@ -345,8 +296,6 @@ const Home = () => {
             <div>
                 <Team />
             </div>
-            {/* Product Video Section - Add this after your second section */}
-
         </div >
     )
 };

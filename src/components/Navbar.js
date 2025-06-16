@@ -7,7 +7,7 @@ import {
   faBars
 } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/logo.png';
-import translations from '../utils/data';
+
 import { useCart } from './CartContext';
 
 const Navbar = () => {
@@ -95,14 +95,20 @@ const Navbar = () => {
             {cart.map((item) => (
               <div key={item.cartItemId} className='flex items-center justify-between border-b pb-4 hover:bg-gray-50 p-2 rounded-lg transition-colors'>
                 <div className='flex items-center space-x-4'>
-                  <img
-                    src={item.photo.image1}
-                    alt={item.name}
-                    className='w-16 h-16 object-cover rounded-md'
-                  />
+                  {item.photo && item.photo.image1 ? (
+                    <img
+                      src={item.photo.image1}
+                      alt={item.name}
+                      className='w-16 h-16 object-cover rounded-md'
+                    />
+                  ) : (
+                    <div className='w-16 h-16 bg-gray-200 rounded-md flex items-center justify-center'>
+                      <span className='text-gray-500'>No image</span>
+                    </div>
+                  )}
                   <div>
                     <h3 className='font-medium'>{item.name}</h3>
-                    <p className='text-[#DA9687]'>${Number(item.cost).toFixed(2)}</p>
+                    <p className='text-[#DA9687]'>₹{Number(item.cost).toFixed(2)}</p>
                   </div>
                 </div>
                 <button
@@ -145,8 +151,8 @@ const Navbar = () => {
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' 
-            : 'bg-transparent py-5'
+            ? 'bg-[#ffc300] backdrop-blur-md shadow-sm py-3' 
+            : 'bg-[#ffc300] py-5'
         }`}
       >
         <div className="container mx-auto px-4">
@@ -250,12 +256,6 @@ const Navbar = () => {
               onClick={toggleMobileMenu}
             >
               Shop
-            </Link>
-            <Link to="/collections" 
-              className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
-              onClick={toggleMobileMenu}
-            >
-              Collections
             </Link>
             <Link to="/about" 
               className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"

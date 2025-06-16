@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import translations from '../utils/data';
 import PageHeader from '../components/Other';
 import { FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa';
+import banner from '../assets/main/banner5.webp'
 
 const Store = () => {
     const [selectedCategory, setSelectedCategory] = useState('all');
@@ -33,7 +34,7 @@ const Store = () => {
             {/* Spiritual Hero Banner */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center opacity-20" 
-                     style={{backgroundImage: "url('https://images.unsplash.com/photo-1598961942613-ba897716405b?ixlib=rb-4.0.3')"}}></div>
+                     style={{backgroundImage: `url(${banner})`}}></div>
                 <div className="relative py-20 px-4 text-center">
                     <h1 className="text-4xl md:text-6xl font-serif text-[#614E42] mb-4">Sacred Collection</h1>
                     <p className="text-xl md:text-2xl text-[#614E42] max-w-2xl mx-auto font-light">
@@ -67,7 +68,7 @@ const Store = () => {
                     <h2 className="text-5xl mb-6 headerstyle text-[#614E42]">Divine Products</h2>
                     
                     {/* Category Selection - Styled for spiritual theme */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-12">
+                    {/* <div className="flex flex-wrap justify-center gap-3 mb-12">
                         <button
                             className={`px-6 py-2 rounded-full font-serif transition-all duration-300 ${
                                 selectedCategory === 'all' 
@@ -91,7 +92,7 @@ const Store = () => {
                                 {category}
                             </button>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* Spiritual Benefits */}

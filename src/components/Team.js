@@ -188,15 +188,6 @@ const Team = () => {
                             onMouseLeave={() => setHoveredId(null)}
                         >
                             <div className="relative h-52 overflow-hidden">
-                                {hoveredId === index && (
-                                    <div className="absolute inset-0 z-10">
-                                        <img 
-                                            src={bg} 
-                                            className="absolute inset-0 w-full h-full object-cover opacity-40" 
-                                            alt="Background pattern" 
-                                        />
-                                    </div>
-                                )}
                                 <img
                                     src={review.image}
                                     alt={review.name}
@@ -250,9 +241,11 @@ const Team = () => {
                 >
                     <h3 className="text-2xl md:text-3xl font-bold mb-4">Experience the Difference Today</h3>
                     <p className="text-white/80 mb-8 max-w-lg mx-auto">Join thousands of satisfied customers and discover why our products are rated 4.9/5 stars.</p>
-                    <button className="bg-white text-[#D88E7D] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors shadow-lg">
-                        Shop Now
-                    </button>
+                    <a href='/shop'>
+                        <button className="bg-white text-[#D88E7D] px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-colors shadow-lg">
+                            Shop Now
+                        </button>
+                    </a>
                 </motion.div>
             </div>
         </section>

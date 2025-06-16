@@ -47,7 +47,7 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0 }) => {
                 {/* Image Container */}
                 <div className="relative overflow-hidden aspect-square">
                     <img
-                        src={isHovered ? photo.image2 : photo.image3}
+                        src={isHovered ? photo.image1 : photo.image3}
                         alt={name}
                         className="w-full h-full object-cover transition-transform duration-700 ease-in-out"
                     />
@@ -98,15 +98,15 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0 }) => {
                         {discount > 0 ? (
                             <>
                                 <span className="text-[#DA9687] font-semibold text-lg">
-                                    ${salePrice}
+                                ₹{salePrice}
                                 </span>
                                 <span className="text-gray-500 text-sm line-through ml-2">
-                                    ${cost.toFixed(2)}
+                                ₹{cost.toFixed(2)}
                                 </span>
                             </>
                         ) : (
                             <span className="text-[#DA9687] font-semibold text-lg">
-                                ${cost.toFixed(2)}
+                                ₹{cost.toFixed(2)}
                             </span>
                         )}
                     </div>

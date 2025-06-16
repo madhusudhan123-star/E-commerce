@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Contact from './pages/Contact'; // Add this import
+import Contact from './pages/Contact';
 import './App.css';
 import { CartProvider } from './components/CartContext';
 import Store from './pages/Store';
 import ProductPage from './components/ProductPage';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Checkout from "./pages/Billing"
+import Checkout from "./pages/Billing";
 import Admin from './pages/Admin';
 import ErrorBoundary from './components/ErrorBoundary';
 import Terms from './pages/Terms';
@@ -23,6 +23,7 @@ import ThankYou from './pages/ThankYou';
 import Layout from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 import Aly from './pages/Aly';
+import ScrollToTop from './components/ScrollToTop';
 
 AOS.init({
   delay: 300,
@@ -37,7 +38,8 @@ function App() {
         <CartProvider>
           <LanguageProvider>
             <BrowserRouter>
-              <Routes>                {/* Landing page without navbar and footer */}
+              <ScrollToTop />
+              <Routes>
                 <Route path="/sree_anjaneya" element={<ErrorBoundary><Landing /></ErrorBoundary>} />
                 <Route path="/thank-you" element={<ErrorBoundary><ThankYou /></ErrorBoundary>} />
                 <Route path="/astha_laxmi" element={<ErrorBoundary><Aly /> </ErrorBoundary>} />

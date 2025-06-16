@@ -187,11 +187,11 @@ const Team = () => {
                             onMouseEnter={() => setHoveredId(index)}
                             onMouseLeave={() => setHoveredId(null)}
                         >
-                            <div className="relative h-52 overflow-hidden">
+                            <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={review.image}
                                     alt={review.name}
-                                    className={`w-full h-full object-cover transition-transform duration-300 ${
+                                    className={`w-full h-full transition-transform duration-300 ${
                                         hoveredId === index ? 'scale-105' : 'scale-100'
                                     }`}
                                 />

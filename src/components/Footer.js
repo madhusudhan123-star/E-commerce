@@ -35,19 +35,19 @@ const Footer = () => {
                         
                         {/* Social Media Icons */}
                         <div className="flex space-x-4 mt-2">
-                            <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
+                            {/* <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
                                 <FaFacebookF className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
+                            </a> */}
+                            <a href="https://www.instagram.com/sacredrelm/" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
                                 <FaInstagram className="w-5 h-5" />
                             </a>
-                            <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
+                            {/* <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
                                 <FaTwitter className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
+                            </a> */}
+                            {/* <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
                                 <FaLinkedinIn className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
+                            </a> */}
+                            <a href="http://www.youtube.com/@sacredrelm" className="hover:text-white transition-colors duration-300 bg-white/20 p-2 rounded-full">
                                 <FaYoutube className="w-5 h-5" />
                             </a>
                         </div>

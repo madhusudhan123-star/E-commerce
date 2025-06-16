@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import { Helmet } from 'react-helmet'; // For SEO
-import { FaStar, FaStarHalfAlt, FaRegStar, FaShippingFast, FaCheck, FaExchangeAlt, FaShare, FaFacebook, FaTwitter, FaInstagram, FaPinterest, FaGift, FaHeart, FaClock, FaShieldAlt, FaTruck } from 'react-icons/fa';
+import { FaStar, FaStarHalfAlt, FaRegStar, FaShippingFast, FaCheck, FaExchangeAlt, FaShare, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGift, FaHeart, FaClock, FaShieldAlt, FaTruck } from 'react-icons/fa';
 import translations from '../utils/data';
 import PageHeader from './Other';
 
@@ -446,17 +446,17 @@ const ProductPage = () => {
                                     <div>
                                         <p className="text-xs sm:text-sm text-gray-600 mb-2">Share this product:</p>
                                         <div className="flex space-x-3">
-                                            <a href="#" className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
+                                            {/* <a href="#" className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
                                                 <FaFacebook size={14} className="sm:text-base" />
-                                            </a>
-                                            <a href="#" className="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition">
+                                            </a> */}
+                                            {/* <a href="#" className="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition">
                                                 <FaTwitter size={14} className="sm:text-base" />
-                                            </a>
-                                            <a href="#" className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition">
+                                            </a> */}
+                                            <a href="https://www.instagram.com/sacredrelm/" className="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition">
                                                 <FaInstagram size={14} className="sm:text-base" />
                                             </a>
-                                            <a href="#" className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition">
-                                                <FaPinterest size={14} className="sm:text-base" />
+                                            <a href="http://www.youtube.com/@sacredrelm" className="bg-red-600 text-white p-2 rounded-full hover:bg-red-700 transition">
+                                                <FaYoutube size={14} className="sm:text-base" />
                                             </a>
                                         </div>
                                     </div>

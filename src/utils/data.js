@@ -4,17 +4,19 @@ import slider1 from '../assets/main/banner1.webp'
 import slider2 from '../assets/main/banner2.webp'
 import slider3 from '../assets/main/banner3.webp'
 import home_second from '../assets/main/img4.webp';
-import homethree1 from '../assets/main/Ashta laxmi Yantras/1.webp'
+import homethree1 from '../assets/main/sree dhana laxmi akarsha pack/1.webp'
 import homethree2 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/7.webp'
 import homethree3 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/8.webp'
 
-import product10 from '../assets/main/Ashta laxmi Yantras/aly.webp';
-import product11 from '../assets/main/Ashta laxmi Yantras/1.webp'
-import product12 from '../assets/main/Ashta laxmi Yantras/2.webp'
-import product13 from '../assets/main/Ashta laxmi Yantras/3.webp'
-import product14 from '../assets/main/Ashta laxmi Yantras/4.webp';
-import product15 from '../assets/main/Ashta laxmi Yantras/5.webp';
-import product16 from '../assets/main/Ashta laxmi Yantras/6.webp';
+import product1 from '../assets/main/Ashta laxmi Yantras/aly.webp';
+import product2 from '../assets/main/Ashta laxmi Yantras/1.webp';
+import product3 from '../assets/main/Ashta laxmi Yantras/2.webp';
+import product4 from '../assets/main/Ashta laxmi Yantras/3.webp';
+import product5 from '../assets/main/Ashta laxmi Yantras/4.webp';
+import product6 from '../assets/main/Ashta laxmi Yantras/5.webp';
+import product7 from '../assets/main/Ashta laxmi Yantras/6.webp';
+import product8 from '../assets/main/Ashta laxmi Yantras/7.webp';
+
 
 
 import product20 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/sar.webp';
@@ -29,7 +31,15 @@ import product28 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/8.webp';
 import product29 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/9.webp';
 
 
+
 import product30 from '../assets/main/sree dhana laxmi akarsha pack/sla.webp';
+import product10 from '../assets/main/sree dhana laxmi akarsha pack/aly.webp';
+import product11 from '../assets/main/sree dhana laxmi akarsha pack/1.webp'
+import product12 from '../assets/main/sree dhana laxmi akarsha pack/2.webp'
+import product13 from '../assets/main/sree dhana laxmi akarsha pack/3.webp'
+import product14 from '../assets/main/sree dhana laxmi akarsha pack/4.webp';
+import product15 from '../assets/main/sree dhana laxmi akarsha pack/5.webp';
+import product16 from '../assets/main/sree dhana laxmi akarsha pack/6.webp';
 
 import img1 from '../assets/main/img1.webp';
 import img2 from '../assets/main/img2.webp';
@@ -309,11 +319,14 @@ const translations = {
                 cod: true,
                 online: true,
                 photo: {
-                    image1: product11,
-                    image2: product11,
-                    image3: product12,
-                    image4: product13,
-                    image5: product14,
+                    image1: product1,
+                    image2: product2,
+                    image3: product3,
+                    image4: product4,
+                    image5: product5,
+                    image6: product6,
+                    image7: product7,
+                    image8: product8,
                 },
                 description: 'An intricately designed idol of Sree Astha Laxmi, symbolizing wealth and prosperity, perfect for home decor and pooja rituals.',
                 freeAccessories: [],
@@ -460,8 +473,13 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product30,
-                    image2: product30,
-                    image3: product30,
+                    image2: product10,
+                    image3: product11,
+                    image4: product12,
+                    image5: product13,
+                    image6: product14,
+                    image7: product15,
+                    image8: product16,
                 },
                 description: 'Unlock the blessings of wealth, fortune, and abundance with the Sree Dhana Laxmi Akarsha Pack — a specially curated set for attracting financial prosperity and harmony.',
                 reviews: [

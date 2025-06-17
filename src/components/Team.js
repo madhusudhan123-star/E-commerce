@@ -232,7 +232,7 @@ const Team = () => {
                 </div> */}
             
                 {/* CTA Section */}
-                <motion.div 
+                {/* <motion.div 
                     className="mt-20 bg-gradient-to-r from-[#D88E7D] to-[#FF7E5F] rounded-2xl p-8 md:p-12 text-center text-white max-w-4xl mx-auto"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -246,7 +246,7 @@ const Team = () => {
                             Shop Now
                         </button>
                     </a>
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );

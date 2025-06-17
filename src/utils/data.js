@@ -27,6 +27,13 @@ import test2 from '../assets/home/testimonial-2.png';
 import test3 from '../assets/home/testimonial-3.png';
 import test4 from '../assets/home/testimonial-4.png';
 import test5 from '../assets/home/testimonial-5.png';
+import test6 from '../assets/home/testimonial-6.webp';
+import test7 from '../assets/home/testimonial-7.webp';
+import test8 from '../assets/home/testimonial-8.webp';
+import test9 from '../assets/home/testimonial-9.webp';
+import test10 from '../assets/home/testimonial-10.webp';
+
+
 import contact from '../assets/contact/contact.webp';
 
 
@@ -233,35 +240,35 @@ const translations = {
                 date: "02 August 2023",
                 rating: 5,
                 review: "I purchased the Divine Lakshmi Figurine with Mantra Base for my pooja room. The idol is beautifully detailed and radiates a divine aura. I feel a sense of calmness and blessings every time I offer prayers. Highly satisfied with this sacred addition.",
-                image: test1,
+                image: test6,
             },
             {
                 name: "Vignesh",
                 date: "18 July 2023",
                 rating: 4,
                 review: "The Trishul Om Rudraksha Pendant is very powerful. I wear it daily and feel protected from negative thoughts and energies. The quality of the rudraksha beads and the trishul is excellent. Packaging was secure and delivery was prompt.",
-                image: test2,
+                image: test7,
             },
             {
                 name: "Anusha",
                 date: "09 June 2023",
                 rating: 5,
                 review: "Absolutely love the Shree Yantra Orgonite Energy Pyramid! It’s placed in my office desk and I can feel a significant improvement in focus and positive vibes. The design is mesmerizing and it draws everyone’s attention. Worth every rupee spent.",
-                image: test3,
+                image: test8,
             },
             {
                 name: "Pradeep",
                 date: "20 May 2023",
                 rating: 4,
                 review: "Ordered the Shivaji Maharaj Engraved Pendant as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Shivaji Maharaj beautifully. Happy with the purchase and the customer service too.",
-                image: test4,
+                image: test9,
             },
             {
                 name: "Revathi",
                 date: "12 May 2023",
                 rating: 5,
                 review: "This Sacred Collection is truly divine. Every item I have ordered so far has exceeded my expectations in terms of quality and spiritual impact. My home feels more peaceful and prosperous. Thank you for delivering authentic spiritual products with so much care.",
-                image: test5,
+                image: test10,
             },
         ]        
     },

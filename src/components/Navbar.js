@@ -167,7 +167,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-10">
+            <nav className="hidden md:flex items-center text-xl space-x-10">
               <Link to="/" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                 Home
               </Link>

@@ -36,7 +36,7 @@ const Store = () => {
                 <div className="absolute inset-0 bg-cover bg-center opacity-20" 
                      style={{backgroundImage: `url(${banner})`}}></div>
                 <div className="relative py-20 px-4 text-center">
-                    <h1 className="text-4xl md:text-6xl font-serif text-[#614E42] mb-4">Sacred Collection</h1>
+                    <h1 className="text-4xl md:text-6xl font-serif text-[#614E42] mb-4">Spiritual Heritage Series</h1>
                     <p className="text-xl md:text-2xl text-[#614E42] max-w-2xl mx-auto font-light">
                         Discover products that elevate your spiritual journey
                     </p>

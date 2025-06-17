@@ -28,7 +28,7 @@ const SecondComponent = ({ translations, page = 'home' }) => {
                 <h1 className='text-6xl  headerstyle mb-8 '>{data.title}</h1>
                 <p className='mb-4'>{data.subtitle}</p>
                 {data.button && (
-                    <a href='/shop' >
+                    <a href='/product/2' >
                         <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'>
                             {data.button}
                         </button>
@@ -36,7 +36,9 @@ const SecondComponent = ({ translations, page = 'home' }) => {
                 )}
             </div>
             <div className='w-full p-8 lg:w-1/2 md:w-1/2 sm:w-full'>
-                <img src={data.image} alt={data.title} />
+                <a href='/product/2'>
+                    <img src={data.image} alt={data.title} />
+                </a>
             </div>
         </div>
     );

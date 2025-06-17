@@ -89,7 +89,7 @@ const Home = () => {
                 <div className="container mx-auto px-4">
                     {/* Section Header */}
                     <div className="text-center mb-12">
-                        <h3 className='text-[#D88E7D] stylefont text-3xl mb-2'>Our Videos</h3>
+                        {/* <h3 className='text-[#D88E7D] stylefont text-3xl mb-2'>Our Videos</h3> */}
                         <h2 className="text-5xl headerstyle mb-4">Product Showcases</h2>
                         <p className="text-gray-600 max-w-2xl mx-auto">Experience our products in action through these detailed video presentations</p>
                     </div>

@@ -31,7 +31,7 @@ import contact from '../assets/contact/contact.webp';
 
 
 import product1 from '../assets/main/Ashta laxmi Yantras/aly.webp';
-import product2 from '../assets/main/Ashta laxmi Yantras/1.webp';
+// import product2 from '../assets/main/Ashta laxmi Yantras/1.webp';
 import product3 from '../assets/main/Ashta laxmi Yantras/2.webp';
 import product4 from '../assets/main/Ashta laxmi Yantras/3.webp';
 import product5 from '../assets/main/Ashta laxmi Yantras/4.webp';
@@ -160,22 +160,26 @@ const translations = {
         images: faq,
         faqs: [
             {
-                question: "What are the spiritual benefits of Sree Anjaneya Shani Raksha?",
-                answer: "Sree Anjaneya Shani Raksha idol offers powerful protection from Shani doshas, evil eye, and negative energies. It brings courage, strength, and mental peace to your family.",
+                question: "What are the benefits of these spiritual products?",
+                answer: "Each item in this sacred collection serves a unique purpose: from attracting wealth and prosperity with Shree Yantra and Lakshmi figurines to providing protection and positive energy through Rudraksha pendants, orgonite pyramids, and engraved pendants like the Shivaji Maharaj."
             },
             {
-                question: "How does the Sree Astha Laxmi idol attract prosperity?",
-                answer: "Sree Astha Laxmi idol invokes the blessings of the eight forms of Goddess Laxmi, ensuring wealth, success, good fortune, and abundance in your home and workplace.",
+                question: "Are these products suitable for home puja, meditation, or gifting?",
+                answer: "Yes! All these items are thoughtfully designed for daily puja, meditation, spiritual healing, and also make meaningful gifts for festivals, housewarmings, or special occasions."
             },
             {
-                question: "Are these spiritual idols ideal for home puja and gifting?",
-                answer: "Yes! Both Sree Anjaneya and Sree Astha Laxmi idols are perfect for daily worship, festive rituals, and as auspicious gifts for housewarmings, weddings, or special occasions.",
+                question: "How should I place or wear these sacred products?",
+                answer: "Idols and yantras should be placed in clean, sacred spots like a home altar, puja room, or workspace in recommended directions (northeast is ideal). Pendants can be worn daily for personal protection and blessings."
             },
             {
-                question: "How should I clean and maintain these idols?",
-                answer: "Wipe gently with a clean, dry cloth to maintain their shine and sanctity. Avoid harsh chemicals and always handle with devotion and care.",
+                question: "How do I clean and maintain these spiritual items?",
+                answer: "Clean gently with a dry, soft cloth. Keep them away from harsh chemicals and moisture. For pendants, wipe occasionally and store safely when not worn."
             },
-        ],
+            {
+                question: "Are these items energized or blessed before delivery?",
+                answer: "Yes. All our products are carefully crafted and energized through traditional Vedic rituals to ensure they carry positive vibrations and divine blessings."
+            }
+        ],        
         horizontal: [
             { image: img2, title: 'Sree Anjaneya Idol', link: "/product" },
             { image: img1, title: 'Sree Dhana Laxmi', link: "/product" },
@@ -193,38 +197,73 @@ const translations = {
                 name: "Rajesh",
                 date: "27 July 2023",
                 rating: 5,
-                review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship and divine detailing — truly blessed to have it!",
+                review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship and divine detailing — truly blessed to have it! Ever since we placed it in our puja room, we feel a sense of protection and courage in facing daily challenges. It's a wonderful addition for anyone seeking spiritual peace.",
                 image: test1,
             },
             {
                 name: "Lakshmi",
                 date: "26 June 2023",
                 rating: 5,
-                review: "Since installing the Sree Astha Laxmi idol, we feel abundance and good fortune flowing into our family business. A must-have for prosperity!",
+                review: "Since installing the Sree Astha Laxmi idol, we feel abundance and good fortune flowing into our family business. The idol’s presence has uplifted our daily prayers and created a calm, prosperous atmosphere at home. The quality is premium, and it arrived beautifully packed with clear care instructions.",
                 image: test2,
             },
             {
                 name: "Saraswathi",
                 date: "29 July 2023",
                 rating: 4,
-                review: "Beautifully crafted idols with intricate designs. Fast shipping and well-packed. Highly recommend for anyone looking for authentic spiritual decor.",
+                review: "Beautifully crafted idols with intricate designs. Fast shipping and well-packed. I placed them in my meditation space, and they truly enhance the sacredness of the room. The detailing is impressive, and I appreciate the divine vibrations these idols bring. Will surely order again for gifting to loved ones.",
                 image: test3,
             },
             {
                 name: "Srinivasan",
                 date: "15 June 2023",
                 rating: 3,
-                review: "The Saraswati statue is gorgeous and radiates a calming presence in my study. Packaging can be improved but overall very happy.",
+                review: "The Saraswati statue is gorgeous and radiates a calming presence in my study. It inspires me during my reading and writing sessions. Although the packaging could be a bit more secure to prevent minor scratches, the idol itself is flawless and worth every penny. Overall, a good buy for students and knowledge seekers.",
                 image: test4,
             },
             {
                 name: "Raghavendra",
                 date: "10 May 2023",
                 rating: 5,
-                review: "I ordered the Sree Anjaneya Shani Raksha for my parents — they love it! We feel so much peace and protection at home now.",
+                review: "I ordered the Sree Anjaneya Shani Raksha for my parents — they love it! We feel so much peace and protection at home now. The idol has a strong spiritual aura and looks exactly as shown on the website. Delivery was on time, and it was packed with great care. Highly recommended for family well-being.",
+                image: test5,
+            },        
+            {
+                name: "Meenakshi",
+                date: "02 August 2023",
+                rating: 5,
+                review: "I purchased the Divine Lakshmi Figurine with Mantra Base for my pooja room. The idol is beautifully detailed and radiates a divine aura. I feel a sense of calmness and blessings every time I offer prayers. Highly satisfied with this sacred addition.",
+                image: test1,
+            },
+            {
+                name: "Vignesh",
+                date: "18 July 2023",
+                rating: 4,
+                review: "The Trishul Om Rudraksha Pendant is very powerful. I wear it daily and feel protected from negative thoughts and energies. The quality of the rudraksha beads and the trishul is excellent. Packaging was secure and delivery was prompt.",
+                image: test2,
+            },
+            {
+                name: "Anusha",
+                date: "09 June 2023",
+                rating: 5,
+                review: "Absolutely love the Shree Yantra Orgonite Energy Pyramid! It’s placed in my office desk and I can feel a significant improvement in focus and positive vibes. The design is mesmerizing and it draws everyone’s attention. Worth every rupee spent.",
+                image: test3,
+            },
+            {
+                name: "Pradeep",
+                date: "20 May 2023",
+                rating: 4,
+                review: "Ordered the Shivaji Maharaj Engraved Pendant as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Shivaji Maharaj beautifully. Happy with the purchase and the customer service too.",
+                image: test4,
+            },
+            {
+                name: "Revathi",
+                date: "12 May 2023",
+                rating: 5,
+                review: "This Sacred Collection is truly divine. Every item I have ordered so far has exceeded my expectations in terms of quality and spiritual impact. My home feels more peaceful and prosperous. Thank you for delivering authentic spiritual products with so much care.",
                 image: test5,
             },
-        ]
+        ]        
     },
     footerConfig: {
         contact: {
@@ -298,8 +337,8 @@ const translations = {
             ]
         },
         submit: {
-            title: "Hello! Welcome to Creedy",
-            sub: "Nisl pretium fusce id velit ut tortor pretium viverra. Risus quis varius quam quisque id. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Dignissim sodales ut eu sem integer vitae justo eget magna. Pulvinar etiam posuere. ",
+            title: "Hello! Welcome to Sacred Relm",
+            // sub: "Nisl pretium fusce id velit ut tortor pretium viverra. Risus quis varius quam quisque id. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat. Dignissim sodales ut eu sem integer vitae justo eget magna. Pulvinar etiam posuere. ",
             img: contact,
             short: "Contact Us",
             title2: "Have Question? Get in Touch!",
@@ -345,7 +384,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product1,
-                    image2: product2,
                     image3: product3,
                     image4: product4,
                     image5: product5,
@@ -561,8 +599,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product41,
-                    image2: product41,
-                    image3: product41
                 },
                 description: "Invite divine wealth, prosperity, and harmony into your life with the sacred Shree Yantra — an ancient geometric masterpiece revered as the queen of all Yantras. Place it in your home or office to remove obstacles and attract abundance in all forms.",
                 reviews: [
@@ -916,7 +952,7 @@ const translations = {
                 cost: 899,
                 rating: 4.7,
                 isNew: true,
-                name: 'Anjaneya\'s Gada',
+                name: 'Sree Anjaneya\'s Gada',
                 cod: true,
                 online: true,
                 photo: {

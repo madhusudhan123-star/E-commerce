@@ -47,7 +47,7 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0 }) => {
                 {/* Image Container */}
                 <div className="relative overflow-hidden aspect-square">
                     <img
-                        src={isHovered ? photo.image2 : photo.image1}
+                        src={photo.image1}
                         alt={name}
                         className="w-full h-full object-cover transition-transform duration-700 ease-in-out"
                     />

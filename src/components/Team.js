@@ -175,7 +175,7 @@ const Team = () => {
                 </div>
                 
                 {/* Testimonial Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {translations.home.reviews.map((review, index) => (
                         <motion.div
                             key={index}
@@ -229,7 +229,7 @@ const Team = () => {
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </div> */}
             
                 {/* CTA Section */}
                 <motion.div 

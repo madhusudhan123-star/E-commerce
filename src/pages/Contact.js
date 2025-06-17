@@ -6,30 +6,86 @@ import aboutdesign from '../assets/home/about.webp';
 
 
 function Contact() {
-    const [status, setStatus] = useState('idle'); // idle, submitting, success, error
+    // Add state for form data and submission status
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+    });
+    const [submitStatus, setSubmitStatus] = useState({
+        submitting: false,
+        submitted: false,
+        error: null
+    });
+
+    // Handle input changes
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const form = e.target;
-        setStatus('submitting');
-
+        setSubmitStatus({ submitting: true, submitted: false, error: null });
+        
         try {
-            const response = await fetch("https://formspree.io/f/manyjjpb", {
+            // Get form data
+            const form = e.target;
+            const name = formData.name || form.querySelector('[name="name"]').value;
+            const email = formData.email || form.querySelector('[name="email"]').value;
+            const subject = formData.subject || form.querySelector('[name="subject"]').value;
+            const message = formData.message || form.querySelector('[name="message"]').value;
+            
+            // Format message to include sender info and domain name
+            const formattedMessage = `
+                Message from: ${name}
+                Sender Email: ${email}
+                Submitted via: SacredRelm.com Contact Form
+                
+                ${message}
+            `;
+            
+            // Call our backend API instead of Formspree
+            const response = await fetch("https://razorpaybackend-wgbh.onrender.com/send-email", {
                 method: "POST",
-                body: new FormData(form),
                 headers: {
+                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                }
+                },
+                body: JSON.stringify({
+                    to: "israelitesshopping171@gmail.com", // Destination email
+                    subject: `[SacredRelm.com] ${subject || "New Contact Form Submission"}`,
+                    message: formattedMessage
+                })
             });
-
-            if (response.ok) {
-                setStatus('success');
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                // Success handling
+                setSubmitStatus({ submitting: false, submitted: true, error: null });
+                // Reset form
+                setFormData({
+                    name: '',
+                    email: '',
+                    subject: '',
+                    message: ''
+                });
                 form.reset();
             } else {
-                setStatus('error');
+                throw new Error(data.message || "Failed to send message");
             }
         } catch (error) {
-            setStatus('error');
+            console.error("Error submitting form:", error);
+            setSubmitStatus({ 
+                submitting: false, 
+                submitted: false, 
+                error: error.message || "Failed to send message. Please try again later."
+            });
         }
     };
     return (
@@ -144,7 +200,7 @@ function Contact() {
                     
                     {/* Contact Form - Mobile Optimized */}
                     <div className='w-full lg:w-1/2 md:w-1/2 bg-gray-50 p-4 sm:p-6 rounded-lg'>
-                        {status === 'success' && (
+                        {submitStatus.submitted && (
                             <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg flex items-center">
                                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
@@ -152,7 +208,7 @@ function Contact() {
                                 Message sent successfully! We'll get back to you soon.
                             </div>
                         )}
-                        {status === 'error' && (
+                        {submitStatus.error && (
                             <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg flex items-center">
                                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"></path>
@@ -169,6 +225,8 @@ function Contact() {
                                     name="name"
                                     placeholder='Name'
                                     required
+                                    value={formData.name}
+                                    onChange={handleInputChange}
                                     className='p-3 sm:p-4 rounded-lg border w-full focus:outline-none focus:ring-2 focus:ring-[#D88E7D] text-base'
                                 />
                                 <input
@@ -176,6 +234,8 @@ function Contact() {
                                     name="email"
                                     placeholder='Email'
                                     required
+                                    value={formData.email}
+                                    onChange={handleInputChange}
                                     className='p-3 sm:p-4 rounded-lg border w-full focus:outline-none focus:ring-2 focus:ring-[#D88E7D] text-base'
                                 />
                             </div>
@@ -184,6 +244,8 @@ function Contact() {
                                 name="subject"
                                 placeholder='Subject'
                                 required
+                                value={formData.subject}
+                                onChange={handleInputChange}
                                 className='p-3 sm:p-4 rounded-lg border w-full focus:outline-none focus:ring-2 focus:ring-[#D88E7D] text-base'
                             />
                             <textarea
@@ -191,14 +253,16 @@ function Contact() {
                                 placeholder='Message'
                                 required
                                 rows="5"
+                                value={formData.message}
+                                onChange={handleInputChange}
                                 className='p-3 sm:p-4 rounded-lg border w-full h-32 sm:h-40 focus:outline-none focus:ring-2 focus:ring-[#D88E7D] text-base resize-y'
                             ></textarea>
                             <button
                                 type="submit"
-                                disabled={status === 'submitting'}
+                                disabled={submitStatus.submitting}
                                 className='bg-[#D88E7D] text-white p-3 sm:p-4 rounded-lg hover:bg-[#c27c6d] transition-colors disabled:opacity-50 text-base font-medium min-w-[120px] flex items-center justify-center'
                             >
-                                {status === 'submitting' ? (
+                                {submitStatus.submitting ? (
                                     <>
                                         <svg className="animate-spin h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

@@ -8,6 +8,28 @@ import homethree1 from '../assets/main/sree dhana laxmi akarsha pack/1.webp'
 import homethree2 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/7.webp'
 import homethree3 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/8.webp'
 
+import img1 from '../assets/main/img1.webp';
+import img2 from '../assets/main/img2.webp';
+import img3 from '../assets/main/img3.webp';
+import img4 from '../assets/main/img4.webp';
+import img5 from '../assets/main/img5.webp';
+import faq from '../assets/main/img3.webp';
+
+import person1 from '../assets/home/980_x_860-1.jpg';
+import person2 from '../assets/home/980_x_860-5.jpg';
+import person3 from '../assets/home/980_x_860-6.jpg';
+import person4 from '../assets/home/980_x_860-4.jpg';
+import nine1 from '../assets/home/AdobeStock_385430086-copy_2.png';
+import aboutdesign from '../assets/home/about.webp';
+import design from '../assets/home/thirddesign.svg';
+import test1 from '../assets/home/testimonial-1.png';
+import test2 from '../assets/home/testimonial-2.png';
+import test3 from '../assets/home/testimonial-3.png';
+import test4 from '../assets/home/testimonial-4.png';
+import test5 from '../assets/home/testimonial-5.png';
+import contact from '../assets/contact/contact.webp';
+
+
 import product1 from '../assets/main/Ashta laxmi Yantras/aly.webp';
 import product2 from '../assets/main/Ashta laxmi Yantras/1.webp';
 import product3 from '../assets/main/Ashta laxmi Yantras/2.webp';
@@ -41,27 +63,7 @@ import product14 from '../assets/main/sree dhana laxmi akarsha pack/4.webp';
 import product15 from '../assets/main/sree dhana laxmi akarsha pack/5.webp';
 import product16 from '../assets/main/sree dhana laxmi akarsha pack/6.webp';
 
-import img1 from '../assets/main/img1.webp';
-import img2 from '../assets/main/img2.webp';
-import img3 from '../assets/main/img3.webp';
-import img4 from '../assets/main/img4.webp';
-import img5 from '../assets/main/img5.webp';
-import faq from '../assets/main/img3.webp';
-
-import person1 from '../assets/home/980_x_860-1.jpg';
-import person2 from '../assets/home/980_x_860-5.jpg';
-import person3 from '../assets/home/980_x_860-6.jpg';
-import person4 from '../assets/home/980_x_860-4.jpg';
-import nine1 from '../assets/home/AdobeStock_385430086-copy_2.png';
-import aboutdesign from '../assets/home/about.webp';
-import design from '../assets/home/thirddesign.svg';
-import test1 from '../assets/home/testimonial-1.png';
-import test2 from '../assets/home/testimonial-2.png';
-import test3 from '../assets/home/testimonial-3.png';
-import test4 from '../assets/home/testimonial-4.png';
-import test5 from '../assets/home/testimonial-5.png';
-import contact from '../assets/contact/contact.webp';
-
+import product41 from '../assets/main/product/1.webp';
 
 
 const translations = {
@@ -172,28 +174,28 @@ const translations = {
                 image: test1,
             },
             {
-                name: "Priya",
+                name: "Lakshmi",
                 date: "26 June 2023",
                 rating: 5,
                 review: "Since installing the Sree Astha Laxmi idol, we feel abundance and good fortune flowing into our family business. A must-have for prosperity!",
                 image: test2,
             },
             {
-                name: "Amit",
+                name: "Saraswathi",
                 date: "29 July 2023",
                 rating: 4,
                 review: "Beautifully crafted idols with intricate designs. Fast shipping and well-packed. Highly recommend for anyone looking for authentic spiritual decor.",
                 image: test3,
             },
             {
-                name: "Stella",
+                name: "Srinivasan",
                 date: "15 June 2023",
                 rating: 3,
                 review: "The Saraswati statue is gorgeous and radiates a calming presence in my study. Packaging can be improved but overall very happy.",
                 image: test4,
             },
             {
-                name: "Meera",
+                name: "Raghavendra",
                 date: "10 May 2023",
                 rating: 5,
                 review: "I ordered the Sree Anjaneya Shani Raksha for my parents — they love it! We feel so much peace and protection at home now.",
@@ -524,8 +526,67 @@ const translations = {
                         ]
                     },
                 }
+            },
+            {
+                id: 4,
+                category: 'Yantras',
+                cost: 2499,
+                rating: 4.7,
+                isNew: true,
+                name: 'Sree Dhana Laxmi Akarsha Pack',
+                cod: true,
+                online: true,
+                photo: {
+                    image1: product41,
+                    image2: product41,
+                    image3: product41,
+                },
+                description: 'Bring home divine prosperity with the Sree Dhana Laxmi Akarsha Pack — featuring the sacred Meru Shree Yantra to attract wealth, success, and abundance in every sphere of life.',
+                reviews: [
+                    {
+                        id: 1,
+                        user: 'Neha Desai',
+                        rating: 5,
+                        comment: 'Ever since I installed this Meru Shree Yantra, positive changes in my finances and peace of mind are clearly felt. Highly recommend it!',
+                        date: '2024-12-10'
+                    },
+                    {
+                        id: 2,
+                        user: 'Prakash Iyer',
+                        rating: 4.5,
+                        comment: 'This pack is amazing. The yantra is well-energized and the instructions made the rituals easy for my family.',
+                        date: '2024-11-02'
+                    },
+                    {
+                        id: 3,
+                        user: 'Sneha Rathi',
+                        rating: 4.5,
+                        comment: 'Beautifully crafted Meru Shree Yantra with divine energy. My business has seen steady growth after bringing it home.',
+                        date: '2024-10-19'
+                    }
+                ],
+                tabContent: {
+                    description: {
+                        main: "The Sree Dhana Laxmi Akarsha Pack is a specially curated prosperity kit that includes a divine Meru Shree Yantra — the most powerful yantra known for attracting wealth and fortune. Placing this sacred yantra energizes your surroundings, removes financial blockages, and invites continuous flow of abundance.",
+                        additionalText: "Handcrafted with precision and energized through Vedic rituals, this Meru Shree Yantra embodies the blessings of Goddess Laxmi and Goddess Tripura Sundari. It is believed to amplify prosperity, spiritual well-being, and harmony in your home or business place. This pack comes with detailed rituals to help you harness its full potential.",
+                        features: [
+                            "Authentic Meru Shree Yantra crafted from premium alloy",
+                            "Energized through powerful Vedic ceremonies",
+                            "Gold-polished finish for an auspicious aura",
+                            "Includes a ritual guide for easy daily puja",
+                            "Ideal for homes, offices, shops, and temples",
+                            "Specially packed with protective wrapping and blessings"
+                        ],
+                        usage: [
+                            "Place the Meru Shree Yantra in the northeast or east direction facing west.",
+                            "Clean regularly with a dry cloth and keep it on a clean altar.",
+                            "Offer flowers, incense, and light a ghee diya daily for best results.",
+                            "Recite Shree Suktam or Lakshmi mantras during worship.",
+                            "Perform special puja on Fridays and full moon days for enhanced benefits."
+                        ]
+                    }
+                }
             }
-            
             
         ],
     }

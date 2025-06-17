@@ -124,7 +124,7 @@ const Navbar = () => {
               <div className='flex justify-between mb-4'>
                 <span className='font-medium'>Total:</span>
                 <span className='font-semibold'>
-                  ${cart.reduce((total, item) => total + Number(item.cost), 0).toFixed(2)}
+                  {cart.reduce((total, item) => total + Number(item.cost), 0).toFixed(2)}
                 </span>
               </div>
               <button

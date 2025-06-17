@@ -47,7 +47,9 @@ const Home = () => {
             <section className="relative w-full overflow-hidden">
                 {/* Mobile Banner - Only visible on small screens */}
                 <div className="mobile-banner-container">
+                    <a href='/shop'>
                     <img src={mobilebanner} alt="Mobile Banner" className="w-full" />
+                    </a>
                 </div>
                 
                 {/* Desktop Slider - Hidden on small screens */}
@@ -66,28 +68,76 @@ const Home = () => {
                 </div>
             </section>
 
-            <div className='relative'>
-                <SecondComponent translations={translations} page="home" />
-            </div>
-            <section className="py-5">
-                <div className="w-screen">
-                    <div className="flex justify-center">
-                    <div className="w-full md:w-12/12">
-                        <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
-                        <iframe
-                            className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/IOxef5l-KFc"
-                            title="Product Showcase"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                        </div>
+            <div>
+                <section className="py-10 bg-gray-100">
+                    <div className="text-center">
+                        <h3 className='text-[#D88E7D] stylefont text-3xl'>{translations.home.fourth.short}</h3>
+                        <h2 className="text-7xl  headerstyle">{translations.home.fourth.title}</h2>
+                        <p className="text-gray-600 mt-2">{translations.home.fourth.sub}</p>
                     </div>
+
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto px-4">
+                        {translations.products.product.map((product, index) => (
+                            <ProductCard key={index} {...product} />
+                        ))}
+                    </div>
+                </section>
+            </div>
+            
+            {/* Video Showcase Section */}
+            <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                    {/* Section Header */}
+                    <div className="text-center mb-12">
+                        <h3 className='text-[#D88E7D] stylefont text-3xl mb-2'>Our Videos</h3>
+                        <h2 className="text-5xl headerstyle mb-4">Product Showcases</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Experience our products in action through these detailed video presentations</p>
+                    </div>
+                    
+                    {/* Video Grid */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Video 1 */}
+                        <div className="video-card bg-white rounded-xl overflow-hidden shadow-lg transition-transform hover:shadow-2xl hover:-translate-y-1">
+                            <div className="relative pb-[56.25%] h-0 overflow-hidden">
+                                <iframe
+                                    className="absolute top-0 left-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/IOxef5l-KFc"
+                                    title="Product Showcase"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-xl font-semibold text-gray-800">Product Features</h3>
+                                <p className="text-gray-600 mt-1">Discover the unique qualities of our handcrafted products</p>
+                            </div>
+                        </div>
+                        
+                        {/* Video 2 */}
+                        <div className="video-card bg-white rounded-xl overflow-hidden shadow-lg transition-transform hover:shadow-2xl hover:-translate-y-1">
+                            <div className="relative pb-[56.25%] h-0 overflow-hidden">
+                                <iframe
+                                    className="absolute top-0 left-0 w-full h-full"
+                                    src="https://www.youtube.com/embed/pTRb3HcbXX8"
+                                    title="Product Showcase"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                ></iframe>
+                            </div>
+                            <div className="p-4">
+                                <h3 className="text-xl font-semibold text-gray-800">Crafting Process</h3>
+                                <p className="text-gray-600 mt-1">See how our skilled artisans create each masterpiece</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-
+            
+            <div className='relative'>
+                <SecondComponent translations={translations} page="home" />
+            </div>
             <div>
                 <div className='flex flex-wrap justify-center p-10 flex-col w-full lg:flex-row md:flex-row sm:flex-row'>
                     {[1, 2, 3].map((num) => (
@@ -123,21 +173,7 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-            <div>
-                <section className="py-10 bg-gray-100">
-                    <div className="text-center">
-                        <h3 className='text-[#D88E7D] stylefont text-3xl'>{translations.home.fourth.short}</h3>
-                        <h2 className="text-7xl  headerstyle">{translations.home.fourth.title}</h2>
-                        <p className="text-gray-600 mt-2">{translations.home.fourth.sub}</p>
-                    </div>
-
-                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto px-4">
-                        {translations.products.product.map((product, index) => (
-                            <ProductCard key={index} {...product} />
-                        ))}
-                    </div>
-                </section>
-            </div>
+           
             <div>
                 <div className='pb-10 h-[70vh] relative overflow-hidden'>
                     <div className='flex h-full backgroundimagechange flex-col w-full lg:flex-row md:flex-row sm:flex-row relative'>
@@ -231,24 +267,7 @@ const Home = () => {
             <div>
                 <Horizontal data={translations.home.horizontal} />
             </div>
-            <section className="py-5">
-                <div className="w-screen">
-                    <div className="flex justify-center">
-                    <div className="w-full md:w-12/12">
-                        <div className="relative pb-[56.25%] h-0 overflow-hidden rounded-lg">
-                        <iframe
-                            className="absolute top-0 left-0 w-full h-full"
-                            src="https://www.youtube.com/embed/pTRb3HcbXX8"
-                            title="Product Showcase"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </section>
+            
             {/* last banner of home */}
             <div>
                 <div className='pb-10 h-[70vh] relative overflow-hidden'>

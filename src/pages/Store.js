@@ -57,6 +57,80 @@ const Store = () => {
             
             {/* Store Content */}
             <div className="container mx-auto px-4 py-12">
+
+                {/* Products Grid - Styled for spiritual theme */}
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                    {filteredProducts.length > 0 ? filteredProducts.map((product) => (
+                        <Link to={`/product/${product.id}`} key={product.id} className="group">
+                            <div className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#E0DBCF]">
+                                <div className="relative overflow-hidden aspect-square">
+                                    <img
+                                        src={product.photo.image1}
+                                        alt={product.name}
+                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                                    />
+                                    
+                                    {/* Heart Icon for Wishlist */}
+                                    {/* <button 
+                                        onClick={(e) => toggleWishlist(e, product.id)}
+                                        className="absolute top-3 right-3 bg-white/70 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
+                                    >
+                                        <FaHeart className={`text-lg ${wishlist.includes(product.id) ? 'text-red-500' : 'text-gray-400'}`} />
+                                    </button> */}
+                                    
+                                    {product.isNew && (
+                                        <div className="absolute top-3 left-3 bg-[#8E9775]/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                                            New Arrival
+                                        </div>
+                                    )}
+                                    
+                                    {/* Hover Action */}
+                                    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                            <button className="bg-white text-[#614E42] px-6 py-2 rounded-full font-medium hover:bg-[#8E9775] hover:text-white transition-colors">
+                                                View Details
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div className="p-5">
+                                    <h3 className="text-xl font-serif text-[#614E42] group-hover:text-[#8E9775] transition-colors mb-1">
+                                        {product.name}
+                                    </h3>
+                                    
+                                    <p className="text-[#8E9775] text-sm mb-3">{product.category}</p>
+                                    
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-xl font-medium text-[#614E42]">₹{product.cost}</span>
+                                        <div className="flex items-center">
+                                            {[...Array(5)].map((_, index) => (
+                                                <span
+                                                    key={index}
+                                                    className={`text-lg ${index < product.rating ? 'text-amber-500' : 'text-gray-300'}`}
+                                                >
+                                                    ★
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Add to Cart Button */}
+                                    {/* <button  className="w-full mt-4 bg-[#E0DBCF] text-[#614E42] py-2 rounded-full flex items-center justify-center gap-2 hover:bg-[#8E9775] hover:text-white transition-colors duration-300" onClick={(e) => { e.preventDefault(); e.stopPropagation();}}>
+                                        <FaShoppingCart /> Add to Cart
+                                    </button> */}
+                                </div>
+                            </div>
+                        </Link>
+                    )) : (
+                        <div className="col-span-full text-center py-16">
+                            <div className="text-7xl mb-4">🕊️</div>
+                            <h3 className="text-2xl font-serif text-[#614E42] mb-2">Your spiritual items await discovery</h3>
+                            <p className="text-[#8E9775]">Try another search or category</p>
+                        </div>
+                    )}
+                </div>
+
                 {/* Inspirational Quote */}
                 <div className="text-center mb-12">
                     <p className="italic text-[#614E42] text-xl">"The spiritual journey is the unlearning of fear and the acceptance of love."</p>
@@ -116,85 +190,7 @@ const Store = () => {
                     </div>
                 </div>
 
-                {/* Products Grid - Styled for spiritual theme */}
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                    {filteredProducts.length > 0 ? filteredProducts.map((product) => (
-                        <Link to={`/product/${product.id}`} key={product.id} className="group">
-                            <div className="bg-white/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[#E0DBCF]">
-                                <div className="relative overflow-hidden aspect-square">
-                                    <img
-                                        src={product.photo.image1}
-                                        alt={product.name}
-                                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                                    />
-                                    
-                                    {/* Heart Icon for Wishlist */}
-                                    <button 
-                                        onClick={(e) => toggleWishlist(e, product.id)}
-                                        className="absolute top-3 right-3 bg-white/70 backdrop-blur-sm p-2 rounded-full transition-colors duration-300"
-                                    >
-                                        <FaHeart className={`text-lg ${wishlist.includes(product.id) ? 'text-red-500' : 'text-gray-400'}`} />
-                                    </button>
-                                    
-                                    {product.isNew && (
-                                        <div className="absolute top-3 left-3 bg-[#8E9775]/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-                                            New Arrival
-                                        </div>
-                                    )}
-                                    
-                                    {/* Hover Action */}
-                                    <div className="absolute inset-0 bg-black/30 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                            <button className="bg-white text-[#614E42] px-6 py-2 rounded-full font-medium hover:bg-[#8E9775] hover:text-white transition-colors">
-                                                View Details
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div className="p-5">
-                                    <h3 className="text-xl font-serif text-[#614E42] group-hover:text-[#8E9775] transition-colors mb-1">
-                                        {product.name}
-                                    </h3>
-                                    
-                                    <p className="text-[#8E9775] text-sm mb-3">{product.category}</p>
-                                    
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-xl font-medium text-[#614E42]">₹{product.cost}</span>
-                                        <div className="flex items-center">
-                                            {[...Array(5)].map((_, index) => (
-                                                <span
-                                                    key={index}
-                                                    className={`text-lg ${index < product.rating ? 'text-amber-500' : 'text-gray-300'}`}
-                                                >
-                                                    ★
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Add to Cart Button */}
-                                    <button 
-                                        className="w-full mt-4 bg-[#E0DBCF] text-[#614E42] py-2 rounded-full flex items-center justify-center gap-2 hover:bg-[#8E9775] hover:text-white transition-colors duration-300"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            // Add to cart logic here
-                                        }}
-                                    >
-                                        <FaShoppingCart /> Add to Cart
-                                    </button>
-                                </div>
-                            </div>
-                        </Link>
-                    )) : (
-                        <div className="col-span-full text-center py-16">
-                            <div className="text-7xl mb-4">🕊️</div>
-                            <h3 className="text-2xl font-serif text-[#614E42] mb-2">Your spiritual items await discovery</h3>
-                            <p className="text-[#8E9775]">Try another search or category</p>
-                        </div>
-                    )}
-                </div>
+
                 
                 {/* Testimonials */}
                 <div className="mt-20">

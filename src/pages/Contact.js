@@ -99,10 +99,10 @@ function Contact() {
                 <div className="relative">
                     <div className="flex justify-center p-4 sm:p-8 md:p-20 gap-4 sm:gap-6 md:gap-10 flex-wrap relative">
                         <img src={aboutdesign} className='absolute right-0 top-0 hidden lg:block max-w-xs xl:max-w-md opacity-80' alt="Decorative background" />
-                        <div className='w-full lg:w-1/4 md:w-1/3 mb-6 md:mb-0'>
+                        {/* <div className='w-full lg:w-1/4 md:w-1/3 mb-6 md:mb-0'>
                             <h1 className='text-4xl sm:text-6xl md:text-8xl headerstyle'>{translations.contact.section.title}</h1>
                             <p className='text-base sm:text-lg md:text-xl mt-2'>{translations.contact.section.sub}</p>
-                        </div>
+                        </div> */}
                         
                         {/* Branch Cards - Touch-friendly design */}
                         {translations.contact.section?.branches?.map((item, index) => (

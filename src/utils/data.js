@@ -67,13 +67,12 @@ import product41 from '../assets/main/product/1.webp';
 import product42 from '../assets/main/product/2.webp';
 import product43 from '../assets/main/product/3.webp';
 import product44 from '../assets/main/product/4.webp';
-import product45 from '../assets/main/product/5.webp';
 import product46 from '../assets/main/product/6.webp';
 import product47 from '../assets/main/product/7.webp';
 import product48 from '../assets/main/product/8.webp';
 import product49 from '../assets/main/product/9.webp';
 import product50 from '../assets/main/product/10.webp';
-import product51 from '../assets/main/product/11.webp';
+
 import product52 from '../assets/main/product/12.webp';
 import product53 from '../assets/main/product/13.webp';
 import product54 from '../assets/main/product/14.webp';
@@ -84,7 +83,7 @@ import product58 from '../assets/main/product/18.webp';
 import product59 from '../assets/main/product/19.webp';
 import product60 from '../assets/main/product/20.webp';
 import product61 from '../assets/main/product/21.webp';
-import product62 from '../assets/main/product/22.webp';
+
 import product63 from '../assets/main/product/23.webp';
 
 

@@ -154,8 +154,8 @@ const translations = {
         },        
         fourth: {
             short: "Our Collection",
-            title: 'Exclusive Spiritual Products',
-            sub: "Immerse yourself in our collection of beautifully crafted statues, artifacts, and ritual items that hold spiritual significance.",
+            title: 'Gita’s Divine Inspirations',
+            sub: "Explore timeless spiritual idols and energy tools inspired by the teachings of the Bhagavad Gita — each crafted to nurture inner peace, abundance, and dharma in daily life.",
             card: "Add Cart",
             buy: "Buy Now",
         },
@@ -383,7 +383,7 @@ const translations = {
             {
                 id: 1,
                 category: 'Idols',
-                cost: 2999,
+                cost: 1599,
                 rating: 4,
                 isNew: false,
                 name: 'Sree Astha Laxmi',
@@ -398,7 +398,7 @@ const translations = {
                     image7: product7,
                     image8: product8,
                 },
-                description: 'An intricately designed idol of Sree Astha Laxmi, symbolizing wealth and prosperity, perfect for home decor and pooja rituals.',
+                description: `Inspired by the teachings of the Bhagavad Gita, the Sree Astha Laxmi idol symbolizes the eight divine forms of Goddess Laxmi, who bestows wealth, wisdom, courage, and success. Invoke her blessings to nurture harmony and prosperity in every aspect of life, as the Gita says: 'Where there is Dharma, there is victory and abundance.`,
                 freeAccessories: [],
                 reviews: [
                     { 
@@ -440,24 +440,13 @@ const translations = {
                             "Recite Lakshmi mantras while offering prayers",
                             "Keep the idol clean and well-maintained"
                         ]
-                    },
-                    specifications: [
-                        { name: "Category", value: "Idols" },
-                        { name: "Material", value: "Premium Quality Alloy" },
-                        { name: "Dimensions", value: "15 x 8 x 20 cm" },
-                        { name: "Weight", value: "750g" },
-                        { name: "Finish", value: "Gold-tone with antique effect" },
-                        { name: "Warranty", value: "1 Year" },
-                        { name: "SKU", value: "SKU-0001" },
-                        { name: "Origin", value: "Made in India" },
-                        { name: "Package Contents", value: "1 Sree Astha Laxmi Idol, Velvet Base, Care Instructions" }
-                    ]
+                    }
                 }
             },
             {
                 id: 2,
                 category: 'Idols',
-                cost: 2999,
+                cost: 1599,
                 rating: 4.8,
                 isNew: false,
                 name: 'Sree Anjaneya Shani Raksha',
@@ -474,11 +463,11 @@ const translations = {
                     image8: product28,
                     image9: product29,
                 },
-                description: 'Invoke the divine blessings of Sree Anjaneya and protect your family from Shani doshas with this sacred idol set. Handcrafted with devotion, it radiates positive energy, courage, and a protective aura for your home.',
+                description: 'Inspired by the teachings of the Bhagavad Gita on fearlessness and unwavering devotion, this Anjaneya idol invokes Hanuman’s mighty courage to shield your home from Shani’s malefic influences and negative energies, empowering you to stand firm in righteousness and inner strength.',
                 freeAccessories: [
                     { 
-                        name: "Rudraksha", 
-                        image: product22, 
+                        name: "Tortoise Ring", 
+                        image: product29, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -608,6 +597,13 @@ const translations = {
                     image1: product41,
                 },
                 description: "Invite divine wealth, prosperity, and harmony into your life with the sacred Shree Yantra — an ancient geometric masterpiece revered as the queen of all Yantras. Place it in your home or office to remove obstacles and attract abundance in all forms.",
+                freeAccessories: [
+                    { 
+                        name: "Laxmi Charan Paduka", 
+                        image: product46, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
                 reviews: [
                     {
                         id: 1,
@@ -832,67 +828,7 @@ const translations = {
                         ]
                     }
                 }
-            },
-            {
-                id: 8,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Laxmi Charan Paduka',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product46,
-                    image2: product56,
-                    image3: product46
-                },
-                description: "Welcome the divine footsteps of Goddess Laxmi into your home with the sacred Laxmi Charan Paduka. These auspicious footprints symbolize the arrival of wealth, prosperity, and good fortune, and help create a positive and harmonious environment.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'I placed the Laxmi Charan Paduka at my entrance and feel a noticeable increase in positive energy and peace at home.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautifully crafted paduka. I perform daily puja and feel more blessed and financially stable.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Very auspicious and elegant. Brings a divine feeling every time I see it near my pooja room.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Laxmi Charan Paduka represents the sacred footprints of Goddess Laxmi, the goddess of wealth and prosperity. Placing them at your home's entrance, pooja room, or cash box is believed to invite fortune and ward off negative energies.",
-                        additionalText: "Handcrafted with precision and energized through traditional rituals, these padukas are a must-have during festivals like Diwali and auspicious occasions. They bring divine blessings, success, and harmony to your family and workplace.",
-                        features: [
-                            "Sacred footprints symbolizing Goddess Laxmi's arrival",
-                            "Energized for attracting wealth and prosperity",
-                            "Elegant gold finish with detailed craftsmanship",
-                            "Easy to place at home, office, shop, or temple",
-                            "Perfect for Diwali puja, weddings, and housewarmings",
-                            "Packed with protective wrapping and divine blessings"
-                        ],
-                        usage: [
-                            "Place the Laxmi Charan Paduka at your main entrance, pooja altar, or cash box.",
-                            "Keep it facing inside to symbolize Goddess Laxmi entering your home.",
-                            "Clean regularly with a dry cloth to maintain its sanctity.",
-                            "Offer fresh flowers and light a diya daily for enhanced blessings.",
-                            "Use during Diwali, Dhanteras, and Fridays for special pujas."
-                        ]
-                    }
-                }
-            },            
+            },          
             {
                 id: 9,
                 category: 'Yantras',
@@ -1148,6 +1084,18 @@ const translations = {
                     image3: product52
                 },
                 description: "Enhance the energy and aesthetics of your home or office with this sacred Shree Yantra Wall Hanging — a powerful symbol of prosperity, harmony, and spiritual growth. Perfect for placing at your entrance, pooja room, or living space.",
+                freeAccessories: [
+                    { 
+                        name: "Kuber Key Pendant", 
+                        image: product53, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    },
+                    { 
+                        name: "Tortoise Pendant", 
+                        image: product54, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
                 reviews: [
                     {
                         id: 1,
@@ -1193,126 +1141,126 @@ const translations = {
                     }
                 }
             },            
-            {
-                id: 15,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Kuber Key Pendant',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product53,
-                    image2: product53,
-                    image3: product53
-                },
-                description: "Carry the blessings of Lord Kuber wherever you go with this sacred Kuber Key Pendant — a symbol of wealth, security, and prosperity. Designed to attract abundance and protect your valuables.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'I keep this Kuber Key Pendant with my locker keys — feeling more secure and prosperous than ever!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Very thoughtful design and energised well. I have gifted it to my family too.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Good quality and truly feels auspicious. Perfect for daily carry or gifting.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Kuber Key Pendant is a divine accessory inspired by Lord Kuber, the guardian of wealth and treasures. It acts as a charm to attract financial growth, secure wealth, and invite prosperity into your life.",
-                        additionalText: "Crafted with precision and energized through sacred rituals, this pendant can be attached to your house keys, locker keys, or car keys. It serves as a constant source of positive vibrations and divine protection for your valuables.",
-                        features: [
-                            "Authentic Kuber Yantra design in a convenient pendant form",
-                            "Blessed and energized by Vedic rituals",
-                            "Compact, lightweight and easy to attach to any keychain",
-                            "Auspicious golden finish symbolizing wealth",
-                            "Ideal for daily use or gifting on special occasions",
-                            "Secure packaging infused with divine blessings"
-                        ],
-                        usage: [
-                            "Attach the Kuber Key Pendant to your locker, safe, or main door keys.",
-                            "Keep it clean and respect it as a sacred object.",
-                            "Pray to Lord Kuber or chant Kuber mantras regularly for enhanced results.",
-                            "Ideal for gifting during housewarmings, Diwali, or new business ventures.",
-                            "Keep it close to your wealth storage area for maximum benefits."
-                        ]
-                    }
-                }
-            },            
-            {
-                id: 16,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Tortoise Pendant',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product54,
-                    image2: product54,
-                    image3: product54
-                },
-                description: "Wear the Tortoise Pendant to invite stability, longevity, and positive energy into your life. A symbol of protection and good fortune, the tortoise balances energies and attracts harmonious vibes.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'This Tortoise Pendant feels very positive and calming. I wear it daily for peace of mind.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautiful design and good quality. I gifted one to my sister too.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Love the finish and energy it brings. Perfect for everyday wear and also a lovely gift.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Tortoise Pendant is an auspicious symbol in Vastu and Feng Shui. It signifies longevity, stability, and protection from negative energies. Wearing it helps maintain balance and invites success and calmness.",
-                        additionalText: "Carefully crafted and energized with sacred mantras, this pendant can be worn daily or kept in your wallet or bag. It serves as a protective shield and a charm for long life and steady progress.",
-                        features: [
-                            "Symbolic tortoise design known for stability and longevity",
-                            "Energized and blessed for maximum positive effect",
-                            "Elegant, lightweight, and comfortable for daily wear",
-                            "Attractive polished finish for auspiciousness",
-                            "Ideal for gifting to loved ones for good luck",
-                            "Packed securely with blessings and care"
-                        ],
-                        usage: [
-                            "Wear the Tortoise Pendant around your neck or keep it in your wallet/purse.",
-                            "Treat it with respect and keep it clean.",
-                            "Meditate or chant mantras while holding it to enhance its power.",
-                            "Gift it to someone who needs protection and good fortune.",
-                            "Ideal to wear daily or during important work, travel, or meetings."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 15,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Kuber Key Pendant',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product53,
+            //         image2: product53,
+            //         image3: product53
+            //     },
+            //     description: "Carry the blessings of Lord Kuber wherever you go with this sacred Kuber Key Pendant — a symbol of wealth, security, and prosperity. Designed to attract abundance and protect your valuables.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'I keep this Kuber Key Pendant with my locker keys — feeling more secure and prosperous than ever!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Very thoughtful design and energised well. I have gifted it to my family too.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Good quality and truly feels auspicious. Perfect for daily carry or gifting.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Kuber Key Pendant is a divine accessory inspired by Lord Kuber, the guardian of wealth and treasures. It acts as a charm to attract financial growth, secure wealth, and invite prosperity into your life.",
+            //             additionalText: "Crafted with precision and energized through sacred rituals, this pendant can be attached to your house keys, locker keys, or car keys. It serves as a constant source of positive vibrations and divine protection for your valuables.",
+            //             features: [
+            //                 "Authentic Kuber Yantra design in a convenient pendant form",
+            //                 "Blessed and energized by Vedic rituals",
+            //                 "Compact, lightweight and easy to attach to any keychain",
+            //                 "Auspicious golden finish symbolizing wealth",
+            //                 "Ideal for daily use or gifting on special occasions",
+            //                 "Secure packaging infused with divine blessings"
+            //             ],
+            //             usage: [
+            //                 "Attach the Kuber Key Pendant to your locker, safe, or main door keys.",
+            //                 "Keep it clean and respect it as a sacred object.",
+            //                 "Pray to Lord Kuber or chant Kuber mantras regularly for enhanced results.",
+            //                 "Ideal for gifting during housewarmings, Diwali, or new business ventures.",
+            //                 "Keep it close to your wealth storage area for maximum benefits."
+            //             ]
+            //         }
+            //     }
+            // },            
+            // {
+            //     id: 16,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Tortoise Pendant',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product54,
+            //         image2: product54,
+            //         image3: product54
+            //     },
+            //     description: "Wear the Tortoise Pendant to invite stability, longevity, and positive energy into your life. A symbol of protection and good fortune, the tortoise balances energies and attracts harmonious vibes.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'This Tortoise Pendant feels very positive and calming. I wear it daily for peace of mind.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautiful design and good quality. I gifted one to my sister too.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Love the finish and energy it brings. Perfect for everyday wear and also a lovely gift.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Tortoise Pendant is an auspicious symbol in Vastu and Feng Shui. It signifies longevity, stability, and protection from negative energies. Wearing it helps maintain balance and invites success and calmness.",
+            //             additionalText: "Carefully crafted and energized with sacred mantras, this pendant can be worn daily or kept in your wallet or bag. It serves as a protective shield and a charm for long life and steady progress.",
+            //             features: [
+            //                 "Symbolic tortoise design known for stability and longevity",
+            //                 "Energized and blessed for maximum positive effect",
+            //                 "Elegant, lightweight, and comfortable for daily wear",
+            //                 "Attractive polished finish for auspiciousness",
+            //                 "Ideal for gifting to loved ones for good luck",
+            //                 "Packed securely with blessings and care"
+            //             ],
+            //             usage: [
+            //                 "Wear the Tortoise Pendant around your neck or keep it in your wallet/purse.",
+            //                 "Treat it with respect and keep it clean.",
+            //                 "Meditate or chant mantras while holding it to enhance its power.",
+            //                 "Gift it to someone who needs protection and good fortune.",
+            //                 "Ideal to wear daily or during important work, travel, or meetings."
+            //             ]
+            //         }
+            //     }
+            // },            
             {
                 id: 17,
                 category: 'Yantras',
@@ -1373,126 +1321,126 @@ const translations = {
                     }
                 }
             },            
-            {
-                id: 19,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Silver Shiva Bracelet',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product57,
-                    image2: product57,
-                    image3: product57
-                },
-                description: "Embrace divine protection and inner strength with the sacred Silver Shiva Bracelet. This powerful bracelet symbolizes Lord Shiva’s blessings, courage, and spiritual energy to guide you through life's challenges.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'Wearing this Shiva Bracelet makes me feel calm and protected throughout the day. A must-have for devotees!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautifully crafted and feels truly blessed. I wear it daily during my prayers and meditation.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Excellent quality and divine vibes. Gave one to my brother too — he loved it!',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Silver Shiva Bracelet is inspired by Lord Shiva, the destroyer of evil and the embodiment of supreme consciousness. Wearing this bracelet helps cultivate inner peace, confidence, and divine protection.",
-                        additionalText: "Expertly handcrafted and energized with mantras, this bracelet can be worn daily as a spiritual companion. It serves as a reminder of your inner power and Shiva’s blessings, making it a thoughtful gift for loved ones seeking strength and tranquility.",
-                        features: [
-                            "Elegant silver bracelet with sacred Shiva motifs",
-                            "Energized through powerful Vedic rituals",
-                            "Comfortable to wear daily for men and women",
-                            "Symbolizes protection, courage, and spiritual awakening",
-                            "Ideal spiritual gift for festivals, birthdays, or special occasions",
-                            "Comes in secure packaging with blessings"
-                        ],
-                        usage: [
-                            "Wear the Silver Shiva Bracelet on your wrist daily.",
-                            "Remove before bathing for long-lasting shine.",
-                            "Chant Shiva mantras like 'Om Namah Shivaya' for enhanced energy.",
-                            "Use during meditation or yoga for inner peace.",
-                            "Gift it to loved ones for protection and spiritual growth."
-                        ]
-                    }
-                }
-            },            
-            {
-                id: 20,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Decorative Gemstone Tree',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product58,
-                    image2: product58,
-                    image3: product58
-                },
-                description: "Enhance the beauty and positive vibes of your space with this Decorative Gemstone Tree. Made with vibrant, natural gemstones, this tree symbolizes growth, prosperity, and harmony — perfect for homes, offices, or as a thoughtful gift.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'This gemstone tree looks stunning on my study table and I feel the energy in my room is so much lighter and peaceful!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautifully crafted and the gemstones are genuine. A perfect décor piece with positive vibes.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Great addition to my living room. Guests always ask about it!',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Decorative Gemstone Tree is an exquisite handmade piece featuring an array of natural crystal stones artistically arranged to resemble a blooming tree. It is believed to attract prosperity, good luck, and positive energy wherever it is placed.",
-                        additionalText: "Perfect as a home décor accent, a desk ornament, or a spiritual charm, this gemstone tree can uplift your surroundings and make for a memorable gift for loved ones. Each stone is carefully selected to radiate healing vibrations and harmony.",
-                        features: [
-                            "Handcrafted tree with real gemstone chips",
-                            "Symbolizes growth, wealth, and positivity",
-                            "Sturdy base for placement on tables or altars",
-                            "Vibrant colors add a decorative touch to any space",
-                            "Ideal for home, office, study, or gifting",
-                            "Packed securely with blessings for abundance"
-                        ],
-                        usage: [
-                            "Place the Decorative Gemstone Tree in your living room, office, or study for positive energy.",
-                            "Keep it clean by gently dusting with a soft cloth.",
-                            "Position it near your workspace to encourage focus and prosperity.",
-                            "Use it as a vastu or feng shui enhancer in wealth or career corners.",
-                            "Gift it to family and friends as a symbol of good luck and growth."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 19,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Silver Shiva Bracelet',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product57,
+            //         image2: product57,
+            //         image3: product57
+            //     },
+            //     description: "Embrace divine protection and inner strength with the sacred Silver Shiva Bracelet. This powerful bracelet symbolizes Lord Shiva’s blessings, courage, and spiritual energy to guide you through life's challenges.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'Wearing this Shiva Bracelet makes me feel calm and protected throughout the day. A must-have for devotees!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautifully crafted and feels truly blessed. I wear it daily during my prayers and meditation.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Excellent quality and divine vibes. Gave one to my brother too — he loved it!',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Silver Shiva Bracelet is inspired by Lord Shiva, the destroyer of evil and the embodiment of supreme consciousness. Wearing this bracelet helps cultivate inner peace, confidence, and divine protection.",
+            //             additionalText: "Expertly handcrafted and energized with mantras, this bracelet can be worn daily as a spiritual companion. It serves as a reminder of your inner power and Shiva’s blessings, making it a thoughtful gift for loved ones seeking strength and tranquility.",
+            //             features: [
+            //                 "Elegant silver bracelet with sacred Shiva motifs",
+            //                 "Energized through powerful Vedic rituals",
+            //                 "Comfortable to wear daily for men and women",
+            //                 "Symbolizes protection, courage, and spiritual awakening",
+            //                 "Ideal spiritual gift for festivals, birthdays, or special occasions",
+            //                 "Comes in secure packaging with blessings"
+            //             ],
+            //             usage: [
+            //                 "Wear the Silver Shiva Bracelet on your wrist daily.",
+            //                 "Remove before bathing for long-lasting shine.",
+            //                 "Chant Shiva mantras like 'Om Namah Shivaya' for enhanced energy.",
+            //                 "Use during meditation or yoga for inner peace.",
+            //                 "Gift it to loved ones for protection and spiritual growth."
+            //             ]
+            //         }
+            //     }
+            // },            
+            // {
+            //     id: 20,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Decorative Gemstone Tree',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product58,
+            //         image2: product58,
+            //         image3: product58
+            //     },
+            //     description: "Enhance the beauty and positive vibes of your space with this Decorative Gemstone Tree. Made with vibrant, natural gemstones, this tree symbolizes growth, prosperity, and harmony — perfect for homes, offices, or as a thoughtful gift.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'This gemstone tree looks stunning on my study table and I feel the energy in my room is so much lighter and peaceful!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautifully crafted and the gemstones are genuine. A perfect décor piece with positive vibes.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Great addition to my living room. Guests always ask about it!',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Decorative Gemstone Tree is an exquisite handmade piece featuring an array of natural crystal stones artistically arranged to resemble a blooming tree. It is believed to attract prosperity, good luck, and positive energy wherever it is placed.",
+            //             additionalText: "Perfect as a home décor accent, a desk ornament, or a spiritual charm, this gemstone tree can uplift your surroundings and make for a memorable gift for loved ones. Each stone is carefully selected to radiate healing vibrations and harmony.",
+            //             features: [
+            //                 "Handcrafted tree with real gemstone chips",
+            //                 "Symbolizes growth, wealth, and positivity",
+            //                 "Sturdy base for placement on tables or altars",
+            //                 "Vibrant colors add a decorative touch to any space",
+            //                 "Ideal for home, office, study, or gifting",
+            //                 "Packed securely with blessings for abundance"
+            //             ],
+            //             usage: [
+            //                 "Place the Decorative Gemstone Tree in your living room, office, or study for positive energy.",
+            //                 "Keep it clean by gently dusting with a soft cloth.",
+            //                 "Position it near your workspace to encourage focus and prosperity.",
+            //                 "Use it as a vastu or feng shui enhancer in wealth or career corners.",
+            //                 "Gift it to family and friends as a symbol of good luck and growth."
+            //             ]
+            //         }
+            //     }
+            // },            
             {
                 id: 21,
                 category: 'Yantras',
@@ -1553,66 +1501,66 @@ const translations = {
                     }
                 }
             },            
-            {
-                id: 22,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Trishul Om Rudraksha Pendant',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product60,
-                    image2: product60,
-                    image3: product60
-                },
-                description: "Embrace divine protection and spiritual strength with the Trishul Om Rudraksha Pendant — a powerful symbol combining Lord Shiva’s Trishul, the sacred Om, and an authentic Rudraksha bead to ward off negativity and bring peace.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'Wearing this Trishul Om Rudraksha Pendant gives me a sense of calm and spiritual strength. It feels very pure.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautiful pendant with good quality Rudraksha. Feels protective and connects me with Lord Shiva’s blessings.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Very well-made and energizing pendant. Good for daily wear and meditation.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Trishul Om Rudraksha Pendant is a sacred accessory that blends powerful Hindu symbols to offer protection, positive energy, and spiritual well-being. The Trishul represents Lord Shiva’s trident, Om embodies universal vibration, and the Rudraksha is believed to purify the soul and mind.",
-                        additionalText: "Perfect for daily wear or meditation, this pendant helps eliminate negative energies, strengthens the aura, and brings inner peace. It’s an ideal spiritual gift for devotees of Lord Shiva and seekers of tranquility and divine blessings.",
-                        features: [
-                            "Combines Trishul, Om, and natural Rudraksha bead",
-                            "Symbolizes protection, strength, and spiritual harmony",
-                            "Made from premium metal with smooth finish",
-                            "Lightweight and comfortable for everyday wear",
-                            "Blessed and energized for maximum benefit",
-                            "Suitable for both men and women"
-                        ],
-                        usage: [
-                            "Wear the pendant close to your heart for divine protection.",
-                            "Remove before sleeping and place in a clean, sacred space.",
-                            "Avoid contact with chemicals or perfumes.",
-                            "Meditate or chant Shiva mantras while wearing for spiritual upliftment.",
-                            "Clean gently with a soft cloth as needed."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 22,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Trishul Om Rudraksha Pendant',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product60,
+            //         image2: product60,
+            //         image3: product60
+            //     },
+            //     description: "Embrace divine protection and spiritual strength with the Trishul Om Rudraksha Pendant — a powerful symbol combining Lord Shiva’s Trishul, the sacred Om, and an authentic Rudraksha bead to ward off negativity and bring peace.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'Wearing this Trishul Om Rudraksha Pendant gives me a sense of calm and spiritual strength. It feels very pure.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautiful pendant with good quality Rudraksha. Feels protective and connects me with Lord Shiva’s blessings.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Very well-made and energizing pendant. Good for daily wear and meditation.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Trishul Om Rudraksha Pendant is a sacred accessory that blends powerful Hindu symbols to offer protection, positive energy, and spiritual well-being. The Trishul represents Lord Shiva’s trident, Om embodies universal vibration, and the Rudraksha is believed to purify the soul and mind.",
+            //             additionalText: "Perfect for daily wear or meditation, this pendant helps eliminate negative energies, strengthens the aura, and brings inner peace. It’s an ideal spiritual gift for devotees of Lord Shiva and seekers of tranquility and divine blessings.",
+            //             features: [
+            //                 "Combines Trishul, Om, and natural Rudraksha bead",
+            //                 "Symbolizes protection, strength, and spiritual harmony",
+            //                 "Made from premium metal with smooth finish",
+            //                 "Lightweight and comfortable for everyday wear",
+            //                 "Blessed and energized for maximum benefit",
+            //                 "Suitable for both men and women"
+            //             ],
+            //             usage: [
+            //                 "Wear the pendant close to your heart for divine protection.",
+            //                 "Remove before sleeping and place in a clean, sacred space.",
+            //                 "Avoid contact with chemicals or perfumes.",
+            //                 "Meditate or chant Shiva mantras while wearing for spiritual upliftment.",
+            //                 "Clean gently with a soft cloth as needed."
+            //             ]
+            //         }
+            //     }
+            // },            
             {
                 id: 23,
                 category: 'Yantras',
@@ -1673,66 +1621,66 @@ const translations = {
                     }
                 }
             },
-            {
-                id: 24,
-                category: 'Pendants',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Shivaji Maharaj Engraved Pendant',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product63,
-                    image2: product63,
-                    image3: product63
-                },
-                description: "Carry the fearless spirit and legacy of Chhatrapati Shivaji Maharaj close to your heart with this finely engraved pendant — a symbol of courage, pride, and leadership.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'This pendant is not just beautiful but deeply inspiring. It reminds me daily of Shivaji Maharaj’s bravery.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Excellent quality and engraving. It feels sturdy and looks very regal when worn.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Bought this for my brother and he absolutely loved it. It’s a symbol of pride for all Maharashtrians.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Shivaji Maharaj Engraved Pendant is a tribute to one of India’s greatest warriors and visionaries. Crafted with care, it showcases a detailed engraving of Chhatrapati Shivaji Maharaj, serving as a daily reminder of valor, self-respect, and resilience.",
-                        additionalText: "Perfect for everyday wear or gifting, this pendant reflects your pride in Maratha heritage and timeless leadership. Pair it with any chain and wear it close to your heart as a source of strength and inspiration.",
-                        features: [
-                            "Detailed engraving of Chhatrapati Shivaji Maharaj",
-                            "Durable, rust-resistant metal with a polished finish",
-                            "Lightweight and comfortable for daily wear",
-                            "Symbol of courage, pride, and leadership",
-                            "Suitable for men, women, and youngsters alike",
-                            "Comes securely packed in an elegant box"
-                        ],
-                        usage: [
-                            "Wear daily around the neck with a chain of your choice.",
-                            "Clean gently with a soft dry cloth to maintain shine.",
-                            "Avoid contact with water, perfumes, or harsh chemicals.",
-                            "Keep in the provided box when not in use.",
-                            "Gift it to loved ones to inspire bravery and pride."
-                        ]
-                    }
-                }
-            }            
+            // {
+            //     id: 24,
+            //     category: 'Pendants',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Shivaji Maharaj Engraved Pendant',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product63,
+            //         image2: product63,
+            //         image3: product63
+            //     },
+            //     description: "Carry the fearless spirit and legacy of Chhatrapati Shivaji Maharaj close to your heart with this finely engraved pendant — a symbol of courage, pride, and leadership.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'This pendant is not just beautiful but deeply inspiring. It reminds me daily of Shivaji Maharaj’s bravery.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Excellent quality and engraving. It feels sturdy and looks very regal when worn.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Bought this for my brother and he absolutely loved it. It’s a symbol of pride for all Maharashtrians.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Shivaji Maharaj Engraved Pendant is a tribute to one of India’s greatest warriors and visionaries. Crafted with care, it showcases a detailed engraving of Chhatrapati Shivaji Maharaj, serving as a daily reminder of valor, self-respect, and resilience.",
+            //             additionalText: "Perfect for everyday wear or gifting, this pendant reflects your pride in Maratha heritage and timeless leadership. Pair it with any chain and wear it close to your heart as a source of strength and inspiration.",
+            //             features: [
+            //                 "Detailed engraving of Chhatrapati Shivaji Maharaj",
+            //                 "Durable, rust-resistant metal with a polished finish",
+            //                 "Lightweight and comfortable for daily wear",
+            //                 "Symbol of courage, pride, and leadership",
+            //                 "Suitable for men, women, and youngsters alike",
+            //                 "Comes securely packed in an elegant box"
+            //             ],
+            //             usage: [
+            //                 "Wear daily around the neck with a chain of your choice.",
+            //                 "Clean gently with a soft dry cloth to maintain shine.",
+            //                 "Avoid contact with water, perfumes, or harsh chemicals.",
+            //                 "Keep in the provided box when not in use.",
+            //                 "Gift it to loved ones to inspire bravery and pride."
+            //             ]
+            //         }
+            //     }
+            // }            
         ],
     }
 

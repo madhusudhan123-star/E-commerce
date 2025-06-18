@@ -3,15 +3,47 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import { Helmet } from 'react-helmet'; // For SEO
-import { FaStar, FaStarHalfAlt, FaRegStar, FaShippingFast, FaCheck, FaExchangeAlt, FaShare, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGift, FaHeart, FaClock, FaShieldAlt, FaTruck } from 'react-icons/fa';
+import { FaStar, FaStarHalfAlt, FaRegStar, FaShippingFast, FaCheck, FaExchangeAlt, FaShare, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGift, FaHeart, FaClock, FaShieldAlt, FaTruck, FaInfoCircle, FaShoppingCart } from 'react-icons/fa';
 import translations from '../utils/data';
 import PageHeader from './Other';
+
+// Add custom animations for product page
+const customStyles = `
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
+  }
+  
+  @keyframes highlight-glow {
+    0%, 100% { box-shadow: 0 0 5px rgba(16, 185, 129, 0.2); }
+    50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  .animate-pulse-border {
+    animation: pulse-border 2s infinite;
+  }
+  
+  .animate-highlight-glow {
+    animation: highlight-glow 1.5s infinite;
+  }
+`;
 
 const ProductPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const { addToCart, cart } = useCart();
     const [showNotification , setShowNotification] = useState(false);
+    const [showPaymentBanner, setShowPaymentBanner] = useState(true);
     const product = translations.products.product.find(p => p.id === parseInt(id));
     const [activeTab, setActiveTab] = useState('description');
     const [activeImage, setActiveImage] = useState('');
@@ -20,6 +52,33 @@ const ProductPage = () => {
     const [selectedColor, setSelectedColor] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
     const [recentlyViewed, setRecentlyViewed] = useState([]);
+    
+    // Get different countdown times based on product ID
+    const getCountdownTimeForProduct = (productId) => {
+        // Create different time patterns based on product ID
+        const timePatterns = {
+            1: { hours: 2, minutes: 37, seconds: 42 },  // Less time for Sree Astha Laxmi
+            2: { hours: 6, minutes: 14, seconds: 29 },  // More time for Sree Anjaneya Shani Raksha
+            3: { hours: 3, minutes: 58, seconds: 15 },  // Medium time for Sree Dhana Laxmi pack
+            4: { hours: 1, minutes: 12, seconds: 33 },  // Urgent - almost ending for Shree Yantra
+            5: { hours: 5, minutes: 42, seconds: 21 },
+            6: { hours: 7, minutes: 18, seconds: 46 },
+            7: { hours: 2, minutes: 23, seconds: 11 },
+            8: { hours: 4, minutes: 50, seconds: 37 },
+            9: { hours: 8, minutes: 5, seconds: 52 },
+            10: { hours: 1, minutes: 49, seconds: 18 },
+            11: { hours: 6, minutes: 32, seconds: 45 },
+            12: { hours: 3, minutes: 15, seconds: 29 },
+            // Default time for other products
+            default: { hours: 4, minutes: 59, seconds: 59 }
+        };
+        
+        return timePatterns[productId] || timePatterns.default;
+    };
+    
+    const [timeRemaining, setTimeRemaining] = useState(
+        getCountdownTimeForProduct(parseInt(id))
+    );
 
     // SEO-friendly data
     const productSchema = {
@@ -55,6 +114,9 @@ const ProductPage = () => {
             setActiveImage(product.photo.image1);
         }
         
+        // Reset timer when product changes
+        setTimeRemaining(getCountdownTimeForProduct(parseInt(id)));
+        
         // Scroll to top when product changes
         window.scrollTo(0, 0);
         
@@ -75,6 +137,40 @@ const ProductPage = () => {
             // Set state for recently viewed (excluding current product for display)
             setRecentlyViewed(filteredRecent.slice(0, 4));
         }
+
+        // Hide payment banner after scrolling
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowPaymentBanner(false);
+            } else {
+                setShowPaymentBanner(true);
+            }
+        };
+        
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [product, id]);
+
+    useEffect(() => {
+        // Countdown timer for urgency
+        const countdownInterval = setInterval(() => {
+            setTimeRemaining(prev => {
+                if (prev.seconds > 0) {
+                    return { ...prev, seconds: prev.seconds - 1 };
+                } else if (prev.minutes > 0) {
+                    return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
+                } else if (prev.hours > 0) {
+                    return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
+                } else {
+                    // Reset timer when it reaches 0
+                    return { hours: 4, minutes: 59, seconds: 59 };
+                }
+            });
+        }, 1000);
+
+        return () => {
+            clearInterval(countdownInterval);
+        };
     }, [product]);
 
     const handleAddToCart = () => {
@@ -220,8 +316,28 @@ const ProductPage = () => {
     
     const ratingDistribution = calculateRatingDistribution();
 
+    // Enhance the countdown timer to show different messages based on time remaining
+    const getUrgencyMessage = () => {
+        const totalSeconds = timeRemaining.hours * 3600 + timeRemaining.minutes * 60 + timeRemaining.seconds;
+        
+        if (hasFreeAccessories) {
+            if (totalSeconds < 3600) { // Less than 1 hour
+                return 'HURRY! Free accessories offer ends soon!';
+            } else {
+                return 'Order now to receive free accessories!';
+            }
+        } else {
+            if (totalSeconds < 3600) { // Less than 1 hour
+                return 'FINAL chance! Price increases soon!';
+            } else {
+                return 'Limited time offer! Hurry before price goes up!';
+            }
+        }
+    };
+
     return (
         <>
+            <style>{customStyles}</style>
             {/* SEO Optimization */}
             <Helmet>
                 <title>{product.name} | Your Store Name</title>
@@ -242,23 +358,39 @@ const ProductPage = () => {
             <div>
                 <PageHeader title={product.name} subtitle="Home > Store > Product" />
                 
-                {/* Notification - optimized for all screen sizes */}
+                {/* Notification - improved for mobile */}
                 {showNotification && (
-                    <div className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-md">
-                        <div className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center justify-center">
+                    <div className="fixed top-16 sm:top-24 left-0 sm:left-1/2 transform sm:-translate-x-1/2 z-50 w-full sm:w-[90%] sm:max-w-md px-4 sm:px-0">
+                        <div className="bg-green-500 text-white px-4 sm:px-6 py-3 rounded-lg shadow-lg flex items-center justify-center">
                             <FaCheck className="mr-2" />
                             <span>Added to cart successfully!</span>
                         </div>
                     </div>
                 )}
 
-                <div className="container mx-auto px-4 py-4 sm:py-8">
+                {/* Floating Payment Info Banner - compact for mobile */}
+                {hasFreeAccessories && showPaymentBanner && (
+                    <div className="sticky top-0 z-40 w-full animate-fadeIn">
+                        <div className="bg-gradient-to-r from-orange-600 to-purple-600 text-white px-2 sm:px-4 py-2 text-center shadow-lg">
+                            <div className="container mx-auto flex items-center justify-center gap-1 sm:gap-2">
+                                <div className="animate-bounce">
+                                    <FaGift className="text-base sm:text-lg" />
+                                </div>
+                                <p className="text-xs sm:text-sm font-medium">
+                                    <span className="font-bold">EXCLUSIVE:</span> Free accessories worth ₹{Math.floor(product.cost * 0.2)} with online payment!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-8">
                     <div className="max-w-7xl mx-auto">
                         {/* Product Top Section */}
-                        <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-                                {/* Product Images - Left Side - optimized for mobile */}
-                                <div className="p-4 sm:p-6 bg-gray-50 border-b md:border-r md:border-b-0 border-gray-100 relative">
+                                {/* Product Images - Left Side */}
+                                <div className="p-3 sm:p-6 bg-gray-50 border-b md:border-r md:border-b-0 border-gray-100 relative">
                                     {/* Product Labels */}
                                     <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
                                         {product.isNew && (
@@ -268,13 +400,13 @@ const ProductPage = () => {
                                         )}
                                         
                                         {hasFreeAccessories && (
-                                            <span className="inline-flex items-center bg-green-500 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg">
+                                            <span className="inline-flex items-center bg-orange-500 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-medium shadow-lg">
                                                 <FaGift className="mr-1 sm:mr-2" /> FREE EXTRAS
                                             </span>
                                         )}
                                     </div>
                                     
-                                    {/* Main Image - height adjusted for mobile */}
+                                    {/* Main Image - better height for small screens */}
                                     <div 
                                         className={`aspect-w-1 aspect-h-1 overflow-hidden rounded-lg ${zoom ? 'cursor-zoom-out' : 'cursor-zoom-in'}`}
                                         onClick={() => setZoom(!zoom)}
@@ -282,14 +414,14 @@ const ProductPage = () => {
                                         <img
                                             src={activeImage}
                                             alt={product.name}
-                                            className={`w-full h-[300px] sm:h-[400px] md:h-[500px] object-contain transition-all duration-300 ${zoom ? 'scale-150' : 'scale-100'}`}
+                                            className={`w-full h-[250px] sm:h-[350px] md:h-[500px] object-contain transition-all duration-300 ${zoom ? 'scale-150' : 'scale-100'}`}
                                             loading="eager"
                                             title={product.name}
                                         />
                                     </div>
                                     
-                                    {/* Thumbnail Gallery - mobile optimized */}
-                                    <div className="grid grid-cols-4 sm:grid-cols-5 gap-2 sm:gap-4 mt-4 sm:mt-6">
+                                    {/* Thumbnail Gallery - better touch targets for mobile */}
+                                    <div className="grid grid-cols-4 sm:grid-cols-5 gap-1 sm:gap-4 mt-3 sm:mt-6">
                                         {Object.values(product.photo).map((image, index) => (
                                             <div
                                                 key={index}
@@ -299,7 +431,7 @@ const ProductPage = () => {
                                                 <img
                                                     src={image}
                                                     alt={`${product.name} view ${index + 1}`}
-                                                    className="w-full h-14 sm:h-20 object-cover"
+                                                    className="w-full h-12 sm:h-20 object-cover"
                                                     loading="lazy"
                                                 />
                                             </div>
@@ -307,8 +439,8 @@ const ProductPage = () => {
                                     </div>
                                 </div>
 
-                                {/* Product Info - Right Side - with mobile optimizations */}
-                                <div className="p-4 sm:p-8 space-y-4 sm:space-y-6">
+                                {/* Product Info - Right Side */}
+                                <div className="p-3 sm:p-8 space-y-3 sm:space-y-6">
                                     {/* Product Title & Rating */}
                                     <div className="space-y-2">
                                         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">{product.name}</h1>
@@ -346,33 +478,90 @@ const ProductPage = () => {
                                         {product.description || 'A premium quality product crafted with attention to detail and designed for everyday use.'}
                                     </p>
 
-                                    {/* Free Accessories - Only show if product has free accessories */}
+                                    {/* Free Accessories section */}
                                     {hasFreeAccessories && (
-                                        <div className="bg-green-50 border border-green-100 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3">
-                                            <h3 className="flex items-center text-green-700 font-medium text-sm sm:text-base">
-                                                <FaGift className="mr-2" /> 
-                                                Free Accessories Included with this Product
+                                        <div className="bg-gradient-to-r from-orange-50 to-blue-50 border-2 border-dashed border-orange-200 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3 relative overflow-hidden transform transition-all hover:scale-[1.01] animate-fadeIn">
+                                            {/* "Exclusive Offer" corner badge */}
+                                            <div className="absolute -right-12 -top-4 bg-red-500 text-white px-12 py-1 transform rotate-45 shadow-md">
+                                                <span className="text-xs font-bold">LIMITED TIME</span>
+                                            </div>
+                                            
+                                            <h3 className="flex items-center text-orange-700 font-bold text-lg sm:text-xl">
+                                                <FaGift className="mr-2 text-orange-600" /> 
+                                                Free Premium Accessories
                                             </h3>
-                                            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3">
+                                            
+                                            {/* Enhanced payment requirement notification */}
+                                            <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-400 rounded-lg p-3 sm:p-4 relative overflow-hidden shadow-sm">
+                                                <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-l from-yellow-100 to-transparent opacity-70"></div>
+                                                
+                                                <div className="flex items-start space-x-3">
+                                                    <div className="p-2 bg-amber-100 rounded-full">
+                                                        <FaInfoCircle className="text-amber-500 text-lg animate-pulse" />
+                                                    </div>
+                                                    <div>
+                                                        <p className="font-medium text-amber-800 text-sm sm:text-base mb-1">
+                                                            ONLINE PAYMENT EXCLUSIVE
+                                                        </p>
+                                                        <p className="text-amber-700 text-sm">
+                                                            These premium accessories (worth <span className="font-bold">₹{Math.floor(product.cost * 0.2)}</span>) are <span className="underline font-bold">only included with online payment methods</span>. Not available with cash on delivery.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 mt-3">
                                                 {freeAccessories.map((item, idx) => (
-                                                    <div key={idx} className="flex items-center bg-white p-2 sm:p-3 rounded-lg shadow-sm border border-green-100">
-                                                        <img 
-                                                            src={item.image} 
-                                                            alt={item.name} 
-                                                            className="w-10 h-10 sm:w-14 sm:h-14 object-cover rounded"
-                                                            loading="lazy"
-                                                        />
-                                                        <div className="ml-2 sm:ml-3">
-                                                            <h4 className="text-xs sm:text-sm font-medium text-gray-800">{item.name}</h4>
+                                                    <div key={idx} className="flex items-center bg-white p-2 sm:p-3 rounded-lg shadow-md border border-orange-100 hover:border-orange-300 transition-all">
+                                                        <div className="relative">
+                                                            <img 
+                                                                src={item.image} 
+                                                                alt={item.name} 
+                                                                className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-md"
+                                                                loading="lazy"
+                                                            />
+                                                            <div className="absolute -bottom-1 -right-1 bg-orange-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                                                <FaCheck size={10} />
+                                                            </div>
+                                                        </div>
+                                                        <div className="ml-3">
+                                                            <h4 className="text-sm sm:text-base font-medium text-gray-800">{item.name}</h4>
                                                             <p className="text-xs text-gray-600 hidden sm:block">{item.description}</p>
                                                         </div>
                                                     </div>
                                                 ))}
                                             </div>
+                                            
+                                            <div className="flex justify-center mt-1">
+                                                <span className="text-sm text-gray-500 italic">
+                                                    Tap "Buy Now" to secure these free accessories today!
+                                                </span>
+                                            </div>
                                         </div>
                                     )}
 
-                                    {/* Quantity Selector - mobile optimized touch targets */}
+                                    {/* Special Offer Countdown - MOBILE VERSION (only visible on small screens) */}
+                                    <div className="block sm:hidden bg-gradient-to-r from-red-50 via-red-100 to-red-50 border border-red-200 rounded-lg p-2 text-center animate-pulse-border">
+                                        <p className="text-red-700 font-medium text-xs">Special offer ends in:</p>
+                                        <div className="flex justify-center items-center space-x-1 mt-1">
+                                            <div className="bg-red-600 text-white px-1 py-1 rounded text-xs">
+                                                <span className="font-bold">{String(timeRemaining.hours).padStart(2, '0')}</span>
+                                            </div>
+                                            <span className="font-bold text-red-600">:</span>
+                                            <div className="bg-red-600 text-white px-1 py-1 rounded text-xs">
+                                                <span className="font-bold">{String(timeRemaining.minutes).padStart(2, '0')}</span>
+                                            </div>
+                                            <span className="font-bold text-red-600">:</span>
+                                            <div className="bg-red-600 text-white px-1 py-1 rounded text-xs">
+                                                <span className="font-bold">{String(timeRemaining.seconds).padStart(2, '0')}</span>
+                                            </div>
+                                        </div>
+                                        <p className="text-xxs text-red-600 mt-1">
+                                            {getUrgencyMessage()}
+                                        </p>
+                                    </div>
+
+                                    {/* Quantity Selector */}
                                     <div className="flex items-center space-x-4">
                                         <span className="text-gray-700 text-sm sm:text-base">Quantity:</span>
                                         <div className="flex items-center border border-gray-300 rounded-md">
@@ -394,22 +583,80 @@ const ProductPage = () => {
                                         </div>
                                     </div>
 
-                                    {/* Action Buttons - larger touch targets for mobile */}
-                                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
-                                        <button
-                                            onClick={handleAddToCart}
-                                            className="bg-[#DA9687] text-white px-8 py-3 rounded-lg hover:bg-opacity-90 transition flex-1 flex justify-center items-center"
-                                        >
-                                            Add to Cart
-                                        </button>
-                                        <button
-                                            onClick={handleBuyNow}
-                                            className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition flex-1 flex justify-center items-center"
-                                        >
-                                            Buy Now
-                                        </button>
-                                    </div>
+                                    {/* Enhanced Action Buttons with Buy Now Urgency */}
+                                    <div className="space-y-3 pt-2">
+                                        {/* Special Offer Countdown - DESKTOP VERSION (only visible on larger screens) */}
+                                        <div className="hidden sm:block bg-gradient-to-r from-red-50 via-red-100 to-red-50 border border-red-200 rounded-lg p-2 sm:p-3 text-center animate-pulse-border">
+                                            <p className="text-red-700 font-medium text-xs sm:text-sm">Special offer ends in:</p>
+                                            <div className="flex justify-center items-center space-x-1 sm:space-x-2 mt-1">
+                                                <div className="bg-red-600 text-white px-1 sm:px-2 py-1 rounded text-xs sm:text-base">
+                                                    <span className="font-bold">{String(timeRemaining.hours).padStart(2, '0')}</span>
+                                                </div>
+                                                <span className="font-bold text-red-600">:</span>
+                                                <div className="bg-red-600 text-white px-1 sm:px-2 py-1 rounded text-xs sm:text-base">
+                                                    <span className="font-bold">{String(timeRemaining.minutes).padStart(2, '0')}</span>
+                                                </div>
+                                                <span className="font-bold text-red-600">:</span>
+                                                <div className="bg-red-600 text-white px-1 sm:px-2 py-1 rounded text-xs sm:text-base">
+                                                    <span className="font-bold">{String(timeRemaining.seconds).padStart(2, '0')}</span>
+                                                </div>
+                                            </div>
+                                            <p className="text-xxs sm:text-xs text-red-600 mt-1">
+                                                {getUrgencyMessage()}
+                                            </p>
+                                        </div>
 
+                                        {/* Action Buttons - larger touch targets for mobile */}
+                                        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
+                                            <button
+                                                onClick={handleAddToCart}
+                                                className="bg-[#DA9687] text-white px-4 sm:px-8 py-3 rounded-lg hover:bg-opacity-90 hover:shadow-md transition-all flex-1 flex justify-center items-center text-sm sm:text-base"
+                                            >
+                                                <FaShoppingCart className="mr-1 sm:mr-2" />
+                                                Add to Cart
+                                            </button>
+                                            
+                                            {/* Enhanced Buy Now Button - improved visibility on mobile */}
+                                            <button
+                                                onClick={handleBuyNow}
+                                                className={`relative overflow-hidden ${hasFreeAccessories 
+                                                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 shadow-lg' 
+                                                    : 'bg-blue-600 hover:bg-blue-700'} 
+                                                    text-white px-4 sm:px-8 py-3 rounded-lg transition-all flex-1 flex justify-center items-center group text-sm sm:text-base font-bold`}
+                                            >
+                                                {/* Pulsing border effect */}
+                                                <span className="absolute inset-0 border-2 border-white rounded-lg opacity-0 group-hover:opacity-30 animate-pulse"></span>
+                                                
+                                                {/* Shimmer effect */}
+                                                {hasFreeAccessories && (
+                                                    <span className="absolute inset-0 w-full h-full">
+                                                        <span className="absolute top-0 left-0 w-full h-full bg-white opacity-10 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                                                    </span>
+                                                )}
+                                                
+                                                {/* Icon and text with subtle animation */}
+                                                <div className="flex items-center">
+                                                    <FaShoppingCart className="mr-1 sm:mr-2" />
+                                                    <span className="font-bold tracking-wider">BUY NOW</span>
+                                                    {hasFreeAccessories && <FaGift className="ml-1 sm:ml-2 animate-pulse" />}
+                                                </div>
+                                                
+                                                {/* "Act now" label - better positioned for mobile */}
+                                                <div className="absolute -bottom-1 -right-1 transform translate-x-1/4 translate-y-1/4 bg-yellow-400 text-blue-800 text-[8px] sm:text-[9px] uppercase font-extrabold px-1 sm:px-2 py-0.5 rounded-full tracking-wide rotate-12 shadow-sm">Act now!</div>
+                                            </button>
+                                        </div>
+                                        
+                                        {/* Low Stock Warning - creates additional urgency */}
+                                        <div className="text-center">
+                                            <p className="text-xs text-red-600 flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                                                </svg>
+                                                <span>Only <span className="font-bold">5 items</span> left in stock - order soon!</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
                                     {/* Delivery & Service Features - mobile grid adjustment */}
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 border-t border-b border-gray-200 py-4 my-4">
                                         <div className="flex items-center space-x-2">
@@ -464,7 +711,7 @@ const ProductPage = () => {
                             </div>
                         </div>
 
-                        {/* Product Highlights - Quick Feature Banner - mobile optimized grid */}
+                        {/* Product Highlights - Quick Feature Banner */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 my-6 sm:my-8">
                             <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 flex items-center space-x-3">
                                 <div className="bg-blue-100 p-2 sm:p-3 rounded-full">
@@ -476,8 +723,8 @@ const ProductPage = () => {
                                 </div>
                             </div>
                             <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 flex items-center space-x-3">
-                                <div className="bg-green-100 p-2 sm:p-3 rounded-full">
-                                    <FaCheck className="text-green-600 text-sm sm:text-base" />
+                                <div className="bg-orange-100 p-2 sm:p-3 rounded-full">
+                                    <FaCheck className="text-orange-600 text-sm sm:text-base" />
                                 </div>
                                 <div>
                                     <h3 className="font-medium text-sm sm:text-base">Quality Assurance</h3>
@@ -494,8 +741,8 @@ const ProductPage = () => {
                                 </div>
                             </div>
                             <div className="bg-white p-3 sm:p-4 rounded-lg shadow-sm border border-gray-100 flex items-center space-x-3">
-                                <div className="bg-yellow-100 p-2 sm:p-3 rounded-full">
-                                    <FaShieldAlt className="text-yellow-600 text-sm sm:text-base" />
+                                <div className="bg-purple-100 p-2 sm:p-3 rounded-full">
+                                    <FaShieldAlt className="text-purple-600 text-sm sm:text-base" />
                                 </div>
                                 <div>
                                     <h3 className="font-medium text-sm sm:text-base">Secure Shopping</h3>
@@ -563,14 +810,44 @@ const ProductPage = () => {
                                                 )}
                                             </ul>
                                             
-                                            {/* Free Accessories - Only show if product has free accessories */}
+                                            {/* Free Accessories - Enhanced description tab notification */}
                                             {hasFreeAccessories && (
                                                 <>
-                                                    <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">Free Accessories Included</h3>
+                                                    <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2 flex items-center">
+                                                        Free Premium Accessories
+                                                        <span className="ml-2 text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">EXCLUSIVE</span>
+                                                    </h3>
+                                                    
+                                                    {/* Enhanced payment requirement notification in description tab */}
+                                                    <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-400 rounded-lg p-4 mb-4 relative">
+                                                        <div className="flex">
+                                                            <div className="mr-4 flex-shrink-0">
+                                                                <div className="p-2 bg-amber-100 rounded-full">
+                                                                    <FaInfoCircle className="text-amber-500 text-xl" />
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                <h4 className="text-base font-bold text-amber-800 mb-1">IMPORTANT: Online Payment Required</h4>
+                                                                <p className="text-sm text-amber-700">
+                                                                    To receive these premium accessories valued at <span className="font-bold">₹{Math.floor(product.cost * 0.2)}</span>, you must complete your purchase using an online payment method (credit/debit card, UPI, net banking, etc.). 
+                                                                </p>
+                                                                <p className="mt-2 text-sm font-medium text-amber-800">
+                                                                    These valuable accessories are not included with cash on delivery orders.
+                                                                </p>
+                                                                <div className="mt-2 p-2 bg-white bg-opacity-50 rounded border border-amber-200">
+                                                                    <p className="text-xs text-amber-700 flex items-center">
+                                                                        <FaClock className="mr-1" /> Limited time offer. Online payment methods are secure and protected.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <h4 className="text-base font-medium mt-4 mb-2">What's Included:</h4>
                                                     <ul className="list-disc pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                                                         {freeAccessories.map((item, idx) => (
-                                                            <li key={idx}>
-                                                                <span className="font-medium">{item.name}</span>: {item.description}
+                                                            <li key={idx} className="pl-1">
+                                                                <span className="font-medium text-orange-700">{item.name}</span>: {item.description}
                                                             </li>
                                                         ))}
                                                     </ul>
@@ -664,6 +941,7 @@ const ProductPage = () => {
                                                 <div className="text-xs sm:text-sm text-gray-500 mt-1">Based on {productReviews.length} reviews</div>
                                             </div>
                                             
+
                                             <div className="flex-1">
                                                 <div className="flex items-center mb-1">
                                                     <span className="w-9 sm:w-12 text-xs sm:text-sm">5 star</span>
@@ -739,6 +1017,7 @@ const ProductPage = () => {
                                                 </div>
                                             )}
                                         {/*                                         
+
                                             <div className="text-center pt-2 sm:pt-4">
                                                 <button className="border border-gray-300 text-gray-700 rounded-lg px-4 sm:px-6 py-2 hover:bg-gray-50 transition text-sm sm:text-base">
                                                     Load more reviews
@@ -751,11 +1030,11 @@ const ProductPage = () => {
                             </div>
                         </div>
                         
-                        {/* Recently Viewed Products - mobile-optimized grid */}
+                        {/* Recently Viewed Products - better for small mobile screens */}
                         {recentlyViewed.length > 0 && (
-                            <div className="mb-8 sm:mb-12">
-                                <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Recently Viewed</h2>
-                                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+                            <div className="mb-6 sm:mb-12">
+                                <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-6">Recently Viewed</h2>
+                                <div className="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6">
                                     {recentlyViewed.map((recentProduct) => (
                                         <div key={recentProduct.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition group">
                                             <div className="aspect-w-1 aspect-h-1 bg-gray-200 relative overflow-hidden">
@@ -774,15 +1053,15 @@ const ProductPage = () => {
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div className="p-3 sm:p-4">
-                                                <h3 className="font-medium truncate group-hover:text-blue-600 transition text-sm sm:text-base">{recentProduct.name}</h3>
-                                                <div className="flex items-center mt-1">
+                                            <div className="p-2 sm:p-4">
+                                                <h3 className="font-medium truncate group-hover:text-blue-600 transition text-xs sm:text-base">{recentProduct.name}</h3>
+                                                <div className="flex items-center mt-1 scale-75 sm:scale-100 origin-left">
                                                     {renderStars(4)}
                                                 </div>
-                                                <div className="mt-1 sm:mt-2 font-bold text-sm sm:text-base">₹{recentProduct.cost.toLocaleString()}</div>
+                                                <div className="mt-1 font-bold text-xs sm:text-base">₹{recentProduct.cost.toLocaleString()}</div>
                                                 <button 
                                                     onClick={() => navigate(`/product/${recentProduct.id}`)} 
-                                                    className="mt-2 sm:mt-3 w-full bg-[#DA9687] text-white py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-opacity-90 transition"
+                                                    className="mt-1 sm:mt-3 w-full bg-[#DA9687] text-white py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-opacity-90 transition"
                                                 >
                                                     View Product
                                                 </button>

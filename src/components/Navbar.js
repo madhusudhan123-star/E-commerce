@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faShoppingCart, 
-  faTimes, 
-  faBars
-} from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faTimes, faBars} from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/logo.png';
-
 import { useCart } from './CartContext';
+import icons from '../assets/main/icon.webp';
+import icons2 from '../assets/main/icon2.webp';
+import icons3 from '../assets/main/icon3.webp';
+import icons4 from '../assets/main/icon4.webp';
+
+
 
 const Navbar = () => {
   const { cart, removeFromCart, isCartOpen, setIsCartOpen } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const toggleCart = () => setIsCartOpen(!isCartOpen);
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,9 +34,6 @@ const Navbar = () => {
     };
   }, []);
 
-  const toggleCart = () => setIsCartOpen(!isCartOpen);
-  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  
   const handleRemoveFromCart = (cartItemId) => {
     removeFromCart(cartItemId);
 
@@ -168,18 +168,30 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center text-xl space-x-10">
-              <Link to="/" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
-                Home
-              </Link>
-              <Link to="/shop" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
-                Shop
-              </Link>
-              <Link to="/about" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
-                About
-              </Link>
-              <Link to="/contact" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
-                Contact
-              </Link>
+              <div className='flex items-center justify-center flex-col'>
+                <img src={icons} alt="Icons" className="h-8 w-8" />
+                <Link to="/" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                  Home
+                </Link>
+              </div>
+              <div className='flex items-center justify-center flex-col'>
+                <img src={icons2} alt="Icons" className="h-8 w-8" />
+                <Link to="/shop" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                  Shop
+                </Link>
+              </div>
+              <div className='flex items-center justify-center flex-col'>
+                <img src={icons3} alt="Icons" className="h-8 w-8" />
+                <Link to="/about" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                  About
+                </Link>
+              </div>
+              <div className='flex items-center justify-center flex-col'>
+                <img src={icons4} alt="Icons" className="h-8 w-8" />
+                <Link to="/contact" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                  Contact
+                </Link>
+              </div>
             </nav>
 
             {/* Right Icons - Only Cart */}

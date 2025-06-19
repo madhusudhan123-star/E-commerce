@@ -591,7 +591,7 @@ const translations = {
             {
                 id: 4,
                 category: 'Yantras',
-                cost: 899,
+                cost: 399,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra',
@@ -656,7 +656,7 @@ const translations = {
             {
                 id: 5,
                 category: 'Yantras',
-                cost: 899,
+                cost: 399,
                 rating: 4.7,
                 isNew: true,
                 name: 'Kuber Yantra Locket',
@@ -783,7 +783,7 @@ const translations = {
             {
                 id: 7,
                 category: 'Yantras',
-                cost: 899,
+                cost: 299,
                 rating: 4.7,
                 isNew: true,
                 name: 'Tortoise Ring',
@@ -850,7 +850,7 @@ const translations = {
             {
                 id: 9,
                 category: 'Yantras',
-                cost: 899,
+                cost: 499,
                 rating: 4.7,
                 isNew: true,
                 name: 'Meru Sriyantram',
@@ -917,7 +917,7 @@ const translations = {
             {
                 id: 10,
                 category: 'Yantras',
-                cost: 899,
+                cost: 199,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Anjaneya\'s Gada',
@@ -1097,7 +1097,7 @@ const translations = {
             {
                 id: 14,
                 category: 'Yantras',
-                cost: 899,
+                cost: 359,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Wall Hanging',
@@ -1289,7 +1289,7 @@ const translations = {
             {
                 id: 17,
                 category: 'Yantras',
-                cost: 899,
+                cost: 249,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shri Dhan Laxmi Pendant',
@@ -1469,7 +1469,7 @@ const translations = {
             {
                 id: 21,
                 category: 'Yantras',
-                cost: 899,
+                cost: 349,
                 rating: 4.7,
                 isNew: true,
                 name: 'Divine Lakshmi Figurine with Mantra Base',
@@ -1589,7 +1589,7 @@ const translations = {
             {
                 id: 23,
                 category: 'Yantras',
-                cost: 899,
+                cost: 499,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Orgonite Energy Pyramid',

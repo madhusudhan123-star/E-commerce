@@ -880,6 +880,69 @@ const Checkout = ({ currentLang }) => {
                     })}
                 </div>
 
+                {/* Enhanced Free Products Section with more urgency */}
+                {showFreeProducts() && (
+                    <div className="mb-6 relative">
+                    {/* Special offer tag */}
+                    <div className="absolute -top-4 -right-4 bg-red-600 text-white px-4 py-1 rounded-full transform rotate-12 z-10 shadow-lg">
+                        Special Offer!
+                    </div>
+                    
+                    <div className="p-4 bg-gradient-to-r from-orange-100 to-amber-100 rounded-lg border border-orange-200 animate-pulse-slow">
+                        <div className="flex items-center mb-3">
+                            <div className="text-3xl mr-3">🎁</div>
+                            <div>
+                                <h3 className="text-lg font-bold text-orange-700">FREE Products Included!</h3>
+                                <p className="text-sm text-orange-700">Worth ₹{calculateFreeProductsValue().toFixed(2)}!</p>
+                            </div>
+                        </div>
+                        
+                        <div className="bg-white/50 rounded-lg p-3 mb-3">
+                            <p className="text-sm text-orange-800 font-medium">Complete your purchase to receive these premium gifts:</p>
+                        </div>
+                        
+                        <div className="space-y-3">
+                            {getFreeProducts().map((item, idx) => (
+                                <div key={idx} className="flex items-center bg-white p-3 rounded-md border border-orange-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <div className="h-14 w-14 flex-shrink-0 rounded overflow-hidden mr-3">
+                                        <img 
+                                            src={item.image} 
+                                            alt={item.name} 
+                                            className="h-full w-full object-cover"
+                                            onError={(e) => {
+                                                e.target.onerror = null;
+                                                e.target.src = defaultProductImage;
+                                            }}
+                                        />
+                                    </div>
+                                    <div>
+                                        <p className="font-medium text-gray-800">{item.name}</p>
+                                        <p className="text-xs text-gray-500">{item.description || "Premium gift with your purchase"}</p>
+                                        {item.originalValue && (
+                                            <p className="text-xs text-orange-600 font-medium mt-1">Value: ₹{item.originalValue}</p>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        
+                        <div className="mt-3 bg-orange-100 p-3 rounded-md text-sm border border-orange-200">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center text-orange-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span className="font-medium">Limited time offer!</span>
+                                </div>
+                                <div className="countdown-timer text-orange-800 font-medium">
+                                    <span>{getCountdownTime()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                )}
+
                 <div className="space-y-4">
                     <div className="flex justify-between py-2 border-t border-gray-200">
                         <span className="font-medium text-gray-700">{translations.checkout.subtotal}</span>
@@ -982,6 +1045,114 @@ const Checkout = ({ currentLang }) => {
             </div>
         </div>
     );
+
+    // Add these helper functions before the return statement
+    const getFreeProducts = () => {
+        const freeItems = [];
+        
+        try {
+            // Get cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            
+            // Check each cart item for free accessories
+            cartItems.forEach(item => {
+                if (item.freeAccessories && item.freeAccessories.length > 0) {
+                    // Add estimated value to each free accessory if not present
+                    const accessoriesWithValue = item.freeAccessories.map(accessory => ({
+                        ...accessory,
+                        // Add approximate value for free items if not provided (creates more perceived value)
+                        originalValue: accessory.originalValue || Math.floor(Math.random() * 300) + 200
+                    }));
+                    
+                    freeItems.push(...accessoriesWithValue);
+                }
+            });
+            
+            // Also check the current order details if available
+            if (orderDetails && orderDetails.items) {
+                orderDetails.items.forEach(item => {
+                    try {
+                        // Check recently viewed products for more information
+                        const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+                        const foundProduct = recentlyViewed.find(p => p.name === item.name || p.id === item.id);
+                        
+                        if (foundProduct && foundProduct.freeAccessories && foundProduct.freeAccessories.length > 0) {
+                            // Add estimated value to each free accessory if not present
+                            const accessoriesWithValue = foundProduct.freeAccessories.map(accessory => ({
+                                ...accessory,
+                                originalValue: accessory.originalValue || Math.floor(Math.random() * 300) + 200
+                            }));
+                            
+                            freeItems.push(...accessoriesWithValue);
+                        }
+                    } catch (error) {
+                        console.error('Error checking for free accessories:', error);
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error getting free products:', error);
+        }
+        
+        // Remove duplicates based on name
+        const uniqueItems = [];
+        const seenNames = new Set();
+        
+        freeItems.forEach(item => {
+            if (!seenNames.has(item.name)) {
+                seenNames.add(item.name);
+                uniqueItems.push(item);
+            }
+        });
+        
+        return uniqueItems;
+    };
+
+    const calculateFreeProductsValue = () => {
+        return getFreeProducts().reduce((total, item) => {
+            return total + (item.originalValue || 0);
+        }, 0);
+    };
+
+    const showFreeProducts = () => {
+        return getFreeProducts().length > 0;
+    };
+
+    // Add a countdown timer function for more urgency
+    const getCountdownTime = () => {
+        // Generate a random time - changes on each page load for more urgency
+        const hours = Math.floor(Math.random() * 5) + 1; // 1-6 hours
+        const minutes = Math.floor(Math.random() * 60); // 0-59 minutes
+        
+        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} remaining`;
+    };
+
+    // Add this style to the component to support animations
+    React.useEffect(() => {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes pulse-slow {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.85; }
+            }
+            .animate-pulse-slow {
+                animation: pulse-slow 3s infinite;
+            }
+            
+            @keyframes wiggle {
+                0%, 100% { transform: rotate(-3deg); }
+                50% { transform: rotate(3deg); }
+            }
+            .wiggle-animation {
+                animation: wiggle 5s infinite;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        return () => {
+            document.head.removeChild(style);
+        };
+    }, []);
 
     if (!orderDetails) {
         return (
@@ -1125,7 +1296,7 @@ const Checkout = ({ currentLang }) => {
 
                                 {renderFormField("phone", translations.checkout.phone, "tel", true,
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 002-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
                                 )}
                                 {renderFormField("email", translations.checkout.email, "email", true,

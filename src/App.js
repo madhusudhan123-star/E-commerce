@@ -24,6 +24,7 @@ import Layout from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 import Aly from './pages/Aly';
 import ScrollToTop from './components/ScrollToTop';
+import audio from './assets/main/audio.mp3';
 
 AOS.init({
   delay: 300,

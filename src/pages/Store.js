@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaSearch, FaShoppingCart, FaHeart } from 'react-icons/fa'; // Make sure to import necessary icons
 import translations from '../utils/data';
 import PageHeader from '../components/Other';
-import { FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import banner from '../assets/main/banner5.webp'
 
 const Store = () => {
@@ -28,6 +28,31 @@ const Store = () => {
                 : [...prev, productId]
         );
     };
+
+    // Add this style for animations
+    React.useEffect(() => {
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes bounce-subtle {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-3px); }
+            }
+            .bounce-animation {
+                animation: bounce-subtle 2s infinite;
+            }
+            
+            @keyframes pulse-badge {
+                0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7); }
+                70% { box-shadow: 0 0 0 6px rgba(249, 115, 22, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+            }
+            .pulse-badge {
+                animation: pulse-badge 2s infinite;
+            }
+        `;
+        document.head.appendChild(style);
+        return () => document.head.removeChild(style);
+    }, []);
 
     return (
         <div className="bg-[#F8F5F1] min-h-screen">
@@ -78,9 +103,32 @@ const Store = () => {
                                         <FaHeart className={`text-lg ${wishlist.includes(product.id) ? 'text-red-500' : 'text-gray-400'}`} />
                                     </button> */}
                                     
-                                    {product.isNew && (
-                                        <div className="absolute top-3 left-3 bg-[#8E9775]/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
-                                            New Arrival
+                                    {/* Enhanced Product Tags */}
+                                    <div className="absolute top-3 left-3 flex flex-col gap-2">
+                                        {product.isNew && (
+                                            <div className="bg-[#8E9775]/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                                                New Arrival
+                                            </div>
+                                        )}
+                                        
+                                        {product.freeAccessories && product.freeAccessories.length > 0 && (
+                                            <div className="bg-orange-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm flex items-center pulse-badge">
+                                                <span className="mr-1">🎁</span> 
+                                                {product.freeAccessories.length > 1 ? 
+                                                    `${product.freeAccessories.length} FREE GIFTS` : 
+                                                    'FREE GIFT'
+                                                }
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Limited Time Offer Badge */}
+                                    {product.freeAccessories && product.freeAccessories.length > 0 && (
+                                        <div className="absolute top-3 right-3 bg-red-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold flex items-center bounce-animation">
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            Limited Offer
                                         </div>
                                     )}
                                     
@@ -119,6 +167,22 @@ const Store = () => {
                                     {/* <button  className="w-full mt-4 bg-[#E0DBCF] text-[#614E42] py-2 rounded-full flex items-center justify-center gap-2 hover:bg-[#8E9775] hover:text-white transition-colors duration-300" onClick={(e) => { e.preventDefault(); e.stopPropagation();}}>
                                         <FaShoppingCart /> Add to Cart
                                     </button> */}
+                                    
+                                    {/* Enhanced Free Accessories Note */}
+                                    {product.freeAccessories && product.freeAccessories.length > 0 && (
+                                        <div className="mt-2 pt-2 border-t border-dashed border-orange-200">
+                                            <div className="text-orange-600 text-sm font-medium flex items-center">
+                                                <span className="mr-1">🎁</span>
+                                                <span>
+                                                    {product.freeAccessories.length > 1 
+                                                        ? `Includes ${product.freeAccessories.length} free gifts with purchase!` 
+                                                        : 'Includes a free gift with purchase!'
+                                                    }
+                                                </span>
+                                            </div>
+                                            <p className="text-xs text-orange-700 mt-1">Only with online payment - Complete checkout to claim!</p>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </Link>

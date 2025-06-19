@@ -169,26 +169,26 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center text-xl space-x-10">
               <div className='flex items-center justify-center flex-col'>
+                <Link to="/" className="nav-link font-medium flex items-center justify-center flex-col text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                 <img src={icons} alt="Icons" className="h-8 w-8" />
-                <Link to="/" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                   Home
                 </Link>
               </div>
               <div className='flex items-center justify-center flex-col'>
-                <img src={icons2} alt="Icons" className="h-8 w-8" />
-                <Link to="/shop" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                <Link to="/shop" className="nav-link font-medium flex items-center justify-center flex-col text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
+                  <img src={icons2} alt="Icons" className="h-8 w-8" />
                   Shop
                 </Link>
               </div>
               <div className='flex items-center justify-center flex-col'>
+                <Link to="/about" className="nav-link flex items-center justify-center flex-col font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                 <img src={icons3} alt="Icons" className="h-8 w-8" />
-                <Link to="/about" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                   About
                 </Link>
               </div>
               <div className='flex items-center justify-center flex-col'>
+                <Link to="/contact" className="nav-link font-medium flex items-center justify-center flex-col text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                 <img src={icons4} alt="Icons" className="h-8 w-8" />
-                <Link to="/contact" className="nav-link font-medium text-gray-800 hover:text-[#DA9687] transition-all duration-300 relative after:absolute after:bottom-[-6px] after:left-0 after:h-[2px] after:w-0 after:bg-[#DA9687] after:transition-all hover:after:w-full">
                   Contact
                 </Link>
               </div>
@@ -258,27 +258,31 @@ const Navbar = () => {
           
           <nav className="space-y-6">
             <Link to="/" 
-              className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
+              className="block text-lg font-medium flex gap-5 hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
               onClick={toggleMobileMenu}
             >
+                <img src={icons} alt="Icons" className="h-8 w-8" />
               Home
             </Link>
             <Link to="/shop" 
-              className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
+              className="block text-lg font-medium flex gap-5 hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
               onClick={toggleMobileMenu}
             >
+              <img src={icons2} alt="Icons" className="h-8 w-8" />  
               Shop
             </Link>
             <Link to="/about" 
-              className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
+              className="block text-lg font-medium flex gap-5 hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
               onClick={toggleMobileMenu}
             >
+              <img src={icons3} alt="Icons" className="h-8 w-8" />
               About
             </Link>
             <Link to="/contact" 
-              className="block text-lg font-medium hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
+              className="block text-lg font-medium flex gap-5 hover:text-[#DA9687] hover:translate-x-2 transition-all duration-300 py-2 border-b border-gray-100"
               onClick={toggleMobileMenu}
             >
+              <img src={icons4} alt="Icons" className="h-8 w-8" />
               Contact
             </Link>
           </nav>

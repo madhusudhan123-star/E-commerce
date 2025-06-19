@@ -6,8 +6,8 @@ import Team from '../components/Team';
 import Other from '../components/Other';
 import { motion } from 'framer-motion';
 import { FaGem, FaHands, FaOm, FaPrayingHands, FaShieldAlt, FaPeace, FaHistory, FaDharmachakra } from 'react-icons/fa';
-import sar from '../assets/main/mobilebanner.webp'
-import aly from '../assets/main/img1.webp';
+import sar from '../assets/main/about2.webp'
+import aly from '../assets/main/about1.webp';
 
 
 const About = () => {
@@ -40,10 +40,11 @@ const About = () => {
                         variants={fadeIn}
                     >
                         <h2 className="text-3xl stylefont text-[#DA9687] mb-2">Our Divine Collection</h2>
-                        <h3 className="text-4xl headerstyle text-gray-800 mb-6">Sacred Spiritual Products</h3>
+                        <h3 className="text-4xl headerstyle text-gray-800 mb-6">Timeless Spiritual Offerings</h3>
                         <p className="max-w-3xl mx-auto text-gray-600">
-                            Each of our spiritual products is meticulously crafted with devotion and traditional techniques, 
-                            designed to bring divine energy and blessings into your home and life.
+                        Each of our spiritual products is thoughtfully crafted with devotion and age-old artistry, inspired by the virtues and 
+                        blessings found in the Ramayana. Bring home symbols of protection, prosperity, and positive energy to enrich your life 
+                        and surroundings.
                         </p>
                     </motion.div>
                     
@@ -51,13 +52,13 @@ const About = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                         {/* Sree Anjaneya Shani Raksha */}
                         <motion.div 
-                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row"
+                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={fadeIn}
                         >
-                            <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                            <div className=" h-64 md:h-auto relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/30 to-red-500/30"></div>
                                 <img 
                                     src={sar} 
@@ -69,38 +70,38 @@ const About = () => {
                                     }}
                                 />
                             </div>
-                            <div className="p-6 md:w-1/2 flex flex-col justify-center">
-                                <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Anjaneya Shani Raksha</h3>
-                                <p className="text-gray-600 mb-4">
-                                    A powerful divine protective idol that shields your home and family from negative energies 
-                                    and Shani doshas. Lord Hanuman's blessing provides strength, courage, and spiritual protection.
-                                </p>
-                                <div className="flex flex-wrap gap-4">
-                                    <div className="flex items-center">
-                                        <FaShieldAlt className="text-orange-600 mr-2" />
-                                        <span className="text-sm">Protection</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <FaPeace className="text-orange-600 mr-2" />
-                                        <span className="text-sm">Inner Strength</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <FaOm className="text-orange-600 mr-2" />
-                                        <span className="text-sm">Divine Energy</span>
-                                    </div>
+                            <div className="p-6 flex flex-col justify-center">
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Anjaneya Shani Raksha</h3>
+                            <p className="text-gray-600 mb-4">
+                                Inspired by the Ramayana’s tales of Hanuman’s unmatched devotion and valor, this protective idol safeguards your home and loved ones from Shani’s adverse effects and harmful energies. Invite courage, resilience, and the grace of Lord Anjaneya into your life.
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center">
+                                <FaShieldAlt className="text-orange-600 mr-2" />
+                                <span className="text-sm">Shielding Power</span>
+                                </div>
+                                <div className="flex items-center">
+                                <FaPeace className="text-orange-600 mr-2" />
+                                <span className="text-sm">Fearless Strength</span>
+                                </div>
+                                <div className="flex items-center">
+                                <FaOm className="text-orange-600 mr-2" />
+                                <span className="text-sm">Blessed Presence</span>
                                 </div>
                             </div>
+                            </div>
+
                         </motion.div>
                         
                         {/* Sree Astha Laxmi */}
                         <motion.div 
-                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col md:flex-row"
+                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             variants={fadeIn}
                         >
-                            <div className="md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+                            <div className=" h-64 md:h-auto relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/30 to-green-500/30"></div>
                                 <img 
                                     src={aly} 
@@ -112,27 +113,27 @@ const About = () => {
                                     }}
                                 />
                             </div>
-                            <div className="p-6 md:w-1/2 flex flex-col justify-center">
-                                <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Astha Laxmi</h3>
-                                <p className="text-gray-600 mb-4">
-                                    Invoke the blessings of eight forms of Goddess Lakshmi with this sacred idol. 
-                                    Designed to attract prosperity, abundance, and good fortune into your life and business.
-                                </p>
-                                <div className="flex flex-wrap gap-4">
-                                    <div className="flex items-center">
-                                        <FaGem className="text-green-600 mr-2" />
-                                        <span className="text-sm">Prosperity</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <FaHands className="text-green-600 mr-2" />
-                                        <span className="text-sm">Abundance</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <FaDharmachakra className="text-green-600 mr-2" />
-                                        <span className="text-sm">Divine Grace</span>
-                                    </div>
+                            <div className="p-6 flex flex-col justify-center">
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Astha Laxmi</h3>
+                            <p className="text-gray-600 mb-4">
+                                Rooted in the divine tales of Goddess Lakshmi’s countless blessings, this idol embodies her eight auspicious forms, drawing prosperity, wealth, and harmonious fortune into your family and ventures.
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center">
+                                <FaGem className="text-green-600 mr-2" />
+                                <span className="text-sm">Wealth & Prosperity</span>
+                                </div>
+                                <div className="flex items-center">
+                                <FaHands className="text-green-600 mr-2" />
+                                <span className="text-sm">Everlasting Abundance</span>
+                                </div>
+                                <div className="flex items-center">
+                                <FaDharmachakra className="text-green-600 mr-2" />
+                                <span className="text-sm">Lakshmi's Blessings</span>
                                 </div>
                             </div>
+                            </div>
+
                         </motion.div>
                     </div>
                 </div>
@@ -142,76 +143,77 @@ const About = () => {
             <section className="py-16 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <motion.div
-                        className="text-center mb-12"
+                    className="text-center mb-12"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    >
+                    <h2 className="text-3xl stylefont text-[#DA9687] mb-2">Timeless Craftsmanship</h2>
+                    <h3 className="text-4xl headerstyle text-gray-800 mb-6">Our Journey of Creation</h3>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* Step 1 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md"
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true }}
-                        variants={fadeIn}
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } }
+                        }}
                     >
-                        <h2 className="text-3xl stylefont text-[#DA9687] mb-2">Sacred Artisanship</h2>
-                        <h3 className="text-4xl headerstyle text-gray-800 mb-6">Our Craftsmanship Journey</h3>
+                        <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">1</div>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-3">Choosing Purity & Tradition</h4>
+                        <p className="text-gray-600">
+                        Inspired by the age-old practices seen in Ramayana temples, we select only pure, enduring materials that uphold
+                        spiritual sanctity and timeless charm for generations to cherish.
+                        </p>
                     </motion.div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {/* Step 1 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={{
-                                hidden: { opacity: 0, y: 30 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } }
-                            }}
-                        >
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">1</div>
-                            <h4 className="text-xl font-semibold text-gray-800 mb-3">Traditional Materials Selection</h4>
-                            <p className="text-gray-600">
-                                We source only the finest quality materials that honor ancient traditions. 
-                                Our master artisans carefully select materials that maintain spiritual purity and lasting beauty.
-                            </p>
-                        </motion.div>
-                        
-                        {/* Step 2 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={{
-                                hidden: { opacity: 0, y: 30 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } }
-                            }}
-                        >
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">2</div>
-                            <h4 className="text-xl font-semibold text-gray-800 mb-3">Handcrafted with Devotion</h4>
-                            <p className="text-gray-600">
-                                Each piece is lovingly handcrafted by skilled artisans who perform their work with devotion and 
-                                reverence. Many of our craftspeople come from families with generations of temple art expertise.
-                            </p>
-                        </motion.div>
-                        
-                        {/* Step 3 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            variants={{
-                                hidden: { opacity: 0, y: 30 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } }
-                            }}
-                        >
-                            <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">3</div>
-                            <h4 className="text-xl font-semibold text-gray-800 mb-3">Sacred Blessing Ceremony</h4>
-                            <p className="text-gray-600">
-                                Before reaching you, each idol undergoes a traditional blessing ceremony performed by 
-                                qualified priests, infusing the piece with sacred energy and divine vibrations.
-                            </p>
-                        </motion.div>
+
+                    {/* Step 2 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } }
+                        }}
+                    >
+                        <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">2</div>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-3">Handcrafted with Reverence</h4>
+                        <p className="text-gray-600">
+                        Every creation is patiently handcrafted by artisans whose families have long served temple traditions,
+                        ensuring each detail reflects devotion and the sacred artistry passed down since the times of Valmiki’s epic.
+                        </p>
+                    </motion.div>
+
+                    {/* Step 3 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-100px" }}
+                        variants={{
+                        hidden: { opacity: 0, y: 30 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.3 } }
+                        }}
+                    >
+                        <div className="w-16 h-16 bg-gradient-to-br from-[#DA9687] to-red-500 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4">3</div>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-3">Blessed in Ceremony</h4>
+                        <p className="text-gray-600">
+                        Before your idol finds a place in your home, it is sanctified through a traditional Ramayana-inspired
+                        puja by learned priests, invoking divine blessings and vibrant spiritual energy.
+                        </p>
+                    </motion.div>
                     </div>
                 </div>
             </section>
+
             
             {/* Brand Story Section */}
             <section className="py-16 relative overflow-hidden">
@@ -329,86 +331,83 @@ const About = () => {
             <section className="py-16 bg-gradient-to-b from-white to-gray-50">
                 <div className="container mx-auto px-4">
                     <motion.div
-                        className="text-center mb-12"
+                    className="text-center mb-12"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeIn}
+                    >
+                    <h2 className="text-3xl stylefont text-[#DA9687] mb-2">Divine Significance</h2>
+                    <h3 className="text-4xl headerstyle text-gray-800 mb-6">Timeless Wisdom, Lasting Blessings</h3>
+                    <p className="max-w-3xl mx-auto text-gray-600">
+                        Guided by the eternal teachings of the Bhagavad Gita and the Ramayana, each creation carries sacred energy to nurture protection, prosperity, and peace in your life’s journey.
+                    </p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Benefit Card 1 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        variants={fadeIn}
+                        variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                        }}
                     >
-                        <h2 className="text-3xl stylefont text-[#DA9687] mb-2">Divine Significance</h2>
-                        <h3 className="text-4xl headerstyle text-gray-800 mb-6">Spiritual Benefits of Our Products</h3>
-                        <p className="max-w-3xl mx-auto text-gray-600">
-                            Each item in our collection carries specific spiritual energy designed to enhance various aspects of your life.
-                            Learn how these sacred objects can create positive transformations in your home and spiritual journey.
+                        <div className="rounded-full bg-orange-100 w-16 h-16 flex items-center justify-center mb-4">
+                        <FaShieldAlt className="text-orange-600 text-2xl" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">Protection & Courage</h3>
+                        <p className="text-gray-600">
+                        Inspired by Hanuman’s unwavering valor in the Ramayana and the Gita’s call to fearlessness (Chapter 16), our idols create a spiritual shield that defends your home from negativity and strengthens your inner resolve.
                         </p>
                     </motion.div>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Benefit Card 1 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
-                            }}
-                        >
-                            <div className="rounded-full bg-orange-100 w-16 h-16 flex items-center justify-center mb-4">
-                                <FaShieldAlt className="text-orange-600 text-2xl" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">Protection & Safety</h3>
-                            <p className="text-gray-600">
-                                Our protective idols create a shield of divine energy around your home and family, guarding against 
-                                negative influences, evil eye, and harmful vibrations.
-                            </p>
-                        </motion.div>
-                        
-                        {/* Benefit Card 2 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.1 } }
-                            }}
-                        >
-                            <div className="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mb-4">
-                                <FaGem className="text-green-600 text-2xl" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">Prosperity & Abundance</h3>
-                            <p className="text-gray-600">
-                                Invoke wealth, prosperity and abundance with our specially crafted spiritual idols and yantras that 
-                                attract positive financial energy into your home and business.
-                            </p>
-                        </motion.div>
-                        
-                        {/* Benefit Card 3 */}
-                        <motion.div 
-                            className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={{
-                                hidden: { opacity: 0, y: 20 },
-                                visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.2 } }
-                            }}
-                        >
-                            <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-4">
-                                <FaPeace className="text-blue-600 text-2xl" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">Peace & Harmony</h3>
-                            <p className="text-gray-600">
-                                Create a sanctuary of peace in your home with our calming spiritual items that promote inner 
-                                tranquility, better relationships, and mental clarity.
-                            </p>
-                        </motion.div>
+
+                    {/* Benefit Card 2 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.1 } }
+                        }}
+                    >
+                        <div className="rounded-full bg-green-100 w-16 h-16 flex items-center justify-center mb-4">
+                        <FaGem className="text-green-600 text-2xl" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">Prosperity & Grace</h3>
+                        <p className="text-gray-600">
+                        Echoing the blessings of Goddess Lakshmi and the wisdom of selfless action in the Gita (Chapter 3), our spiritual pieces invite wealth, good fortune, and harmonious flow of abundance into your family and work.
+                        </p>
+                    </motion.div>
+
+                    {/* Benefit Card 3 */}
+                    <motion.div
+                        className="bg-white rounded-xl p-6 shadow-md border border-gray-100"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                        variants={{
+                        hidden: { opacity: 0, y: 20 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.4, delay: 0.2 } }
+                        }}
+                    >
+                        <div className="rounded-full bg-blue-100 w-16 h-16 flex items-center justify-center mb-4">
+                        <FaPeace className="text-blue-600 text-2xl" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-800 mb-2">Peace & Harmony</h3>
+                        <p className="text-gray-600">
+                        Just as Lord Rama upheld dharma and harmony in the Ramayana, and the Gita teaches calm amidst chaos (Chapter 6), our divine idols foster inner serenity, loving relationships, and a tranquil living space.
+                        </p>
+                    </motion.div>
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };

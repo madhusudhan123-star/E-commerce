@@ -13,7 +13,11 @@ import img2 from '../assets/main/img2.webp';
 import img3 from '../assets/main/img3.webp';
 import img4 from '../assets/main/img4.webp';
 import img5 from '../assets/main/img5.webp';
+import img6 from '../assets/main/img6.webp';
+import img7 from '../assets/main/img7.webp';
+import img8 from '../assets/main/img8.webp';
 import faq from '../assets/main/img3.webp';
+
 
 import person1 from '../assets/home/980_x_860-1.jpg';
 import person2 from '../assets/home/980_x_860-5.jpg';
@@ -120,22 +124,22 @@ const translations = {
         header: {
             short1: "Divine Protection",
             title1: 'Sacred Idols for Your Home',
-            subtitle1: `Discover our collection of divine idols that bring protection and prosperity to your space.`,
+            subtitle1: `“Abhayam sattva-samshuddhir” — Bhagavad Gita 16.1. Invite fearlessness and purity into your home with our protective idols.`,        
             short2: "Spiritual Blessings",
             title2: 'Experience Divine Grace',
-            subtitle2: `Embrace the protective powers of Sree Anjaneya and the prosperity blessings of Sree Astha Laxmi.`,
+            subtitle2: `“Yogaḥ karmasu kauśalam” — Bhagavad Gita 2.50. Embrace prosperity and harmony through devoted action and divine blessings.`,            
             short3: "Sacred Energy",
             title3: 'Transform Your Sacred Space',
-            subtitle3: `Bring home these meticulously crafted idols that emanate divine energy and protection.`,
+            subtitle3: `“Shraddhavan labhate jnanam” — Bhagavad Gita 4.39. With faith, bring home divine energy that enlightens your space and soul.`,            
             button1: 'Shop Now',
             sider1img: slider1,
             sider2img: slider2,
-            sider3img: slider3,
+            sider3img: slider3,              
         },
         second: {
             short: "Special Offerings",
             title: "Invite Blessings, Wealth & Protection",
-            subtitle: `Discover our sacred Sree Anjaneya Shani Raksha for shielding your family from negativity, and the auspicious Sree Astha Laxmi for inviting endless prosperity and fortune into your home. Bring home divine energy today.`,
+            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Hanuman’s unwavering devotion and valor in the Ramayana — shielding your family from hardships and negative forces. Welcome the Sree Astha Laxmi, honoring the abundant blessings of Goddess Lakshmi, to fill your home with wealth, happiness, and enduring good fortune. Let the blessings from these timeless legends enrich your life today.`,
             button: "Shop Now",
             image: home_second,
             design: aboutdesign,
@@ -143,14 +147,14 @@ const translations = {
         third: {
             design: design,
             image1: homethree1,
-            title1: "Divine Protection",
-            subtitle1: "Invoke the mighty blessings of Sree Anjaneya Shani Raksha to safeguard your home and loved ones from evil influences.",
+            title1: "Sacred Idols for Your Home",
+            subtitle1: `“Abhayam sattva-samshuddhir” — Bhagavad Gita 16.1. Invite fearlessness and purity into your home with our protective idols.`,
             image2: homethree2,
-            title2: "Wealth & Abundance",
-            subtitle2: "Invite the grace of Sree Astha Laxmi — the divine source of endless prosperity, fortune, and happiness.",
+            title2: "Experience Divine Grace",
+            subtitle2: `“Yogaḥ karmasu kauśalam” — Bhagavad Gita 2.50. Embrace prosperity and harmony through devoted action and divine blessings.`,
             image3: homethree3,
-            title3: "Handcrafted Divinity",
-            subtitle3: "Every idol is intricately hand-finished by skilled artisans, capturing authentic spiritual energy and timeless tradition.",
+            title3: "Transform Your Sacred Space",
+            subtitle3: `“Shraddhavan labhate jnanam” — Bhagavad Gita 4.39. With faith, bring home divine energy that enlightens your space and soul.`,
         },        
         fourth: {
             short: "Our Collection",
@@ -167,31 +171,31 @@ const translations = {
         images: faq,
         faqs: [
             {
-                question: "What are the benefits of these spiritual products?",
-                answer: "Each item in this sacred collection serves a unique purpose: from attracting wealth and prosperity with Shree Yantra and Lakshmi figurines to providing protection and positive energy through Rudraksha pendants, orgonite pyramids, and engraved pendants like the Shivaji Maharaj."
+                "question": "What are the benefits of these spiritual products?",
+                "answer": "Each item in this sacred collection serves a unique purpose: from attracting wealth and prosperity with Shree Yantra and Lakshmi figurines to providing protection and positive energy through Rudraksha pendants, orgonite pyramids, and engraved pendants like the Shivaji Maharaj."
             },
             {
-                question: "Are these products suitable for home puja, meditation, or gifting?",
-                answer: "Yes! All these items are thoughtfully designed for daily puja, meditation, spiritual healing, and also make meaningful gifts for festivals, housewarmings, or special occasions."
+                "question": "Are these products suitable for home puja, meditation, or gifting?",
+                "answer": "Yes! All these items are thoughtfully designed for daily puja, meditation, spiritual healing, and also make meaningful gifts for festivals, housewarmings, or special occasions."
             },
             {
-                question: "How should I place or wear these sacred products?",
-                answer: "Idols and yantras should be placed in clean, sacred spots like a home altar, puja room, or workspace in recommended directions (northeast is ideal). Pendants can be worn daily for personal protection and blessings."
+                "question": "How should I place or wear these sacred products?",
+                "answer": "Idols and yantras should be placed in clean, sacred spots like a home altar, puja room, or workspace in recommended directions (northeast is ideal). Pendants can be worn daily for personal protection and blessings."
             },
             {
-                question: "How do I clean and maintain these spiritual items?",
-                answer: "Clean gently with a dry, soft cloth. Keep them away from harsh chemicals and moisture. For pendants, wipe occasionally and store safely when not worn."
+                "question": "Are these items energized or blessed before delivery?",
+                "answer": "Yes. All our products are carefully crafted and energized through traditional Vedic rituals to ensure they carry positive vibrations and divine blessings."
             },
             {
-                question: "Are these items energized or blessed before delivery?",
-                answer: "Yes. All our products are carefully crafted and energized through traditional Vedic rituals to ensure they carry positive vibrations and divine blessings."
+                "question": "Can I buy these spiritual products online and get doorstep delivery?",
+                "answer": "Absolutely! You can safely order all our spiritual idols, yantras, and pendants online through our secure website. We offer fast and reliable doorstep delivery across India and abroad."
             }
         ],        
         horizontal: [
             { image: img2, title: 'Sree Anjaneya Idol', link: "/product" },
-            { image: img1, title: 'Sree Dhana Laxmi', link: "/product" },
+            { image: img6, title: 'Sree Dhana Laxmi', link: "/product" },
             { image: img3, title: 'Divine God Statues', link: "/product" },
-            { image: img4, title: 'Sacred Handicraft Decor', link: "/product" },
+            { image: img8, title: 'Sacred Handicraft Decor', link: "/product" },
         ],        
         nine: {
             short: "Adorable Designs",
@@ -463,7 +467,7 @@ const translations = {
                     image8: product28,
                     image9: product29,
                 },
-                description: 'Inspired by the teachings of the Bhagavad Gita on fearlessness and unwavering devotion, this Anjaneya idol invokes Hanuman’s mighty courage to shield your home from Shani’s malefic influences and negative energies, empowering you to stand firm in righteousness and inner strength.',
+                description: 'Inspired by the timeless tales of the Ramayana, this Anjaneya idol embodies Lord Hanuman’s unmatched devotion, boundless strength, and unwavering protection. It safeguards your home from Shani’s harsh effects and negative energies, filling your space with courage, faith, and the blessings of Hanuman’s fearless service to Lord Rama.',
                 freeAccessories: [
                     { 
                         name: "Tortoise Ring", 
@@ -664,6 +668,13 @@ const translations = {
                     image3: product42
                 },
                 description: "Wear divine abundance wherever you go with the sacred Kuber Yantra Locket — a powerful spiritual accessory blessed to attract wealth, prosperity, and good luck. This locket invokes Lord Kuber, the guardian of treasures, and shields you from financial obstacles.",
+                freeAccessories: [
+                    { 
+                        name: "Shri Dhan Laxmi Yantra Locket", 
+                        image: product43, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
                 reviews: [
                     {
                         id: 1,
@@ -709,66 +720,66 @@ const translations = {
                     }
                 }
             },
-            {
-                id: 6,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Shri Dhan Laxmi Yantra Locket',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product43,
-                    image2: product43,
-                    image3: product43
-                },
-                description: "Carry the divine blessings of Goddess Laxmi wherever you go with the Shri Dhan Laxmi Yantra Locket — a sacred symbol of wealth, success, and prosperity. This energized locket helps attract financial growth, remove monetary obstacles, and bestow abundant blessings.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'Wearing this Dhan Laxmi Yantra Locket daily has made me feel more financially secure and positive. Truly blessed!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Perfect for daily wear and rituals. The locket is beautiful and radiates strong positive energy.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Good quality and effective yantra locket. I gifted it to my sister and she’s very happy with it.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Shri Dhan Laxmi Yantra Locket is a powerful spiritual ornament designed to invoke the blessings of Goddess Dhan Laxmi, the deity of wealth and prosperity. It removes financial hurdles and invites a steady flow of fortune and abundance into your life.",
-                        additionalText: "This locket is skillfully crafted and energized by Vedic rituals to ensure its divine vibrations remain strong. It is easy to wear, making it ideal for daily use or to carry during important meetings, business deals, or auspicious occasions. Experience peace of mind and financial growth with this sacred yantra locket.",
-                        features: [
-                            "Authentic Dhan Laxmi Yantra engraved in a convenient locket form",
-                            "Energized through traditional Vedic rituals for maximum effect",
-                            "Elegant gold-polished finish with durable design",
-                            "Comfortable to wear daily or on special occasions",
-                            "Perfect for personal use or as a spiritual gift",
-                            "Packed safely with protective wrapping and blessings"
-                        ],
-                        usage: [
-                            "Wear the Shri Dhan Laxmi Yantra Locket daily to attract wealth and prosperity.",
-                            "Remove it before bathing or sleeping to maintain its sacred energy.",
-                            "Store safely near your cash box or puja altar when not wearing it.",
-                            "Offer prayers or recite Lakshmi mantras for enhanced benefits.",
-                            "Clean gently with a dry cloth; avoid exposure to water or chemicals."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 6,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Shri Dhan Laxmi Yantra Locket',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product43,
+            //         image2: product43,
+            //         image3: product43
+            //     },
+            //     description: "Carry the divine blessings of Goddess Laxmi wherever you go with the Shri Dhan Laxmi Yantra Locket — a sacred symbol of wealth, success, and prosperity. This energized locket helps attract financial growth, remove monetary obstacles, and bestow abundant blessings.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'Wearing this Dhan Laxmi Yantra Locket daily has made me feel more financially secure and positive. Truly blessed!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Perfect for daily wear and rituals. The locket is beautiful and radiates strong positive energy.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Good quality and effective yantra locket. I gifted it to my sister and she’s very happy with it.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Shri Dhan Laxmi Yantra Locket is a powerful spiritual ornament designed to invoke the blessings of Goddess Dhan Laxmi, the deity of wealth and prosperity. It removes financial hurdles and invites a steady flow of fortune and abundance into your life.",
+            //             additionalText: "This locket is skillfully crafted and energized by Vedic rituals to ensure its divine vibrations remain strong. It is easy to wear, making it ideal for daily use or to carry during important meetings, business deals, or auspicious occasions. Experience peace of mind and financial growth with this sacred yantra locket.",
+            //             features: [
+            //                 "Authentic Dhan Laxmi Yantra engraved in a convenient locket form",
+            //                 "Energized through traditional Vedic rituals for maximum effect",
+            //                 "Elegant gold-polished finish with durable design",
+            //                 "Comfortable to wear daily or on special occasions",
+            //                 "Perfect for personal use or as a spiritual gift",
+            //                 "Packed safely with protective wrapping and blessings"
+            //             ],
+            //             usage: [
+            //                 "Wear the Shri Dhan Laxmi Yantra Locket daily to attract wealth and prosperity.",
+            //                 "Remove it before bathing or sleeping to maintain its sacred energy.",
+            //                 "Store safely near your cash box or puja altar when not wearing it.",
+            //                 "Offer prayers or recite Lakshmi mantras for enhanced benefits.",
+            //                 "Clean gently with a dry cloth; avoid exposure to water or chemicals."
+            //             ]
+            //         }
+            //     }
+            // },            
             {
                 id: 7,
                 category: 'Yantras',
@@ -784,6 +795,13 @@ const translations = {
                     image3: product44
                 },
                 description: "Embrace stability, longevity, and prosperity with the auspicious Tortoise Ring. Symbolizing endurance and good fortune in Vastu and Feng Shui, this energized ring helps balance energy, attract wealth, and promote positive vibrations in your life.",
+                freeAccessories: [
+                    { 
+                        name: "Panchmukhi Hanuman Locket", 
+                        image: product50, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
                 reviews: [
                     {
                         id: 1,
@@ -844,6 +862,13 @@ const translations = {
                     image3: product47,
                 },
                 description: 'Enhance the flow of wealth and positive energy in your home or workspace with the auspicious Meru Sriyantra Tortoise. This unique design combines the power of the sacred Sri Yantra pyramid with the stability and good fortune symbolized by the tortoise in Vastu and Feng Shui traditions. Place it in your living room, office, or pooja room to attract prosperity, protect your finances, and promote harmony and longevity.',
+                freeAccessories: [
+                    { 
+                        name: "Rudraksha", 
+                        image: product49, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
                 reviews:[
                     {
                         "id": 1,
@@ -949,126 +974,126 @@ const translations = {
                     }
                 }
             },            
-            {
-                id: 11,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Rudraksha',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product49,
-                    image2: product49,
-                    image3: product49
-                },
-                description: "Embrace spiritual growth, mental peace, and positive energy with this authentic Rudraksha bead. Revered for centuries, Rudraksha is known to bring inner strength, protection, and divine blessings to the wearer.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'Wearing this Rudraksha daily has given me so much mental calmness and confidence. Highly recommended for peace of mind.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Genuine bead and good quality. I feel protected and more focused since I started wearing it.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Very effective for meditation and daily prayers. Helps me stay positive throughout the day.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "This sacred Rudraksha is a divine gift from Lord Shiva, revered for its power to bring mental clarity, protection, and spiritual upliftment. Wearing Rudraksha beads helps reduce stress, improves concentration, and shields the wearer from negative energies.",
-                        additionalText: "Our Rudraksha is naturally sourced and purified as per Vedic rituals to preserve its spiritual potency. It can be worn as a pendant or kept in a pooja room for divine blessings. Ideal for students, professionals, and spiritual seekers alike.",
-                        features: [
-                            "Authentic and natural Rudraksha bead",
-                            "Purified and energized through Vedic rituals",
-                            "Helps relieve stress and promotes mental peace",
-                            "Boosts focus, confidence, and spiritual well-being",
-                            "Easy to wear daily as a pendant or keep in puja space",
-                            "Packed securely with blessings and care instructions"
-                        ],
-                        usage: [
-                            "Wear the Rudraksha around your neck or wrist after proper energization.",
-                            "Avoid wearing while sleeping or bathing to maintain its sanctity.",
-                            "Keep it clean by wiping gently with a soft dry cloth.",
-                            "Chant Shiva mantras (like ‘Om Namah Shivaya’) while wearing it for enhanced benefits.",
-                            "Place it in your pooja room or workplace if not wearing it daily."
-                        ]
-                    }
-                }
-            },            
-            {
-                id: 12,
-                category: 'Yantras',
-                cost: 899,
-                rating: 4.7,
-                isNew: true,
-                name: 'Panchmukhi Hanuman Locket',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product50,
-                    image2: product50,
-                    image3: product50
-                },
-                description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'I feel so much more protected and confident wearing this Panchmukhi Hanuman Locket every day.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautiful locket with powerful energy. It gives me mental strength and wards off negativity.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Very effective for daily wear and prayers. I gifted it to my brother and he loves it.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Panchmukhi Hanuman Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
-                        additionalText: "Energized through Vedic rituals, this locket is ideal for daily wear. It safeguards the wearer from black magic, evil eye, and accidents while strengthening resolve and boosting spiritual confidence. Perfect for devotees, travelers, and those seeking divine guidance and protection.",
-                        features: [
-                            "Sacred Panchmukhi Hanuman design crafted with precision",
-                            "Energized through authentic Vedic rituals",
-                            "Durable, elegant finish for daily wear",
-                            "Protects from negativity, black magic, and accidents",
-                            "Boosts courage, confidence, and mental strength",
-                            "Packed safely with blessings and usage instructions"
-                        ],
-                        usage: [
-                            "Wear the Panchmukhi Hanuman Locket daily around your neck for protection and strength.",
-                            "Remove while sleeping or bathing to maintain its sanctity.",
-                            "Clean gently with a dry cloth to keep it pure and shining.",
-                            "Chant Hanuman Chalisa or 'Om Hanumate Namah' daily for best results.",
-                            "Keep near your puja altar when not wearing it."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 11,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Rudraksha',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product49,
+            //         image2: product49,
+            //         image3: product49
+            //     },
+            //     description: "Embrace spiritual growth, mental peace, and positive energy with this authentic Rudraksha bead. Revered for centuries, Rudraksha is known to bring inner strength, protection, and divine blessings to the wearer.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'Wearing this Rudraksha daily has given me so much mental calmness and confidence. Highly recommended for peace of mind.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Genuine bead and good quality. I feel protected and more focused since I started wearing it.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Very effective for meditation and daily prayers. Helps me stay positive throughout the day.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "This sacred Rudraksha is a divine gift from Lord Shiva, revered for its power to bring mental clarity, protection, and spiritual upliftment. Wearing Rudraksha beads helps reduce stress, improves concentration, and shields the wearer from negative energies.",
+            //             additionalText: "Our Rudraksha is naturally sourced and purified as per Vedic rituals to preserve its spiritual potency. It can be worn as a pendant or kept in a pooja room for divine blessings. Ideal for students, professionals, and spiritual seekers alike.",
+            //             features: [
+            //                 "Authentic and natural Rudraksha bead",
+            //                 "Purified and energized through Vedic rituals",
+            //                 "Helps relieve stress and promotes mental peace",
+            //                 "Boosts focus, confidence, and spiritual well-being",
+            //                 "Easy to wear daily as a pendant or keep in puja space",
+            //                 "Packed securely with blessings and care instructions"
+            //             ],
+            //             usage: [
+            //                 "Wear the Rudraksha around your neck or wrist after proper energization.",
+            //                 "Avoid wearing while sleeping or bathing to maintain its sanctity.",
+            //                 "Keep it clean by wiping gently with a soft dry cloth.",
+            //                 "Chant Shiva mantras (like ‘Om Namah Shivaya’) while wearing it for enhanced benefits.",
+            //                 "Place it in your pooja room or workplace if not wearing it daily."
+            //             ]
+            //         }
+            //     }
+            // },            
+            // {
+            //     id: 12,
+            //     category: 'Yantras',
+            //     cost: 899,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Panchmukhi Hanuman Locket',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product50,
+            //         image2: product50,
+            //         image3: product50
+            //     },
+            //     description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'I feel so much more protected and confident wearing this Panchmukhi Hanuman Locket every day.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautiful locket with powerful energy. It gives me mental strength and wards off negativity.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Very effective for daily wear and prayers. I gifted it to my brother and he loves it.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Panchmukhi Hanuman Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
+            //             additionalText: "Energized through Vedic rituals, this locket is ideal for daily wear. It safeguards the wearer from black magic, evil eye, and accidents while strengthening resolve and boosting spiritual confidence. Perfect for devotees, travelers, and those seeking divine guidance and protection.",
+            //             features: [
+            //                 "Sacred Panchmukhi Hanuman design crafted with precision",
+            //                 "Energized through authentic Vedic rituals",
+            //                 "Durable, elegant finish for daily wear",
+            //                 "Protects from negativity, black magic, and accidents",
+            //                 "Boosts courage, confidence, and mental strength",
+            //                 "Packed safely with blessings and usage instructions"
+            //             ],
+            //             usage: [
+            //                 "Wear the Panchmukhi Hanuman Locket daily around your neck for protection and strength.",
+            //                 "Remove while sleeping or bathing to maintain its sanctity.",
+            //                 "Clean gently with a dry cloth to keep it pure and shining.",
+            //                 "Chant Hanuman Chalisa or 'Om Hanumate Namah' daily for best results.",
+            //                 "Keep near your puja altar when not wearing it."
+            //             ]
+            //         }
+            //     }
+            // },            
             {
                 id: 14,
                 category: 'Yantras',

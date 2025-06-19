@@ -181,28 +181,30 @@ const Home = () => {
                         <div className='absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent z-10'></div>
                         
                         <div className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-10 text-white relative z-20'>
-                            {/* Main heading with enhanced styling */}
+                            {/* Main heading with enhanced spiritual theme */}
                             <h1 className='text-2xl mb-3 text-orange-300 stylefont tracking-wide'>
-                                Divine Blessings Await
+                                Divine Assurance From Ancient Epics
                             </h1>
-                            
+
                             <h1 className='text-4xl lg:text-5xl xl:text-6xl headerstyle mb-6 leading-tight'>
                                 <span className='bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent'>
-                                    Sacred Idols for Protection
+                                    Idols That Protect
                                 </span>
                                 <br />
                                 <span className='text-orange-300'>
-                                    and Prosperity
+                                    and Bless Your Home
                                 </span>
                             </h1>
-                            
-                            {/* Enhanced description */}
+
+                            {/* Description with Bhagavad Gita verse */}
                             <p className='mb-6 text-lg text-gray-200 leading-relaxed max-w-lg'>
-                                Bring home divine protection with <strong className='text-orange-300'>Sree Anjaneya</strong> and 
-                                abundance with <strong className='text-orange-300'>Sree Astha Laxmi</strong>. 
-                                Handcrafted with devotion, blessed with tradition.
+                                “Abhayam sattva-samshuddhir” — Bhagavad Gita 16.1.  
+                                Embrace fearlessness and purity as you invite <strong className='text-orange-300'>Sree Anjaneya</strong> for strength and 
+                                <strong className='text-orange-300'>Sree Astha Laxmi</strong> for unending prosperity. 
+                                Crafted with devotion, blessed through tradition.
                             </p>
                         </div>
+
                         <div className='w-1/2 p-8 relative z-20'>
                             {/* Left side can contain product showcase or remain empty for background focus */}
                         </div>
@@ -281,9 +283,9 @@ const Home = () => {
                         
                         <div data-aos="zoom-in-up" className='w-full lg:w-1/2 md:w-1/2 sm:w-full p-0 md:p-10 text-white text-center flex justify-center flex-col items-center relative z-20'>    
                             {/* Main heading with enhanced styling */}
-                            <h1 className='text-3xl mb-5 text-amber-300 stylefont tracking-wide'>
+                            {/* <h1 className='text-3xl mb-5 text-amber-300 stylefont tracking-wide'>
                                 {translations.home.nine.short}
-                            </h1>
+                            </h1> */}
                             
                             <h1 className='text-4xl lg:text-5xl xl:text-6xl headerstyle mb-8 leading-tight'>
                                 <span className='bg-gradient-to-r from-white via-amber-200 to-white bg-clip-text text-transparent'>
@@ -291,19 +293,19 @@ const Home = () => {
                                 </span>
                                 <br />
                                 <span className='text-amber-300'>
-                                    Products
+                                    Treasures for Your Home
                                 </span>
                             </h1>
                             
                             {/* Enhanced description */}
                             <p className='mb-8 text-lg text-gray-200 leading-relaxed max-w-2xl'>
-                                Each of our sacred idols and spiritual decor pieces is lovingly handcrafted by 
-                                skilled artisans. Discover unique designs that blend timeless tradition with 
-                                exquisite craftsmanship, perfect for home puja, gifting, and adding divine 
-                                grace to any space.
+                                Inspired by the timeless devotion of the <strong>Ramayana</strong> and the wisdom of the <strong>Bhagavad Gita</strong>, 
+                                each of our spiritual idols and decor pieces is lovingly handcrafted by skilled artisans. 
+                                Bring home these symbols of protection, prosperity, and inner peace — perfect for daily puja, 
+                                thoughtful gifting, or blessing your living space with divine grace and harmony.
                             </p>
-                            
                         </div>
+
                     </div>
                     
                     {/* Decorative spiritual elements */}

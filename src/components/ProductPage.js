@@ -860,14 +860,13 @@ const ProductPage = () => {
                                             </ul>
                                             
                                             {/* Free Accessories - Enhanced description tab notification */}
-                                            {hasFreeAccessories && (
+                                            {/* {hasFreeAccessories && (
                                                 <>
                                                     <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2 flex items-center">
                                                         Free Premium Accessories
                                                         <span className="ml-2 text-xs bg-red-500 text-white px-2 py-0.5 rounded-full">EXCLUSIVE</span>
                                                     </h3>
-                                                    
-                                                    {/* Enhanced payment requirement notification in description tab */}
+
                                                     <div className="bg-gradient-to-r from-amber-50 to-yellow-50 border-l-4 border-amber-400 rounded-lg p-4 mb-4 relative">
                                                         <div className="flex">
                                                             <div className="mr-4 flex-shrink-0">
@@ -901,7 +900,8 @@ const ProductPage = () => {
                                                         ))}
                                                     </ul>
                                                 </>
-                                            )}
+                                            )} 
+                                            */}
                                             
                                             {/* How to Use */}
                                             <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">How to Use</h3>

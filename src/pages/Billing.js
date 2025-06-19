@@ -903,8 +903,8 @@ const Checkout = ({ currentLang }) => {
                         
                         <div className="space-y-3">
                             {getFreeProducts().map((item, idx) => (
-                                <div key={idx} className="flex items-center bg-white p-3 rounded-md border border-orange-200 shadow-sm hover:shadow-md transition-all duration-300">
-                                    <div className="h-14 w-14 flex-shrink-0 rounded overflow-hidden mr-3">
+                                <div key={idx} className="flex flex-col md:flex-row items-center bg-white p-3 rounded-md border border-orange-200 shadow-sm hover:shadow-md transition-all duration-300">
+                                    <div className="h-48 md:h-14 w-14 flex-shrink-0 rounded overflow-hidden mr-3">
                                         <img 
                                             src={item.image} 
                                             alt={item.name} 

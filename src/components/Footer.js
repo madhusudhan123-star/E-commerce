@@ -63,17 +63,17 @@ const Footer = () => {
                         </h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
-                                <FaMapMarkerAlt className="w-5 h-5 mt-1 flex-shrink-0 text-white/70" />
+                                <FaMapMarkerAlt className="w-5 h-5 mt-1 text-white/70" />
                                 <span>{translations?.footerConfig?.contact?.address}</span>
                             </li>
                             <li className="flex items-start gap-3">
-                                <FaEnvelope className="w-5 h-5 mt-1 flex-shrink-0 text-white/70" />
+                                <FaEnvelope className="w-5 h-5 mt-1 text-white/70" />
                                 <a href={`mailto:${translations?.footerConfig?.contact?.email}`} className="hover:underline transition-all">
                                     {translations?.footerConfig?.contact?.email}
                                 </a>
                             </li>
                             <li className="flex items-start gap-3">
-                                <FaPhone className="w-5 h-5 mt-1 flex-shrink-0 text-white/70" />
+                                <FaPhone className="w-5 h-5 mt-1 text-white/70" />
                                 <a href={`tel:${translations?.footerConfig?.contact?.phone}`} className="hover:underline transition-all">
                                     {translations?.footerConfig?.contact?.phone}
                                 </a>

@@ -79,7 +79,7 @@ const Team = () => {
                         >
                             {/* Image Section */}
                             <div className="w-full md:w-1/2 lg:w-5/12 relative">
-                                <div className="relative h-80 md:h-full">
+                                <div className="relative h-56 md:h-full">
                                     <img 
                                         src={translations.home.reviews[activeIndex].image} 
                                         alt={translations.home.reviews[activeIndex].name}

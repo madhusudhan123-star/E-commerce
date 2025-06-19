@@ -295,7 +295,7 @@ const translations = {
             ]
         },
         bottomSection: {
-            copyright: "All Right Reserved © {year} Scared Relm",
+            copyright: "All Right Reserved © {year} Sacred Relm",
             terms: {
                 text: "Terms & Conditions",
                 url: "/terms",

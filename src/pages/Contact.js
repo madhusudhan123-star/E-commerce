@@ -142,7 +142,7 @@ function Contact() {
             
             {/* Google Map - Mobile Optimized */}
             <div className="mt-8 mb-8">
-                <div className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]'>
+                {/* <div className='w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px]'>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d28943.614735315532!2d78.465638!3d17.446136!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91cd07585bcd%3A0xb10cf49e7038d870!2sISRAELITES%20SHOPPING%20NETWORK%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1727708685071!5m2!1sen!2sin"
                         width="100%"
@@ -154,7 +154,7 @@ function Contact() {
                         title="Google Map"
                         className="shadow-md rounded-lg"
                     ></iframe>
-                </div>
+                </div> */}
             </div>
             
             {/* Contact Form Section - Mobile Optimized */}

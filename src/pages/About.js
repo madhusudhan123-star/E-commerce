@@ -114,7 +114,7 @@ const About = () => {
                                 />
                             </div>
                             <div className="p-6 flex flex-col justify-center">
-                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Astha Laxmi</h3>
+                            <h3 className="text-2xl font-bold text-gray-800 mb-3">Sree Astha Laxmi Akarsha Yantra</h3>
                             <p className="text-gray-600 mb-4">
                                 Rooted in the divine tales of Goddess Lakshmi’s countless blessings, this idol embodies her eight auspicious forms, drawing prosperity, wealth, and harmonious fortune into your family and ventures.
                             </p>

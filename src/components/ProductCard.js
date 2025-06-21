@@ -120,11 +120,11 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0, freeAccessori
                                     {discount}% OFF
                                 </span>
                             )}
-                            {hasFreeAccessories && (
+                            {/* {hasFreeAccessories && (
                                 <span className="bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full flex items-center">
                                     <FontAwesomeIcon icon={faGift} className="mr-1" /> FREE GIFT
                                 </span>
-                            )}
+                            )} */}
                         </div>
                         
                         {/* Urgency Timer - Always visible */}

@@ -28,15 +28,6 @@ const Team = () => {
             <div className="container mx-auto px-4">
                 {/* Section Header */}
                 <div className="text-center max-w-3xl mx-auto mb-16 relative">
-                    <motion.h3 
-                        className="text-2xl md:text-3xl italic text-transparent bg-clip-text bg-gradient-to-r from-[#D88E7D] to-[#FF7E5F] mb-3 stylefont"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.7 }}
-                    >
-                        Customer Stories
-                    </motion.h3>
                     
                     <motion.h2 
                         className="text-4xl md:text-5xl lg:text-6xl headerstyle mb-6"
@@ -45,7 +36,7 @@ const Team = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.2 }}
                     >
-                        Happy Clients Thoughts
+                        Happy Clients
                     </motion.h2>
                     
                     <motion.p 
@@ -55,7 +46,7 @@ const Team = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.7, delay: 0.4 }}
                     >
-                        See how our products have transformed the lives of our customers. Real people, real results.
+                        See how our products have transformed the lives of our customers.
                     </motion.p>
                     
                     <motion.div 

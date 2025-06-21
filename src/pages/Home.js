@@ -384,11 +384,11 @@ const Home = () => {
                         </div>
                         
                         <h2 className="text-5xl lg:text-7xl headerstyle mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-amber-600 bg-clip-text text-transparent">
-                            Products with Free Accessories
+                            Exclusive deals on must have products
                         </h2>
                         
                         <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-                            Discover our spiritual products that come with complimentary accessories - 
+                            Discover our spiritual products that come with complimentary - 
                             get extra value with every purchase for your sacred space
                         </p>
                         
@@ -397,10 +397,6 @@ const Home = () => {
                         {translations.products.product
                             .filter(product => product.freeAccessories && product.freeAccessories.length > 0)
                             .map((product, index) => (                                  <div key={index} className="group relative">
-                                    {/* Free Accessories Badge */}
-                                    <div className="absolute -top-4 -right-4 z-30 bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-2 rounded-full text-xs font-bold shadow-lg transform rotate-12 animate-pulse">
-                                        FREE ACCESSORIES
-                                    </div>
                                     
                                     {/* Custom Product Card - Make entire card clickable */}
                                     <div 
@@ -433,9 +429,7 @@ const Home = () => {
                                             
                                             {/* Free Accessories Section */}
                                             <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 mb-4">
-                                                <h4 className="text-orange-700 font-semibold text-sm mb-2 flex items-center">
-                                                    🎁 Free Accessories Included:
-                                                </h4>
+                                                
                                                 <div className="flex flex-wrap gap-1">
                                                     {product.freeAccessories.slice(0, 3).map((accessory, idx) => (
                                                         <span key={idx} className="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">
@@ -483,7 +477,7 @@ const Home = () => {
                                 Enhanced Value with Every Purchase
                             </h3>
                             <p className="text-gray-600 mb-6">
-                                These spiritual products come with carefully selected free accessories 
+                                These spiritual products come with carefully selected free 
                                 to complete your sacred space setup and enhance your spiritual practice.
                             </p>
                             <a href="/shop">

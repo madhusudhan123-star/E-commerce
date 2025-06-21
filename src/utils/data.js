@@ -137,7 +137,7 @@ const translations = {
         second: {
             short: "Special Offerings",
             title: "Invite Blessings, Wealth & Protection",
-            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Lord Hanuman’s unwavering devotion and strength in the Ramayana — shielding your family from hardships and negative forces. As a special blessing, receive a sacred Tortoise Ring **FREE** with your order — symbolizing steady growth and prosperity, much like the divine Kurma (tortoise incarnation) from the ancient scriptures. Welcome the Sree Astha Laxmi to honor the abundant blessings of Goddess Lakshmi, filling your home with wealth, happiness, and enduring good fortune. Let these timeless legends enrich your life today.`,
+            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Lord Hanuman’s unwavering devotion and strength in the Ramayana — shielding your family from hardships and negative forces. As a special blessing, receive a sacred Tortoise Ring **FREE** with your order — symbolizing steady growth and prosperity, much like the divine Kurma (tortoise incarnation) from the ancient scriptures. Welcome the Sree Astha Laxmi Dhana Akarsha Yantra to honor the abundant blessings of Goddess Lakshmi, filling your home with wealth, happiness, and enduring good fortune. Let these timeless legends enrich your life today.`,
             button: "Shop Now",
             image: home_second,
             design: aboutdesign,
@@ -157,8 +157,8 @@ const translations = {
         },        
         fourth: {
             short: "Our Collection",
-            title: 'Gita’s Divine Inspirations',
-            sub: "Explore timeless spiritual idols and energy tools inspired by the teachings of the Bhagavad Gita — each crafted to nurture inner peace, abundance, and dharma in daily life.",
+            title: 'Bhagavad Gita’s Divine Inspirations',
+            sub: "Explore timeless spiritual idols and energy tools inspired by the teachings — each crafted to nurture inner peace, abundance, and dharma in daily life.",
             card: "Add Cart",
             buy: "Buy Now",
         },
@@ -526,7 +526,7 @@ const translations = {
             {
                 id: 3,
                 category: 'Idols',
-                cost: 2499,
+                cost: 1599,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Dhana Laxmi Akarsha Pack',
@@ -909,7 +909,7 @@ const translations = {
             {
                 id: 10,
                 category: 'Yantras',
-                cost: 199,
+                cost: 399,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Anjaneya\'s Gada',
@@ -1027,7 +1027,7 @@ const translations = {
             {
                 id: 12,
                 category: 'Yantras',
-                cost: 1299,
+                cost: 999,
                 rating: 4.7,
                 isNew: true,
                 name: 'Panchmukhi Hanuman Locket',
@@ -1579,7 +1579,7 @@ const translations = {
             {
                 id: 23,
                 category: 'Yantras',
-                cost: 499,
+                cost: 999,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Orgonite Energy Pyramid',

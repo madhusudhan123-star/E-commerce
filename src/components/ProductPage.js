@@ -233,22 +233,6 @@ const ProductPage = () => {
         });
     };
 
-    // Dummy data for reviews
-    const reviews = [
-        { id: 1, user: 'Sarah Johnson', rating: 5, comment: 'Excellent product! Exactly as described.', date: '2023-10-15' },
-        { id: 2, user: 'Michael Brown', rating: 4, comment: 'Great quality for the price. Fast delivery.', date: '2023-10-08' },
-        { id: 3, user: 'Emma Davis', rating: 4.5, comment: 'Very happy with my purchase. Would buy again.', date: '2023-09-30' },
-    ];
-
-    // Dummy related products
-    const relatedProducts = translations.products.product
-        .filter(p => p.category === product?.category && p.id !== product?.id)
-        .slice(0, 4);
-    
-        if (!product) {
-        return <div className="container mx-auto px-4 py-8">Product not found</div>;
-    }
-
     const renderStars = (rating) => {
         const stars = [];
         const fullStars = Math.floor(rating);
@@ -333,55 +317,6 @@ const ProductPage = () => {
                 return 'Limited time offer! Hurry before price goes up!';
             }
         }
-    };
-
-    // Enhanced free accessories section
-    const renderFreeAccessories = () => {
-        if (!product.freeAccessories || product.freeAccessories.length === 0) {
-            return null;
-        }
-        
-        return (
-            <div className="mt-6 border-2 border-dashed border-orange-300 rounded-lg p-4 bg-gradient-to-r from-orange-50 to-amber-50">
-                <div className="flex items-center mb-3">
-                    <div className="text-3xl mr-3 animate-bounce-slow">🎁</div>
-                    <div>
-                        <h3 className="text-xl font-bold text-orange-700">
-                            {product.freeAccessories.length > 1 
-                                ? `${product.freeAccessories.length} FREE GIFTS INCLUDED!`
-                                : 'FREE GIFT INCLUDED!'
-                            }
-                        </h3>
-                        <p className="text-sm text-orange-600">Complete checkout with online payment to claim</p>
-                    </div>
-                </div>
-                
-                <div className="mt-3 space-y-3">
-                    {product.freeAccessories.map((item, index) => (
-                        <div key={index} className="flex items-center bg-white p-3 rounded-md border border-orange-200 shadow-sm">
-                            <div className="h-16 w-16 flex-shrink-0 rounded overflow-hidden mr-3">
-                                <img 
-                                    src={item.image} 
-                                    alt={item.name} 
-                                    className="h-full w-full object-cover"
-                                />
-                            </div>
-                            <div>
-                                <p className="font-medium text-gray-800">{item.name}</p>
-                                <p className="text-sm text-gray-600">{item.description || "Premium accessory"}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                
-                <div className="mt-4 p-3 bg-orange-100 rounded-md text-sm flex items-center text-orange-800">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Limited time offer! Free accessories are only available while stocks last.
-                </div>
-            </div>
-        );
     };
 
     return (
@@ -522,11 +457,6 @@ const ProductPage = () => {
                                         <p className="text-xs text-gray-500 mt-2">* Inclusive of all taxes</p>
                                     </div>
 
-                                    {/* Short description */}
-                                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-                                        {product.description || 'A premium quality product crafted with attention to detail and designed for everyday use.'}
-                                    </p>
-
                                     {/* Free Accessories section */}
                                     {hasFreeAccessories && (
                                         <div className="bg-gradient-to-r from-orange-50 to-blue-50 border-2 border-dashed border-orange-200 rounded-lg p-3 sm:p-4 space-y-2 sm:space-y-3 relative overflow-hidden transform transition-all hover:scale-[1.01] animate-fadeIn">
@@ -588,6 +518,11 @@ const ProductPage = () => {
                                             </div>
                                         </div>
                                     )}
+                                    {/* Short description */}
+                                    <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                                        {product.description || 'A premium quality product crafted with attention to detail and designed for everyday use.'}
+                                    </p>
+
 
                                     {/* Special Offer Countdown - MOBILE VERSION (only visible on small screens) */}
                                     <div className="block sm:hidden bg-gradient-to-r from-red-50 via-red-100 to-red-50 border border-red-200 rounded-lg p-2 text-center animate-pulse-border">

@@ -5,7 +5,7 @@ const Privacy = () => {
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 md:mt-28 lg:px-8">
       <div className="prose prose-lg max-w-none">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Privacy Policy</h1>
-        <p className="text-gray-600 mb-8">Last Updated: December 2024</p>
+        <p className="text-gray-600 mb-8">Last Updated: June 2024</p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Information We Collect</h2>
         <p className="text-gray-700 mb-6">This Privacy Policy describes how we collect, use, and disclose your information when you use our website. Personal Information: This includes information that can be used to identify you, such as your name, billing address, shipping address, email address, and phone number. You only provide this information when you contact us through a form on the Site. Non-Personal Information: This includes information that cannot be used to identify you, such as your browser type, operating system, IP address, browsing activity on the Site, and demographic information (e.g., age, gender). This information is collected automatically when you visit the Site.</p>

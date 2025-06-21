@@ -121,7 +121,7 @@ const CUSTOMER_REVIEWS = [
     {
       id: 2,
       name: "Sneha Kapoor",
-      date: "July 29, 2024",
+      date: "June 29, 2024",
       rating: 5,
       content: "This is exactly what I was looking for! The quality is exceptional and it looks even better in person than in the photos. I've received many compliments already. Highly recommended!",
       verified: true,
@@ -130,7 +130,7 @@ const CUSTOMER_REVIEWS = [
     {
       id: 3,
       name: "Rahul Sharma",
-      date: "July 12, 2024",
+      date: "June 12, 2024",
       rating: 4,
       content: "The product arrived on time and was packaged very well. The craftsmanship is excellent and the energy is wonderful. I'm giving 4 stars only because I wish it came with more information about its spiritual properties.",
       verified: true,

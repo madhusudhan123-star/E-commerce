@@ -54,7 +54,6 @@ import product8 from '../assets/main/Ashta laxmi Yantras/7.webp';
 
 import product20 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/sar.webp';
 import product21 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/1.webp';
-import product22 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/2.webp';
 import product23 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/3.webp';
 import product25 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/4.webp';
 import product24 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/5.webp';
@@ -88,14 +87,13 @@ import product52 from '../assets/main/product/12.webp';
 import product53 from '../assets/main/product/13.webp';
 import product54 from '../assets/main/product/14.webp';
 import product55 from '../assets/main/product/15.webp';
-import product56 from '../assets/main/product/16.webp';
-import product57 from '../assets/main/product/17.webp';
-import product58 from '../assets/main/product/18.webp';
 import product59 from '../assets/main/product/19.webp';
-import product60 from '../assets/main/product/20.webp';
 import product61 from '../assets/main/product/21.webp';
 
-import product63 from '../assets/main/product/23.webp';
+
+import product62 from '../assets/main/product/24.webp';
+import product63 from '../assets/main/product/25.webp';
+
 
 
 
@@ -139,10 +137,11 @@ const translations = {
         second: {
             short: "Special Offerings",
             title: "Invite Blessings, Wealth & Protection",
-            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Hanuman’s unwavering devotion and valor in the Ramayana — shielding your family from hardships and negative forces. Welcome the Sree Astha Laxmi, honoring the abundant blessings of Goddess Lakshmi, to fill your home with wealth, happiness, and enduring good fortune. Let the blessings from these timeless legends enrich your life today.`,
+            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Lord Hanuman’s unwavering devotion and strength in the Ramayana — shielding your family from hardships and negative forces. As a special blessing, receive a sacred Tortoise Ring **FREE** with your order — symbolizing steady growth and prosperity, much like the divine Kurma (tortoise incarnation) from the ancient scriptures. Welcome the Sree Astha Laxmi to honor the abundant blessings of Goddess Lakshmi, filling your home with wealth, happiness, and enduring good fortune. Let these timeless legends enrich your life today.`,
             button: "Shop Now",
             image: home_second,
             design: aboutdesign,
+
         },        
         third: {
             design: design,
@@ -206,7 +205,7 @@ const translations = {
         reviews: [
             {
                 name: "Rajesh",
-                date: "27 July 2023",
+                date: "27 June 2023",
                 rating: 5,
                 review: "The Sree Anjaneya idol brings such positive energy to our home. Excellent craftsmanship and divine detailing — truly blessed to have it! Ever since we placed it in our puja room, we feel a sense of protection and courage in facing daily challenges. It's a wonderful addition for anyone seeking spiritual peace.",
                 image: test1,
@@ -220,7 +219,7 @@ const translations = {
             },
             {
                 name: "Saraswathi",
-                date: "29 July 2023",
+                date: "29 June 2023",
                 rating: 4,
                 review: "Beautifully crafted idols with intricate designs. Fast shipping and well-packed. I placed them in my meditation space, and they truly enhance the sacredness of the room. The detailing is impressive, and I appreciate the divine vibrations these idols bring. Will surely order again for gifting to loved ones.",
                 image: test3,
@@ -229,7 +228,7 @@ const translations = {
                 name: "Srinivasan",
                 date: "15 June 2023",
                 rating: 3,
-                review: "The Saraswati statue is gorgeous and radiates a calming presence in my study. It inspires me during my reading and writing sessions. Although the packaging could be a bit more secure to prevent minor scratches, the idol itself is flawless and worth every penny. Overall, a good buy for students and knowledge seekers.",
+                review: "Absolutely beautiful and brings a calm, uplifting presence to my study room. It inspires me every day during reading and writing. The packaging could be a bit more secure to avoid minor scratches, but the piece itself is flawless and worth every penny. Highly recommended for students and anyone seeking knowledge and focus.",
                 image: test4,
             },
             {
@@ -248,7 +247,7 @@ const translations = {
             },
             {
                 name: "Vignesh",
-                date: "18 July 2023",
+                date: "18 June 2023",
                 rating: 4,
                 review: "The Trishul Om Rudraksha Pendant is very powerful. I wear it daily and feel protected from negative thoughts and energies. The quality of the rudraksha beads and the trishul is excellent. Packaging was secure and delivery was prompt.",
                 image: test7,
@@ -264,7 +263,7 @@ const translations = {
                 name: "Pradeep",
                 date: "20 May 2023",
                 rating: 4,
-                review: "Ordered the Shivaji Maharaj Engraved Pendant as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Shivaji Maharaj beautifully. Happy with the purchase and the customer service too.",
+                review: "Ordered the Sree Dhana Laxmi Akarsha Pack as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Sree Dhana Laxmi beautifully. Happy with the purchase and the customer service too.",
                 image: test9,
             },
             {
@@ -281,7 +280,7 @@ const translations = {
             logo: logo,
             // sub: "  Cursus turpis massa tincidunt dui ut ornare lectus sit. Enim sit amet venenatis urna cursus eget.Netus et malesuada fames ac.",
             title: "Contact Info",
-            address: "Begumpet, Hyderabad, Telangana 500016",
+            address: "Hyderabad, Telangana 500016",
             email: "israelitesshopping171@gmail.com",
             phone: "+91 9908 016 333"
         },
@@ -344,7 +343,7 @@ const translations = {
             title: "Our Branches",
             sub: "Et odio pellentesque diam volutpat. Adipiscing diam donec adipiscing tristique risus. Turpis massa sed elementum tempus egestas sed.",
             branches: [
-                { title: 'India', address: 'Begumpet, Hyderabad, Telangana', phone: '+91 9908 016 333' },
+                { title: 'India', address: 'Hyderabad, Telangana', phone: '+91 9908 016 333' },
             ]
         },
         submit: {
@@ -403,7 +402,6 @@ const translations = {
                     image8: product8,
                 },
                 description: `Inspired by the teachings of the Bhagavad Gita, the Sree Astha Laxmi idol symbolizes the eight divine forms of Goddess Laxmi, who bestows wealth, wisdom, courage, and success. Invoke her blessings to nurture harmony and prosperity in every aspect of life, as the Gita says: 'Where there is Dharma, there is victory and abundance.`,
-                freeAccessories: [],
                 reviews: [
                     { 
                         id: 1, 
@@ -664,8 +662,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product42,
-                    image2: product42,
-                    image3: product42
                 },
                 description: "Wear divine abundance wherever you go with the sacred Kuber Yantra Locket — a powerful spiritual accessory blessed to attract wealth, prosperity, and good luck. This locket invokes Lord Kuber, the guardian of treasures, and shields you from financial obstacles.",
                 freeAccessories: [
@@ -791,14 +787,12 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product44,
-                    image2: product44,
-                    image3: product44
                 },
                 description: "Embrace stability, longevity, and prosperity with the auspicious Tortoise Ring. Symbolizing endurance and good fortune in Vastu and Feng Shui, this energized ring helps balance energy, attract wealth, and promote positive vibrations in your life.",
                 freeAccessories: [
                     { 
-                        name: "Panchmukhi Hanuman Locket", 
-                        image: product50, 
+                        name: "Tortoise Ring", 
+                        image: product44, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -858,8 +852,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product47,
-                    image2: product47,
-                    image3: product47,
                 },
                 description: 'Enhance the flow of wealth and positive energy in your home or workspace with the auspicious Meru Sriyantra Tortoise. This unique design combines the power of the sacred Sri Yantra pyramid with the stability and good fortune symbolized by the tortoise in Vastu and Feng Shui traditions. Place it in your living room, office, or pooja room to attract prosperity, protect your finances, and promote harmony and longevity.',
                 freeAccessories: [
@@ -925,8 +917,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product48,
-                    image2: product48,
-                    image3: product48
                 },
                 description: "Invoke the unwavering strength and protection of Lord Hanuman with Anjaneya's Gada — a sacred symbol of courage, victory, and divine power. Perfect for home temples, office desks, or gifting to loved ones for blessings of bravery and success.",
                 reviews: [
@@ -1034,66 +1024,72 @@ const translations = {
             //         }
             //     }
             // },            
-            // {
-            //     id: 12,
-            //     category: 'Yantras',
-            //     cost: 899,
-            //     rating: 4.7,
-            //     isNew: true,
-            //     name: 'Panchmukhi Hanuman Locket',
-            //     cod: true,
-            //     online: true,
-            //     photo: {
-            //         image1: product50,
-            //         image2: product50,
-            //         image3: product50
-            //     },
-            //     description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
-            //     reviews: [
-            //         {
-            //             id: 1,
-            //             user: 'Neha Desai',
-            //             rating: 5,
-            //             comment: 'I feel so much more protected and confident wearing this Panchmukhi Hanuman Locket every day.',
-            //             date: '2024-12-10'
-            //         },
-            //         {
-            //             id: 2,
-            //             user: 'Prakash Iyer',
-            //             rating: 4.5,
-            //             comment: 'Beautiful locket with powerful energy. It gives me mental strength and wards off negativity.',
-            //             date: '2024-11-02'
-            //         },
-            //         {
-            //             id: 3,
-            //             user: 'Sneha Rathi',
-            //             rating: 4.5,
-            //             comment: 'Very effective for daily wear and prayers. I gifted it to my brother and he loves it.',
-            //             date: '2024-10-19'
-            //         }
-            //     ],
-            //     tabContent: {
-            //         description: {
-            //             main: "The Panchmukhi Hanuman Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
-            //             additionalText: "Energized through Vedic rituals, this locket is ideal for daily wear. It safeguards the wearer from black magic, evil eye, and accidents while strengthening resolve and boosting spiritual confidence. Perfect for devotees, travelers, and those seeking divine guidance and protection.",
-            //             features: [
-            //                 "Sacred Panchmukhi Hanuman design crafted with precision",
-            //                 "Energized through authentic Vedic rituals",
-            //                 "Durable, elegant finish for daily wear",
-            //                 "Protects from negativity, black magic, and accidents",
-            //                 "Boosts courage, confidence, and mental strength",
-            //                 "Packed safely with blessings and usage instructions"
-            //             ],
-            //             usage: [
-            //                 "Wear the Panchmukhi Hanuman Locket daily around your neck for protection and strength.",
-            //                 "Remove while sleeping or bathing to maintain its sanctity.",
-            //                 "Clean gently with a dry cloth to keep it pure and shining.",
-            //                 "Chant Hanuman Chalisa or 'Om Hanumate Namah' daily for best results.",
-            //                 "Keep near your puja altar when not wearing it."
-            //             ]
-            //         }
-            //     }
-            // },            
+            {
+                id: 12,
+                category: 'Yantras',
+                cost: 1299,
+                rating: 4.7,
+                isNew: true,
+                name: 'Panchmukhi Hanuman Locket',
+                cod: true,
+                online: true,
+                photo: {
+                    image1: product50,
+                    image2: product62,
+                },
+                description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
+                freeAccessories: [
+                    { 
+                        name: "Gold Color Chain", 
+                        image: product63, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    }
+                ],
+                reviews: [
+                    {
+                        id: 1,
+                        user: 'Neha Desai',
+                        rating: 5,
+                        comment: 'I feel so much more protected and confident wearing this Panchmukhi Hanuman Locket every day.',
+                        date: '2024-12-10'
+                    },
+                    {
+                        id: 2,
+                        user: 'Prakash Iyer',
+                        rating: 4.5,
+                        comment: 'Beautiful locket with powerful energy. It gives me mental strength and wards off negativity.',
+                        date: '2024-11-02'
+                    },
+                    {
+                        id: 3,
+                        user: 'Sneha Rathi',
+                        rating: 4.5,
+                        comment: 'Very effective for daily wear and prayers. I gifted it to my brother and he loves it.',
+                        date: '2024-10-19'
+                    }
+                ],
+                tabContent: {
+                    description: {
+                        main: "The Panchmukhi Hanuman Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
+                        additionalText: "Energized through Vedic rituals, this locket is ideal for daily wear. It safeguards the wearer from black magic, evil eye, and accidents while strengthening resolve and boosting spiritual confidence. Perfect for devotees, travelers, and those seeking divine guidance and protection.",
+                        features: [
+                            "Sacred Panchmukhi Hanuman design crafted with precision",
+                            "Energized through authentic Vedic rituals",
+                            "Durable, elegant finish for daily wear",
+                            "Protects from negativity, black magic, and accidents",
+                            "Boosts courage, confidence, and mental strength",
+                            "Packed safely with blessings and usage instructions"
+                        ],
+                        usage: [
+                            "Wear the Panchmukhi Hanuman Locket daily around your neck for protection and strength.",
+                            "Remove while sleeping or bathing to maintain its sanctity.",
+                            "Clean gently with a dry cloth to keep it pure and shining.",
+                            "Chant Hanuman Chalisa or 'Om Hanumate Namah' daily for best results.",
+                            "Keep near your puja altar when not wearing it."
+                        ]
+                    }
+                }
+            },            
             {
                 id: 14,
                 category: 'Yantras',
@@ -1105,8 +1101,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product52,
-                    image2: product52,
-                    image3: product52
                 },
                 description: "Enhance the energy and aesthetics of your home or office with this sacred Shree Yantra Wall Hanging — a powerful symbol of prosperity, harmony, and spiritual growth. Perfect for placing at your entrance, pooja room, or living space.",
                 freeAccessories: [
@@ -1297,8 +1291,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product55,
-                    image2: product55,
-                    image3: product55
                 },
                 description: "Attract wealth and divine blessings with the sacred Shri Dhan Laxmi Pendant. This powerful pendant symbolizes abundance, prosperity, and the graceful blessings of Goddess Laxmi wherever you go.",
                 reviews: [
@@ -1477,8 +1469,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product59,
-                    image2: product59,
-                    image3: product59
                 },
                 description: "Invite abundance and auspiciousness into your home with the Divine Lakshmi Figurine featuring an intricately crafted mantra base. This beautiful idol radiates prosperity, wealth, and the blessings of Goddess Lakshmi.",
                 reviews: [
@@ -1597,8 +1587,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product61,
-                    image2: product61,
-                    image3: product61
                 },
                 description: "Experience a harmonious flow of positive energy and abundance with the Shree Yantra Orgonite Energy Pyramid — a perfect blend of ancient sacred geometry and modern orgonite technology to cleanse and energize your surroundings.",
                 reviews: [

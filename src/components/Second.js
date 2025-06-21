@@ -24,11 +24,11 @@ const SecondComponent = ({ translations, page = 'home' }) => {
                 />
             )}
             <div className='w-full p-0 lg:p-20 md:p-20 sm:p-0 px-0 lg:px-28 md:px-28 sm:px-0 lg:w-1/2 md:w-1/2 sm:w-full z-10'>
-                <h1 className='text-5xl mb-5 stylefont'>{data.short}</h1>
-                <h1 className='text-6xl  headerstyle mb-8 '>{data.title}</h1>
-                <p className='mb-4'>{data.subtitle}</p>
+                <h1 className='text-2xl stylefont'>{data.short}</h1>
+                <h1 className='text-4xl headerstyle'>{data.title}</h1>
+                <p className='mb-4 text-md'>{data.subtitle}</p>
                 {data.button && (
-                    <a href='/product/2' >
+                    <a href='/product/2'>
                         <button className='bg-[#D88E7D] hover:bg-[#514B60] text-white px-6 py-3 rounded-3xl'>
                             {data.button}
                         </button>

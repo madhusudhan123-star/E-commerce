@@ -5,7 +5,7 @@ const Return = () => {
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 md:mt-28 lg:px-8">
       <div className="prose prose-lg max-w-none">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Return Policy</h1>
-        <p className="text-gray-600 mb-8">Last Updated: December 2024</p>
+        <p className="text-gray-600 mb-8">Last Updated: June 2024</p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Return Eligibility</h2>
         <p className="text-gray-700 mb-6">

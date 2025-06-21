@@ -5,7 +5,7 @@ const Terms = () => {
     <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 md:mt-28 lg:px-8">
       <div className="prose prose-lg max-w-none">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Terms & Conditions</h1>
-        <p className="text-gray-600 mb-8">Last Updated: December 2024</p>
+        <p className="text-gray-600 mb-8">Last Updated: June 2024</p>
 
         <p className="text-gray-700 mb-6">
           These terms and conditions outline the rules and regulations for the use of our Website. By accessing this website we assume you accept these terms and conditions. Do not continue to use our website if you do not agree to take all of the terms and conditions stated on this page.

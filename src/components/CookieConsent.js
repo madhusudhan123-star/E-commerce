@@ -177,12 +177,12 @@ const CookieConsent = () => {
 
                                     {/* Actions */}
                                     <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
-                                        <button
+                                        {/* <button
                                             onClick={handleRejectAll}
                                             className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors duration-200"
                                         >
                                             Reject All
-                                        </button>
+                                        </button> */}
                                         <button
                                             onClick={() => setShowPreferences(true)}
                                             className="px-6 py-3 border-2 border-orange-500 text-orange-600 rounded-xl font-semibold hover:bg-orange-50 transition-colors duration-200"

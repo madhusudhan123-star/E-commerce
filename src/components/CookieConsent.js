@@ -167,11 +167,11 @@ const CookieConsent = () => {
                                             serve you better while respecting your privacy choices.
                                         </p>
                                         <div className="flex flex-wrap gap-2 text-sm text-gray-500">
-                                            <span>🔒 Secure & Encrypted</span>
+                                            <span>Secure & Encrypted</span>
                                             <span>•</span>
-                                            <span>📊 Anonymous Analytics</span>
+                                            <span>Anonymous Analytics</span>
                                             <span>•</span>
-                                            <span>🎯 Personalized Experience</span>
+                                            <span>Personalized Experience</span>
                                         </div>
                                     </div>
 
@@ -257,12 +257,12 @@ const CookieConsent = () => {
                                     </div>
 
                                     <div className="flex flex-col sm:flex-row gap-3 mt-6 pt-6 border-t">
-                                        <button
+                                        {/* <button
                                             onClick={handleRejectAll}
                                             className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors duration-200"
                                         >
                                             Reject All
-                                        </button>
+                                        </button> */}
                                         <button
                                             onClick={handleSavePreferences}
                                             className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl font-semibold hover:from-orange-600 hover:to-red-600 transition-all duration-200 transform hover:scale-105 shadow-lg"

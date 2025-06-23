@@ -179,8 +179,8 @@ function Contact() {
                                 </div>
                                 <div>
                                     <h4 className="font-medium">Phone</h4>
-                                    <a href="tel:+919908016333" className="text-sm text-gray-600 hover:text-[#D88E7D]">
-                                        +91 9908 016 333
+                                    <a href="tel:+919392277389" className="text-sm text-gray-600 hover:text-[#D88E7D]">
+                                        +91 939 227 7389
                                     </a>
                                 </div>
                             </div>
@@ -190,8 +190,8 @@ function Contact() {
                                 </div>
                                 <div>
                                     <h4 className="font-medium">Email</h4>
-                                    <a href="mailto:israelitesshopping171@gmail.com" className="text-sm text-gray-600 hover:text-[#D88E7D] break-words">
-                                        israelitesshopping171@gmail.com
+                                    <a href="mailto:customer63care@gmail.com" className="text-sm text-gray-600 hover:text-[#D88E7D] break-words">
+                                        customer63care@gmail.com
                                     </a>
                                 </div>
                             </div>

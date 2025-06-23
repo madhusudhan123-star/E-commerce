@@ -281,8 +281,8 @@ const translations = {
             // sub: "  Cursus turpis massa tincidunt dui ut ornare lectus sit. Enim sit amet venenatis urna cursus eget.Netus et malesuada fames ac.",
             title: "Contact Info",
             address: "Hyderabad, Telangana 500016",
-            email: "israelitesshopping171@gmail.com",
-            phone: "+91 9908 016 333"
+            email: "customer63care@gmail.com",
+            phone: "+91 939 227 7389"
         },
         usefulLinks: {
             title: "Useful Links",
@@ -586,78 +586,78 @@ const translations = {
                     },
                 }
             },
-            {
-                id: 4,
-                category: 'Yantras',
-                cost: 399,
-                rating: 4.7,
-                isNew: true,
-                name: 'Shree Yantra',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product41,
-                },
-                description: "Invite divine wealth, prosperity, and harmony into your life with the sacred Shree Yantra — an ancient geometric masterpiece revered as the queen of all Yantras. Place it in your home or office to remove obstacles and attract abundance in all forms.",
-                freeAccessories: [
-                    { 
-                        name: "Laxmi Charan Paduka", 
-                        image: product46, 
-                        description: "Premium protective case to safely store and display your idol." 
-                    }
-                ],
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'I installed this Shree Yantra in my pooja room and truly feel a shift in positive energy and financial stability. A must-have for every home!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Very well crafted and comes pre-energized. The ritual guide was very helpful for proper placement and daily worship.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Beautiful Shree Yantra with powerful vibrations. Helped me feel more focused and prosperous.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Shree Yantra is one of the most powerful and auspicious Yantras known to mankind, symbolizing Goddess Laxmi’s blessings for wealth, prosperity, and good fortune. Keeping it energizes your surroundings and invites abundance, harmony, and spiritual growth.",
-                        additionalText: "This Shree Yantra is handcrafted with care and energized through traditional Vedic rituals to ensure it radiates divine vibrations. It is perfect for your home, office, or business premises and is a timeless spiritual tool to remove obstacles and attract continuous success.",
-                        features: [
-                            "Authentic Shree Yantra designed with sacred geometry",
-                            "Energized by Vedic priests for maximum effectiveness",
-                            "Elegant gold-polished finish for a divine appearance",
-                            "Comes with a ritual and placement guide",
-                            "Suitable for homes, workplaces, shops, and temples",
-                            "Safely packed with blessings and protective wrapping"
-                        ],
-                        usage: [
-                            "Place the Shree Yantra in the northeast or east direction facing west.",
-                            "Clean it regularly with a dry cloth to maintain its sanctity.",
-                            "Offer fresh flowers, incense, and light a ghee lamp daily.",
-                            "Chant Shree Suktam or Laxmi mantras during worship.",
-                            "Perform special rituals on Fridays, Diwali, and full moon days for enhanced blessings."
-                        ]
-                    }
-                }
-            },     
+            // {
+            //     id: 4,
+            //     category: 'Yantras',
+            //     cost: 399,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Shree Yantra',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product41,
+            //     },
+            //     description: "Invite divine wealth, prosperity, and harmony into your life with the sacred Shree Yantra — an ancient geometric masterpiece revered as the queen of all Yantras. Place it in your home or office to remove obstacles and attract abundance in all forms.",
+            //     freeAccessories: [
+            //         { 
+            //             name: "Laxmi Charan Paduka", 
+            //             image: product46, 
+            //             description: "Premium protective case to safely store and display your idol." 
+            //         }
+            //     ],
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'I installed this Shree Yantra in my pooja room and truly feel a shift in positive energy and financial stability. A must-have for every home!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Very well crafted and comes pre-energized. The ritual guide was very helpful for proper placement and daily worship.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Beautiful Shree Yantra with powerful vibrations. Helped me feel more focused and prosperous.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Shree Yantra is one of the most powerful and auspicious Yantras known to mankind, symbolizing Goddess Laxmi’s blessings for wealth, prosperity, and good fortune. Keeping it energizes your surroundings and invites abundance, harmony, and spiritual growth.",
+            //             additionalText: "This Shree Yantra is handcrafted with care and energized through traditional Vedic rituals to ensure it radiates divine vibrations. It is perfect for your home, office, or business premises and is a timeless spiritual tool to remove obstacles and attract continuous success.",
+            //             features: [
+            //                 "Authentic Shree Yantra designed with sacred geometry",
+            //                 "Energized by Vedic priests for maximum effectiveness",
+            //                 "Elegant gold-polished finish for a divine appearance",
+            //                 "Comes with a ritual and placement guide",
+            //                 "Suitable for homes, workplaces, shops, and temples",
+            //                 "Safely packed with blessings and protective wrapping"
+            //             ],
+            //             usage: [
+            //                 "Place the Shree Yantra in the northeast or east direction facing west.",
+            //                 "Clean it regularly with a dry cloth to maintain its sanctity.",
+            //                 "Offer fresh flowers, incense, and light a ghee lamp daily.",
+            //                 "Chant Shree Suktam or Laxmi mantras during worship.",
+            //                 "Perform special rituals on Fridays, Diwali, and full moon days for enhanced blessings."
+            //             ]
+            //         }
+            //     }
+            // },     
             {
                 id: 5,
                 category: 'Yantras',
-                cost: 399,
+                cost: 799,
                 rating: 4.7,
                 isNew: true,
-                name: 'Kuber Yantra Locket',
+                name: 'Sree Akarsha Laxmi locket',
                 cod: true,
                 online: true,
                 photo: {
@@ -779,7 +779,7 @@ const translations = {
             {
                 id: 7,
                 category: 'Yantras',
-                cost: 299,
+                cost: 899,
                 rating: 4.7,
                 isNew: true,
                 name: 'Tortoise Ring',
@@ -844,7 +844,7 @@ const translations = {
             {
                 id: 9,
                 category: 'Yantras',
-                cost: 499,
+                cost: 799,
                 rating: 4.7,
                 isNew: true,
                 name: 'Meru Sriyantram',
@@ -856,7 +856,7 @@ const translations = {
                 description: 'Enhance the flow of wealth and positive energy in your home or workspace with the auspicious Meru Sriyantra Tortoise. This unique design combines the power of the sacred Sri Yantra pyramid with the stability and good fortune symbolized by the tortoise in Vastu and Feng Shui traditions. Place it in your living room, office, or pooja room to attract prosperity, protect your finances, and promote harmony and longevity.',
                 freeAccessories: [
                     { 
-                        name: "Rudraksha", 
+                        name: "Shani Yantra", 
                         image: product49, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
@@ -909,7 +909,7 @@ const translations = {
             {
                 id: 10,
                 category: 'Yantras',
-                cost: 399,
+                cost: 799,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Anjaneya\'s Gada',
@@ -1035,7 +1035,6 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product50,
-                    image2: product62,
                 },
                 description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
                 freeAccessories: [
@@ -1093,7 +1092,7 @@ const translations = {
             {
                 id: 14,
                 category: 'Yantras',
-                cost: 359,
+                cost: 799,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Wall Hanging',
@@ -1280,64 +1279,64 @@ const translations = {
             //         }
             //     }
             // },            
-            {
-                id: 17,
-                category: 'Yantras',
-                cost: 249,
-                rating: 4.7,
-                isNew: true,
-                name: 'Shri Dhan Laxmi Pendant',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product55,
-                },
-                description: "Attract wealth and divine blessings with the sacred Shri Dhan Laxmi Pendant. This powerful pendant symbolizes abundance, prosperity, and the graceful blessings of Goddess Laxmi wherever you go.",
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'I feel more financially secure and positive since wearing the Shri Dhan Laxmi Pendant. Truly divine!',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Beautiful pendant and well-energized. I wear it daily and have recommended it to my family.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Great quality and auspicious energy. Perfect gift for prosperity and good luck.',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Shri Dhan Laxmi Pendant is dedicated to Goddess Laxmi, the harbinger of wealth, fortune, and good luck. Wearing it is believed to remove financial hurdles, attract prosperity, and invoke the blessings of the divine Mother.",
-                        additionalText: "Carefully crafted and energized through sacred rituals, this pendant can be worn daily for continuous flow of positive energy and abundance. It also makes a meaningful gift for loved ones to wish them wealth and success.",
-                        features: [
-                            "Divine design blessed with the energies of Goddess Laxmi",
-                            "Energized through Vedic rituals for maximum benefits",
-                            "Elegant, lightweight, and comfortable for daily wear",
-                            "Auspicious golden finish radiating positive vibes",
-                            "Perfect as a prosperity charm for yourself or a thoughtful gift",
-                            "Packed securely and infused with sacred blessings"
-                        ],
-                        usage: [
-                            "Wear the Shri Dhan Laxmi Pendant around your neck every day.",
-                            "Keep it clean and treat it with respect.",
-                            "Chant Laxmi mantras or Shree Suktam regularly for enhanced blessings.",
-                            "Gift it during festivals like Diwali, housewarming, or to bless new ventures.",
-                            "Store it close to your valuables if not wearing, to protect and multiply wealth."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 17,
+            //     category: 'Yantras',
+            //     cost: 249,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Shri Dhan Laxmi Pendant',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product55,
+            //     },
+            //     description: "Attract wealth and divine blessings with the sacred Shri Dhan Laxmi Pendant. This powerful pendant symbolizes abundance, prosperity, and the graceful blessings of Goddess Laxmi wherever you go.",
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'I feel more financially secure and positive since wearing the Shri Dhan Laxmi Pendant. Truly divine!',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Beautiful pendant and well-energized. I wear it daily and have recommended it to my family.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Great quality and auspicious energy. Perfect gift for prosperity and good luck.',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Shri Dhan Laxmi Pendant is dedicated to Goddess Laxmi, the harbinger of wealth, fortune, and good luck. Wearing it is believed to remove financial hurdles, attract prosperity, and invoke the blessings of the divine Mother.",
+            //             additionalText: "Carefully crafted and energized through sacred rituals, this pendant can be worn daily for continuous flow of positive energy and abundance. It also makes a meaningful gift for loved ones to wish them wealth and success.",
+            //             features: [
+            //                 "Divine design blessed with the energies of Goddess Laxmi",
+            //                 "Energized through Vedic rituals for maximum benefits",
+            //                 "Elegant, lightweight, and comfortable for daily wear",
+            //                 "Auspicious golden finish radiating positive vibes",
+            //                 "Perfect as a prosperity charm for yourself or a thoughtful gift",
+            //                 "Packed securely and infused with sacred blessings"
+            //             ],
+            //             usage: [
+            //                 "Wear the Shri Dhan Laxmi Pendant around your neck every day.",
+            //                 "Keep it clean and treat it with respect.",
+            //                 "Chant Laxmi mantras or Shree Suktam regularly for enhanced blessings.",
+            //                 "Gift it during festivals like Diwali, housewarming, or to bless new ventures.",
+            //                 "Store it close to your valuables if not wearing, to protect and multiply wealth."
+            //             ]
+            //         }
+            //     }
+            // },            
             // {
             //     id: 19,
             //     category: 'Yantras',
@@ -1461,7 +1460,7 @@ const translations = {
             {
                 id: 21,
                 category: 'Yantras',
-                cost: 349,
+                cost: 999,
                 rating: 4.7,
                 isNew: true,
                 name: 'Divine Lakshmi Figurine with Mantra Base',
@@ -1471,6 +1470,13 @@ const translations = {
                     image1: product59,
                 },
                 description: "Invite abundance and auspiciousness into your home with the Divine Lakshmi Figurine featuring an intricately crafted mantra base. This beautiful idol radiates prosperity, wealth, and the blessings of Goddess Lakshmi.",
+                freeAccessories: [
+                    { 
+                        name: "Shri Dhan Laxmi Pendant", 
+                        image: product55, 
+                        description: "Premium protective case to safely store and display your idol." 
+                    },
+                ],
                 reviews: [
                     {
                         id: 1,

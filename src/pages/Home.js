@@ -68,10 +68,10 @@ const Home = () => {
                     </Slider>
                 </div>            
             </section>
-
-            <div className='relative'>
+            
+            {/*<div className='relative'>
                 <SecondComponent translations={translations} page="home" />
-            </div>
+            </div> */}
 
             <div>
                 <section className="py-10 bg-gray-100">
@@ -81,7 +81,7 @@ const Home = () => {
                         <p className="text-gray-600 mt-2">{translations.home.fourth.sub}</p>
                     </div>
 
-                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 container mx-auto px-4">
+                    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 container mx-auto px-4">
                         {translations.products.product.map((product, index) => (
                             <ProductCard key={index} {...product} />
                         ))}

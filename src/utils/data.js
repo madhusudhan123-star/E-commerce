@@ -137,7 +137,7 @@ const translations = {
         second: {
             short: "Special Offerings",
             title: "Invite Blessings, Wealth & Protection",
-            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Lord Hanuman’s unwavering devotion and strength in the Ramayana — shielding your family from hardships and negative forces. As a special blessing, receive a sacred Tortoise Ring **FREE** with your order — symbolizing steady growth and prosperity, much like the divine Kurma (tortoise incarnation) from the ancient scriptures. Welcome the Sree Astha Laxmi Dhana Akarsha Yantra to honor the abundant blessings of Goddess Lakshmi, filling your home with wealth, happiness, and enduring good fortune. Let these timeless legends enrich your life today.`,
+            subtitle: `Bring home the protective grace of Sree Anjaneya Shani Raksha, inspired by Lord Hanuman’s unwavering devotion and strength in the Ramayana — shielding your family from hardships and negative forces. As a special blessing, receive a sacred Meru Ring **FREE** with your order — symbolizing steady growth and prosperity, much like the divine Kurma (tortoise incarnation) from the ancient scriptures. Welcome the Sree Astha Laxmi Dhana Akarsha Yantra to honor the abundant blessings of Goddess Lakshmi, filling your home with wealth, happiness, and enduring good fortune. Let these timeless legends enrich your life today.`,
             button: "Shop Now",
             image: home_second,
             design: aboutdesign,
@@ -246,7 +246,7 @@ const translations = {
                 image: test6,
             },
             {
-                name: "Vignesh",
+                name: "Sowmya",
                 date: "18 June 2023",
                 rating: 4,
                 review: "The Trishul Om Rudraksha Pendant is very powerful. I wear it daily and feel protected from negative thoughts and energies. The quality of the rudraksha beads and the trishul is excellent. Packaging was secure and delivery was prompt.",
@@ -260,7 +260,7 @@ const translations = {
                 image: test8,
             },
             {
-                name: "Pradeep",
+                name: "Annapurna",
                 date: "20 May 2023",
                 rating: 4,
                 review: "Ordered the Sree Dhana Laxmi Akarsha Pack as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Sree Dhana Laxmi beautifully. Happy with the purchase and the customer service too.",
@@ -281,7 +281,7 @@ const translations = {
             // sub: "  Cursus turpis massa tincidunt dui ut ornare lectus sit. Enim sit amet venenatis urna cursus eget.Netus et malesuada fames ac.",
             title: "Contact Info",
             address: "Hyderabad, Telangana 500016",
-            email: "customer63care@gmail.com",
+            email: "customercareproductcenter@gmail.com",
             phone: "+91 939 227 7389"
         },
         usefulLinks: {
@@ -343,7 +343,7 @@ const translations = {
             title: "Our Branches",
             sub: "Et odio pellentesque diam volutpat. Adipiscing diam donec adipiscing tristique risus. Turpis massa sed elementum tempus egestas sed.",
             branches: [
-                { title: 'India', address: 'Hyderabad, Telangana', phone: '+91 9908 016 333' },
+                { title: 'India', address: 'Hyderabad, Telangana', phone: '+91 939 227 7389' },
             ]
         },
         submit: {
@@ -386,7 +386,7 @@ const translations = {
             {
                 id: 1,
                 category: 'Idols',
-                cost: 1599,
+                cost: 1590,
                 rating: 4,
                 isNew: false,
                 name: 'Sree Astha Laxmi',
@@ -448,7 +448,7 @@ const translations = {
             {
                 id: 2,
                 category: 'Idols',
-                cost: 1599,
+                cost: 1590,
                 rating: 4.8,
                 isNew: false,
                 name: 'Sree Anjaneya Shani Raksha',
@@ -466,13 +466,6 @@ const translations = {
                     image9: product29,
                 },
                 description: 'Inspired by the timeless tales of the Ramayana, this Anjaneya idol embodies Lord Hanuman’s unmatched devotion, boundless strength, and unwavering protection. It safeguards your home from Shani’s harsh effects and negative energies, filling your space with courage, faith, and the blessings of Hanuman’s fearless service to Lord Rama.',
-                freeAccessories: [
-                    { 
-                        name: "Tortoise Ring", 
-                        image: product29, 
-                        description: "Premium protective case to safely store and display your idol." 
-                    }
-                ],
                 reviews: [
                     { 
                         id: 1, 
@@ -526,7 +519,7 @@ const translations = {
             {
                 id: 3,
                 category: 'Idols',
-                cost: 1599,
+                cost: 1590,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Dhana Laxmi Akarsha Pack',
@@ -654,10 +647,10 @@ const translations = {
             {
                 id: 5,
                 category: 'Yantras',
-                cost: 799,
+                cost: 790,
                 rating: 4.7,
                 isNew: true,
-                name: 'Sree Akarsha Laxmi locket',
+                name: 'Sree Astha Lakshmi devi locket',
                 cod: true,
                 online: true,
                 photo: {
@@ -779,19 +772,19 @@ const translations = {
             {
                 id: 7,
                 category: 'Yantras',
-                cost: 899,
+                cost: 890,
                 rating: 4.7,
                 isNew: true,
-                name: 'Tortoise Ring',
+                name: 'Meru Ring',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product44,
                 },
-                description: "Embrace stability, longevity, and prosperity with the auspicious Tortoise Ring. Symbolizing endurance and good fortune in Vastu and Feng Shui, this energized ring helps balance energy, attract wealth, and promote positive vibrations in your life.",
+                description: "Embrace stability, longevity, and prosperity with the auspicious Meru Ring. Symbolizing endurance and good fortune in Vastu and Feng Shui, this energized ring helps balance energy, attract wealth, and promote positive vibrations in your life.",
                 freeAccessories: [
                     { 
-                        name: "Tortoise Ring", 
+                        name: "Meru Ring", 
                         image: product44, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
@@ -801,7 +794,7 @@ const translations = {
                         id: 1,
                         user: 'Neha Desai',
                         rating: 5,
-                        comment: 'I wear this Tortoise Ring daily and have noticed a sense of calm and financial stability. Highly recommended!',
+                        comment: 'I wear this Meru Ring daily and have noticed a sense of calm and financial stability. Highly recommended!',
                         date: '2024-12-10'
                     },
                     {
@@ -821,7 +814,7 @@ const translations = {
                 ],
                 tabContent: {
                     description: {
-                        main: "The Tortoise Ring is a sacred symbol representing stability, long life, and prosperity according to ancient Vastu Shastra and Feng Shui principles. Wearing it balances your personal energy, removes negativity, and attracts financial well-being and good luck.",
+                        main: "The Meru Ring is a sacred symbol representing stability, long life, and prosperity according to ancient Vastu Shastra and Feng Shui principles. Wearing it balances your personal energy, removes negativity, and attracts financial well-being and good luck.",
                         additionalText: "Crafted with care and energized through authentic rituals, this ring is suitable for daily wear or during important occasions. Its subtle yet elegant design makes it a perfect spiritual accessory for men and women alike, inviting harmony and abundance.",
                         features: [
                             "Auspicious tortoise symbol engraved in a stylish ring",
@@ -832,7 +825,7 @@ const translations = {
                             "Packed safely with blessings and protective covering"
                         ],
                         usage: [
-                            "Wear the Tortoise Ring on your right hand middle finger for maximum benefits.",
+                            "Wear the Meru Ring on your right hand middle finger for maximum benefits.",
                             "Remove before bathing or sleeping to maintain its sacred vibrations.",
                             "Keep it clean by gently wiping with a dry cloth.",
                             "Meditate or pray while wearing it to amplify positive energies.",
@@ -844,7 +837,7 @@ const translations = {
             {
                 id: 9,
                 category: 'Yantras',
-                cost: 799,
+                cost: 790,
                 rating: 4.7,
                 isNew: true,
                 name: 'Meru Sriyantram',
@@ -856,9 +849,9 @@ const translations = {
                 description: 'Enhance the flow of wealth and positive energy in your home or workspace with the auspicious Meru Sriyantra Tortoise. This unique design combines the power of the sacred Sri Yantra pyramid with the stability and good fortune symbolized by the tortoise in Vastu and Feng Shui traditions. Place it in your living room, office, or pooja room to attract prosperity, protect your finances, and promote harmony and longevity.',
                 freeAccessories: [
                     { 
-                        name: "Shani Yantra", 
+                        name: "Gurrapu Nada", 
                         image: product49, 
-                        description: "Premium protective case to safely store and display your idol." 
+                        description: "Gurrapu Nada is traditionally worn as a simple neck chain, often used for daily wear or to signify cultural and spiritual belonging" 
                     }
                 ],
                 reviews:[
@@ -909,7 +902,7 @@ const translations = {
             {
                 id: 10,
                 category: 'Yantras',
-                cost: 799,
+                cost: 790,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Anjaneya\'s Gada',
@@ -1030,16 +1023,16 @@ const translations = {
                 cost: 999,
                 rating: 4.7,
                 isNew: true,
-                name: 'Panchmukhi Hanuman Locket',
+                name: ' Shri Hanuman Chalisa Yantra Locket',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product50,
                 },
-                description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred Panchmukhi Hanuman Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
+                description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred  Shri Hanuman Chalisa Yantra Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
                 freeAccessories: [
                     { 
-                        name: "Gold Color Chain", 
+                        name: "Gold Plated Chain", 
                         image: product63, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
@@ -1049,7 +1042,7 @@ const translations = {
                         id: 1,
                         user: 'Neha Desai',
                         rating: 5,
-                        comment: 'I feel so much more protected and confident wearing this Panchmukhi Hanuman Locket every day.',
+                        comment: 'I feel so much more protected and confident wearing this  Shri Hanuman Chalisa Yantra Locket every day.',
                         date: '2024-12-10'
                     },
                     {
@@ -1069,7 +1062,7 @@ const translations = {
                 ],
                 tabContent: {
                     description: {
-                        main: "The Panchmukhi Hanuman Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
+                        main: "The  Shri Hanuman Chalisa Yantra Locket embodies Lord Hanuman in his powerful five-faced form, symbolizing supreme protection from all directions. Wearing this locket removes fear, shields you from negative energies, and blesses you with immense strength and courage.",
                         additionalText: "Energized through Vedic rituals, this locket is ideal for daily wear. It safeguards the wearer from black magic, evil eye, and accidents while strengthening resolve and boosting spiritual confidence. Perfect for devotees, travelers, and those seeking divine guidance and protection.",
                         features: [
                             "Sacred Panchmukhi Hanuman design crafted with precision",
@@ -1080,7 +1073,7 @@ const translations = {
                             "Packed safely with blessings and usage instructions"
                         ],
                         usage: [
-                            "Wear the Panchmukhi Hanuman Locket daily around your neck for protection and strength.",
+                            "Wear the  Shri Hanuman Chalisa Yantra Locket daily around your neck for protection and strength.",
                             "Remove while sleeping or bathing to maintain its sanctity.",
                             "Clean gently with a dry cloth to keep it pure and shining.",
                             "Chant Hanuman Chalisa or 'Om Hanumate Namah' daily for best results.",
@@ -1092,7 +1085,7 @@ const translations = {
             {
                 id: 14,
                 category: 'Yantras',
-                cost: 799,
+                cost: 790,
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Wall Hanging',
@@ -1457,71 +1450,71 @@ const translations = {
             //         }
             //     }
             // },            
-            {
-                id: 21,
-                category: 'Yantras',
-                cost: 999,
-                rating: 4.7,
-                isNew: true,
-                name: 'Divine Lakshmi Figurine with Mantra Base',
-                cod: true,
-                online: true,
-                photo: {
-                    image1: product59,
-                },
-                description: "Invite abundance and auspiciousness into your home with the Divine Lakshmi Figurine featuring an intricately crafted mantra base. This beautiful idol radiates prosperity, wealth, and the blessings of Goddess Lakshmi.",
-                freeAccessories: [
-                    { 
-                        name: "Shri Dhan Laxmi Pendant", 
-                        image: product55, 
-                        description: "Premium protective case to safely store and display your idol." 
-                    },
-                ],
-                reviews: [
-                    {
-                        id: 1,
-                        user: 'Neha Desai',
-                        rating: 5,
-                        comment: 'The Lakshmi figurine is so divine and detailed. I keep it in my puja room and feel blessed every day.',
-                        date: '2024-12-10'
-                    },
-                    {
-                        id: 2,
-                        user: 'Prakash Iyer',
-                        rating: 4.5,
-                        comment: 'Perfect addition to my home temple. The mantra base gives it a very auspicious feel.',
-                        date: '2024-11-02'
-                    },
-                    {
-                        id: 3,
-                        user: 'Sneha Rathi',
-                        rating: 4.5,
-                        comment: 'Looks very elegant and sacred. Great gift for housewarming or Diwali!',
-                        date: '2024-10-19'
-                    }
-                ],
-                tabContent: {
-                    description: {
-                        main: "The Divine Lakshmi Figurine with Mantra Base is a sacred idol designed to invite Goddess Lakshmi’s blessings for wealth and prosperity into your life. Crafted with fine details and adorned with an inscribed mantra, it enhances spiritual ambiance and positive energy in any space.",
-                        additionalText: "Ideal for homes, offices, and shops, this figurine is a symbol of good fortune and financial stability. It also makes a meaningful gift for festivals, housewarmings, or special occasions, spreading the grace of Goddess Lakshmi to your loved ones.",
-                        features: [
-                            "Beautifully detailed Goddess Lakshmi figurine",
-                            "Inscribed mantra base for enhanced spiritual vibration",
-                            "Made from premium materials with a glossy finish",
-                            "Brings wealth, fortune, and prosperity",
-                            "Perfect for homes, workplaces, and altars",
-                            "Securely packed with blessings for abundance"
-                        ],
-                        usage: [
-                            "Place the Divine Lakshmi Figurine in your puja room, living room, or office.",
-                            "Keep it on a clean altar facing east or north.",
-                            "Light incense or a ghee diya daily to invoke divine blessings.",
-                            "Recite Lakshmi mantras like 'Shree Suktam' or 'Om Shreem Mahalakshmiye Namah'.",
-                            "Clean the figurine regularly with a soft cloth."
-                        ]
-                    }
-                }
-            },            
+            // {
+            //     id: 21,
+            //     category: 'Yantras',
+            //     cost: 999,
+            //     rating: 4.7,
+            //     isNew: true,
+            //     name: 'Divine Lakshmi Figurine with Mantra Base',
+            //     cod: true,
+            //     online: true,
+            //     photo: {
+            //         image1: product59,
+            //     },
+            //     description: "Invite abundance and auspiciousness into your home with the Divine Lakshmi Figurine featuring an intricately crafted mantra base. This beautiful idol radiates prosperity, wealth, and the blessings of Goddess Lakshmi.",
+            //     freeAccessories: [
+            //         { 
+            //             name: "Shri Dhan Laxmi Pendant", 
+            //             image: product55, 
+            //             description: "Premium protective case to safely store and display your idol." 
+            //         },
+            //     ],
+            //     reviews: [
+            //         {
+            //             id: 1,
+            //             user: 'Neha Desai',
+            //             rating: 5,
+            //             comment: 'The Lakshmi figurine is so divine and detailed. I keep it in my puja room and feel blessed every day.',
+            //             date: '2024-12-10'
+            //         },
+            //         {
+            //             id: 2,
+            //             user: 'Prakash Iyer',
+            //             rating: 4.5,
+            //             comment: 'Perfect addition to my home temple. The mantra base gives it a very auspicious feel.',
+            //             date: '2024-11-02'
+            //         },
+            //         {
+            //             id: 3,
+            //             user: 'Sneha Rathi',
+            //             rating: 4.5,
+            //             comment: 'Looks very elegant and sacred. Great gift for housewarming or Diwali!',
+            //             date: '2024-10-19'
+            //         }
+            //     ],
+            //     tabContent: {
+            //         description: {
+            //             main: "The Divine Lakshmi Figurine with Mantra Base is a sacred idol designed to invite Goddess Lakshmi’s blessings for wealth and prosperity into your life. Crafted with fine details and adorned with an inscribed mantra, it enhances spiritual ambiance and positive energy in any space.",
+            //             additionalText: "Ideal for homes, offices, and shops, this figurine is a symbol of good fortune and financial stability. It also makes a meaningful gift for festivals, housewarmings, or special occasions, spreading the grace of Goddess Lakshmi to your loved ones.",
+            //             features: [
+            //                 "Beautifully detailed Goddess Lakshmi figurine",
+            //                 "Inscribed mantra base for enhanced spiritual vibration",
+            //                 "Made from premium materials with a glossy finish",
+            //                 "Brings wealth, fortune, and prosperity",
+            //                 "Perfect for homes, workplaces, and altars",
+            //                 "Securely packed with blessings for abundance"
+            //             ],
+            //             usage: [
+            //                 "Place the Divine Lakshmi Figurine in your puja room, living room, or office.",
+            //                 "Keep it on a clean altar facing east or north.",
+            //                 "Light incense or a ghee diya daily to invoke divine blessings.",
+            //                 "Recite Lakshmi mantras like 'Shree Suktam' or 'Om Shreem Mahalakshmiye Namah'.",
+            //                 "Clean the figurine regularly with a soft cloth."
+            //             ]
+            //         }
+            //     }
+            // },            
             // {
             //     id: 22,
             //     category: 'Yantras',

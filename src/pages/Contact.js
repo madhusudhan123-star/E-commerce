@@ -190,8 +190,9 @@ function Contact() {
                                 </div>
                                 <div>
                                     <h4 className="font-medium">Email</h4>
-                                    <a href="mailto:customer63care@gmail.com" className="text-sm text-gray-600 hover:text-[#D88E7D] break-words">
-                                        customer63care@gmail.com
+                                    <a href="mailto:customercareproductcenter@gmail.com" className="text-sm text-gray-600 hover:text-[#D88E7D] break-words">
+                                    customercareproductcenter@gmail.com
+
                                     </a>
                                 </div>
                             </div>

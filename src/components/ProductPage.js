@@ -45,7 +45,7 @@ const ProductPage = () => {
     const [showNotification , setShowNotification] = useState(false);
     const [showPaymentBanner, setShowPaymentBanner] = useState(true);
     const product = translations.products.product.find(p => p.id === parseInt(id));
-    const [activeTab, setActiveTab] = useState('description');
+    const [activeTab, setActiveTab] = useState('reviews');
     const [activeImage, setActiveImage] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [zoom, setZoom] = useState(false);
@@ -86,7 +86,7 @@ const ProductPage = () => {
         "@type": "Product",
         "name": product?.name || "",
         "image": product?.photo?.image1 || "",
-        "description": product?.description || "",
+        // "description": product?.description || "",
         "sku": `SKU-${product?.id || "0000"}`,
         "brand": {
             "@type": "Brand",
@@ -739,12 +739,12 @@ const ProductPage = () => {
                         <div className="mb-10 sm:mb-16 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                             {/* Tab Headers - scrollable on mobile */}
                             <div className="flex overflow-x-auto border-b border-gray-200 scrollbar-hide">
-                                <button 
+                                {/* <button 
                                     className={`px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium transition whitespace-nowrap flex-shrink-0 ${activeTab === 'description' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50' : 'text-gray-600 hover:bg-gray-50'}`}
                                     onClick={() => setActiveTab('description')}
                                 >
                                     Description
-                                </button>
+                                </button> */}
                                 {/* <button 
                                     className={`px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg font-medium transition whitespace-nowrap flex-shrink-0 ${activeTab === 'specifications' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50' : 'text-gray-600 hover:bg-gray-50'}`}
                                     onClick={() => setActiveTab('specifications')}
@@ -764,21 +764,20 @@ const ProductPage = () => {
                                 {activeTab === 'description' && (
                                     <div className="prose max-w-none prose-sm sm:prose">
                                         <article>
-                                            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Product Description</h2>
+                                            {/* <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Product Description</h2>
                                             
-                                            {/* Main description */}
+
                                             <p className="text-gray-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                                                 {product.tabContent?.description?.main || product.description || 'No detailed description available for this product yet.'}
                                             </p>
                                             
-                                            {/* Additional description text */}
+
                                             {product.tabContent?.description?.additionalText && (
                                                 <p className="text-gray-700 leading-relaxed mb-3 sm:mb-4 text-sm sm:text-base">
                                                     {product.tabContent.description.additionalText}
                                                 </p>
                                             )}
                                             
-                                            {/* Key Features */}
                                             <h3 className="text-lg sm:text-xl font-semibold mb-2">Key Features</h3>
                                             <ul className="list-disc pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                                                 {product.tabContent?.description?.features?.map((feature, idx) => (
@@ -792,7 +791,7 @@ const ProductPage = () => {
                                                         <li>Eco-friendly and sustainable production</li>
                                                     </>
                                                 )}
-                                            </ul>
+                                            </ul> */}
                                             
                                             {/* Free Accessories - Enhanced description tab notification */}
                                             {/* {hasFreeAccessories && (
@@ -839,7 +838,7 @@ const ProductPage = () => {
                                             */}
                                             
                                             {/* How to Use */}
-                                            <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">How to Use</h3>
+                                            {/* <h3 className="text-lg sm:text-xl font-semibold mt-4 sm:mt-6 mb-2">How to Use</h3>
                                             <ol className="list-decimal pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base">
                                                 {product.tabContent?.description?.usage?.map((step, idx) => (
                                                     <li key={idx}>{step}</li>
@@ -851,7 +850,7 @@ const ProductPage = () => {
                                                         <li>Enjoy your new purchase!</li>
                                                     </>
                                                 )}
-                                            </ol>
+                                            </ol> */}
                                         </article>
                                     </div>
                                 )}
@@ -992,7 +991,7 @@ const ProductPage = () => {
                                                                 <button className="text-xs sm:text-sm hover:text-blue-600 transition">No</button>
                                                             </div> */}
                                                         </div>
-                                                        <p className="text-gray-700 mt-2 sm:mt-3 text-sm sm:text-base">{review.comment}</p>
+                                                        {/* <p className="text-gray-700 mt-2 sm:mt-3 text-sm sm:text-base">{review.comment}</p> */}
                                                     </article>
                                                 ))
                                             ) : (

@@ -94,6 +94,9 @@ import product61 from '../assets/main/product/21.webp';
 import product62 from '../assets/main/product/24.webp';
 import product63 from '../assets/main/product/25.webp';
 
+import product64 from '../assets/main/product/27.webp';
+import product65 from '../assets/main/product/28.webp';
+import product66 from '../assets/main/product/29.webp';
 
 
 
@@ -192,7 +195,7 @@ const translations = {
         ],        
         horizontal: [
             { image: img2, title: 'Sree Anjaneya Idol', link: "/product" },
-            { image: img6, title: 'Sree Dhana Laxmi', link: "/product" },
+            { image: img6, title: 'Sree Dhana Laxmi Akarsha Pack', link: "/product" },
             { image: img3, title: 'Divine God Statues', link: "/product" },
             { image: img8, title: 'Sacred Handicraft Decor', link: "/product" },
         ],        
@@ -263,7 +266,7 @@ const translations = {
                 name: "Annapurna",
                 date: "20 May 2023",
                 rating: 4,
-                review: "Ordered the Sree Dhana Laxmi Akarsha Pack as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Sree Dhana Laxmi beautifully. Happy with the purchase and the customer service too.",
+                review: "Ordered the Sree Dhana Laxmi Akarsha Pack as a gift for my brother. He wears it with pride every day. The engraving is clear and detailed, representing the spirit of Sree Dhana Laxmi Akarsha Pack beautifully. Happy with the purchase and the customer service too.",
                 image: test9,
             },
             {
@@ -448,7 +451,7 @@ const translations = {
             {
                 id: 2,
                 category: 'Idols',
-                cost: 1590,
+                cost: 10,
                 rating: 4.8,
                 isNew: false,
                 name: 'Sree Anjaneya Shani Raksha',
@@ -656,7 +659,7 @@ const translations = {
                 photo: {
                     image1: product42,
                 },
-                description: "Wear divine abundance wherever you go with the sacred Kuber Yantra Locket — a powerful spiritual accessory blessed to attract wealth, prosperity, and good luck. This locket invokes Lord Kuber, the guardian of treasures, and shields you from financial obstacles.",
+                description: "Bring home the blessings of the eight forms of Goddess Lakshmi — the Goddess of wealth, prosperity, health, and abundance — with this beautifully crafted Sree Astha Lakshmi Devi Locket. Designed with intricate detailing, this sacred locket symbolizes Ashta Lakshmi’s grace, safeguarding you and inviting good fortune into your life.",
                 freeAccessories: [
                     { 
                         name: "Shri Dhan Laxmi Yantra Locket", 
@@ -1633,66 +1636,67 @@ const translations = {
                     }
                 }
             },
-            // {
-            //     id: 24,
-            //     category: 'Pendants',
-            //     cost: 899,
-            //     rating: 4.7,
-            //     isNew: true,
-            //     name: 'Shivaji Maharaj Engraved Pendant',
-            //     cod: true,
-            //     online: true,
-            //     photo: {
-            //         image1: product63,
-            //         image2: product63,
-            //         image3: product63
-            //     },
-            //     description: "Carry the fearless spirit and legacy of Chhatrapati Shivaji Maharaj close to your heart with this finely engraved pendant — a symbol of courage, pride, and leadership.",
-            //     reviews: [
-            //         {
-            //             id: 1,
-            //             user: 'Neha Desai',
-            //             rating: 5,
-            //             comment: 'This pendant is not just beautiful but deeply inspiring. It reminds me daily of Shivaji Maharaj’s bravery.',
-            //             date: '2024-12-10'
-            //         },
-            //         {
-            //             id: 2,
-            //             user: 'Prakash Iyer',
-            //             rating: 4.5,
-            //             comment: 'Excellent quality and engraving. It feels sturdy and looks very regal when worn.',
-            //             date: '2024-11-02'
-            //         },
-            //         {
-            //             id: 3,
-            //             user: 'Sneha Rathi',
-            //             rating: 4.5,
-            //             comment: 'Bought this for my brother and he absolutely loved it. It’s a symbol of pride for all Maharashtrians.',
-            //             date: '2024-10-19'
-            //         }
-            //     ],
-            //     tabContent: {
-            //         description: {
-            //             main: "The Shivaji Maharaj Engraved Pendant is a tribute to one of India’s greatest warriors and visionaries. Crafted with care, it showcases a detailed engraving of Chhatrapati Shivaji Maharaj, serving as a daily reminder of valor, self-respect, and resilience.",
-            //             additionalText: "Perfect for everyday wear or gifting, this pendant reflects your pride in Maratha heritage and timeless leadership. Pair it with any chain and wear it close to your heart as a source of strength and inspiration.",
-            //             features: [
-            //                 "Detailed engraving of Chhatrapati Shivaji Maharaj",
-            //                 "Durable, rust-resistant metal with a polished finish",
-            //                 "Lightweight and comfortable for daily wear",
-            //                 "Symbol of courage, pride, and leadership",
-            //                 "Suitable for men, women, and youngsters alike",
-            //                 "Comes securely packed in an elegant box"
-            //             ],
-            //             usage: [
-            //                 "Wear daily around the neck with a chain of your choice.",
-            //                 "Clean gently with a soft dry cloth to maintain shine.",
-            //                 "Avoid contact with water, perfumes, or harsh chemicals.",
-            //                 "Keep in the provided box when not in use.",
-            //                 "Gift it to loved ones to inspire bravery and pride."
-            //             ]
-            //         }
-            //     }
-            // }            
+            {
+                id: 24,
+                category: "Watches",
+                cost: 990,
+                rating: 4.7,
+                isNew: true,
+                name: "Astro Watch",
+                cod: true,
+                online: true,
+                photo: {
+                    image1: product64,
+                    image2: product65,
+                    image3: product66
+                },
+                description: "Embrace the good times and rise above the bad — Astro Watch is a symbol of resilience, strength, and style. Designed to remind you that every second counts, this watch keeps you grounded while helping you move forward with confidence.",
+                reviews: [
+                    {
+                        id: 1,
+                        user: "Neha Desai",
+                        rating: 5,
+                        comment: "Absolutely love this watch! The zodiac detailing is subtle yet meaningful. Great design and comfortable to wear.",
+                        date: "2024-12-10"
+                    },
+                    {
+                        id: 2,
+                        user: "Prakash Iyer",
+                        rating: 4.5,
+                        comment: "The build quality is impressive for this price. Feels premium and I get compliments every time I wear it.",
+                        date: "2024-11-02"
+                    },
+                    {
+                        id: 3,
+                        user: "Sneha Rathi",
+                        rating: 4.5,
+                        comment: "Bought this as a gift for my sister who’s into astrology. She wears it every day and loves it!",
+                        date: "2024-10-19"
+                    }
+                ],
+                tabContent: {
+                    description: {
+                        main: "The Astro Watch combines modern watchmaking with cosmic inspiration. Each timepiece features delicately engraved zodiac symbols, allowing you to carry your star sign’s positive energy wherever you go.",
+                        additionalText: "Ideal for daily wear or as a thoughtful gift for astrology enthusiasts, this watch adds a touch of mystic elegance to any outfit. Its lightweight design and comfortable strap make it perfect for long hours of wear.",
+                        features: [
+                            "Elegant zodiac sign engraving on the dial",
+                            "Durable stainless steel case with scratch-resistant glass",
+                            "Comfortable, adjustable strap for a perfect fit",
+                            "Battery-powered quartz movement for precise timekeeping",
+                            "Unisex design suitable for all age groups",
+                            "Comes in a premium gift box with a user manual"
+                        ],
+                        usage: [
+                            "Wear daily on your wrist to stay connected to your zodiac sign’s energy.",
+                            "Wipe gently with a soft cloth to maintain shine.",
+                            "Avoid exposure to strong magnets, water, or harsh chemicals.",
+                            "Store in the provided box when not in use.",
+                            "Perfect as a birthday or special occasion gift for astrology lovers."
+                        ]
+                    }
+                }
+            }
+            
         ],
     }
 

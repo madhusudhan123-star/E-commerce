@@ -664,7 +664,7 @@ const Home = () => {
                             <p className='mb-6 text-lg text-gray-200 leading-relaxed max-w-lg'>
                                 “Abhayam sattva-samshuddhir” — Bhagavad Gita 16.1.  
                                 Embrace fearlessness and purity as you invite <strong className='text-orange-300'>Sree Anjaneya</strong> for strength and 
-                                <strong className='text-orange-300'>Sree Astha Laxmi</strong> for unending prosperity. 
+                                <strong className='text-orange-300'>Sree Astha Laxmi Sree Dhana Laxmi Akarsha Pack</strong> for unending prosperity. 
                                 Crafted with devotion, blessed through tradition.
                             </p>
                         </div>

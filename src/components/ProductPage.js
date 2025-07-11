@@ -1,11 +1,12 @@
 // src/components/ProductPage.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../components/CartContext';
 import { Helmet } from 'react-helmet'; // For SEO
 import { FaStar, FaStarHalfAlt, FaRegStar, FaShippingFast, FaCheck, FaExchangeAlt, FaShare, FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaGift, FaHeart, FaClock, FaShieldAlt, FaTruck, FaInfoCircle, FaShoppingCart } from 'react-icons/fa';
 import translations from '../utils/data';
 import PageHeader from './Other';
+import amazon from '../assets/amazon.webp';
 
 // Add custom animations for product page
 const customStyles = `
@@ -25,6 +26,11 @@ const customStyles = `
     50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.6); }
   }
   
+  @keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
   .animate-fadeIn {
     animation: fadeIn 0.6s ease-out;
   }
@@ -35,6 +41,24 @@ const customStyles = `
   
   .animate-highlight-glow {
     animation: highlight-glow 1.5s infinite;
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  /* Smooth carousel transitions */
+  .carousel-container {
+    scroll-behavior: smooth;
+  }
+  
+  .product-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .product-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 `;
 
@@ -52,6 +76,7 @@ const ProductPage = () => {
     const [selectedColor, setSelectedColor] = useState(null);
     const [selectedSize, setSelectedSize] = useState(null);
     const [recentlyViewed, setRecentlyViewed] = useState([]);
+    const [currentSlide, setCurrentSlide] = useState(0);
     
     // Get different countdown times based on product ID
     const getCountdownTimeForProduct = (productId) => {
@@ -122,20 +147,10 @@ const ProductPage = () => {
         
         // Handle recently viewed products storage
         if (product) {
-            // Get existing recently viewed products from localStorage
-            const storedRecent = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
-            
-            // Filter out current product if it already exists
-            const filteredRecent = storedRecent.filter(item => item.id !== product.id);
-            
-            // Add current product to the beginning
-            const updatedRecent = [product, ...filteredRecent].slice(0, 4);
-            
-            // Save back to localStorage
-            localStorage.setItem('recentlyViewed', JSON.stringify(updatedRecent));
-            
-            // Set state for recently viewed (excluding current product for display)
-            setRecentlyViewed(filteredRecent.slice(0, 4));
+            // Instead of using localStorage for recently viewed, we'll show all products except current one
+            const allProducts = translations.products.product;
+            const otherProducts = allProducts.filter(p => p.id !== product.id);
+            setRecentlyViewed(otherProducts);
         }
 
         // Hide payment banner after scrolling
@@ -317,6 +332,39 @@ const ProductPage = () => {
                 return 'Limited time offer! Hurry before price goes up!';
             }
         }
+    };
+
+    // Carousel functions for recently viewed products
+    const productsPerSlide = 4; // Show 4 products per slide on desktop
+    const totalSlides = Math.ceil(recentlyViewed.length / productsPerSlide);
+    
+    const nextSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    }, [totalSlides]);
+    
+    const prevSlide = () => {
+        setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    };
+    
+    const goToSlide = (slideIndex) => {
+        setCurrentSlide(slideIndex);
+    };
+
+    // Auto-slide functionality
+    useEffect(() => {
+        if (recentlyViewed.length > productsPerSlide) {
+            const slideInterval = setInterval(() => {
+                nextSlide();
+            }, 4000); // Change slide every 4 seconds
+
+            return () => clearInterval(slideInterval);
+        }
+    }, [recentlyViewed.length, nextSlide]);
+
+    // Get products for current slide
+    const getCurrentSlideProducts = () => {
+        const startIndex = currentSlide * productsPerSlide;
+        return recentlyViewed.slice(startIndex, startIndex + productsPerSlide);
     };
 
     return (
@@ -629,6 +677,24 @@ const ProductPage = () => {
                                                 <div className="absolute -bottom-1 -right-1 transform translate-x-1/4 translate-y-1/4 bg-yellow-400 text-blue-800 text-[8px] sm:text-[9px] uppercase font-extrabold px-1 sm:px-2 py-0.5 rounded-full tracking-wide rotate-12 shadow-sm">Act now!</div>
                                             </button>
                                         </div>
+
+                                        {/* Amazon Button - New Addition */}
+                                        {product.amazon && (
+                                            <div className="pt-2">
+                                                <a
+                                                    href={product.amazon}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="w-full text-black px-4 sm:px-8 rounded-lg transition-all flex justify-center items-center text-sm sm:text-base font-bold shadow-lg transform hover:scale-105"
+                                                >
+                                                    <img src={amazon} className="w-20" />
+                                                    {/* <span className="tracking-wider">BUY ON AMAZON</span> */}
+                                                </a>
+                                                <p className="text-xs text-gray-500 text-center mt-1">
+                                                    Also available on Amazon with fast delivery
+                                                </p>
+                                            </div>
+                                        )}
                                         
                                         {/* Low Stock Warning - creates additional urgency */}
                                         <div className="text-center">
@@ -1013,45 +1079,128 @@ const ProductPage = () => {
                             </div>
                         </div>
                         
-                        {/* Recently Viewed Products - better for small mobile screens */}
+                        {/* Recently Viewed Products Carousel */}
                         {recentlyViewed.length > 0 && (
                             <div className="mb-6 sm:mb-12">
-                                <h2 className="text-lg sm:text-2xl font-bold mb-3 sm:mb-6">Recently Viewed</h2>
-                                <div className="grid grid-cols-2 xs:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6">
-                                    {recentlyViewed.map((recentProduct) => (
-                                        <div key={recentProduct.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition group">
-                                            <div className="aspect-w-1 aspect-h-1 bg-gray-200 relative overflow-hidden">
-                                                <img 
-                                                    src={recentProduct.photo.image1} 
-                                                    alt={recentProduct.name} 
-                                                    className="object-cover w-full h-full transform group-hover:scale-110 transition duration-500"
-                                                    loading="lazy"
-                                                />
-                                                <div className="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                                    <button 
-                                                        onClick={() => navigate(`/product/${recentProduct.id}`)}
-                                                        className="bg-white text-gray-900 px-3 py-1 sm:px-4 sm:py-2 rounded-lg transform -translate-y-4 group-hover:translate-y-0 transition-transform font-medium text-xs sm:text-sm"
-                                                    >
-                                                        Quick View
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div className="p-2 sm:p-4">
-                                                <h3 className="font-medium truncate group-hover:text-blue-600 transition text-xs sm:text-base">{recentProduct.name}</h3>
-                                                <div className="flex items-center mt-1 scale-75 sm:scale-100 origin-left">
-                                                    {renderStars(4)}
-                                                </div>
-                                                <div className="mt-1 font-bold text-xs sm:text-base">₹{recentProduct.cost.toLocaleString()}</div>
-                                                <button 
-                                                    onClick={() => navigate(`/product/${recentProduct.id}`)} 
-                                                    className="mt-1 sm:mt-3 w-full bg-[#DA9687] text-white py-1 sm:py-2 rounded text-xs sm:text-sm hover:bg-opacity-90 transition"
-                                                >
-                                                    View Product
-                                                </button>
-                                            </div>
+                                <div className="flex justify-between items-center mb-3 sm:mb-6">
+                                    <h2 className="text-lg sm:text-2xl font-bold">All Products ({recentlyViewed.length})</h2>
+                                    {totalSlides > 1 && (
+                                        <div className="flex items-center gap-2">
+                                            <button 
+                                                onClick={prevSlide}
+                                                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                                                aria-label="Previous products"
+                                            >
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                                                </svg>
+                                            </button>
+                                            <button 
+                                                onClick={nextSlide}
+                                                className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                                                aria-label="Next products"
+                                            >
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
                                         </div>
-                                    ))}
+                                    )}
                                 </div>
+                                
+                                {/* Carousel Container */}
+                                <div className="relative overflow-hidden">
+                                    <div 
+                                        className="flex transition-transform duration-500 ease-in-out"
+                                        style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                                    >
+                                        {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                                            <div key={slideIndex} className="min-w-full">
+                                                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-6">
+                                                    {recentlyViewed
+                                                        .slice(slideIndex * productsPerSlide, (slideIndex + 1) * productsPerSlide)
+                                                        .map((recentProduct) => (
+                                                        <div key={recentProduct.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden product-card-hover group animate-slideIn">
+                                                            <div className="aspect-w-1 aspect-h-1 bg-gray-200 relative overflow-hidden">
+                                                                <img 
+                                                                    src={recentProduct.photo.image1} 
+                                                                    alt={recentProduct.name} 
+                                                                    className="object-cover w-full h-32 sm:h-48 transform group-hover:scale-110 transition duration-500"
+                                                                    loading="lazy"
+                                                                />
+                                                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                                                    <button 
+                                                                        onClick={() => navigate(`/product/${recentProduct.id}`)}
+                                                                        className="bg-white text-gray-900 px-3 py-1 sm:px-4 sm:py-2 rounded-lg transform scale-95 group-hover:scale-100 transition-transform font-medium text-xs sm:text-sm shadow-lg"
+                                                                    >
+                                                                        View Details
+                                                                    </button>
+                                                                </div>
+                                                                {recentProduct.isNew && (
+                                                                    <div className="absolute top-2 left-2">
+                                                                        <span className="bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                                                                            NEW
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                            <div className="p-2 sm:p-4">
+                                                                <h3 className="font-medium truncate group-hover:text-blue-600 transition text-xs sm:text-base line-clamp-2">{recentProduct.name}</h3>
+                                                                <div className="flex items-center mt-1 scale-75 sm:scale-100 origin-left">
+                                                                    {renderStars(recentProduct.rating || 4)}
+                                                                    <span className="text-xs text-gray-500 ml-1">({recentProduct.rating || 4.0})</span>
+                                                                </div>
+                                                                <div className="mt-2 flex items-center justify-between">
+                                                                    <div>
+                                                                        <div className="font-bold text-xs sm:text-base text-blue-600">₹{recentProduct.cost.toLocaleString()}</div>
+                                                                        <div className="text-xs text-gray-500 line-through">₹{Math.floor(recentProduct.cost * 1.2).toLocaleString()}</div>
+                                                                    </div>
+                                                                    <div className="bg-red-100 text-red-700 px-2 py-1 rounded text-xs font-medium">
+                                                                        20% OFF
+                                                                    </div>
+                                                                </div>
+                                                                <button 
+                                                                    onClick={() => navigate(`/product/${recentProduct.id}`)} 
+                                                                    className="mt-2 sm:mt-3 w-full bg-gradient-to-r from-[#DA9687] to-[#c8847a] text-white py-1.5 sm:py-2 rounded text-xs sm:text-sm font-medium hover:from-[#c8847a] hover:to-[#b67469] transition-all duration-300 transform hover:scale-105 shadow-md"
+                                                                >
+                                                                    Shop Now
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+                                {/* Pagination Dots */}
+                                {totalSlides > 1 && (
+                                    <div className="flex justify-center mt-4 gap-2">
+                                        {Array.from({ length: totalSlides }).map((_, index) => (
+                                            <button
+                                                key={index}
+                                                onClick={() => goToSlide(index)}
+                                                className={`w-3 h-3 rounded-full transition-colors ${
+                                                    index === currentSlide 
+                                                        ? 'bg-blue-600' 
+                                                        : 'bg-gray-300 hover:bg-gray-400'
+                                                }`}
+                                                aria-label={`Go to slide ${index + 1}`}
+                                            />
+                                        ))}
+                                    </div>
+                                )}
+                                
+                                {/* Progress bar for auto-slide */}
+                                {totalSlides > 1 && (
+                                    <div className="mt-3 w-full bg-gray-200 rounded-full h-1">
+                                        <div 
+                                            className="bg-blue-600 h-1 rounded-full transition-all duration-1000 ease-linear"
+                                            style={{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         )}
                         

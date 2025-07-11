@@ -1,3 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+# Explicitly allow OpenAI SearchBot
+User-agent: OAI-SearchBot
+Allow: /

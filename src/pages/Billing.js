@@ -77,17 +77,18 @@ const Checkout = ({ currentLang }) => {
     const [promoCode, setPromoCode] = useState("");
     const [isPromoApplied, setIsPromoApplied] = useState(false);
     const [orderNumber, setOrderNumber] = useState(1);
-    const [paymentMode, setPaymentMode] = useState("online");
+    const [paymentMode, setPaymentMode] = useState("");
     
     // New state variables for payment processing
     const [processingPayment, setProcessingPayment] = useState(false);
     const [razorpayOrderId, setRazorpayOrderId] = useState(null);
     const [paymentId, setPaymentId] = useState(null);
-    const [orderCreationError, setOrderCreationError] = useState(null);
+    const [orderCreationError, setOrderCreationError] = useState(null); 
     const [verificationError, setVerificationError] = useState(null);
     const [isPageLeaving, setIsPageLeaving] = useState(false);
     const [hasFormData, setHasFormData] = useState(false);
     const [orderSuccessDetails, setOrderSuccessDetails] = useState(null);
+    const [paymentInitiated, setPaymentInitiated] = useState(false);
 
     useEffect(() => {
         if (orderDetails) {
@@ -239,7 +240,7 @@ const Checkout = ({ currentLang }) => {
     };
 
     // Add payment method radio selection
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('online');
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
 
     // Check if basic customer information is filled
     useEffect(() => {
@@ -349,7 +350,7 @@ const Checkout = ({ currentLang }) => {
                     products,
                     totalAmount: convertedAmount,
                     currency: currentCurrency.symbol,
-                    paymentMethod: paymentMode === 'online' ? 'Online Payment (Razorpay)' : 'Cash on Delivery',
+                    paymentMethod: selectedPaymentMethod === 'online' ? 'Online Payment (Razorpay)' : 'Cash on Delivery',
                     paymentId: paymentId || 'N/A'
                 },
                 customerDetails: {
@@ -363,6 +364,7 @@ const Checkout = ({ currentLang }) => {
                     country: formData.country
                 }
             };
+            console.log("Email Data:", emailData);
 
             const response = await fetch(`${API_BASE_URL}/send-order-confirmation`, {
                 method: 'POST',
@@ -432,9 +434,37 @@ const Checkout = ({ currentLang }) => {
         }
     };
 
+    // Handle payment cancellation/abandonment
+    const handlePaymentCancellation = async () => {
+        try {
+            console.log('Payment cancelled by user, sending abandoned cart email...');
+            
+            // Only send abandoned cart email if we have customer information and payment was initiated
+            if (hasFormData && paymentInitiated) {
+                // Add a small delay to ensure this is a genuine abandonment, not accidental close
+                setTimeout(async () => {
+                    try {
+                        await sendAbandonedCartEmail();
+                        console.log('Abandoned cart email sent successfully');
+                    } catch (error) {
+                        console.error('Error sending abandoned cart email in timeout:', error);
+                    }
+                }, 2000); // 2 second delay
+            }
+            
+            // Reset payment initiated state
+            setPaymentInitiated(false);
+        } catch (error) {
+            console.error('Error sending abandoned cart email:', error);
+        }
+    };
+
     // Handle Razorpay payment
     const handleRazorpayPayment = async () => {
         try {
+            // Set payment initiated flag
+            setPaymentInitiated(true);
+            
             // Create order first
             const orderData = await createRazorpayOrder();
             
@@ -470,6 +500,8 @@ const Checkout = ({ currentLang }) => {
                     ondismiss: function() {
                         setProcessingPayment(false);
                         console.log('Payment window closed without completing payment');
+                        // Send abandoned cart email when user cancels payment
+                        handlePaymentCancellation();
                     }
                 }
             };
@@ -484,6 +516,7 @@ const Checkout = ({ currentLang }) => {
                 submit: `Payment initialization failed: ${error.message}`
             }));
             setProcessingPayment(false);
+            setPaymentInitiated(false); // Reset payment initiated state on error
         }
     };
 
@@ -521,6 +554,7 @@ const Checkout = ({ currentLang }) => {
             // Update order number in localStorage
             incrementOrderNumber();
             setProcessingPayment(false);
+            setPaymentInitiated(false); // Reset payment initiated state on success
             
             // Navigate to thank you page with order details
             navigate('/thank-you', { state: { orderData } });
@@ -532,6 +566,7 @@ const Checkout = ({ currentLang }) => {
                 submit: `Payment processing error: ${error.message}`
             }));
             setProcessingPayment(false);
+            setPaymentInitiated(false); // Reset payment initiated state on payment processing error
         }
     };
     

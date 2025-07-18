@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -24,13 +24,76 @@ import Layout from './components/Layout';
 import { LanguageProvider } from './context/LanguageContext';
 import Aly from './pages/Aly';
 import ScrollToTop from './components/ScrollToTop';
-import audio from './assets/main/audio.mp3';
+import { validateSlug, createProductUrl, slugToCategory } from './utils/urlSlugs';
+import translations from './utils/data';
 
 AOS.init({
   delay: 300,
   duration: 900,
   easing: 'ease',
 });
+
+// SEO-friendly Product Page Component with slug validation
+const ProductPageWithSlug = () => {
+  const { id, slug } = useParams();
+  const productId = parseInt(id, 10);
+  
+  // Find the product in your data
+  const product = translations.products.product.find(p => p.id === productId);
+  
+  if (!product) {
+    return <Navigate to="/shop" replace />;
+  }
+  
+  // Validate if the slug matches the product name
+  if (!validateSlug(slug, product.name)) {
+    // Redirect to correct URL with proper slug
+    const correctUrl = createProductUrl(product.id, product.name);
+    return <Navigate to={correctUrl} replace />;
+  }
+  
+  return (
+    <Layout>
+      <ErrorBoundary>
+        <ProductPage />
+      </ErrorBoundary>
+    </Layout>
+  );
+};
+
+// Category Page Component
+const CategoryPage = () => {
+  const { categorySlug } = useParams();
+  const categoryName = slugToCategory[categorySlug];
+  
+  if (!categoryName) {
+    return <Navigate to="/shop" replace />;
+  }
+  
+  return (
+    <Layout>
+      <ErrorBoundary>
+        <Store category={categoryName} />
+      </ErrorBoundary>
+    </Layout>
+  );
+};
+
+// Legacy product URL redirect component
+const LegacyProductRedirect = () => {
+  const { id } = useParams();
+  const productId = parseInt(id, 10);
+  
+  const product = translations.products.product.find(p => p.id === productId);
+  
+  if (!product) {
+    return <Navigate to="/shop" replace />;
+  }
+  
+  // Redirect to new SEO-friendly URL
+  const newUrl = createProductUrl(product.id, product.name);
+  return <Navigate to={newUrl} replace />;
+};
 
 function App() {
   return (
@@ -66,11 +129,16 @@ function App() {
                     <ErrorBoundary><Store /></ErrorBoundary>
                   </Layout>
                 } />
-                <Route path="/product/:id" element={
-                  <Layout>
-                    <ErrorBoundary><ProductPage /></ErrorBoundary>
-                  </Layout>
-                } />
+                
+                {/* SEO-friendly product URLs with slugs */}
+                <Route path="/product/:id/:slug" element={<ProductPageWithSlug />} />
+                
+                {/* SEO-friendly category URLs */}
+                <Route path="/category/:categorySlug" element={<CategoryPage />} />
+                
+                {/* Legacy product URL redirect to new SEO format */}
+                <Route path="/product/:id" element={<LegacyProductRedirect />} />
+                
                 <Route path="/billing" element={
                   <Layout>
                     <ErrorBoundary><Checkout /></ErrorBoundary>
@@ -111,6 +179,16 @@ function App() {
                     <ErrorBoundary><Checkouts /></ErrorBoundary>
                   </Layout>
                 } />
+                
+                {/* Additional SEO-friendly routes */}
+                <Route path="/store" element={
+                  <Layout>
+                    <ErrorBoundary><Store /></ErrorBoundary>
+                  </Layout>
+                } />
+                
+                {/* Legacy route redirects for SEO */}
+                <Route path="/product" element={<Navigate to="/shop" replace />} />
               </Routes>
             </BrowserRouter>
           </LanguageProvider>

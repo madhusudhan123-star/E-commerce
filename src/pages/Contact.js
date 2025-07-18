@@ -89,7 +89,7 @@ function Contact() {
         }
     };
     return (
-        <div className="pb-8">
+        <div className="pb-8 bg-[#faebd7]">
             <div>
                 <Other title={translations.contact.title} subtitle={translations.contact.subtitle} />
             </div>
@@ -173,7 +173,7 @@ function Contact() {
                         
                         {/* Contact Info Cards - Mobile Optimized */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-                            <div className="flex items-start bg-gray-50 p-3 rounded-lg">
+                            <div className="flex items-start bg-[#faebd7] p-3 rounded-lg">
                                 <div className="bg-[#D88E7D]/20 p-2 rounded-full mr-3">
                                     <FaPhone className="text-[#D88E7D]" />
                                 </div>

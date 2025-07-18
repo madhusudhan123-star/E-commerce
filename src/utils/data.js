@@ -1,20 +1,18 @@
 // import logo from '../assets/logo.svg';
 import logo from '../assets/logo.png';
+// import { createProductUrl, createUrlSlug, productSlugs } from './urlSlugs';
 import slider1 from '../assets/main/banner1.webp'
 import slider2 from '../assets/main/banner2.webp'
 import slider3 from '../assets/main/banner3.webp'
 import home_second from '../assets/main/img4.webp';
 import homethree1 from '../assets/main/sree dhana laxmi akarsha pack/1.webp'
 import homethree2 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/7.webp'
-import homethree3 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/8.webp'
+import homethree3 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/sar.webp'
 
-import img1 from '../assets/main/img1.webp';
+
 import img2 from '../assets/main/img2.webp';
 import img3 from '../assets/main/img3.webp';
-import img4 from '../assets/main/img4.webp';
-import img5 from '../assets/main/img5.webp';
 import img6 from '../assets/main/img6.webp';
-import img7 from '../assets/main/img7.webp';
 import img8 from '../assets/main/img8.webp';
 import faq from '../assets/main/img3.webp';
 
@@ -53,14 +51,13 @@ import product8 from '../assets/main/Ashta laxmi Yantras/7.webp';
 
 
 import product20 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/sar.webp';
-import product21 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/1.webp';
-import product23 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/3.webp';
-import product25 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/4.webp';
-import product24 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/5.webp';
-import product26 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/6.webp';
-import product27 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/7.webp';
-import product28 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/8.webp';
-import product29 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/9.webp';
+import product23 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/1.webp';
+import product25 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/2.webp';
+import product24 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/3.webp';
+import product26 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/4.webp';
+import product27 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/5.webp';
+import product28 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/6.webp';
+import product29 from '../assets/main/Sri Anjaneya Shani Raksha Yantras/7.webp';
 
 
 
@@ -73,11 +70,10 @@ import product14 from '../assets/main/sree dhana laxmi akarsha pack/4.webp';
 import product15 from '../assets/main/sree dhana laxmi akarsha pack/5.webp';
 import product16 from '../assets/main/sree dhana laxmi akarsha pack/6.webp';
 
-import product41 from '../assets/main/product/1.webp';
+
 import product42 from '../assets/main/product/2.webp';
 import product43 from '../assets/main/product/3.webp';
 import product44 from '../assets/main/product/4.webp';
-import product46 from '../assets/main/product/6.webp';
 import product47 from '../assets/main/product/7.webp';
 import product48 from '../assets/main/product/8.webp';
 import product49 from '../assets/main/product/9.webp';
@@ -86,17 +82,37 @@ import product50 from '../assets/main/product/10.webp';
 import product52 from '../assets/main/product/12.webp';
 import product53 from '../assets/main/product/13.webp';
 import product54 from '../assets/main/product/14.webp';
-import product55 from '../assets/main/product/15.webp';
-import product59 from '../assets/main/product/19.webp';
 import product61 from '../assets/main/product/21.webp';
 
 
-import product62 from '../assets/main/product/24.webp';
 import product63 from '../assets/main/product/25.webp';
 
 import product64 from '../assets/main/product/27.webp';
 import product65 from '../assets/main/product/28.webp';
 import product66 from '../assets/main/product/29.webp';
+
+import product67 from '../assets/main/product/30.webp';
+import product68 from '../assets/main/product/31.webp';
+import product69 from '../assets/main/product/32.webp';
+import product70 from '../assets/main/product/33.webp';
+import product71 from '../assets/main/product/34.webp';
+import product72 from '../assets/main/product/35.webp';
+import product73 from '../assets/main/product/36.webp';
+import product74 from '../assets/main/product/37.webp';
+import product75 from '../assets/main/product/38.webp';
+import product76 from '../assets/main/product/39.webp';
+import product77 from '../assets/main/product/40.webp';
+import product78 from '../assets/main/product/41.webp';
+import product79 from '../assets/main/product/42.webp';
+import product80 from '../assets/main/product/43.webp';
+import product81 from '../assets/main/product/44.webp';
+import product82 from '../assets/main/product/45.webp';
+import product83 from '../assets/main/product/46.webp';
+import product84 from '../assets/main/product/47.webp';
+import product85 from '../assets/main/product/48.webp';
+import product86 from '../assets/main/product/49.webp';
+import product87 from '../assets/main/product/50.webp';
+import product88 from '../assets/main/product/51.webp';
 
 
 
@@ -194,10 +210,10 @@ const translations = {
             }
         ],        
         horizontal: [
-            { image: img2, title: 'Sree Anjaneya Idol', link: "/product" },
-            { image: img6, title: 'Sree Dhana Laxmi Akarsha Pack', link: "/product" },
-            { image: img3, title: 'Divine God Statues', link: "/product" },
-            { image: img8, title: 'Sacred Handicraft Decor', link: "/product" },
+            { image: img2, title: 'Sree Anjaneya Idol', link: "/category/spiritual-idols" },
+            { image: img6, title: 'Sree Dhana Laxmi Akarsha Pack', link: "/product/3/sree-dhana-laxmi-akarsha-pack" },
+            { image: img3, title: 'Divine God Statues', link: "/category/divine-statues" },
+            { image: img8, title: 'Sacred Handicraft Decor', link: "/category/sacred-handicrafts" },
         ],        
         nine: {
             short: "Adorable Designs",
@@ -328,10 +344,10 @@ const translations = {
         title2: "Celebrating Spiritual Heritage",
         sub2: `We aim to connect people with their spiritual roots through beautifully handcrafted statues and ritual products. Our offerings reflect devotion, artistry, and timeless traditions.`,
         horizontal: [
-            { image: person1, title: 'Balaji Statue', link: "/product" },
-            { image: person2, title: 'Durga Statue', link: "/product" },
-            { image: person3, title: 'Krishna Statue', link: "/product" },
-            { image: person4, title: 'OM Ganesha Statue', link: "/product" },
+            { image: person1, title: 'Balaji Statue', link: "/category/divine-statues" },
+            { image: person2, title: 'Durga Statue', link: "/category/divine-statues" },
+            { image: person3, title: 'Krishna Statue', link: "/category/divine-statues" },
+            { image: person4, title: 'OM Ganesha Statue', link: "/category/divine-statues" },
         ],
     },
     contact: {
@@ -393,21 +409,23 @@ const translations = {
                 rating: 4.7,
                 isNew: true,
                 name: 'Shree Yantra Wall Hanging',
+                slug: 'shree-yantra-wall-hanging',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product52,
+                    image2: product69
                 },
                 description: "Enhance the energy and aesthetics of your home or office with this sacred Shree Yantra Wall Hanging — a powerful symbol of prosperity, harmony, and spiritual growth. Perfect for placing at your entrance, pooja room, or living space.",
                 freeAccessories: [
                     { 
                         name: "Kuber Key Pendant", 
-                        image: product53, 
+                        image: product87, 
                         description: "Premium protective case to safely store and display your idol." 
                     },
                     { 
                         name: "Tortoise Pendant", 
-                        image: product54, 
+                        image: product88, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -463,6 +481,7 @@ const translations = {
                 rating: 4,
                 isNew: false,
                 name: 'Sree Astha Laxmi',
+                slug: 'sree-astha-laxmi',
                 cod: true,
                 online: true,
                 amazon: "https://www.amazon.in/dp/B0DWJWSMYK",
@@ -526,16 +545,18 @@ const translations = {
                 rating: 4.7,
                 isNew: true,
                 name: 'Meru Ring',
+                slug: 'meru-ring',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product44,
+                    image2: product68
                 },
                 description: "Embrace stability, longevity, and prosperity with the auspicious Meru Ring. Symbolizing endurance and good fortune in Vastu and Feng Shui, this energized ring helps balance energy, attract wealth, and promote positive vibrations in your life.",
                 freeAccessories: [
                     { 
                         name: "Meru Ring", 
-                        image: product44, 
+                        image: product68, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -591,6 +612,7 @@ const translations = {
                 rating: 4.8,
                 isNew: false,
                 name: 'Sree Anjaneya Shani Raksha',
+                slug: 'sree-anjaneya-shani-raksha',
                 cod: true,
                 online: true,
                 amazon: "https://www.amazon.in/dp/B0DWFDNMWQ",
@@ -662,10 +684,12 @@ const translations = {
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Anjaneya\'s Gada',
+                slug: 'sree-anjaneyas-gada',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product48,
+                    image2: product70
                 },
                 description: "Invoke the unwavering strength and protection of Lord Hanuman with Anjaneya's Gada — a sacred symbol of courage, victory, and divine power. Perfect for home temples, office desks, or gifting to loved ones for blessings of bravery and success.",
                 reviews: [
@@ -720,16 +744,18 @@ const translations = {
                 rating: 4.7,
                 isNew: true,
                 name: ' Shri Hanuman Chalisa Yantra Locket',
+                slug: 'shri-hanuman-chalisa-yantra-locket',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product50,
+                    image2: product67
                 },
                 description: "Invoke the mighty protection and blessings of Lord Hanuman with this sacred  Shri Hanuman Chalisa Yantra Locket. Known to remove fear, negativity, and evil influences, this locket fills your life with courage, strength, and divine grace.",
                 freeAccessories: [
                     { 
                         name: "Gold Plated Chain", 
-                        image: product63, 
+                        image: product71, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -785,6 +811,7 @@ const translations = {
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Dhana Laxmi Akarsha Pack',
+                slug: 'sree-dhana-laxmi-akarsha-pack',
                 cod: true,
                 online: true,
                 amazon: "https://www.amazon.in/dp/B0DY4J7VK6",
@@ -843,22 +870,24 @@ const translations = {
                 }
             },
             {
-                id: 3,
+                id: 11,
                 category: 'Yantras',
                 cost: 790,
                 rating: 4.7,
                 isNew: true,
                 name: 'Sree Astha Lakshmi devi locket',
+                slug: 'sree-astha-lakshmi-devi-locket',
                 cod: true,
                 online: true,
                 photo: {
                     image1: product42,
+                    image2: product76
                 },
                 description: "Bring home the blessings of the eight forms of Goddess Lakshmi — the Goddess of wealth, prosperity, health, and abundance — with this beautifully crafted Sree Astha Lakshmi Devi Locket. Designed with intricate detailing, this sacred locket symbolizes Ashta Lakshmi’s grace, safeguarding you and inviting good fortune into your life.",
                 freeAccessories: [
                     { 
                         name: "Shri Dhan Laxmi Yantra Locket", 
-                        image: product43, 
+                        image: product75, 
                         description: "Premium protective case to safely store and display your idol." 
                     }
                 ],
@@ -918,12 +947,13 @@ const translations = {
                 online: true,
                 photo: {
                     image1: product47,
+                    image2: product82
                 },
                 description: 'Enhance the flow of wealth and positive energy in your home or workspace with the auspicious Meru Sriyantra Tortoise. This unique design combines the power of the sacred Sri Yantra pyramid with the stability and good fortune symbolized by the tortoise in Vastu and Feng Shui traditions. Place it in your living room, office, or pooja room to attract prosperity, protect your finances, and promote harmony and longevity.',
                 freeAccessories: [
                     { 
                         name: "Gurrapu Nada", 
-                        image: product49, 
+                        image: product72, 
                         description: "Gurrapu Nada is traditionally worn as a simple neck chain, often used for daily wear or to signify cultural and spiritual belonging" 
                     }
                 ],
@@ -982,7 +1012,9 @@ const translations = {
                 cod: true,
                 online: true,
                 photo: {
-                    image1: product61,
+                    image1: product78,
+                    image2: product61,
+
                 },
                 description: "Experience a harmonious flow of positive energy and abundance with the Shree Yantra Orgonite Energy Pyramid — a perfect blend of ancient sacred geometry and modern orgonite technology to cleanse and energize your surroundings.",
                 reviews: [

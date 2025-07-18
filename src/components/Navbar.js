@@ -151,8 +151,8 @@ const Navbar = () => {
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-[#ffc300] backdrop-blur-md shadow-sm py-3' 
-            : 'bg-[#ffc300] py-5'
+            ? 'bg-[#faebd7] backdrop-blur-md shadow-sm pb-3'
+            : 'bg-[#faebd7] pb-3'
         }`}
       >
         <div className="container mx-auto px-4">
@@ -314,7 +314,7 @@ const Navbar = () => {
       />
 
       {/* Spacer to prevent content from being hidden under fixed navbar */}
-      <div className={isScrolled ? "h-16" : "h-24"} />
+      <div className={isScrolled ? "h-16" : "h-16"} />
     </>
   );
 };

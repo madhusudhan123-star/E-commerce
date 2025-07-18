@@ -362,10 +362,10 @@ const ProductPage = () => {
     }, [recentlyViewed.length, nextSlide]);
 
     // Get products for current slide
-    const getCurrentSlideProducts = () => {
-        const startIndex = currentSlide * productsPerSlide;
-        return recentlyViewed.slice(startIndex, startIndex + productsPerSlide);
-    };
+    // const getCurrentSlideProducts = () => {
+    //     const startIndex = currentSlide * productsPerSlide;
+    //     return recentlyViewed.slice(startIndex, startIndex + productsPerSlide);
+    // };
 
     return (
         <>
@@ -416,13 +416,13 @@ const ProductPage = () => {
                     </div>
                 )}
 
-                <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-8">
-                    <div className="max-w-7xl mx-auto">
+                <div className="container bg-[#faebd7] mx-auto px-3 sm:px-4 py-3 sm:py-8">
+                    <div className="">
                         {/* Product Top Section */}
-                        <div className="bg-white rounded-xl sm:rounded-2xl shadow-sm overflow-hidden">
+                        <div className="bg-[#faebd7] rounded-xl sm:rounded-2xl shadow-sm overflow-hidden">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
                                 {/* Product Images - Left Side */}
-                                <div className="p-3 sm:p-6 bg-gray-50 border-b md:border-r md:border-b-0 border-gray-100 relative">
+                                <div className="p-3 sm:p-6 bg-[#faebd7] border-b md:border-r md:border-b-0 border-gray-100 relative">
                                     {/* Product Labels */}
                                     <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
                                         {product.isNew && (
@@ -496,7 +496,7 @@ const ProductPage = () => {
                                     </div>
 
                                     {/* Price Section */}
-                                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                                    <div className="bg-[#faebd7] p-3 sm:p-4 rounded-lg">
                                         <div className="flex items-center space-x-2 sm:space-x-4">
                                             <p className="text-2xl sm:text-3xl font-bold text-blue-600">₹{product.cost.toLocaleString()}</p>
                                             <p className="text-sm sm:text-lg text-gray-500 line-through">₹{Math.floor(product.cost * 1.2).toLocaleString()}</p>
@@ -539,7 +539,7 @@ const ProductPage = () => {
                                             
                                             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 mt-3">
                                                 {freeAccessories.map((item, idx) => (
-                                                    <div key={idx} className="flex items-center bg-white p-2 sm:p-3 rounded-lg shadow-md border border-orange-100 hover:border-orange-300 transition-all">
+                                                    <div key={idx} className="flex items-center bg-[#faebd7] p-2 sm:p-3 rounded-lg shadow-md border border-orange-100 hover:border-orange-300 transition-all">
                                                         <div className="relative">
                                                             <img 
                                                                 src={item.image} 
@@ -680,15 +680,10 @@ const ProductPage = () => {
 
                                         {/* Amazon Button - New Addition */}
                                         {product.amazon && (
-                                            <div className="pt-2">
-                                                <a
-                                                    href={product.amazon}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="w-full text-black px-4 sm:px-8 rounded-lg transition-all flex justify-center items-center text-sm sm:text-base font-bold shadow-lg transform hover:scale-105"
-                                                >
-                                                    <img src={amazon} className="w-20" />
-                                                    {/* <span className="tracking-wider">BUY ON AMAZON</span> */}
+                                            <div id="amazon" className="pt-2">
+                                                <a id="amazon" href={product.amazon} target="_blank" rel="noopener noreferrer" className="amazon button w-full text-black px-4 sm:px-8 rounded-lg transition-all flex justify-center items-start text-sm sm:text-base font-bold shadow-lg transform hover:scale-105">
+                                                    <span id="amazon" className="tracking-wider font-bold pt-[4px]">ALSO AVAILABLE ON </span>
+                                                    <img id="amazon" src={amazon} className="w-20 " />
                                                 </a>
                                                 <p className="text-xs text-gray-500 text-center mt-1">
                                                     Also available on Amazon with fast delivery
@@ -802,7 +797,7 @@ const ProductPage = () => {
                         </div>
 
                         {/* Tabs Section - mobile responsive */}
-                        <div className="mb-10 sm:mb-16 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                        <div className="mb-10 sm:mb-16 bg-[#faebd7] rounded-lg shadow-sm overflow-hidden">
                             {/* Tab Headers - scrollable on mobile */}
                             <div className="flex overflow-x-auto border-b border-gray-200 scrollbar-hide">
                                 {/* <button 

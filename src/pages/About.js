@@ -30,7 +30,7 @@ const About = () => {
             </div> */}
             
             {/* Our Sacred Products Section */}
-            <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+            <section className="py-16 bg-[#faebd7]">
                 <div className="container mx-auto px-4">
                     <motion.div 
                         className="text-center mb-12"
@@ -52,7 +52,7 @@ const About = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
                         {/* Sree Anjaneya Shani Raksha */}
                         <motion.div 
-                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col"
+                            className="bg-[#faebd7] rounded-xl overflow-hidden shadow-lg flex flex-col"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -95,7 +95,7 @@ const About = () => {
                         
                         {/* Sree Astha Laxmi */}
                         <motion.div 
-                            className="bg-white rounded-xl overflow-hidden shadow-lg flex flex-col"
+                            className="bg-[#faebd7] rounded-xl overflow-hidden shadow-lg flex flex-col"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
@@ -140,7 +140,7 @@ const About = () => {
             </section>
             
             {/* Craftsmanship Section */}
-            <section className="py-16 bg-gray-50">
+            <section className="py-16 bg-[#faebd7]">
                 <div className="container mx-auto px-4">
                     <motion.div
                     className="text-center mb-12"
@@ -328,7 +328,7 @@ const About = () => {
             </div>
              */}
             {/* Spiritual Significance Section */}
-            <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+            <section className="py-16 bg-[#faebd7]">
                 <div className="container mx-auto px-4">
                     <motion.div
                     className="text-center mb-12"

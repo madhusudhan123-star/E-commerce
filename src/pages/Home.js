@@ -74,7 +74,7 @@ const Home = () => {
             </div> */}
 
             <div>
-                <section className="py-10 bg-gray-100">
+                <section className="py-10 bg-[#faebd7]">
                     <div className="text-center">
                         <h3 className='text-[#D88E7D] stylefont text-3xl'>{translations.home.fourth.short}</h3>
                         <h2 className="text-7xl  headerstyle">{translations.home.fourth.title}</h2>

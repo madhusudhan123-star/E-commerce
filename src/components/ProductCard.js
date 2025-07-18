@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faEye, faHeart, faStopwatch, faExclamationCircle, faGift } from '@fortawesome/free-solid-svg-icons';
 import { useCart } from './CartContext';
 import { motion } from 'framer-motion';
+import { createProductUrl } from '../utils/urlSlugs';
 
 // Custom CSS for animations
 const customStyles = `
@@ -99,7 +100,7 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0, freeAccessori
                     setActiveImage(photo.image1);
                 }}
             >
-                <Link to={`/product/${id}`} className="block h-full">
+                <Link to={createProductUrl(id, name)} className="block h-full">
                     {/* Image Container */}
                     <div className="relative overflow-hidden aspect-square">
                         <img
@@ -147,7 +148,7 @@ const ProductCard = ({ id, name, cost, photo, isNew, discount = 0, freeAccessori
                                 <FontAwesomeIcon icon={faShoppingCart} />
                             </button>
                             <Link 
-                                to={`/product/${id}`}
+                                to={createProductUrl(id, name)}
                                 className="bg-white text-[#514B60] hover:bg-[#514B60] hover:text-white p-2 rounded-full transition-colors duration-300"
                                 aria-label="Quick view"
                             >

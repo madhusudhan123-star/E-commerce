@@ -55,7 +55,7 @@ const Store = () => {
     }, []);
 
     return (
-        <div className="bg-[#F8F5F1] min-h-screen">
+        <div className="bg-[#faebd7] min-h-screen">
             {/* Spiritual Hero Banner */}
             <div className="relative overflow-hidden">
                 <div className="absolute inset-0 bg-cover bg-center opacity-20" 
